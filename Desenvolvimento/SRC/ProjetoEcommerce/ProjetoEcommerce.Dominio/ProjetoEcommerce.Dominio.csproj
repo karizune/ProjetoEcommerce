@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
+    <Compile Include="Entidades\Relatorio\Campo.cs" />
+    <Compile Include="Entidades\Relatorio\Relatorio.cs" />
+    <Compile Include="Entidades\Relatorio\TipoCampo.cs" />
+    <Compile Include="Interfaces\IEntidadeBase.cs" />
     <Compile Include="Entidades\Relatorio\Registro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

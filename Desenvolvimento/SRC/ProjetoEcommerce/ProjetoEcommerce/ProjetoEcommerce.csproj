@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Relatorio\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
