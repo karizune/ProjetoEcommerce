@@ -40,12 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Comum\IGenerica.cs" />
+    <Compile Include="Entidades\Entrega\Bairro.cs" />
+    <Compile Include="Entidades\Entrega\Cidade.cs" />
+    <Compile Include="Entidades\Entrega\Rua.cs" />
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entidades\Carrinho\" />
-    <Folder Include="Entidades\Entrega\" />
     <Folder Include="Entidades\Pagamento\" />
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Produto\" />
