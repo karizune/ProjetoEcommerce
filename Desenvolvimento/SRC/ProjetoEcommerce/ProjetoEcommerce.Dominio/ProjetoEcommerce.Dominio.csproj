@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
+    <Compile Include="Entidades\Relatorio\Campo.cs" />
+    <Compile Include="Entidades\Relatorio\Relatorio.cs" />
+    <Compile Include="Interfaces\IEntidadeBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +52,6 @@
     <Folder Include="Entidades\Pagamento\" />
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Produto\" />
-    <Folder Include="Entidades\Relatorio\" />
     <Folder Include="Entidades\Seguranca\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
