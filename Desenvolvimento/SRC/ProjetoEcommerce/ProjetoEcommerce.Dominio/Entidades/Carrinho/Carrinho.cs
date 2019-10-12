@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 
         //LOG
         public int Status { get; set; }
-        public string Usuaario { get; set; }
+        public string Usuario { get; set; }
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
 
