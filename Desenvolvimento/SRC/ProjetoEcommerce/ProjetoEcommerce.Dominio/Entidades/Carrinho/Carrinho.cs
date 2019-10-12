@@ -18,12 +18,12 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 
         //Properties
         public int CarrinhoID { get; set; }
-        public int EnderecoId { get; set; }
+        public int EnderecoID { get; set; }
         public decimal PrecoTotal { get; set; }
         public decimal PrecoFrete { get; set; }
 
-        public string Usuario { get; set; } // MUDAR PARA A CLASSE DEPOIS
-        public string Endereco { get; set; } // MUDAR PARA A CLASSE DEPOIS
+        //public Usuario Usuario { get; set; } // MUDAR PARA A CLASSE DEPOIS
+        //public Endereco Endereco { get; set; } // MUDAR PARA A CLASSE DEPOIS
 
     }
 }
