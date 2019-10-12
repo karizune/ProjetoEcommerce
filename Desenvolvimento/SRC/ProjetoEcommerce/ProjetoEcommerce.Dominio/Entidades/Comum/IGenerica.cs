@@ -8,11 +8,9 @@ namespace ProjetoEcommerce.Dominio.Entidades.Comum
 {
     public interface IGenerica
     {
-        int ID { get; set; }
         int Status { get; set; }
         string Usuario { get; set; }
         DateTime CriadoEm { get; set; }
-
         DateTime AtualizaEm { get; set; }
     }
 }

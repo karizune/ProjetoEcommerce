@@ -9,13 +9,12 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
 {
     class Rua : IGenerica
     {
-        public int ID { get; set; }
+        public int RuaID { get; set; }
+        public string Nome { get; set; }
+
         public int Status { get; set; }
         public string Usuario { get; set; }
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizaEm { get; set; }
-        public int RuaID { get; set; }
-        public string Nome { get; set; }
-        
     }
 }
