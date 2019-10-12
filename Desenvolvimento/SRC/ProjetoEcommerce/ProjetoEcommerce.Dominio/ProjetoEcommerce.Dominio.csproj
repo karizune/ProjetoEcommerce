@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Comum\IGenerica.cs" />
+    <Compile Include="Entidades\Entrega\Bairro.cs" />
+    <Compile Include="Entidades\Entrega\Cidade.cs" />
+    <Compile Include="Entidades\Entrega\Rua.cs" />
     <Compile Include="Entidades\Entrega\Ceps.cs" />
     <Compile Include="Entidades\Entrega\Endereco.cs" />
     <Compile Include="Entidades\Entrega\Estado.cs" />
