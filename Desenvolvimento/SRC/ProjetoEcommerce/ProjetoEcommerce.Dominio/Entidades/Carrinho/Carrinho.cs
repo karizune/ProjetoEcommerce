@@ -24,5 +24,6 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 
         public string Usuario { get; set; } // MUDAR PARA A CLASSE DEPOIS
         public string Endereco { get; set; } // MUDAR PARA A CLASSE DEPOIS
+
     }
 }

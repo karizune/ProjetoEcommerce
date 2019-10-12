@@ -21,5 +21,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         public int Quantidade { get; set; }
         public decimal PrecoUnitario { get; set; }
 
+        public Carrinho Carrinho { get; set; }
+
     }
 }
