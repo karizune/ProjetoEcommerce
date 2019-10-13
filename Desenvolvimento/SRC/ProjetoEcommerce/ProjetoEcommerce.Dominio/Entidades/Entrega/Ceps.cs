@@ -9,15 +9,17 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
 {
     class Ceps : IGenerica
     {
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string Bairro { get; set; }
-        public string Rua { get; set; }
-        public string Complemento { get; set; }
-        public int ID { get; set; }
-        public int Status { get ; set; }
-        public string Usuario { get ; set; }
-        public DateTime CriadoEm { get ; set ; }
-        public DateTime AtualizaEm { get ; set; }
+        public string CEP { get; set; }
+        public int EstadoID { get; set; }
+        public int CidadeID { get; set; }
+        public int BairroID { get; set; }
+        public int RuaID { get; set; }
+
+        #region LOG
+        public int Status { get; set; }
+        public string Usuario { get; set; }
+        public DateTime CriadoEm { get; set; }
+        public DateTime AtualizaEm { get; set; }
+        #endregion
     }
 }

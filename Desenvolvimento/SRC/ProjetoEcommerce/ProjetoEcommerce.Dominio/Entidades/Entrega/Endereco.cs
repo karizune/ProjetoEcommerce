@@ -12,16 +12,15 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
     {
         public int EnderecoID { get; set; }
         public int ClienteID { get; set; }
-        public string Cep { get; set; }
-        public string Estado { get; set; }
-        public string Cidade { get; set; }
-        public string Bairro { get; set; }
+        public string CEP { get; set; }
         public string Numero { get; set; }
-        public string Rua { get; set; }
         public string Complemento { get; set; }
+
+        #region LOG
         public int Status { get; set ; }
         public string Usuario { get; set; }
         public DateTime CriadoEm { get ; set; }
         public DateTime AtualizaEm { get; set ; }
+        #endregion
     }
 }

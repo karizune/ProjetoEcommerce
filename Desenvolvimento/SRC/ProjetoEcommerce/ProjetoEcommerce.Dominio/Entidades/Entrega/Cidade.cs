@@ -11,12 +11,14 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
     {
         public int CidadeID { get; set; }
         public string Nome { get; set; }
-        public string SiglaEstado { get; set; }
+        public int EstadoID { get; set; }
 
+        #region LOG
         public int Status { get; set; }
         public string Usuario { get; set; }
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizaEm { get; set; }
+        #endregion
 
     }
 }
