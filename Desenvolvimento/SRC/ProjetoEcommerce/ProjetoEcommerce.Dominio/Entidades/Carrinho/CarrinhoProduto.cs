@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 {
-    class CarrinhoProduto
+    public class CarrinhoProduto
     {
 
 
@@ -17,7 +17,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         public DateTime AtualizadoEm { get; set; }
 
         //
-        public int CarrinhoID { get; set; }
+        public int CarrinhoProdutoID { get; set; }
         public int Quantidade { get; set; }
         public decimal PrecoUnitario { get; set; }
 
