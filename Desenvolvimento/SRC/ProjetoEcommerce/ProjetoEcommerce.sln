@@ -8,8 +8,21 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Apresentação", "0 - Apresentação", "{C90D2165-4B4F-4BAD-BDAF-9E7629692CEF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Domínio", "1 - Domínio", "{102921D9-4288-45FB-AB7A-D9083B926120}"
+	ProjectSection(SolutionItems) = preProject
+		ProjetoEcommerce\Web.config = ProjetoEcommerce\Web.config
+		ProjetoEcommerce\Web.Debug.config = ProjetoEcommerce\Web.Debug.config
+		ProjetoEcommerce\Web.Release.config = ProjetoEcommerce\Web.Release.config
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Dominio", "ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj", "{95B18E84-1845-4B68-8A2E-D8C0D006E485}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Service", "2 - Service", "{0C29A488-9E79-43D8-A987-171CCE7E3F6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{8D52C4D8-F831-4683-B709-609D7AF90E92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{723A889B-C336-46D5-A20E-8E8019848D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.data", "ProjetoEcommerce.data\ProjetoEcommerce.data.csproj", "{B1C5F533-6862-4347-9853-AF311265618B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +38,10 @@ Global
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C5F533-6862-4347-9853-AF311265618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C5F533-6862-4347-9853-AF311265618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C5F533-6862-4347-9853-AF311265618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C5F533-6862-4347-9853-AF311265618B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +49,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{587050A9-5E42-47D3-AC51-C42A63B9A1D1} = {C90D2165-4B4F-4BAD-BDAF-9E7629692CEF}
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485} = {102921D9-4288-45FB-AB7A-D9083B926120}
+		{723A889B-C336-46D5-A20E-8E8019848D0E} = {8D52C4D8-F831-4683-B709-609D7AF90E92}
+		{B1C5F533-6862-4347-9853-AF311265618B} = {723A889B-C336-46D5-A20E-8E8019848D0E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA1788EF-9948-4CFA-8F11-B97088D43200}
