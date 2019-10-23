@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="EntityFramework\Configuration\BairroConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\CepsConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\CidadeConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\EnderecoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\EstadoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RuaConfiguration.cs" />
