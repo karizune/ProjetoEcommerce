@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Entrega
 {
-    class Estado : IGenerica
+    public class Estado : IGenerica
     {
         public int EstadoID { get; set; }
         public string Sigla { get; set; }

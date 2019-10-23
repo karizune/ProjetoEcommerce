@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Entrega
 {
-    class Endereco : IGenerica
+    public class Endereco : IGenerica
     {
         public int EnderecoID { get; set; }
         public int ClienteID { get; set; }

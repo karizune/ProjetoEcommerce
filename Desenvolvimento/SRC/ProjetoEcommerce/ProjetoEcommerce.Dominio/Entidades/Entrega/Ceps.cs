@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Entrega
 {
-    class Ceps : IGenerica
+    public class Ceps : IGenerica
     {
         public string CEP { get; set; }
         public int EstadoID { get; set; }
