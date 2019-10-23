@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 {
-    class Carrinho
+    public class Carrinho
     {
 
 
