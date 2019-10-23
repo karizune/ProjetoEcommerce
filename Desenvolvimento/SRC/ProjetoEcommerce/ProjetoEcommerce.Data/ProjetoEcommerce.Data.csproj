@@ -53,6 +53,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="EntityFramework\Configuration\BairroConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\EnderecoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\EstadoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\RuaConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

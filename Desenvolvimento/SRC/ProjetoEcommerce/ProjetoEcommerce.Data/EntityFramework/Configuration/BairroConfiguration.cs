@@ -8,5 +8,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
     class BairroConfiguration
     {
+
     }
 }
