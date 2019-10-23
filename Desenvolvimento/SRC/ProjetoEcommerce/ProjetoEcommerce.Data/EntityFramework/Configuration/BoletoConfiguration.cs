@@ -14,8 +14,27 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("Boleto");
             HasKey(x => x.BoletoID);
-            Property(x => x.BoletoID).HasColumnName(@"BoletoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.BoletoID)
+                .HasColumnName(@"BoletoID")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
+            Property(x => x.Status)
+                .HasColumnName(@"Status")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.AtualizadoEm)
+                .HasColumnName(@"AtualizadoEm")
+                .HasColumnType("datetime")
+                .IsRequired();
+
+            Property(x => x.CodigoBanco)
+                .HasColumnName(@"CodigoBanco")
+                .HasColumnType("varchar")
+                .HasMaxLength(4)
+                .IsRequired();
         }
     }
 }
