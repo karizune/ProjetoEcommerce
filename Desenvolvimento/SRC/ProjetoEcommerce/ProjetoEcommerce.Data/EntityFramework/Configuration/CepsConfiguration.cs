@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Data.EntityFramework.Configuration 
+namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class BairroConfiguration : EntityTypeConfiguration<Bairro>
+    class CepsConfiguration : EntityTypeConfiguration<Ceps>
     {
-        public BairroConfiguration(){
+        public CepsConfiguration()
+        {
 
-            ToTable("Bairro");
-            HasKey(x => x.BairroID);
+            ToTable("Ceps");
+            HasKey(x => x.CEP);
 
             Property(x => x.BairroID)
-                .HasColumnName(@"BairroID")
+                .HasColumnName(@"CEP")
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption
