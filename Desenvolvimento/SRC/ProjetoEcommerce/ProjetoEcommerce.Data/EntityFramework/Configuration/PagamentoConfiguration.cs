@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public PagamentoConfiguration()
         {
-            ToTable("pagamento.Pagamento");
+            ToTable("Pagamento", "pagamento");
             HasKey(x => x.PagamentoID);
             Property(x => x.PagamentoID).HasColumnName(@"PagamentoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             //

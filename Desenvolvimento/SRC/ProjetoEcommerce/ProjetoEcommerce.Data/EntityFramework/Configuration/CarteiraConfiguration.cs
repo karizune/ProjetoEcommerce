@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public CarteiraConfiguration()
         {
-            ToTable("pagamento.Carteira");
+            ToTable("pagamento.Carteira", "pagamento");
             HasKey(x => x.CarteiraID);
 
             Property(x => x.CarteiraID)

@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public TipoCartaoConfiguration()
         {
-            ToTable("pagamento.TipoCartao");
+            ToTable("TipoCartao", "pagamento");
             HasKey(x => x.TipoCartaoID);
 
             Property(x => x.TipoCartaoID).HasColumnName(@"TipoCartaoID").HasColumnType("int").IsRequired();

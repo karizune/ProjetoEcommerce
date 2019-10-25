@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
     <Compile Include="Entidades\Pagamento\BandeiraCartao.cs" />
-    <Compile Include="Entidades\Pagamento\BaseEntity.cs" />
+    <Compile Include="Entidades\Pagamento\Base\BaseEntity.cs" />
     <Compile Include="Entidades\Pagamento\Boleto.cs" />
     <Compile Include="Entidades\Pagamento\Cartao.cs" />
     <Compile Include="Entidades\Pagamento\Cartao_Tipo.cs" />

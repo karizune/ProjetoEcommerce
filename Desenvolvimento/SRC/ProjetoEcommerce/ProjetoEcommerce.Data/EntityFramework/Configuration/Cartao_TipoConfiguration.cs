@@ -8,20 +8,19 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class BandeiraCartaoConfiguration : EntityTypeConfiguration<BandeiraCartao>
+    class Cartao_TipoConfiguration : EntityTypeConfiguration<Cartao_Tipo>
     {
-        public BandeiraCartaoConfiguration()
+        public Cartao_TipoConfiguration()
         {
-            ToTable("BandeiraCartao", "pagamento");
-            HasKey(x => x.BandeiraCartaoID);
-
-            Property(x => x.BandeiraCartaoID).HasColumnName("BandeiraCartaoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Descricao).HasColumnName("Descricao").HasColumnType("varchar(50)").IsRequired();
+            ToTable("Cartao_Tipo", "pagamento");
+            HasKey(x => new { x.CartaoID, x.TipoCartaoID });
+            Property(x => x.CartaoID).HasColumnName("CartaoID").HasColumnType("int").IsRequired();
+            Property(x => x.TipoCartaoID).HasColumnName("TipoCartaoID").HasColumnType("int").IsRequired();
 
             Property(x => x.AtualizadoEm)
-             .HasColumnName(@"AtualizadoEm")
-             .HasColumnType("datetime")
-             .IsRequired();
+            .HasColumnName(@"AtualizadoEm")
+            .HasColumnType("datetime")
+            .IsRequired();
 
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
@@ -37,7 +36,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"Usuario")
                 .HasColumnType("varchar(50)")
                 .IsRequired();
-
         }
     }
 }

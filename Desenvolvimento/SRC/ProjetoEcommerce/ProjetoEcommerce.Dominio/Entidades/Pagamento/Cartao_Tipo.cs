@@ -3,6 +3,6 @@
     public class Cartao_Tipo : BaseEntity
     {
         public int CartaoID { get; set; }
-        public int TipOCartaoID { get; set; }
+        public int TipoCartaoID { get; set; }
     }
 }

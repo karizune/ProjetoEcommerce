@@ -54,8 +54,12 @@
     <Compile Include="EntityFramework\Configuration\BandeiraCartaoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\BoletoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\CartaoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\Cartao_TipoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\CarteiraConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\MetodoPagamentoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\PagamentoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\StatusCartaoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\StatusPagamentoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\TipoCartaoConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

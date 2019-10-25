@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class BandeiraCartaoConfiguration : EntityTypeConfiguration<BandeiraCartao>
+    class MetodoPagamentoConfiguration : EntityTypeConfiguration<MetodoPagamento>
     {
-        public BandeiraCartaoConfiguration()
+        public MetodoPagamentoConfiguration()
         {
-            ToTable("BandeiraCartao", "pagamento");
-            HasKey(x => x.BandeiraCartaoID);
-
-            Property(x => x.BandeiraCartaoID).HasColumnName("BandeiraCartaoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Descricao).HasColumnName("Descricao").HasColumnType("varchar(50)").IsRequired();
+            ToTable("MetodoPagamento", "pagamento");
+            HasKey(x => x.MetodoPagamentoID);
+            Property(x => x.MetodoPagamentoID).HasColumnName(@"MetodoPagamentoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.Descricao).HasColumnName(@"Descricao").HasColumnType("varchar(50)").IsRequired();
 
             Property(x => x.AtualizadoEm)
              .HasColumnName(@"AtualizadoEm")
@@ -37,7 +36,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"Usuario")
                 .HasColumnType("varchar(50)")
                 .IsRequired();
-
         }
     }
+    
 }
