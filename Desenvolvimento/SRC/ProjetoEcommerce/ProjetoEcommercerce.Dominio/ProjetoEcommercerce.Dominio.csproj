@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Formulario.cs" />
+    <Compile Include="Entidades\FormularioGrupo.cs" />
+    <Compile Include="Entidades\GrupoDeAcesso.cs" />
+    <Compile Include="Entidades\GrupoUsuario.cs" />
+    <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entidades\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
