@@ -20,7 +20,49 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption
-                (System.ComponentModel)
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Nome)
+                .HasColumnName(@"Nome")
+                .HasColumnType("varchar")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Usuario)
+                .HasColumnName(@"Usuario")
+                .HasColumnType("varchar")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Status)
+                .HasColumnName(@"Status")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.CriadoEm)
+                .HasColumnName(@"CriadoEm")
+                .HasColumnType("datetime")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.AtualizadoEm)
+                .HasColumnName(@"AtualizadoEm")
+                .HasColumnType("datetime")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.TipoCampoID)
+                .HasColumnName(@"TipoCampoID")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
         }
     }
 }

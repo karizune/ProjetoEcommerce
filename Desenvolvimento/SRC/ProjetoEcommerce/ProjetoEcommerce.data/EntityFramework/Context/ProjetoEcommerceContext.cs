@@ -33,7 +33,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // modelBuilder.Configurations.Add(new RastrementoConfiguration());
+            modelBuilder.Configurations.Add(new CampoConfiguration());
         }
     }
 }
