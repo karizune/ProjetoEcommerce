@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public BandeiraCartaoConfiguration()
         {
-            ToTable("BandeiraCartao");
+            ToTable("pagamento.BandeiraCartao");
             HasKey(x => x.BandeiraCartaoID);
 
             Property(x => x.BandeiraCartaoID).HasColumnName("BandeiraCartaoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

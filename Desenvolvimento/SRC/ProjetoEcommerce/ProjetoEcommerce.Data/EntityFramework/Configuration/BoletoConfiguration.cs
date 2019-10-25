@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public BoletoConfiguration()
         {
-            ToTable("Boleto");
+            ToTable("pagamento.Boleto");
             HasKey(x => x.BoletoID);
             Property(x => x.BoletoID)
                 .HasColumnName(@"BoletoID")
