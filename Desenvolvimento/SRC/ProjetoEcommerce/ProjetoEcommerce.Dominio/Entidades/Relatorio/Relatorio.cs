@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Relatorio
 {
-    class Relatorio : IEntidadeBase
+    public class Relatorio : IEntidadeBase
     {
         public int RelatorioID { get; set; }
         public string Nome { get; set; }
