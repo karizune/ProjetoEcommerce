@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoEcommerce.Data.EntityFramework.Configuration;
 using ProjetoEcommerce.Dominio.Entidades.Carrinho;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Context
@@ -12,6 +13,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
     class ProjetoEcommerceContext : DbContext
     {
         public DbSet<Carrinho> carrinho { get; set; }
+        public DbSet<CarrinhoProduto> carrinhoProduto { get; set; }
 
         static ProjetoEcommerceContext()
         {
@@ -31,7 +33,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Configurations.Add(new RastreamentoConfiguration());
+            modelBuilder.Configurations.Add(new CarrinhoConfiguration());
+            modelBuilder.Configurations.Add(new CarrinhoProdutoConfiguration());
         }
     }
 }

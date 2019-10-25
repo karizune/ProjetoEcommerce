@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class CarrinhoProdutoConfiguration: EntityTypeConfiguration<CarrinhoProduto>
+    public class CarrinhoProdutoConfiguration: EntityTypeConfiguration<CarrinhoProduto>
     {
         public CarrinhoProdutoConfiguration()
         {

@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="EntityFramework\Configuration\CarrinhoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\CarrinhoProdutoConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
