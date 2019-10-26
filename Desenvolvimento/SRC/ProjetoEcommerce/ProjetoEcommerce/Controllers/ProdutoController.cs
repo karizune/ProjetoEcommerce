@@ -8,10 +8,13 @@ namespace ProjetoEcommerce.Controllers
 {
     public class ProdutoController : Controller
     {
+        private static List<Produto> Produtos { get; set; }
+
+
         // GET: Produto
         public ActionResult Index()
         {
-            return View();
+            return View(Produtos);
         }
     }
 }
