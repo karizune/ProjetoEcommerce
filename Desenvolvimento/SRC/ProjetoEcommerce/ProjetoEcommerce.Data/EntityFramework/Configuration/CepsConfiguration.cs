@@ -13,16 +13,57 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public CepsConfiguration()
         {
 
-            ToTable("Ceps");
+            ToTable("Entrega.Ceps");
             HasKey(x => x.CEP);
 
-            Property(x => x.BairroID)
+            Property(x => x.CEP)
                 .HasColumnName(@"CEP")
-                .HasColumnType("int")
+                .HasColumnType("varchar")
+                .HasMaxLength(8)
                 .IsRequired()
                 .HasDatabaseGeneratedOption
                 (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
+            Property(x => x.EstadoID)
+                .HasColumnName(@"EstadoID")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.CidadeID)
+                .HasColumnName(@"CidadeID")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.BairroID)
+                .HasColumnName(@"BairroID")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.RuaID)
+                .HasColumnName(@"RuaID")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.Status)
+               .HasColumnName(@"Status")
+               .HasColumnType("int")
+               .IsRequired();
+
+            Property(x => x.Usuario)
+                .HasColumnName(@"Usuario")
+                .HasColumnType("varchar")
+                .HasMaxLength(255)
+                .IsRequired();
+
+            Property(x => x.CriadoEm)
+                .HasColumnName(@"CriadoEm")
+                .HasColumnType("Date")
+                .IsRequired();
+
+            Property(x => x.AtualizaEm)
+                .HasColumnName(@"AtualizaEm")
+                .HasColumnType("Date")
+                .IsRequired();
         }
     }
 }

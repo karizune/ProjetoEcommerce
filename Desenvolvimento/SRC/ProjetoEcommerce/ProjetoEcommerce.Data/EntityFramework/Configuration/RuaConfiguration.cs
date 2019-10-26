@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public RuaConfiguration()
         {
-            ToTable("Rua");
+            ToTable("Entrega.Rua");
             HasKey(x => x.RuaID);
 
             Property(x => x.RuaID)

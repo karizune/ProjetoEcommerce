@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public EstadoConfiguration()
         {
-            ToTable("Estado");
+            ToTable("Entrega.Estado");
             HasKey(x => x.EstadoID);
 
             Property(x => x.EstadoID)
