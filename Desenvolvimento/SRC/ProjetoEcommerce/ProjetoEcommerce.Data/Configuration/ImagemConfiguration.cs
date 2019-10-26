@@ -13,38 +13,24 @@ namespace ProjetoEcommerce.Data.Configuration
         public ImagemConfiguration()
         {
             //ImagemID
-            ToTable("Imagem");
+            ToTable("Imagem","produto");
             HasKey(x => x.ImagemID);
             Property(x => x.ImagemID).HasColumnName(@"ImagemID").HasColumnType("int").IsRequired().
             HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            //Nome
-            ToTable("Imagem");
-            HasKey(x => x.Nome);
+            //Nome        
             Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
-            //URL
-            ToTable("Imagem");
-            HasKey(x => x.URL);
+            //URL         
             Property(x => x.URL).HasColumnName(@"URL").HasColumnType("varchar").IsRequired();
-            //Tamanho
-            ToTable("Imagem");
-            HasKey(x => x.Tamanho);
+            //Tamanho           
             Property(x => x.Tamanho).HasColumnName(@"Tamanho").HasColumnType("real").IsRequired();
 
-            //Status
-            ToTable("Imagem");
-            HasKey(x => x.Status);
+            //Status         
             Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
-            //Usuario
-            ToTable("Imagem");
-            HasKey(x => x.Usuario);
+            //Usuario           
             Property(x => x.Usuario).HasColumnName(@"Usuario").HasColumnType("varchar").IsRequired();
-            //CriadoEm
-            ToTable("Imagem");
-            HasKey(x => x.CriadoEm);
+            //CriadoEm           
             Property(x => x.CriadoEm).HasColumnName(@"CriadoEm").HasColumnType("datetime").IsRequired();
             //AtualizadoEm
-            ToTable("Imagem");
-            HasKey(x => x.AtualizadoEm);
             Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm").HasColumnType("datetime").IsRequired();
         }
     }
