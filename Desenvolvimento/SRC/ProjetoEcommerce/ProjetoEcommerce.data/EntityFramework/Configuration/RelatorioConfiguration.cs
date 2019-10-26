@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
@@ -13,58 +14,45 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public RelatorioConfiguration()
         {
-            ToTable("Relatorio");
+            ToTable("Relatorio.Relatorio");
             HasKey(x => x.RelatorioID);
 
-            Property(x => x.CampoID)
+            Property(x => x.RelatorioID)
                 .HasColumnName(@"RelatorioID")
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption
                 (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-   
-            Property(x => x.Usuario)
+            Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("varchar(100)")
+                .IsRequired();
 
-            Property(x => x.Status)
+            Property(x => x.Descrição)
                 .HasColumnName(@"Descricao")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("varchar(100)")
+                .IsRequired();
+
+            Property(x => x.Usuario)
+                .HasColumnName(@"Usuario")
+                .HasColumnType("varchar(50)")
+                .IsRequired();
 
             Property(x => x.Status)
-                .HasColumnName(@"Usuario")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-
-            Property(x => x.CriadoEm)
                 .HasColumnName(@"Status")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
-            Property(x => x.AtualizadoEm)
+            Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
                 .HasColumnType("datetime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
-            Property(x => x.TipoCampoID)
+            Property(x => x.AtualizadoEm)
                 .HasColumnName(@"AtualizadoEm")
-                .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("datetime")
+                .IsRequired();
         }
     }
 }

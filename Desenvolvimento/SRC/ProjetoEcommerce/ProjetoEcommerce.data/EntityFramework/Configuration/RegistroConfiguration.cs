@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public RegistroConfiguration()
         {
-            ToTable("Registro");
+            ToTable("Relatorio.Registro");
             HasKey(x => x.RelatorioID);
             HasKey(x => x.UsuarioID);
 
@@ -27,45 +27,33 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("varchar(100)")
+                .IsRequired();
 
             Property(x => x.Descricao)
                 .HasColumnName(@"Descricao")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("varchar(100)")
+                .IsRequired();
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("varchar(50)")
+                .IsRequired();
 
             Property(x => x.Status)
                 .HasColumnName(@"Status")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
                 .HasColumnType("datetime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.AtualizadoEm)
                 .HasColumnName(@"AtualizdoEm")
                 .HasColumnType("datetime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
         }
 
 

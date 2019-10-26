@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public CampoRelatorioConfiguration()
         {
-            ToTable("Campo_Relatorio");
+            ToTable("Relatorio.Campo_Relatorio");
             HasKey(x => x.RelatorioID);
             HasKey(x => x.CampoID);
 
@@ -27,31 +27,23 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasColumnType("varchar(50)")
+                .IsRequired();
 
             Property(x => x.Status)
                 .HasColumnName(@"Status")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
                 .HasColumnType("datetime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.AtualizadoEm)
                 .HasColumnName(@"AtualizadoEm")
                 .HasColumnType("datetime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
         }
     }
 }
