@@ -56,6 +56,9 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Configuration\CategoriaConfiguration.cs" />
     <Compile Include="Configuration\ImagemConfiguration.cs" />
+    <Compile Include="Configuration\LojaConfiguration.cs" />
+    <Compile Include="Configuration\MarcaConfiguration.cs" />
+    <Compile Include="Configuration\ProdutoConfiguration.cs" />
     <Compile Include="Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
