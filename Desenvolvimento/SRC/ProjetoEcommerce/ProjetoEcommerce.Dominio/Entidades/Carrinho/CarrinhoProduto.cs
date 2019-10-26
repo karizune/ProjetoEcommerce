@@ -18,10 +18,12 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 
         //
         public int CarrinhoProdutoID { get; set; }
+        public int ProdutoID { get; set; }
         public int Quantidade { get; set; }
         public decimal PrecoUnitario { get; set; }
 
-        public Carrinho Carrinho { get; set; }
+        //public Produto Produto { get; set; }
+
 
     }
 }

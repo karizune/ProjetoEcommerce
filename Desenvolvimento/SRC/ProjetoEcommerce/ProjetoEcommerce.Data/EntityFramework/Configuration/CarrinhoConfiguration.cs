@@ -13,7 +13,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public CarrinhoConfiguration()
         {
 
-            ToTable("Carrinho");
+            ToTable("Carrinho", "carrinho");
             HasKey(x => x.CarrinhoID);
 
             Property(x => x.CarrinhoID).HasColumnName("@CarinhoID")

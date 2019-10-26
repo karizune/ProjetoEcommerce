@@ -10,7 +10,7 @@ using ProjetoEcommerce.Dominio.Entidades.Carrinho;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Context
 {
-    class ProjetoEcommerceContext : DbContext
+    public class ProjetoEcommerceContext : DbContext
     {
         public DbSet<Carrinho> carrinho { get; set; }
         public DbSet<CarrinhoProduto> carrinhoProduto { get; set; }

@@ -19,6 +19,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         //Properties
         public int CarrinhoID { get; set; }
         public int EnderecoID { get; set; }
+        public int UsuarioID { get; set; }
         public decimal PrecoTotal { get; set; }
         public decimal PrecoFrete { get; set; }
 
