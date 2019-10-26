@@ -33,7 +33,7 @@ namespace ProjetoEcommerce.Data.Configuration
             //Status
             ToTable("Imagem");
             HasKey(x => x.Status);
-            Property(x => x.Status).HasColumnName(@"Status").HasColumnType("varchar").IsRequired();
+            Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
             //Usuario
             ToTable("Imagem");
             HasKey(x => x.Usuario);

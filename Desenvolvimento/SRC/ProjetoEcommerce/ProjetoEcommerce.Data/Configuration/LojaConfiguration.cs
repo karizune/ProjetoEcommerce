@@ -26,7 +26,7 @@ namespace ProjetoEcommerce.Data.Configuration
             //Status
             ToTable("Loja");
             HasKey(x => x.Status);
-            Property(x => x.Status).HasColumnName(@"Status").HasColumnType("varchar").IsRequired();
+            Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
             //Usuario
             ToTable("Loja");
             HasKey(x => x.Usuario);
