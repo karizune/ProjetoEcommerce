@@ -15,6 +15,11 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
         public int BairroID { get; set; }
         public int RuaID { get; set; }
 
+        public Estado Estado { get; set; }
+        public Cidade Cidade { get; set; }
+        public Bairro Bairro { get; set; }
+        public Rua Rua { get; set; }
+
         #region LOG
         public int Status { get; set; }
         public string Usuario { get; set; }

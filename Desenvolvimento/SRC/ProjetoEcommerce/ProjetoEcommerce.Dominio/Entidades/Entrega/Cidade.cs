@@ -13,6 +13,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
         public string Nome { get; set; }
         public int EstadoID { get; set; }
 
+        public Estado Estado { get; set; }
+
         #region LOG
         public int Status { get; set; }
         public string Usuario { get; set; }

@@ -16,6 +16,10 @@ namespace ProjetoEcommerce.Dominio.Entidades.Entrega
         public string Numero { get; set; }
         public string Complemento { get; set; }
 
+        public Ceps CEPobj { get; set; }
+        //public Cliente Cliente { get; set; }
+
+
         #region LOG
         public int Status { get; set ; }
         public string Usuario { get; set; }
