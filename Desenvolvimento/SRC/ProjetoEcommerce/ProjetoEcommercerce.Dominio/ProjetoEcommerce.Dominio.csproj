@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Formulario.cs" />
-    <Compile Include="Entidades\FormularioGrupo.cs" />
-    <Compile Include="Entidades\GrupoDeAcesso.cs" />
-    <Compile Include="Entidades\GrupoUsuario.cs" />
+    <Compile Include="Entidades\Seguranca\BaseEntity.cs" />
+    <Compile Include="Entidades\Seguranca\Formulario.cs" />
+    <Compile Include="Entidades\Seguranca\FormularioGrupo.cs" />
+    <Compile Include="Entidades\Seguranca\GrupoDeAcesso.cs" />
+    <Compile Include="Entidades\Seguranca\GrupoUsuario.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

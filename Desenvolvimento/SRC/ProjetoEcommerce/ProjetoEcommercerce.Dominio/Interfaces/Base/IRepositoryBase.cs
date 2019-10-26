@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommercerce.Dominio.Interfaces.Base
+namespace ProjetoEcommerce.Dominio.Interfaces.Base
 {
     public interface IRepositoryBase<TObject> where TObject : class
     {

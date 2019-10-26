@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Data", "ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj", "{7A380BAD-A77C-4E1F-ACB3-D244F2AC21CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommercerce.Dominio", "ProjetoEcommercerce.Dominio\ProjetoEcommercerce.Dominio.csproj", "{8FB98AFC-7F39-4D26-BA74-BEB41F133891}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Dominio", "ProjetoEcommercerce.Dominio\ProjetoEcommerce.Dominio.csproj", "{8FB98AFC-7F39-4D26-BA74-BEB41F133891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
