@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Relatorio
 {
-    class TipoCampo : IEntidadeBase
+    public class TipoCampo : IEntidadeBase
     {
         public int TipoCampoID { get; set; }
         public string Descrição { get; set; }

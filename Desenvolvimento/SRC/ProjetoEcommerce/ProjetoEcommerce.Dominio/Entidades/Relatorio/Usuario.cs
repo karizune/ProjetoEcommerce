@@ -10,6 +10,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Relatorio
     public class Usuario : IEntidadeBase
     {
         public int UsuarioID { get; set; }
+        public string NomeUsuario { get; set; }
         public int Status { get; set; }
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }

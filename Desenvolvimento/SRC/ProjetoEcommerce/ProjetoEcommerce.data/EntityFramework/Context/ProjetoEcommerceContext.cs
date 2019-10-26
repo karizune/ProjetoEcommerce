@@ -1,21 +1,19 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
-using System;
-using System.Collections.Generic;
+﻿using ProjetoEcommerce.data.EntityFramework.Configuration;
+using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.data.EntityFramework.Context
 {
     public class ProjetoEcommerceContext: DbContext
   
     {
-        public DbSet<Campo> campo { get; set; }
-        public DbSet<CampoRelatorio> campoRelatori { get; set; }
-        public DbSet<Relatorio> relatorio { get; set; }
+        public DbSet<Campo> Campo { get; set; }
+        public DbSet<CampoRelatorio> CampoRelatorio { get; set; }
+        public DbSet<Registro> Registro { get; set; }
         public DbSet<TipoCampo> TipoCampo { get; set; }
+        public DbSet<Relatorio> Relatorio { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         static ProjetoEcommerceContext()
         {
