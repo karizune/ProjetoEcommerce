@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.data.EntityFramework.Configuration
 {
-    class CampoConfiguration : EntityTypeConfiguration<Campo>
+    public class CampoConfiguration : EntityTypeConfiguration<Campo>
     {
         public CampoConfiguration()
         {

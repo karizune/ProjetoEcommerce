@@ -3,29 +3,21 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace ProjetoEcommerce.data.EntityFramework.Configuration
 {
-    public class CampoRelatorioConfiguration : EntityTypeConfiguration<CampoRelatorio>
+    class UsuarioConfiguration : EntityTypeConfiguration<Usuario>
     {
-        public CampoRelatorioConfiguration()
+        public UsuarioConfiguration()
         {
-            ToTable("Campo_Relatorio");
-            HasKey(x => x.RelatorioID);
-            HasKey(x => x.CampoID);
+            ToTable("Usuario");
+            HasKey(x => x.UsuarioID);
 
-            Property(x => x.RelatorioID)
-                .HasColumnName(@"RelatorioID")
+            Property(x => x.UsuarioID)
+                .HasColumnName(@"UsuarioID")
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption
                 (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.CampoID)
-                .HasColumnName(@"CampoID")
-                .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-
-            Property(x => x.Usuario)
+            Property(x => x.NomeUsuario)
                 .HasColumnName(@"Usuario")
                 .HasColumnType("varchar")
                 .IsRequired()
