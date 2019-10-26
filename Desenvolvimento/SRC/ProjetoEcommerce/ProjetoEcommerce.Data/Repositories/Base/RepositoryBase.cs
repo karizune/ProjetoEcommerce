@@ -5,6 +5,7 @@ namespace ProjetoEcommerce.Data.Repositories.Base
 {
     public class RepositoryBase<TObject> : IRepositoryBase<TObject> where TObject : class
     {
+
         private ProjetoEcommerceContext _context = new ProjetoEcommerceContext();
         public TObject Add(TObject t)
         {

@@ -1,6 +1,7 @@
 ﻿using ProjetoEcommerce.Data.Repositories.Base;
 using ProjetoEcommerce.Dominio.Entidades.Marketplace;
 using ProjetoEcommerce.Dominio.Interfaces.Base;
+using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Repositories
 {
-    public class RastreamentoRepository : RepositoryBase<Rastreamento>
+    public class RastreamentoRepository : RepositoryBase<Rastreamento>, IRastreamentoRepository
     {
-        public Rastreamento GetOne(int rastreamentoId)
+
+        public Rastreamento GetOneBy(int rastreamentoId)
         {
             return GetOne(rastreamentoId);
         }

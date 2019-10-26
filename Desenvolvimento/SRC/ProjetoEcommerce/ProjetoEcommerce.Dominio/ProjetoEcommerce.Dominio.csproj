@@ -53,6 +53,7 @@
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
