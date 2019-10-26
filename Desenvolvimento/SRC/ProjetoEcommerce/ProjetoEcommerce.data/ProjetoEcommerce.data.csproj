@@ -54,6 +54,7 @@
     <Compile Include="EntityFramework\Configuration\CampoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\CampoRelatorioConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RelatorioConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\TipoCampoConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

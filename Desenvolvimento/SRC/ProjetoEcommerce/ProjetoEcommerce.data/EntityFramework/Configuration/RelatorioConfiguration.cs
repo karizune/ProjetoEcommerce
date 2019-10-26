@@ -11,7 +11,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 {
     class RelatorioConfiguration : EntityTypeConfiguration<Relatorio>
     {
-        public CampoConfiguration()
+        public RelatorioConfiguration()
         {
             ToTable("Relatorio");
             HasKey(x => x.RelatorioID);
@@ -23,13 +23,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
                 .HasDatabaseGeneratedOption
                 (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Usuario)
-                .HasColumnName(@"Usuario")
-                .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-
+   
             Property(x => x.Usuario)
                 .HasColumnName(@"Nome")
                 .HasColumnType("varchar")
@@ -39,6 +33,13 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.Status)
                 .HasColumnName(@"Descricao")
+                .HasColumnType("varchar")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Status)
+                .HasColumnName(@"Usuario")
                 .HasColumnType("varchar")
                 .IsRequired()
                 .HasDatabaseGeneratedOption
