@@ -10,5 +10,11 @@
         public int StatusPagamentoID { get; set; }
         public int UsuarioID { get; set; }
         public int? BoletoID { get; set; }
+
+        public Cartao Cartao { get; set; }
+        public StatusPagamento StatusPagamento { get; set; }
+        public Boleto Boleto { get; set; }
+        public MetodoPagamento MetodoPagamento { get; set; }
+        // public Usuario Usuario { get; set; }
     }
 }
