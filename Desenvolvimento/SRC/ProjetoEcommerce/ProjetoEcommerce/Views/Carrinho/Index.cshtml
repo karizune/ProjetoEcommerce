@@ -1,5 +1,5 @@
-﻿@using ProjetoEcommerce.Dominio.Entidades.Carrinho
-@model System.Collections.Generic.List<Carrinho>
+﻿@model List <ProjetoEcommerce.Dominio.Entidades.Carrinho.Produto>
+
 @{
     Layout = null;
 }
@@ -12,10 +12,15 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        <h1>
-            Bem Vindo! Lanca Perfume Rodometalico da Silva
-        </h1>
+    <div style="border:1px solid; background:#e5e5e5;padding:10%;">
+        @foreach (var item in Model)
+        {
+            <p>@item.Nome</p>
+            <p>@item.Qtd</p>
+            @Html.TextArea(Convert.ToString(item.Preco))
+        }
+
+
     </div>
 </body>
 </html>
