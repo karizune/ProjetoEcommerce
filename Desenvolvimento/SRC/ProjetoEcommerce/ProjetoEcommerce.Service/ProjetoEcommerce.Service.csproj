@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</ProjectGuid>
+    <ProjectGuid>{627E1605-F243-4B32-A59A-C9334FC4B5E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjetoEcommerce.Dominio</RootNamespace>
-    <AssemblyName>ProjetoEcommerce.Dominio</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>ProjetoEcommerce.Service</RootNamespace>
+    <AssemblyName>ProjetoEcommerce.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,33 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Marketplace\FeedbackParceiro.cs" />
-    <Compile Include="Entidades\Marketplace\FeedbackProduto.cs" />
-    <Compile Include="Entidades\Marketplace\Parceiro.cs" />
-    <Compile Include="Entidades\Marketplace\Produto.cs" />
-    <Compile Include="Entidades\Marketplace\Rastreio.cs" />
-    <Compile Include="Entidades\Marketplace\Usuario.cs" />
-    <Compile Include="Entidades\Marketplace\Venda.cs" />
-    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\Repositories\Marketplace\IFeedbackParceiroRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Marketplace\IFeedbackProdutoReposytory.cs" />
-    <Compile Include="Interfaces\Repositories\Marketplace\IParceiroRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Marketplace\IRastreioRepository.cs" />
-    <Compile Include="Interfaces\Services\Common\IServiceBase.cs" />
-    <Compile Include="Interfaces\Services\Marketplace\IFeedbackParceiroService.cs" />
-    <Compile Include="Interfaces\Services\Marketplace\IFeedbackProdutoService.cs" />
-    <Compile Include="Interfaces\Services\Marketplace\IParceiroService.cs" />
-    <Compile Include="Interfaces\Services\Marketplace\IRastreioService.cs" />
+    <Compile Include="Base\ServiceBase.cs" />
+    <Compile Include="FeedbackParceiroService.cs" />
+    <Compile Include="FeedbackProdutoService.cs" />
+    <Compile Include="ParceiroService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RastreioService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entidades\Carrinho\" />
-    <Folder Include="Entidades\Entrega\" />
-    <Folder Include="Entidades\Pagamento\" />
-    <Folder Include="Entidades\Perfil\" />
-    <Folder Include="Entidades\Produto\" />
-    <Folder Include="Entidades\Relatorio\" />
-    <Folder Include="Entidades\Seguranca\" />
+    <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
+      <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
+      <Name>ProjetoEcommerce.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
