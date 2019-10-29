@@ -8,28 +8,28 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    public class ClienteConfiguration: EntityTypeConfiguration<Cliente>
+    class EmailConfiguration :EntityTypeConfiguration<Email>
     {
-        public ClienteConfiguration()
+        public EmailConfiguration()
         {
-            ToTable("Cliente");
-            HasKey(x => x.IDCLiente);
+            ToTable("Email");
+            HasKey(x => x.IDEmail);
+            HasKey(x => x.IDCliente);
 
-            Property(x => x.IDCLiente)
-                .HasColumnName(@"IDCliente")
+            Property(x => x.IDEmail)
+                .HasColumnName(@"IDEmail")
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Nome)
-                .HasColumnName(@"Nome")
-                .HasColumnType("string")
+            Property(x => x.IDCliente)
+                .HasColumnName(@"IDCliente")
+                .HasColumnType("int")
                 .IsRequired();
 
-            Property(x => x.Senha)
+            Property(x => x.Status)
                 .HasColumnName(@"Senha")
-                .HasColumnType("string")
-                .HasMaxLength(50)
+                .HasColumnType("bit")
                 .IsRequired();
 
             Property(x => x.Tipo)
@@ -37,10 +37,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnType("bit")
                 .IsRequired();
 
-            Property(x => x.Foto)
-                .HasColumnName(@"Foto")
-                .HasColumnType("varchar")
-                .HasMaxLength(200)
+            Property(x => x.CriadoEm)
+                .HasColumnName(@"CriadoEm")
+                .HasColumnType("datetime")
                 .IsRequired();
         }
     }

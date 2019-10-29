@@ -33,11 +33,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
 
         }
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Configurations.Add(new ClienteConfiguration());
         }
 

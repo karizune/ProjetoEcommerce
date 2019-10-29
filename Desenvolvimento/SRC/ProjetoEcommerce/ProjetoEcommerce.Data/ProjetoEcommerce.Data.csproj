@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="EntityFramework\Configuration\ClienteConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\EmailConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
