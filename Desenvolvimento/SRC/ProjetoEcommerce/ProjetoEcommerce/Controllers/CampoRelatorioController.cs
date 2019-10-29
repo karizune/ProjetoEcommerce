@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,7 @@ namespace ProjetoEcommerce.Controllers
             CamposRelatorios = new List<CampoRelatorio>();
             CamposRelatorios.Add(new CampoRelatorio
             { 
-                RelatoID = 1,
+                RelatorioID = 1,
                 CampoID = 1,
                 Usuario = "Carlos",
                 Status = 1,
@@ -27,7 +28,7 @@ namespace ProjetoEcommerce.Controllers
 
             CamposRelatorios.Add(new CampoRelatorio
             {
-                RelatoID = 2,
+                RelatorioID = 2,
                 CampoID = 2,
                 Usuario = "Gabriel",
                 Status = 2,
@@ -37,7 +38,7 @@ namespace ProjetoEcommerce.Controllers
              });
             CamposRelatorios.Add(new CampoRelatorio
             {
-                RelatoID = 3,
+                RelatorioID = 3,
                 CampoID = 3,
                 Usuario = "Gabriel",
                 Status = 3,

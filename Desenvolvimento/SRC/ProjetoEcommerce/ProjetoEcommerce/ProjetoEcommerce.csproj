@@ -211,9 +211,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Relatorio\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\CampoRelatorio\" />
-    <Folder Include="Views\Campo\" />
-    <Folder Include="Views\Registro\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -227,6 +224,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
+      <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
+      <Name>ProjetoEcommerce.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

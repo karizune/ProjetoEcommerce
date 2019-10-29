@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,14 @@ namespace ProjetoEcommerce.Controllers
 {
     public class RegistroController : Controller
     {
-        private static List<Registro> Registros { get; set }
+        private static List<Registro> Registros { get; set; }
 
         public RegistroController()
         {
             Registros = new List<Registro>();
             Registros.Add(new Registro
             {
-                RelatoID = 1,
+                RelatorioID = 1,
                 UsuarioID = 1,
                 Nome = "Cristina",
                 Descricao = "Oi",
@@ -27,7 +28,7 @@ namespace ProjetoEcommerce.Controllers
             });
             Registros.Add(new Registro
             {
-                RelatoID = 2,
+                RelatorioID = 2,
                 UsuarioID = 2,
                 Nome = "Francielly",
                 Descricao = "Oi",
@@ -39,7 +40,7 @@ namespace ProjetoEcommerce.Controllers
             });
             Registros.Add(new Registro
             {
-                RelatoID = 3,
+                RelatorioID = 3,
                 UsuarioID = 3,
                 Nome = "Samanta",
                 Descricao = "Oi",

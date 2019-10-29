@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,7 @@ namespace ProjetoEcommerce.Controllers
 {
     public class CampoController : Controller
     {
-        private static List<Campo> campos { get; set }
+        private static List<Campo> campos { get; set; }
 
         public CampoController()
         {
@@ -21,7 +22,7 @@ namespace ProjetoEcommerce.Controllers
                 Status = 1,
                 CriadoEm = DateTime.Now,
                 AtualizadoEm = DateTime.Now,
-                TipoCampoId = 1
+                TipoCampoID = 1
 
             });
             campos.Add(new Campo
@@ -32,7 +33,7 @@ namespace ProjetoEcommerce.Controllers
                 Status = 2,
                 CriadoEm = DateTime.Now,
                 AtualizadoEm = DateTime.Now,
-                TipoCampoId = 2
+                TipoCampoID = 2
 
             });
             campos.Add(new Campo
@@ -43,7 +44,7 @@ namespace ProjetoEcommerce.Controllers
                 Status = 3,
                 CriadoEm = DateTime.Now,
                 AtualizadoEm = DateTime.Now,
-                TipoCampoId = 3
+                TipoCampoID = 3
 
             });
         }
