@@ -24,6 +24,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
                 .HasColumnName("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Usuario)

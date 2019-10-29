@@ -24,12 +24,13 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.Sigla)
                  .HasColumnName(@"Sigla")
                  .HasColumnType("char")
-                 .HasMaxLength(100)
+                 .HasMaxLength(2)
                  .IsRequired();
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
                 .HasColumnName("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Usuario)

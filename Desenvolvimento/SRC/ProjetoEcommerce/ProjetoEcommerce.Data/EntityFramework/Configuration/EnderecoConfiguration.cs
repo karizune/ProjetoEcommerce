@@ -32,17 +32,19 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.CEP)
                 .HasColumnName(@"CEP")
                 .HasColumnType("char")
-                .HasMaxLength(100)
+                .HasMaxLength(8)
                 .IsRequired();
 
             Property(x => x.Numero)
                 .HasColumnName(@"Numero")
                 .HasColumnName("varchar")
+                .HasMaxLength(10)
                 .IsRequired();
 
             Property(x => x.Complemento)
                 .HasColumnName(@"Complemento")
                 .HasColumnName("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Usuario)
