@@ -144,6 +144,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Entrega\EnderecoController.cs" />
+    <Compile Include="Controllers\Entrega\EstadoController.cs" />
+    <Compile Include="Controllers\Entrega\RuaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,8 +193,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Entrega\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Endereco\" />
+    <Folder Include="Views\Estado\" />
+    <Folder Include="Views\Rua\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
