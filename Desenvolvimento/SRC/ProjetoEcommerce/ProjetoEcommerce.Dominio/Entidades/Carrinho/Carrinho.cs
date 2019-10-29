@@ -16,7 +16,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
 
-        //Properties
+        //PROPERTIES
         public int CarrinhoID { get; set; }
         public int EnderecoID { get; set; }
         public int UsuarioID { get; set; }

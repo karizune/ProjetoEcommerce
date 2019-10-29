@@ -1,7 +1,8 @@
-﻿@model List <ProjetoEcommerce.Dominio.Entidades.Carrinho.Produto>
+﻿@model List<ProjetoEcommerce.Dominio.Entidades.Carrinho.CarrinhoProduto>
 
 @{
-    Layout = null;
+    ViewBag.Title = "teste";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,15 +13,82 @@
     <title>Index</title>
 </head>
 <body>
-    <div style="border:1px solid; background:#e5e5e5;padding:10%;">
-        @foreach (var item in Model)
-        {
-            <p>@item.Nome</p>
-            <p>@item.Qtd</p>
-            @Html.TextArea(Convert.ToString(item.Preco))
+    <style>
+
+        .produto-td, .produto-th {
+            padding: 0 1em;
         }
+        .form-control{
+            display:initial;
+        }
+    </style>
 
+    <div style="display: flex; margin: 4em 0">
+        <div style="border:1px solid; background:#f5f5f5; width: 55%;">
 
+            <table>
+                <thead class="produto-thead">
+                    <tr>
+                        <th class="produto-th">Nome</th>
+                        <th class="produto-th">Preco</th>
+                        <th class="produto-th">Quantidade</th>
+                        <th class="produto-th">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td class="form-group produto-td">
+                                <div class="form-group">
+                                    <div class="">
+                                        @Html.EditorFor(item => item[i].Produto.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="form-group produto-td">
+                                <div class="form-group">
+                                    <div class="">
+                                        @Html.EditorFor(item => item[i].Produto.Preco, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="form-group produto-td">
+                                <div class="form-group">
+                                    <div class="">
+                                        @Html.EditorFor(item => item[i].Quantidade, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="form-group produto-td">
+                                <div class="form-group" style="color: red;text-align: center">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div style="margin-left:1em;">
+                <a href="@Url.Action("Index","Carrinho")" class="btn btn-primary mb-2">Atualizar Carrinho</a>
+            </div>
+        </div>
+
+        <div style="border: 1px solid; background: #f5f5f5;width: 35%; margin-left: 5%;text-align: center;">
+            <h4>
+                @Html.Label("Resumo do Carrinho", htmlAttributes: new { @class = "control-label" })
+            </h4>
+            @Html.Label("Preco Frete", htmlAttributes: new { @class = "control-label" })
+            <div class="form-group">
+                <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoFrete" readonly>
+
+            </div>
+            @Html.Label("Preco Total", htmlAttributes: new { @class = "control-label" })
+            <div class="form-group">
+                <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoTotal" readonly>
+            </div>
+            <button type="submit" class="btn btn-success mb-2">Confirmar Compra</button>
+        </div>
     </div>
 </body>
 </html>

@@ -27,11 +27,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasDatabaseGeneratedOption
                 (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            Property(x => x.PrecoUnitario).HasColumnName(@"PrecoUnitario")
-                .HasColumnType("decimal")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+            //Property(x => x.PrecoUnitario).HasColumnName(@"PrecoUnitario")
+            //    .HasColumnType("decimal")
+            //    .IsRequired()
+            //    .HasDatabaseGeneratedOption
+            //    (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
 
             //LOG
