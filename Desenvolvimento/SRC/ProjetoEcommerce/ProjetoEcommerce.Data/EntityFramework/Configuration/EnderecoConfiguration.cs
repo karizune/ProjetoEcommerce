@@ -16,27 +16,56 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             HasKey(x => x.EnderecoID);
 
             Property(x => x.EnderecoID)
-                .HasColumnName(@"EnderecoID")
-                .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                  .HasColumnName(@"Endereco")
+                  .HasColumnType("int")
+                  .IsRequired()
+                  .HasDatabaseGeneratedOption
+                  (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
             Property(x => x.ClienteID)
-                .HasColumnName(@"ClienteID")
-                .HasColumnName("int")
-                .IsRequired();
+                  .HasColumnName(@"ClienteID")
+                  .HasColumnType("int")
+                  .IsRequired()
+                  .HasDatabaseGeneratedOption
+                  (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
             Property(x => x.CEP)
                 .HasColumnName(@"CEP")
-                .HasColumnName("varchar")
-                .HasMaxLength(8)
+                .HasColumnType("char")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Numero)
                 .HasColumnName(@"Numero")
-                .HasColumnType("varchar")
-                .HasMaxLength(10)
+                .HasColumnName("varchar")
                 .IsRequired();
+
+            Property(x => x.Complemento)
+                .HasColumnName(@"Complemento")
+                .HasColumnName("varchar")
+                .IsRequired();
+
+            Property(x => x.Usuario)
+               .HasColumnName(@"Usuario")
+               .HasColumnType("varchar")
+               .HasMaxLength(255)
+               .IsRequired();
+
+            Property(x => x.Status)
+              .HasColumnName(@"Status")
+              .HasColumnType("int")
+              .IsRequired();
+
+            Property(x => x.CriadoEm)
+                .HasColumnName(@"CriadoEm")
+                .HasColumnType("Date")
+                .IsRequired();
+
+            Property(x => x.AtualizaEm)
+                .HasColumnName(@"AtualizaEm")
+                .HasColumnType("Date")
+                .IsRequired();
+
 
         }
     }

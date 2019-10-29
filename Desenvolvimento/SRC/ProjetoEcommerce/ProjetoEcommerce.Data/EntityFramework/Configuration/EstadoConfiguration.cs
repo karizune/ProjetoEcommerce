@@ -21,6 +21,38 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
+            Property(x => x.Sigla)
+                 .HasColumnName(@"Sigla")
+                 .HasColumnType("char")
+                 .HasMaxLength(100)
+                 .IsRequired();
+
+            Property(x => x.Nome)
+                .HasColumnName(@"Nome")
+                .HasColumnName("varchar")
+                .IsRequired();
+
+            Property(x => x.Usuario)
+               .HasColumnName(@"Usuario")
+               .HasColumnType("varchar")
+               .HasMaxLength(255)
+               .IsRequired();
+
+            Property(x => x.Status)
+              .HasColumnName(@"Status")
+              .HasColumnType("int")
+              .IsRequired();
+
+            Property(x => x.CriadoEm)
+                .HasColumnName(@"CriadoEm")
+                .HasColumnType("Date")
+                .IsRequired();
+
+            Property(x => x.AtualizaEm)
+                .HasColumnName(@"AtualizaEm")
+                .HasColumnType("Date")
+                .IsRequired();
+
         }
     }
 }
