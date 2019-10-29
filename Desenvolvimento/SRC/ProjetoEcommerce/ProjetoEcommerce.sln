@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce", "ProjetoEcommerce\ProjetoEcommerce.csproj", "{587050A9-5E42-47D3-AC51-C42A63B9A1D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Apresentação", "0 - Apresentação", "{C90D2165-4B4F-4BAD-BDAF-9E7629692CEF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Domínio", "1 - Domínio", "{102921D9-4288-45FB-AB7A-D9083B926120}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Dominio", "1 - Dominio", "{102921D9-4288-45FB-AB7A-D9083B926120}"
 	ProjectSection(SolutionItems) = preProject
 		ProjetoEcommerce\Web.config = ProjetoEcommerce\Web.config
 		ProjetoEcommerce\Web.Debug.config = ProjetoEcommerce\Web.Debug.config
@@ -23,6 +23,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{723A889B-C336-46D5-A20E-8E8019848D0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.data", "ProjetoEcommerce.data\ProjetoEcommerce.data.csproj", "{B1C5F533-6862-4347-9853-AF311265618B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{DF90DFFB-45E7-4F9E-A6D4-5E91DDF19A08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{88868E0E-7E25-4F6A-A8D2-E858F0EFEA44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,8 @@ Global
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485} = {102921D9-4288-45FB-AB7A-D9083B926120}
 		{723A889B-C336-46D5-A20E-8E8019848D0E} = {8D52C4D8-F831-4683-B709-609D7AF90E92}
 		{B1C5F533-6862-4347-9853-AF311265618B} = {723A889B-C336-46D5-A20E-8E8019848D0E}
+		{DF90DFFB-45E7-4F9E-A6D4-5E91DDF19A08} = {723A889B-C336-46D5-A20E-8E8019848D0E}
+		{88868E0E-7E25-4F6A-A8D2-E858F0EFEA44} = {DF90DFFB-45E7-4F9E-A6D4-5E91DDF19A08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA1788EF-9948-4CFA-8F11-B97088D43200}
