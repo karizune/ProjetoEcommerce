@@ -1,0 +1,50 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Carteira
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+
+<div style="margin-bottom:5px; margin-top:10px">
+    <a href="/Carteira/Index">Voltar à lista</a>
+</div>
+
+<p class="h1">Carteira #@Model.CarteiraID</p>
+<table style="margin-left:100px; width:25%">
+    <tbody>
+        <tr>
+            <th>
+                Saldo
+            </th>
+            <td>
+                @Model.Saldo
+            </td>
+        </tr>
+        <tr>
+            <th>
+                ID do Usuário
+            </th>
+            <td>
+                @Model.UsuarioID
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Atualizada em
+            </th>
+            <td>
+                @Model.AtualizadoEm
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                Nome do usuário
+            </th>
+            <td>
+                @Model.usuario.Nome (ID @Model.usuario.ID)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
