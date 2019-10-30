@@ -144,6 +144,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Entrega\BairroController.cs" />
+    <Compile Include="Controllers\Entrega\CepsController.cs" />
+    <Compile Include="Controllers\Entrega\CidadeController.cs" />
     <Compile Include="Controllers\Entrega\EnderecoController.cs" />
     <Compile Include="Controllers\Entrega\EstadoController.cs" />
     <Compile Include="Controllers\Entrega\RuaController.cs" />
@@ -194,6 +197,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Bairro\" />
+    <Folder Include="Views\Ceps\" />
+    <Folder Include="Views\Cidade\" />
     <Folder Include="Views\Endereco\" />
     <Folder Include="Views\Estado\" />
     <Folder Include="Views\Rua\" />
