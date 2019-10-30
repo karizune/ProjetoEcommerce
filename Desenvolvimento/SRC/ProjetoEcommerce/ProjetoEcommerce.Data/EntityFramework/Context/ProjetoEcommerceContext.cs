@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+﻿using ProjetoEcommerce.Data.EntityFramework.Configuration;
+using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -37,6 +38,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new BandeiraCartaoConfiguration());
 
         }
     }

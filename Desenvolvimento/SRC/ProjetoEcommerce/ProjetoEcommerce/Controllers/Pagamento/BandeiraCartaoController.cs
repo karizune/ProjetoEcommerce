@@ -29,5 +29,16 @@ namespace ProjetoEcommerce.Controllers.Pagamento
 
             return View(bandeirasCartao);
         }
+        [HttpGet]
+        public ActionResult Incluir()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Incluirconfirm(BandeiraCartao bandeira)
+        {
+            return View();
+        }
     }
 }
