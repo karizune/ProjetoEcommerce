@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Configuration\TipoCartaoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RastreamentoConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

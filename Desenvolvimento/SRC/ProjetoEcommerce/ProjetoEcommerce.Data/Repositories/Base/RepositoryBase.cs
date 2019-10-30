@@ -32,6 +32,4 @@ namespace ProjetoEcommerce.Data.Repositories.Base
             return t;
         }
     }
-    {
-    }
 }

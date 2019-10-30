@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,38 +10,40 @@ namespace ProjetoEcommerce.Controllers
 {
     public class TipoCartaoController : Controller
     {
-        private static List<TipoCartao> TiposCartoes { get; set; }
-
-        public TipoCartaoController()
+        public ActionResult Index()
         {
-            TiposCartoes = new List<TipoCartao>();
-            TiposCartoes.Add(new TipoCartao
-            {
-                TipoCartaoID = 1,
-                Descricao = "CRÉDITO", 
-                Status = 1,
-                CriadoEm = DateTime.Now
-            });
-            TiposCartoes.Add(new TipoCartao
-            {
-                TipoCartaoID = 2,
-                Descricao = "DÉBITO",
-                Status = 1,
-                CriadoEm = DateTime.Now
-            });
-            TiposCartoes.Add(new TipoCartao
-            {
-                TipoCartaoID = 3,
-                Descricao = "VALE ALIMENTAÇÃO",
-                Status = 0,
-                CriadoEm = DateTime.Now
-            });
+            return View();
         }
 
         // GET: TipoCartao
         public ActionResult ListarTodos()
         {
-            return View(TiposCartoes);
+            var tiposDeCartoes =
+                new ProjetoEcommerceContext()
+                    .TipoCartao
+                    .ToList();
+
+            return View(tiposDeCartoes);
+        }
+
+        [HttpGet]
+        public ActionResult Incluir()
+        {
+            return View();
+        }
+
+        [HttpPost] 
+        public ActionResult IncluirConfirm(TipoCartao ent)
+        {
+            var db = new ProjetoEcommerceContext();
+            ent.Status = 1;
+            ent.Usuario = "renato";
+            ent.CriadoEm = DateTime.Now;
+            ent.AtualizadoEm = DateTime.Now;
+            db.TipoCartao.Add(ent);
+            db.SaveChanges();
+
+            return Redirect("ListarTodos");
         }
     }
 }
