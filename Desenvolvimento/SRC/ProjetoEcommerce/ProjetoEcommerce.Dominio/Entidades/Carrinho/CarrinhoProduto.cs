@@ -16,13 +16,15 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
 
-        //
+        //PROPERTIES
         public int CarrinhoProdutoID { get; set; }
+        public int CarrinhoID { get; set; }
         public int ProdutoID { get; set; }
         public int Quantidade { get; set; }
-        public decimal PrecoUnitario { get; set; }
+        public decimal PrecoTotal { get; set; }
 
-        //public Produto Produto { get; set; }
+        public Produto Produto { get; set; }
+        public Carrinho Carrinho { get; set; }
 
 
     }

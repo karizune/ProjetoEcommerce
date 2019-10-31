@@ -1,7 +1,8 @@
-﻿@model List <ProjetoEcommerce.Dominio.Entidades.Carrinho.Produto>
+﻿@model List<ProjetoEcommerce.Dominio.Entidades.Carrinho.CarrinhoProduto>
 
 @{
-    Layout = null;
+    ViewBag.Title = "teste";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,107 +13,82 @@
     <title>Index</title>
 </head>
 <body>
-
-
-    <nav>
-        <div>
-            <ul class="wrapper">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-
-    </nav>
-
-    <div class="carrinho">
-
-        <table style="width: 100%">
-
-            <tr>
-
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
-
-            </tr>
-
-            @foreach (var item in Model)
-            {
-
-                <tr>
-                    <td>@item.Nome</td>
-
-                    <td>@item.Qtd</td>
-                    <td>@item.Preco</td>
-                </tr>
-
-
-            }
-        </table>
-    </div>
-
     <style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
+        .produto-td, .produto-th {
+            padding: 0 1em;
         }
-
-        body {
-            background-color: #eee;
-        }
-
-        .wrapper {
-            margin: 0 auto 0 60px;
-            width: 1000px;
-        }
-
-        .carrinho {
-            margin: 0 auto 0 200px;
-            width: 1000px;
-        }
-
-        nav {
-            width: 100%;
-            height: 100px;
-            background-color: blueviolet;
-        }
-
-        ul {
-            margin-left: 60px;
-        }
-
-            ul li {
-                list-style: none;
-                display: inline-block;
-                float: left;
-                line-height: 100px;
-            }
-
-                ul li a {
-                    display: block;
-                    text-decoration: none;
-                    font-size: 14px;
-                    font-family: Arial;
-                    color: aliceblue;
-                    padding: 0 20px;
-                }
-
-                    ul li a:hover {
-                        color: red;
-                    }
-        
-        tr {
-            text-align: left;
-            padding: 15px;
-        }
-
-        th, td {
-            padding: 15px;
+        .form-control{
+            display:initial;
         }
     </style>
+
+    <div style="display: flex; margin: 4em 0">
+        <div style="border:1px solid; background:#f5f5f5; width: 55%;">
+
+            <table>
+                <thead class="produto-thead">
+                    <tr>
+                        <th class="produto-th">Nome</th>
+                        <th class="produto-th">Preco</th>
+                        <th class="produto-th">Quantidade</th>
+                        <th class="produto-th">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td class="form-group produto-td">
+                                <div class="form-group">
+                                    <div class="">
+                                        @Html.EditorFor(item => item[i].Produto.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="form-group produto-td">
+                                <div class="form-group">
+                                    <div class="">
+                                        @Html.EditorFor(item => item[i].Produto.Preco, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="form-group produto-td">
+                                <div class="form-group">
+                                    <div class="">
+                                        @Html.EditorFor(item => item[i].Quantidade, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="form-group produto-td">
+                                <div class="form-group" style="color: red;text-align: center">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div style="margin-left:1em;">
+                <a href="@Url.Action("Index","Carrinho")" class="btn btn-primary mb-2">Atualizar Carrinho</a>
+            </div>
+        </div>
+
+        <div style="border: 1px solid; background: #f5f5f5;width: 35%; margin-left: 5%;text-align: center;">
+            <h4>
+                @Html.Label("Resumo do Carrinho", htmlAttributes: new { @class = "control-label" })
+            </h4>
+            @Html.Label("Preco Frete", htmlAttributes: new { @class = "control-label" })
+            <div class="form-group">
+                <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoFrete" readonly>
+
+            </div>
+            @Html.Label("Preco Total", htmlAttributes: new { @class = "control-label" })
+            <div class="form-group">
+                <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoTotal" readonly>
+            </div>
+            <button type="submit" class="btn btn-success mb-2">Confirmar Compra</button>
+        </div>
+    </div>
 </body>
 </html>
