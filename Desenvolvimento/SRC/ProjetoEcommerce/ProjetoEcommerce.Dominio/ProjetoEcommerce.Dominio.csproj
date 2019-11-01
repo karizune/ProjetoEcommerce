@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Entidades\Carrinho\" />
     <Folder Include="Entidades\Entrega\" />
+    <Folder Include="Entidades\Pagamento\ViewModels\" />
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Produto\" />
     <Folder Include="Entidades\Relatorio\" />

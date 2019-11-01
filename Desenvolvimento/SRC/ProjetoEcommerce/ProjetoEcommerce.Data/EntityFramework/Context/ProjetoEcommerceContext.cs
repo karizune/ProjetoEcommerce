@@ -17,7 +17,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         public DbSet<Cartao> Cartao { get; set; }
         public DbSet<Cartao_Tipo> Cartao_Tipo { get; set; }
         public DbSet<Carteira> Carteira { get; set; }
-        public DbSet<MetodoPagamento> MetodoPagamentos { get; set; }
+        public DbSet<MetodoPagamento> MetodoPagamento { get; set; }
         public DbSet<Pagamento> Pagamento { get; set; }
         public DbSet<StatusCartao> StatusCartao { get; set; }
         public DbSet<StatusPagamento> StatusPagamento { get; set; }
@@ -29,7 +29,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         }
         private static string ConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["Context"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["ProjetoEcommerceContext"].ConnectionString;
         }
         public ProjetoEcommerceContext():base(ConnectionString())
         {
@@ -38,7 +38,16 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new BoletoConfiguration());
             modelBuilder.Configurations.Add(new BandeiraCartaoConfiguration());
+            modelBuilder.Configurations.Add(new CartaoConfiguration());
+            modelBuilder.Configurations.Add(new Cartao_TipoConfiguration());
+            modelBuilder.Configurations.Add(new CarteiraConfiguration());
+            modelBuilder.Configurations.Add(new MetodoPagamentoConfiguration());
+            modelBuilder.Configurations.Add(new PagamentoConfiguration());
+            modelBuilder.Configurations.Add(new StatusCartaoConfiguration());
+            modelBuilder.Configurations.Add(new StatusPagamentoConfiguration());
+            modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
 
         }
     }
