@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 
 namespace ProjetoEcommerce.Controllers.Pagamento
@@ -10,6 +11,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
     
     public class CarteiraController : Controller
     {
+        ProjetoEcommerceContext Context = new ProjetoEcommerceContext();
         List<Usuario> usuarios = new List<Usuario>()
         {
             new Usuario
@@ -21,41 +23,25 @@ namespace ProjetoEcommerce.Controllers.Pagamento
                 ID=2,Nome="Nome da Silva"
             }
         };
-        List<Carteira> carteiras = new List<Carteira>()
-        {
-            new Carteira
-            {
-                CarteiraID = 1, Saldo = 22.34M, UsuarioID = 1,Status=0
-            },
-            new Carteira
-            {
-                CarteiraID = 2, UsuarioID = 2, Saldo = 256.34M,Status=1
-            }
-        };
+        
         public ActionResult Index()
         {
             return RedirectToAction("ListarTodos");
         }
         public ActionResult ListarTodos()
         {
-            return View(carteiras);
+            
+            return View(Context.Carteira.ToList());
         }
         public ActionResult Detalhes(int id)
         {
-            Carteira resultado = new Carteira();
-            foreach (var item in carteiras)
-            {
-                if(item.CarteiraID == id)
-                {
-                    resultado = item;
-                    break;
-                }
-            }
+            Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
             foreach (var item in usuarios)
             {
                 if (item.ID == id)
                 {
                     resultado.usuario = item;
+                    break;
                 }
             }
             return View(resultado);
