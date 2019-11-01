@@ -157,6 +157,7 @@
     <Compile Include="Controllers\Pagamento\BandeiraCartaoController.cs" />
     <Compile Include="Controllers\Pagamento\CarteiraController.cs" />
     <Compile Include="Controllers\Pagamento\MetodoPagamentoController.cs" />
+    <Compile Include="Controllers\Pagamento\PagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +208,8 @@
     <Content Include="Views\MetodoPagamento\ListarTodos.cshtml" />
     <Content Include="Views\BandeiraCartao\ListarTodos.cshtml" />
     <Content Include="Views\Pagar\Pagar.cshtml" />
+    <Content Include="Views\Pagamento\Index.cshtml" />
+    <Content Include="Views\Carteira\Criar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

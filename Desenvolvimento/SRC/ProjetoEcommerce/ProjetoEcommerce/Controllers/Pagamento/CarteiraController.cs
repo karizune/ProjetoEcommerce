@@ -30,21 +30,36 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         }
         public ActionResult ListarTodos()
         {
-            
+
             return View(Context.Carteira.ToList());
+
+            
         }
         public ActionResult Detalhes(int id)
         {
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
-            foreach (var item in usuarios)
-            {
-                if (item.ID == id)
-                {
-                    resultado.usuario = item;
-                    break;
-                }
-            }
+            // Carteira resultado = carteiras.First(c => c.CarteiraID == id);
+            //foreach (var item in usuarios)
+            //{
+            //    if (item.ID == id)
+            //    {
+            //        resultado.usuario = item;
+            //        break;
+            //    }
+            //}
             return View(resultado);
+        }
+        public ActionResult Criar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Criar(Carteira obj)
+        {
+            Context.Carteira.Add(obj);
+            Context.SaveChanges();
+            //carteiras.Add(obj);
+            return RedirectToAction("ListarTodos");
         }
     }
 }
