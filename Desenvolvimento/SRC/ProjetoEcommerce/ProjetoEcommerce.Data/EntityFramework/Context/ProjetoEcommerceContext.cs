@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoEcommerce.Data.EntityFramework.Configuration;
 using ProjetoEcommerce.Dominio.Entidades.Entrega;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Context
@@ -20,7 +21,13 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Configuration.Add(new BairroConfiguration
+            modelBuilder.Configurations.Add(new BairroConfiguration());
+            modelBuilder.Configurations.Add(new CepsConfiguration());
+            modelBuilder.Configurations.Add(new CidadeConfiguration());
+            modelBuilder.Configurations.Add(new EnderecoConfiguration());
+            modelBuilder.Configurations.Add(new EstadoConfiguration());
+            modelBuilder.Configurations.Add(new RuaConfiguration());
+
         }
     }
 }

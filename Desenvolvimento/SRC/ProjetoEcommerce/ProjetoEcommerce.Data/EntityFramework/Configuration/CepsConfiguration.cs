@@ -18,11 +18,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.CEP)
                 .HasColumnName(@"CEP")
-                .HasColumnType("varchar")
+                .HasColumnType("char")
                 .HasMaxLength(8)
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.EstadoID)
                 .HasColumnName(@"EstadoID")
