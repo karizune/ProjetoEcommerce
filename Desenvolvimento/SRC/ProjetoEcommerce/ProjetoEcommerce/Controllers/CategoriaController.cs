@@ -8,6 +8,10 @@ namespace ProjetoEcommerce.Controllers
 {
     public class CategoriaController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
         // GET: Categoria
         public ActionResult ListarTodas()
         {
