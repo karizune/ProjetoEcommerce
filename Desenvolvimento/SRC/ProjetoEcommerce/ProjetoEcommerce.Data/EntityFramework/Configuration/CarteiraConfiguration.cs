@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public CarteiraConfiguration()
         {
-            ToTable("pagamento.Carteira", "pagamento");
+            ToTable("Carteira", "pagamento");
             HasKey(x => x.CarteiraID);
 
             Property(x => x.CarteiraID)
@@ -45,7 +45,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired();
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
         }
     }

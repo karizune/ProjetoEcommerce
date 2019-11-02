@@ -16,7 +16,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             HasKey(x => x.TipoCartaoID);
 
             Property(x => x.TipoCartaoID).HasColumnName(@"TipoCartaoID").HasColumnType("int").IsRequired();
-            Property(x => x.Descricao).HasColumnName(@"Descricao").HasColumnType("varchar(50)").IsRequired();
+            Property(x => x.Descricao).HasColumnName(@"Descricao").HasColumnType("varchar").HasMaxLength(50).IsRequired();
 
             Property(x => x.AtualizadoEm)
              .HasColumnName(@"AtualizadoEm")
@@ -35,7 +35,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
         }
     }

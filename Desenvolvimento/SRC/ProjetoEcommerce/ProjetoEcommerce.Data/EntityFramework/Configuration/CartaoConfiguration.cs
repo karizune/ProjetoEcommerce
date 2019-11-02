@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public CartaoConfiguration()
         {
-            ToTable("pagamento.Cartao", "pagamento");
+            ToTable("Cartao", "pagamento");
             HasKey(x => x.CartaoID);
             Property(x => x.CartaoID)
                 .HasColumnName(@"CartaoID")
@@ -22,10 +22,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.NomeTitular)
                 .HasColumnName(@"NomeTitular")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
 
-            Property(x => x.Numero).HasColumnName(@"Numero").HasColumnType("varchar(16)").IsRequired();
+            Property(x => x.Numero).HasColumnName(@"Numero").HasColumnType("varchar").HasMaxLength(16).IsRequired();
 
             Property(x => x.Vencimento).HasColumnName("Vencimento").HasColumnType("datetime").IsRequired();
 
@@ -50,7 +51,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
         }
     }
