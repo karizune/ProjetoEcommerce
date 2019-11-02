@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Seguranca
 {
-    public class Formulario
+    public class Formulario: BaseEntity
     {
         public int FormularioID { get; set; }
         public string Descricao { get; set; }
