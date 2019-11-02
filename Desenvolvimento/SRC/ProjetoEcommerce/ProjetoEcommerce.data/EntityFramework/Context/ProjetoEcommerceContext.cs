@@ -5,8 +5,7 @@ using System.Data.Entity;
 
 namespace ProjetoEcommerce.data.EntityFramework.Context
 {
-    public class ProjetoEcommerceContext: DbContext
-  
+    public class ProjetoEcommerceContext: DbContext  
     {
         public DbSet<Campo> Campo { get; set; }
         public DbSet<CampoRelatorio> CampoRelatorio { get; set; }
@@ -31,7 +30,13 @@ namespace ProjetoEcommerce.data.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Configurations.Add(new CampoConfiguration());
+            modelBuilder.Configurations.Add(new CampoRelatorioConfiguration());
+            modelBuilder.Configurations.Add(new RegistroConfiguration());
+            modelBuilder.Configurations.Add(new TipoCampoConfiguration());
+            modelBuilder.Configurations.Add(new RelatorioConfiguration());
+            modelBuilder.Configurations.Add(new UsuarioConfiguration());
         }
     }
 }
