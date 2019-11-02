@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public RegistroConfiguration()
         {
-            ToTable("Relatorio.Registro");
+            ToTable("Registro", "Relatorio");
             HasKey(x => x.RelatorioID);
             HasKey(x => x.UsuarioID);
 
@@ -27,17 +27,20 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnType("varchar(100)")
+                .HasColumnType("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Descricao)
                 .HasColumnName(@"Descricao")
-                .HasColumnType("varchar(100)")
+                .HasColumnType("varchar")
+                .HasMaxLength (100)
                 .IsRequired();
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Status)

@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public UsuarioConfiguration()
         {
-            ToTable("Usuario");
+            ToTable("Usuario", "Relatorio");
             HasKey(x => x.UsuarioID);
 
             Property(x => x.UsuarioID)
@@ -19,7 +19,8 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.NomeUsuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
 
             Property(x => x.Status)

@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public TipoCampoConfiguration()
         {
-            ToTable("Relatorio.TipoCampo");
+            ToTable("TipoCampo", "Relatorio");
             HasKey(x => x.TipoCampoID);
 
             Property(x => x.TipoCampoID)
@@ -24,12 +24,14 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.Descrição)
                     .HasColumnName(@"Descricao")
-                    .HasColumnType("varchar(100)")
+                    .HasColumnType("varchar")
+                    .HasMaxLength(100)
                     .IsRequired();
 
             Property(x => x.Usuario)
                     .HasColumnName(@"Usuario")
-                    .HasColumnType("varchar(50)")
+                    .HasColumnType("varchar")
+                    .HasMaxLength(50)
                     .IsRequired();
 
             Property(x => x.Status)

@@ -22,7 +22,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Context
         
         private static string ConnectionsString ()
         {
-            return ConfigurationManager.ConnectionStrings["Context"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["ProjetoEcommerceContext"].ConnectionString;
         }
         public ProjetoEcommerceContext() : base(ConnectionsString())
         {

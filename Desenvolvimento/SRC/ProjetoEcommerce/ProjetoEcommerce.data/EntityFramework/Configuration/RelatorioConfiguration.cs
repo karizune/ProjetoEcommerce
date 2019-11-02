@@ -14,7 +14,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public RelatorioConfiguration()
         {
-            ToTable("Relatorio.Relatorio");
+            ToTable("Relatorio", "Relatorio");
             HasKey(x => x.RelatorioID);
 
             Property(x => x.RelatorioID)
@@ -26,17 +26,20 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnType("varchar(100)")
+                .HasColumnType("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Descrição)
                 .HasColumnName(@"Descricao")
-                .HasColumnType("varchar(100)")
+                .HasColumnType("varchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
 
             Property(x => x.Status)

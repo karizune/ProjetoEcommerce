@@ -7,27 +7,23 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
     {
         public CampoRelatorioConfiguration()
         {
-            ToTable("Relatorio.Campo_Relatorio");
-            HasKey(x => x.RelatorioID);
-            HasKey(x => x.CampoID);
+            ToTable("Campo_Relatorio", "Relatorio");
+            HasKey(x => new { x.RelatorioID, x.CampoID });
 
             Property(x => x.RelatorioID)
                 .HasColumnName(@"RelatorioID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.CampoID)
                 .HasColumnName(@"CampoID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .HasColumnType("varchar(50)")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
 
             Property(x => x.Status)
