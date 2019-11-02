@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Seguranca
 {
-    public class GrupoUsuario
+    public class GrupoUsuario : BaseEntity
     {
         public int UsuarioID { get; set; }
         public int GrupoID { get; set; }
