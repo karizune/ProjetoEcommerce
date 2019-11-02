@@ -13,7 +13,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public CidadeConfiguration()
         {
 
-            ToTable("Entrega.Cidade");
+            ToTable("Cidade");
             HasKey(x => x.CidadeID);
 
             Property(x => x.CidadeID)
@@ -31,7 +31,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.EstadoID)
                 .HasColumnName(@"EstadoID")
-                .HasColumnName("int")
+                .HasColumnType("int")
                 .IsRequired();
 
             Property(x => x.Status)

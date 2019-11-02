@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public EnderecoConfiguration()
         {
-            ToTable("Entrega.Endereco");
+            ToTable("Endereco");
             HasKey(x => x.EnderecoID);
 
             Property(x => x.EnderecoID)
@@ -35,13 +35,13 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Numero)
                 .HasColumnName(@"Numero")
-                .HasColumnName("varchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(10)
                 .IsRequired();
 
             Property(x => x.Complemento)
                 .HasColumnName(@"Complemento")
-                .HasColumnName("varchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100);
 
             Property(x => x.Usuario)

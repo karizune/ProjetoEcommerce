@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using ProjetoEcommerce.Dominio.Entidades.Entrega;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Context
 {
-    class ProjetoEcommerceContext : DbContext
+    public class ProjetoEcommerceContext : DbContext
     {
         public DbSet<Bairro> bairro { get; set; }
         public DbSet<Ceps> ceps { get; set; }
@@ -17,6 +18,14 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         public DbSet<Endereco> endereco { get; set; }
         public DbSet<Estado> estado { get; set; }
         public DbSet<Rua> rua { get; set; }
+        private static string ConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["projetoEcommerceContext"].ConnectionString;
+        }
+        public ProjetoEcommerceContext() : base(ConnectionString())
+        {
+
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
