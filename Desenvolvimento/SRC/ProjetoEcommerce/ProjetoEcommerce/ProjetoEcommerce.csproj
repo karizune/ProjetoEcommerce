@@ -193,11 +193,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Bairro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Bairro\" />
     <Folder Include="Views\Ceps\" />
     <Folder Include="Views\Cidade\" />
     <Folder Include="Views\Endereco\" />

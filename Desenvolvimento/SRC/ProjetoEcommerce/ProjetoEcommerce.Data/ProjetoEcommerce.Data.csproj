@@ -59,6 +59,7 @@
     <Compile Include="EntityFramework\Configuration\EstadoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RuaConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
+    <Compile Include="EntityFramework\Repository\BaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

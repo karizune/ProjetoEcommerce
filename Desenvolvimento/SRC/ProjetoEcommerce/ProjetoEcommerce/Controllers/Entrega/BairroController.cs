@@ -11,6 +11,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
         // GET: Bairro
         public ActionResult Index()
         {
+
             return View();
         }
     }
