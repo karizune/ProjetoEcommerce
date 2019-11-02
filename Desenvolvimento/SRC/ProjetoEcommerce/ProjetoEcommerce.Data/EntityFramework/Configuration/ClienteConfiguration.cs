@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public ClienteConfiguration()
         {
-            ToTable("Cliente");
+            ToTable("Cliente", "perfil");
             HasKey(x => x.IDCLiente);
 
             Property(x => x.IDCLiente)

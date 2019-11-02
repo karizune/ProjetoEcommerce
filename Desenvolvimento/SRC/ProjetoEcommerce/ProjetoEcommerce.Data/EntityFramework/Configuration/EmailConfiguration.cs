@@ -12,9 +12,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public EmailConfiguration()
         {
-            ToTable("Email");
-            HasKey(x => x.IDEmail);
-            HasKey(x => x.IDCliente);
+            ToTable("Email","perfil");
+            HasKey(x => new { x.IDEmail, x.IDCliente });
 
             Property(x => x.IDEmail)
                 .HasColumnName(@"IDEmail")

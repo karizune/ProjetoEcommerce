@@ -14,6 +14,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
         public bool Status { get; set; }
         public bool Tipo { get; set; }
         public DateTime CriadoEm { get; set; }
+        public Cliente CLiente { get; set; }
 
     }
 }
