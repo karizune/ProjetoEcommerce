@@ -42,6 +42,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -193,6 +194,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Categoria\ListarTodas.cshtml" />
+    <Content Include="Views\Categoria\Incluir.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -216,6 +219,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj">
+      <Project>{709EBB4C-D47F-4334-A193-CE9E031AF1F0}</Project>
+      <Name>ProjetoEcommerce.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
       <Project>{95b18e84-1845-4b68-8a2e-d8c0d006e485}</Project>
       <Name>ProjetoEcommerce.Dominio</Name>

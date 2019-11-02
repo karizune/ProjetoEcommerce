@@ -46,7 +46,9 @@
     <Compile Include="Entidades\Produto\Loja.cs" />
     <Compile Include="Entidades\Produto\Marca.cs" />
     <Compile Include="Entidades\Produto\Produto.cs" />
+    <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\IEntityBase.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoriaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

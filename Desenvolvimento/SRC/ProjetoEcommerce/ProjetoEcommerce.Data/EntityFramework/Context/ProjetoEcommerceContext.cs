@@ -12,8 +12,8 @@ namespace ProjetoEcommerce.Data.Context
 {
     public class ProjetoEcommerceContext:DbContext
     {
-        public DbSet<Categoria> categoria { get; set; }
-        public DbSet<Imagem> imagem { get; set; }
+        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Imagem> Imagem { get; set; }
 
         static ProjetoEcommerceContext()
         {
