@@ -15,8 +15,37 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             ToTable("seguranca.GrupoDeAcesso");
             HasKey(x => x.GrupoID);
 
-            Property(x => x.GrupoID).HasColumnName(@"GrupoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Descricao).HasColumnName(@"Descricao").HasColumnType("varchar").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.GrupoID)
+                .HasColumnName(@"GrupoID")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.Descricao)
+                .HasColumnName(@"Descricao")
+                .HasColumnType("varchar")
+                .IsRequired();
+
+            Property(x => x.Status)
+                .HasColumnName(@"Status")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.Usuario)
+                .HasColumnName(@"Usuario")
+                .Hascolumntype("varchar")
+                .IsRequired()
+                .HasMaxLenglet(100);
+
+            Property(x => x.CriadoEm)
+                .HasColumnName(@"CriadoEm")
+                .HasColumnType(@"datetime")
+                .IsRequired();
+
+            Property(x => x.AtualizadoEm)
+                .HasColumnName(@"AtualizadoEm")
+                .HasColumnType(@"datetime")
+                .IsRequired();
+
         }
     }
 }
