@@ -12,20 +12,21 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public CarrinhoProdutoConfiguration()
         {
-            ToTable("CarrinhoProduto", "carrinho");
+            //ToTable("CarrinhoProduto", "carrinho");
+            ToTable("CarrinhoProduto");
             HasKey(x => new { x.CarrinhoProdutoID, x.ProdutoID });
 
             Property(x => x.CarrinhoProdutoID).HasColumnName(@"CarrinhoProdutoID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+                .IsRequired();
+            //.HasDatabaseGeneratedOption
+            //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
             Property(x => x.Quantidade).HasColumnName(@"Quantidade")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+                .IsRequired();
+            //.HasDatabaseGeneratedOption
+            //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
             //Property(x => x.PrecoUnitario).HasColumnName(@"PrecoUnitario")
             //    .HasColumnType("decimal")
@@ -38,27 +39,27 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Status).HasColumnName(@"Status")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+                .IsRequired();
+                //.HasDatabaseGeneratedOption
+                //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
             Property(x => x.Usuario).HasColumnName(@"Usuario")
-                .HasColumnType("string")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+                .HasColumnType("varchar")
+                .IsRequired();
+                //.HasDatabaseGeneratedOption
+                //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
             Property(x => x.CriadoEm).HasColumnName(@"CriadoEm")
                 .HasColumnType("DateTime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+                .IsRequired();
+                //.HasDatabaseGeneratedOption
+                //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
             Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm")
                 .HasColumnType("DateTime")
-                .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+                .IsRequired();
+                //.HasDatabaseGeneratedOption
+                //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
         }
 
     }

@@ -7,7 +7,6 @@
 
     <body>
         <style>
-
             .produto-td, .produto-th {
                 padding: 0 1em;
             }
@@ -16,24 +15,25 @@
                 display: initial;
             }
         </style>
+        
         <h2>Produtos Disponiveis</h2>
        
-            <div style="display: flex; margin: 4em 0">
-                <div style="border:1px solid; background:#f5f5f5; width: 55%;">
-                    @using (Html.BeginForm("Adicionar", "Produto", FormMethod.Post))
-                    {
-                        <table>
-                            <thead class="produto-thead">
-                                <tr>
-                                    <th class="produto-th">Nome</th>
-                                    <th class="produto-th">Preco</th>
-                                    <th class="produto-th">Quantidade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+        <div style="display: flex; margin: 4em 0">
+            <div style="border:1px solid; background:#f5f5f5; width: 55%;">
+                @using (Html.BeginForm("Adicionar", "Produto", FormMethod.Post))
+                {
+                    <table>
+                        <thead class="produto-thead">
+                            <tr>
+                                <th class="produto-th">Nome</th>
+                                <th class="produto-th">Preco</th>
+                                <th class="produto-th">Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                                @for (int i = 0; i < Model.Count; i++)
-                                {
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
                                 @Html.HiddenFor(item => item[i].ProdutoID)
                                 <tr>
                                     <td class="form-group produto-td">
@@ -53,25 +53,24 @@
                                     <td class="form-group produto-td">
                                         <div class="form-group">
                                             <div class="">
-                                                <input type="number" name="quantidade" value="" />
+                                                @Html.TextBoxFor(item => item[i].Qtde, new { htmlAttributes = new { @class = "form-control"} })
                                             </div>
                                         </div>
                                     </td>
 
                                 </tr>
-                                }
+                            }
 
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
 
                     <button type="submit">
                         <i class="fas fa-plus"></i>
                     </button>
 
-                    }
+                }
 
-                </div>
             </div>
-        ..
+        </div>
     </body>
 
