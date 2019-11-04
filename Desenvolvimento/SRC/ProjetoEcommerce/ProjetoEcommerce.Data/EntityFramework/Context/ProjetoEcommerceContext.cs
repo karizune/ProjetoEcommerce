@@ -14,7 +14,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
     {
         public DbSet<Carrinho> carrinho { get; set; }
         public DbSet<CarrinhoProduto> carrinhoProduto { get; set; }
-        public DbSet<Produto> produto { get; set; }
 
         static ProjetoEcommerceContext()
         {
@@ -36,7 +35,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
 
             modelBuilder.Configurations.Add(new CarrinhoConfiguration());
             modelBuilder.Configurations.Add(new CarrinhoProdutoConfiguration());
-            modelBuilder.Configurations.Add(new ProdutoConfiguration());
         }
     }
 }

@@ -24,7 +24,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         public decimal PrecoTotal { get; set; }
 
         public Produto Produto { get; set; }
-        //public Carrinho Carrinho { get; set; }
+        public Carrinho Carrinho { get; set; }
 
 
     }

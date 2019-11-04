@@ -13,45 +13,58 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public CarrinhoConfiguration()
         {
 
-            //ToTable("Carrinho", "carrinho");
-            ToTable("Carrinho");
+            ToTable("Carrinho", "carrinho");
             HasKey(x => x.CarrinhoID);
 
-            Property(x => x.CarrinhoID).HasColumnName("CarrinhoID")
+            Property(x => x.CarrinhoID).HasColumnName("@CarinhoID")
                 .HasColumnType("int")
-                .IsRequired();
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            //Property(x => x.EnderecoID).HasColumnName("@EnderecoID")
-            //    .HasColumnType("int")
-            //    .IsRequired()
-            //    .HasDatabaseGeneratedOption
-            //    (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+            Property(x => x.EnderecoID).HasColumnName("@EnderecoID")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            Property(x => x.PrecoTotal).HasColumnName(@"PrecoTotal")
+            Property(x => x.PrecoTotal).HasColumnName("@PrecoTotal")
                 .HasColumnType("decimal")
-                .IsRequired();
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            Property(x => x.PrecoFrete).HasColumnName(@"PrecoFrete")
+            Property(x => x.PrecoFrete).HasColumnName("@PrecoFrete")
                 .HasColumnType("decimal")
-                .IsRequired();
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
             //LOG
 
-            Property(x => x.Status).HasColumnName(@"Status")
+            Property(x => x.Status).HasColumnName("@Status")
                 .HasColumnType("int")
-                .IsRequired();
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            Property(x => x.Usuario).HasColumnName(@"Usuario")
-                .HasColumnType("varchar")
-                .IsRequired();
+            Property(x => x.Usuario).HasColumnName("@Usuario")
+                .HasColumnType("sring")
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            Property(x => x.CriadoEm).HasColumnName(@"CriadoEm")
+            Property(x => x.CriadoEm).HasColumnName("@CriadoEm")
                 .HasColumnType("DateTime")
-                .IsRequired();
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
 
-            Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm")
+            Property(x => x.AtualizadoEm).HasColumnName("@AtualizadoEm")
                 .HasColumnType("DateTime")
-                .IsRequired();
+                .IsRequired()
+                .HasDatabaseGeneratedOption
+                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
         }
     }
 }
