@@ -14,7 +14,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             //ToTable("CarrinhoProduto", "carrinho");
             ToTable("CarrinhoProduto");
-            HasKey(x => new { x.CarrinhoProdutoID, x.ProdutoID });
+            //HasKey(x => new { x.CarrinhoProdutoID, x.ProdutoID });
+            HasKey(x => new { x.CarrinhoProdutoID });
 
             Property(x => x.CarrinhoProdutoID).HasColumnName(@"CarrinhoProdutoID")
                 .HasColumnType("int")
