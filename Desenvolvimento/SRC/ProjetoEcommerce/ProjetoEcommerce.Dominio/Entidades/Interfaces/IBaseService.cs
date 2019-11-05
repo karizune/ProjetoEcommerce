@@ -4,18 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Dominio.Entidades.Comum
+namespace ProjetoEcommerce.Dominio.Entidades.Entrega.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IBaseService<T> where T : class
     {
-        T Save(T obj);
-
-        T Update(T obj);
-
-        T Delete(int id, string usuario);
-
-        T GetOne(int id);
-
         IEnumerable<T> GetAll();
+        T GetOne(int id);
+        T Save(T obj);
+        T Update(T obj);
+        T Delete(int id, string usuario);
     }
 }

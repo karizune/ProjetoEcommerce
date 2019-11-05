@@ -1,4 +1,6 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Dominio.Entidades.Entrega;
+using ProjetoEcommerce.Servico.Entrega;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +11,28 @@ namespace ProjetoEcommerce.Controllers.Entrega
 {
     public class BairroController : Controller
     {
-        // GET: Bairro
+        private readonly BairroService _dbContext;
+        public BairroController()
+        {
+            _dbContext = new BairroService();
+        }
         public ActionResult ListarTodos()
         {
-            var context = new ProjetoEcommerceContext();
-            var lista = context.bairro.ToList();
+            var lista = _dbContext.GetAll();
      
             return View(lista);
+        }
+
+        public ActionResult Adicionar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Adicionar(Bairro bairro)
+        {
+            _dbContext.Save(bairro);
+            return RedirectToAction("ListarTodos");
         }
     }
 }

@@ -36,7 +36,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
             modelBuilder.Configurations.Add(new EstadoConfiguration());
             modelBuilder.Configurations.Add(new RuaConfiguration());
-
         }
     }
 }

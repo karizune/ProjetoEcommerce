@@ -236,6 +236,10 @@
       <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
       <Name>ProjetoEcommerce.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjetoEcommerce.Servico\ProjetoEcommerce.Servico.csproj">
+      <Project>{66837395-7e18-489e-9a66-5590cb6dc2e5}</Project>
+      <Name>ProjetoEcommerce.Servico</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
