@@ -19,7 +19,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.CidadeID)
                 .HasColumnName(@"CidadeID")
                 .HasColumnType("int")
-                .IsRequired()
+                .IsRequired()  
                 .HasDatabaseGeneratedOption
                 (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
