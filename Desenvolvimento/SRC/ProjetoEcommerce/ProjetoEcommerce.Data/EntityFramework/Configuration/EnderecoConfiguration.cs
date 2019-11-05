@@ -12,11 +12,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public EnderecoConfiguration()
         {
-            ToTable("Entrega.Endereco");
+            ToTable("Endereco");
             HasKey(x => x.EnderecoID);
 
             Property(x => x.EnderecoID)
-                  .HasColumnName(@"Endereco")
+                  .HasColumnName(@"EnderecoID")
                   .HasColumnType("int")
                   .IsRequired()
                   .HasDatabaseGeneratedOption
@@ -25,9 +25,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.ClienteID)
                   .HasColumnName(@"ClienteID")
                   .HasColumnType("int")
-                  .IsRequired()
-                  .HasDatabaseGeneratedOption
-                  (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                  .IsRequired();
 
             Property(x => x.CEP)
                 .HasColumnName(@"CEP")
@@ -37,15 +35,14 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Numero)
                 .HasColumnName(@"Numero")
-                .HasColumnName("varchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(10)
                 .IsRequired();
 
             Property(x => x.Complemento)
                 .HasColumnName(@"Complemento")
-                .HasColumnName("varchar")
-                .HasMaxLength(100)
-                .IsRequired();
+                .HasColumnType("varchar")
+                .HasMaxLength(100);
 
             Property(x => x.Usuario)
                .HasColumnName(@"Usuario")

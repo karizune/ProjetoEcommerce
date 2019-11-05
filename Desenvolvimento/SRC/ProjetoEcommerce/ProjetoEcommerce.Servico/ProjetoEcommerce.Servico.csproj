@@ -5,12 +5,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC3386FA-6354-4787-9CBA-A7541FB7602F}</ProjectGuid>
+    <ProjectGuid>{66837395-7E18-489E-9A66-5590CB6DC2E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjetoEcommerce.Data</RootNamespace>
-    <AssemblyName>ProjetoEcommerce.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>ProjetoEcommerce.Servico</RootNamespace>
+    <AssemblyName>ProjetoEcommerce.Servico</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -42,7 +42,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,37 +51,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramework\Configuration\BairroConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\CepsConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\CidadeConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\EnderecoConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\EstadoConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\RuaConfiguration.cs" />
-    <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
-    <Compile Include="EntityFramework\Repository\BaseRepository.cs" />
-    <Compile Include="EntityFramework\Repository\Entrega\BairroRepository.cs" />
-    <Compile Include="EntityFramework\Repository\Entrega\CepsRepository.cs" />
-    <Compile Include="EntityFramework\Repository\Entrega\CidadeRepository.cs" />
-    <Compile Include="EntityFramework\Repository\Entrega\EnderecoRepository.cs" />
-    <Compile Include="EntityFramework\Repository\Entrega\EstadoRepository.cs" />
-    <Compile Include="EntityFramework\Repository\Entrega\RuaRepository.cs" />
+    <Compile Include="Entrega\BairroService.cs" />
+    <Compile Include="Entrega\CepsService.cs" />
+    <Compile Include="Entrega\CidadeService.cs" />
+    <Compile Include="Entrega\EnderecoService.cs" />
+    <Compile Include="Entrega\EstadoService.cs" />
+    <Compile Include="Entrega\RuaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj">
+      <Project>{BC3386FA-6354-4787-9CBA-A7541FB7602F}</Project>
+      <Name>ProjetoEcommerce.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
+      <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
+      <Name>ProjetoEcommerce.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
-      <Project>{95b18e84-1845-4b68-8a2e-d8c0d006e485}</Project>
-      <Name>ProjetoEcommerce.Dominio</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />

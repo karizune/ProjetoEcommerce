@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public RuaConfiguration()
         {
-            ToTable("Entrega.Rua");
+            ToTable("Rua");
             HasKey(x => x.RuaID);
 
             Property(x => x.RuaID)
@@ -23,7 +23,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnName("varchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
 

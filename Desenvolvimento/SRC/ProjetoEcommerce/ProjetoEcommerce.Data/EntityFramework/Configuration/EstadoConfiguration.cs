@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public EstadoConfiguration()
         {
-            ToTable("Entrega.Estado");
+            ToTable("Estado");
             HasKey(x => x.EstadoID);
 
             Property(x => x.EstadoID)
@@ -29,7 +29,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnName("varchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
 
