@@ -37,7 +37,7 @@ namespace ProjetoEcommerce.Controllers
                     ProdutoID = produto.ProdutoID,
                     Quantidade = produto.Qtde,
                     PrecoTotal = produto.Preco * produto.Qtde,
-                    Produto = produto
+                    //Produto = produto
                 };
 
                 db.carrinhoProduto.Add(carrinhoProduto);

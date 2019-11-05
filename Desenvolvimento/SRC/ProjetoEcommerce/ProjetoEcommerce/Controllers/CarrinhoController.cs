@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Carrinho;
+﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Dominio.Entidades.Carrinho;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,12 @@ namespace ProjetoEcommerce.Controllers
         // GET: Carrinho
         public ActionResult Index()
         {
-            return View("Index");
+            var carrinhoProduto =
+                new ProjetoEcommerceContext()
+                    .carrinhoProduto
+                    .ToList();
+            return View("Index", carrinhoProduto);
+
         }
     }
 }

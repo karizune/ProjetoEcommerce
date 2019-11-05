@@ -13,8 +13,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public CarrinhoConfiguration()
         {
             //LEMBRA DE ADD OS HASDATABASEGENERATEDOPTION DPS EM
-            //ToTable("Carrinho", "carrinho");
-            ToTable("Carrinho");
+            ToTable("Carrinho", "Grupo2");
+            //ToTable("Carrinho");
             HasKey(x => x.CarrinhoID);
 
             Property(x => x.CarrinhoID).HasColumnName(@"CarinhoID")
@@ -38,20 +38,25 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.Status).HasColumnName(@"Status")
                 .HasColumnType("int")
                 .IsRequired();
-                //.HasDatabaseGeneratedOption
-                //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
+
+
 
             Property(x => x.Usuario).HasColumnName(@"Usuario")
                 .HasColumnType("varchar")
                 .IsRequired();
 
+
+
             Property(x => x.CriadoEm).HasColumnName(@"CriadoEm")
                 .HasColumnType("DateTime")
                 .IsRequired();
 
+
+
             Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm")
                 .HasColumnType("DateTime")
                 .IsRequired();
+                
         }
     }
 }

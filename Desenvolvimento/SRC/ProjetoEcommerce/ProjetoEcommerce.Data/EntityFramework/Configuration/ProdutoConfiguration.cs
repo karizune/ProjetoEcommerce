@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public ProdutoConfiguration()
         {
-            ToTable("Produto");
+            ToTable("Produto", "Grupo2");
             HasKey(x => x.ProdutoID);
 
             Ignore(x => x.Qtde);
@@ -16,13 +16,18 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnType("int")
                 .IsRequired();
 
+
+
             Property(x => x.Nome).HasColumnName(@"Nome")
                 .HasColumnType("varchar")
                 .IsRequired();
 
+
+
             Property(x => x.Preco).HasColumnName(@"Preco")
                 .HasColumnType("decimal")
                 .IsRequired();
+                
 
         }
     }
