@@ -10,7 +10,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Relatorio
     public class TipoCampo : IEntidadeBase
     {
         public int TipoCampoID { get; set; }
-        public string Descrição { get; set; }
+        public string Descricao { get; set; }
         public string Usuario { get; set; }
         public int Status { get; set; }
         public DateTime CriadoEm { get; set; }

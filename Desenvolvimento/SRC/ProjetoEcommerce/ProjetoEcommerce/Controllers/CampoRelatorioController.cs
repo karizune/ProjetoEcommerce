@@ -84,12 +84,11 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(CampoRelatorio ent)
         {
             var db = new ProjetoEcommerceContext();
-            ent.RelatorioID = 1;
-            ent.CampoID = 2;
             ent.Usuario = "Gabriel";
-            ent.Status = 2;
+            ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
+
             db.CampoRelatorio.Add(ent);
             db.SaveChanges();
 
