@@ -70,5 +70,15 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             Context.SaveChanges();
             return RedirectToAction("ListarTodos");
         }
+        public ActionResult Deletar(int id)
+        {
+            Context.Carteira.Remove(Context.Carteira.First(c => c.CarteiraID == id));
+            Context.SaveChanges();
+            return RedirectToAction("ListarTodos");
+
+
+
+
+        }
     }
 }
