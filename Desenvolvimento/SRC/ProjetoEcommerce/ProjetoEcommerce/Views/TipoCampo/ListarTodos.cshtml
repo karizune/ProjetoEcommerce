@@ -1,5 +1,6 @@
-﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
+﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 @model System.Collections.Generic.List<TipoCampo>
+
 @{
     Layout = null;
 }
@@ -27,7 +28,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.TipoCampoID</td>                       
+                        <td>@item.TipoCampoID</td>
                         <td>@item.Descricao</td>
                         <td>@item.Usuario</td>
                         <td>@item.Status</td>
