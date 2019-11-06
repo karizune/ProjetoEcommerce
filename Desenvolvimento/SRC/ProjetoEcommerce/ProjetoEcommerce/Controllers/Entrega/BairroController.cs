@@ -34,5 +34,28 @@ namespace ProjetoEcommerce.Controllers.Entrega
             _dbContext.Save(bairro);
             return RedirectToAction("ListarTodos");
         }
+        [HttpDelete]
+        public ActionResult Deletar(int id, string usuario)
+        {
+            _dbContext.Delete(id, usuario);
+            return RedirectToAction("ListarTodos");
+        }
+
+        [HttpPut]
+        public ActionResult Atualizar(Bairro obj)
+        {
+            _dbContext.Update(obj);
+            return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Atualizar()
+        {
+            return View();
+        }
+        public ActionResult Buscar(int id)
+        {
+            Bairro obj = _dbContext.GetOne(id);
+            return View(obj);
+
+        }
     }
 }

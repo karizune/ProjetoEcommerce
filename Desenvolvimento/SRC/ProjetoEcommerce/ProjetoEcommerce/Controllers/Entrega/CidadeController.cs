@@ -1,5 +1,6 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Entrega;
+using ProjetoEcommerce.Servico.Entrega;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,14 @@ namespace ProjetoEcommerce.Controllers.Entrega
 {
     public class CidadeController : Controller
     {
-        private readonly ProjetoEcommerceContext _dbContext;
+        private readonly CidadeService _dbContext;
         public CidadeController()
         {
-            _dbContext = new ProjetoEcommerceContext();
+            _dbContext = new CidadeService();
         }
         public ActionResult ListarTodos()
         {
-            var lista = _dbContext.cidade.ToList();
+            var lista = _dbContext.GetAll();
             return View(lista);
         }
 
@@ -29,8 +30,28 @@ namespace ProjetoEcommerce.Controllers.Entrega
         [HttpPost]
         public ActionResult Adicionar(Cidade cidade)
         {
-            _dbContext.cidade.Add(cidade);
+            _dbContext.Save(cidade);
             return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Deletar(int id, string usuario)
+        {
+            _dbContext.Delete(id, usuario);
+            return RedirectToAction("ListarTodos");
+        }
+        [HttpPut]
+        public ActionResult Atualizar(Cidade obj)
+        {
+            _dbContext.Update(obj);
+            return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Atulizar()
+        {
+            return View();
+        }
+        public ActionResult Buscar(int id)
+        {
+            Cidade obj = _dbContext.GetOne(id);
+            return View(obj);
         }
     }
 }
