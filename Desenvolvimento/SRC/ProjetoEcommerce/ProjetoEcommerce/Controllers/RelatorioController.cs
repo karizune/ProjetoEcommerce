@@ -8,17 +8,16 @@ using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers
 {
-    public class RegistroController : Controller
+    public class RelatorioController : Controller
     {
-        /* private static List<Registro> Registros { get; set; }
+        /* private static List<Relatorio> Relatorios { get; set; }
 
-        public RegistroController()
+        public RelatorioController()
         {
-            Registros = new List<Registro>();
-            Registros.Add(new Registro
+            Relatorios = new List<Relatorio>();
+            Relatorios.Add(new Relatorio
             {
                 RelatorioID = 1,
-                UsuarioID = 1,
                 Nome = "Cristina",
                 Descricao = "Oi",
                 Usuario = "Carlos",
@@ -27,26 +26,24 @@ namespace ProjetoEcommerce.Controllers
                 AtualizadoEm = DateTime.Now
 
             });
-            Registros.Add(new Registro
+            Relatorios.Add(new Relatorio
             {
                 RelatorioID = 2,
-                UsuarioID = 2,
-                Nome = "Francielly",
+                Nome = "Maria",
                 Descricao = "Oi",
-                Usuario = "Gabriel",
-                Status = 2,
+                Usuario = "Carlos",
+                Status = 1,
                 CriadoEm = DateTime.Now,
                 AtualizadoEm = DateTime.Now
 
             });
-            Registros.Add(new Registro
+            Relatorios.Add(new Relatorio
             {
                 RelatorioID = 3,
-                UsuarioID = 3,
-                Nome = "Samanta",
+                Nome = "Carla",
                 Descricao = "Oi",
-                Usuario = "Gabriel",
-                Status = 3,
+                Usuario = "Carlos",
+                Status = 1,
                 CriadoEm = DateTime.Now,
                 AtualizadoEm = DateTime.Now
 
@@ -55,10 +52,10 @@ namespace ProjetoEcommerce.Controllers
         }
  
    
-        // GET: Registro
+        // GET: Relatorio
         public ActionResult ListarTodos()
         {
-            return View(Registros);
+            return View(Relatorios);
         }*/
 
         public ActionResult Index()
@@ -66,16 +63,16 @@ namespace ProjetoEcommerce.Controllers
             return View();
         }
 
-        // GET: Registro
+        // GET: Relatorios
 
         public ActionResult ListarTodos()
         {
-            var Registros =
+            var Relatorios =
                 new ProjetoEcommerceContext()
-                .Registro
+                .Relatorio
                 .ToList();
 
-            return View(Registros);
+            return View(Relatorios);
         }
 
         [HttpGet]
@@ -85,18 +82,17 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(Registro ent)
+        public ActionResult IncluirConfirm(Relatorio ent)
         {
             var db = new ProjetoEcommerceContext();
             ent.RelatorioID = 1;
-            ent.UsuarioID = 2;
             ent.Nome = "Gabriel";
             ent.Descricao = "2";
             ent.Usuario = "Carlos";
             ent.Status = 2;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
-            db.Registro.Add(ent);
+            db.Relatorio.Add(ent);
             db.SaveChanges();
 
             return Redirect("ListarTodos");
