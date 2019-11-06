@@ -40,7 +40,6 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
             return View(resultado);
         }
-        public ActionResult Edit
         public ActionResult Criar()
         {
             return View();
@@ -55,6 +54,16 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             Context.Carteira.Add(obj);
             Context.SaveChanges();
             return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Deletar(int id)
+        {
+            Context.Carteira.Remove(Context.Carteira.First(c => c.CarteiraID == id));
+            Context.SaveChanges();
+            return RedirectToAction("ListarTodos");
+
+
+
+
         }
     }
 }
