@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
+﻿using ProjetoEcommerce.data.EntityFramework.Context;
+using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace ProjetoEcommerce.Controllers
 {
     public class CampoController : Controller
     {
+        /*
         private static List<Campo> campos { get; set; }
 
         public CampoController()
@@ -48,12 +50,47 @@ namespace ProjetoEcommerce.Controllers
 
             });
         }
+        
 
         // GET: Campo
 
         public ActionResult ListarTodos()
         {
-            return View(campos);
+            return View();
+        }
+        */
+
+        // GET: Campo
+        public ActionResult ListarTodos()
+        {
+            var Campos =
+                new ProjetoEcommerceContext()
+                .Campo
+                .ToList();
+
+            return View(Campos);
+        }
+
+        [HttpGet]
+        public ActionResult Incluir()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult IncluirConfirm(Campo ent)
+        {
+            var db = new ProjetoEcommerceContext();
+            ent.CampoID = 1;
+            ent.Nome = "Gabriel";
+            ent.Status = 2;
+            ent.CriadoEm = DateTime.Now;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.TipoCampoID = 2;
+            db.Campo.Add(ent);
+            db.SaveChanges();
+
+            return Redirect("ListarTodos");
         }
 
     }
