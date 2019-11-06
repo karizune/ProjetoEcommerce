@@ -27,7 +27,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired();
 
             Property(x => x.Status)
-                .HasColumnName(@"Senha")
+                .HasColumnName(@"Status")
                 .HasColumnType("bit")
                 .IsRequired();
 

@@ -37,6 +37,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new ClienteConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Cliente");
         }
 
 
