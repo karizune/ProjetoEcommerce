@@ -19,7 +19,6 @@ namespace ProjetoEcommerce.Controllers.Entrega
         public ActionResult ListarTodos()
         {
             var lista = _dbContext.GetAll();
-     
             return View(lista);
         }
 

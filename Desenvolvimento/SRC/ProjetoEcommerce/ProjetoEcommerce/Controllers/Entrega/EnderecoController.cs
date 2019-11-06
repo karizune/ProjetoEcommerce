@@ -1,5 +1,6 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Entrega;
+using ProjetoEcommerce.Servico.Entrega;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,14 @@ namespace ProjetoEcommerce.Controllers.Entrega
 {
     public class EnderecoController : Controller
     {
-        private readonly ProjetoEcommerceContext _dbContext;
+        private readonly EnderecoService _dbContext;
         public EnderecoController()
         {
-            _dbContext = new ProjetoEcommerceContext();
+            _dbContext = new EnderecoService();
         }
         public ActionResult ListarTodos()
         {
-            var lista = _dbContext.endereco.ToList();
+            var lista = _dbContext.GetAll();
             return View(lista);
         }
 
@@ -27,9 +28,9 @@ namespace ProjetoEcommerce.Controllers.Entrega
         }
 
         [HttpPost]
-        public ActionResult Adicionar(Endereco cidade)
+        public ActionResult Adicionar(Endereco endereco)
         {
-            _dbContext.endereco.Add(cidade);
+            _dbContext.Save(endereco);
             return RedirectToAction("ListarTodos");
         }
     }
