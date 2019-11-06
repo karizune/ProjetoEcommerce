@@ -58,7 +58,7 @@
     <Compile Include="EntityFramework\Configuration\GrupoUsuarioConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Base\FormularioRepository.cs" />
+    <Compile Include="Repositories\FormularioRepository.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
