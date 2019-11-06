@@ -15,12 +15,12 @@ namespace ProjetoEcommerce.Controllers
         // GET: Categoria
         public ActionResult ListarTodas()
         {
-            var Categoria =
+            var categorias =
                 new ProjetoEcommerceContext()
                 .Categoria
                 .ToList();
 
-            return View(Categoria);
+            return View(categorias);
         }
         
         [HttpGet]
