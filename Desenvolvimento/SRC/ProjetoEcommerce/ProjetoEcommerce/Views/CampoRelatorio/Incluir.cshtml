@@ -15,13 +15,17 @@
     @using (Html.BeginForm("IncluirConfirm", "CampoRelatorio", FormMethod.Post))
     {
     <div style="border: 2px dotted black; padding: 45px">
-        @Html.TextBoxFor(modelItem => Model.RelatorioID)
-        @Html.TextBoxFor(modelItem => Model.CampoID)
-        @Html.TextBoxFor(modelItem => Model.Usuario)
-        @Html.TextBoxFor(modelItem => Model.Status)
-        @Html.TextBoxFor(modelItem => Model.CriadoEm)
-        @Html.TextBoxFor(modelItem => Model.AtualizadoEm)
 
+        <div>
+            Relatório ID: 
+            @Html.TextBoxFor(modelItem => Model.RelatorioID)
+        </div>
+
+        <div>
+            Campo ID:
+            @Html.TextBoxFor(modelItem => Model.CampoID)
+        </div>
+        
     </div>
         <br />
         <br />
