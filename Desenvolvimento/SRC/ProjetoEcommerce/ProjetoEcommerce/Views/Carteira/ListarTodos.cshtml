@@ -14,11 +14,23 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <th scope="row">@item.UsuarioID</th>
-                <td>@item.Saldo</td>
-                <td>@Html.ActionLink("Detalhes","Detalhes",new {id=item.CarteiraID})</td>
-            </tr>
+            if(item.Status != 0)
+            {
+                <tr>
+                    <th scope="row">@item.UsuarioID</th>
+                    <td>@item.Saldo</td>
+                    <td>@Html.ActionLink("Detalhes", "Detalhes", new { id = item.CarteiraID })</td>
+                </tr>
+
+            }
+            else
+            {
+                <tr style="background-color: red">
+                    <th scope="row">@item.UsuarioID</th>
+                    <td>@item.Saldo</td>
+                    <td>@Html.ActionLink("Detalhes", "Detalhes", new { id = item.CarteiraID })</td>
+                </tr>
+            }
         }
     </tbody>
 </table>

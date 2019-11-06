@@ -38,15 +38,6 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         public ActionResult Detalhes(int id)
         {
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
-            // Carteira resultado = carteiras.First(c => c.CarteiraID == id);
-            //foreach (var item in usuarios)
-            //{
-            //    if (item.ID == id)
-            //    {
-            //        resultado.usuario = item;
-            //        break;
-            //    }
-            //}
             return View(resultado);
         }
         public ActionResult Criar()
@@ -56,9 +47,12 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         [HttpPost]
         public ActionResult Criar(Carteira obj)
         {
+            obj.CriadoEm = DateTime.Now;
+            obj.AtualizadoEm = DateTime.Now;
+            obj.Status = 0;
+            obj.Usuario = "Sistema";
             Context.Carteira.Add(obj);
             Context.SaveChanges();
-            //carteiras.Add(obj);
             return RedirectToAction("ListarTodos");
         }
     }
