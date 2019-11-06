@@ -48,7 +48,7 @@
     <Compile Include="Entidades\Interfaces\Entrega\ICidadeService.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\IEnderecoService.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\IEstadoService.cs" />
-    <Compile Include="Entidades\Interfaces\IBaseService.cs" />
+    <Compile Include="Entidades\Comum\IBaseService.cs" />
     <Compile Include="Entidades\Entrega\Rua.cs" />
     <Compile Include="Entidades\Entrega\Ceps.cs" />
     <Compile Include="Entidades\Entrega\Endereco.cs" />

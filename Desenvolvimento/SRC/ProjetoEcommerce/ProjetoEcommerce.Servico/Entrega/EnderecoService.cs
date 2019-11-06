@@ -33,12 +33,12 @@ namespace ProjetoEcommerce.Servico.Entrega
 
         public Endereco Save(Endereco obj)
         {
-            return Save(obj);
+            return _repository.Save(obj);
         }
 
         public Endereco Update(Endereco obj)
         {
-            return Update(obj);
+            return _repository.Update(obj);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace ProjetoEcommerce.Servico.Entrega
 
         public Bairro Update(Bairro obj)
         {
-            return Update(obj);
+            return _repository.Update(obj);
         }
     }
 }

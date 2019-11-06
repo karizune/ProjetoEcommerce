@@ -15,19 +15,15 @@ namespace ProjetoEcommerce.Controllers.Entrega
         {
             _dbContext = new ProjetoEcommerceContext();
         }
-
         public ActionResult ListarTodos()
         {
             var lista = _dbContext.ceps.ToList();
             return View(lista);
         }
-
-        
         public ActionResult Adicionar()
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Adicionar(Ceps cep)
         {

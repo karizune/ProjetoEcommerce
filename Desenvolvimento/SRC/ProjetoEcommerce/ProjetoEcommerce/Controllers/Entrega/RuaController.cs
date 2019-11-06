@@ -20,7 +20,6 @@ namespace ProjetoEcommerce.Controllers.Entrega
             var lista = _dbContext.cidade.ToList();
             return View(lista);
         }
-
         public ActionResult Adicionar()
         {
             return View();
