@@ -40,6 +40,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
             return View(resultado);
         }
+        public ActionResult Edit
         public ActionResult Criar()
         {
             return View();
