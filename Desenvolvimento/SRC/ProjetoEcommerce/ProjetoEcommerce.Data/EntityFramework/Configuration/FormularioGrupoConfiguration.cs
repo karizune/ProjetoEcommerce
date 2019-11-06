@@ -35,10 +35,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
-                .Hascolumntype("varchar")
-                .IsRequired()
-                .HasMaxLenglet(100);
-
+                .HasColumnType("varchar")
+                .HasMaxLength(100)
+                .IsRequired();
+                
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
                 .HasColumnType(@"datetime")
