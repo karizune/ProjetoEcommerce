@@ -16,9 +16,9 @@ namespace ProjetoEcommerce.Controllers
             var carrinhoProduto =
                 new ProjetoEcommerceContext()
                     .carrinhoProduto
+                    .Include("Produto")
                     .ToList();
             return View("Index", carrinhoProduto);
-
         }
     }
 }

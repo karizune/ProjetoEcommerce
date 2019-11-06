@@ -12,9 +12,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public CarrinhoConfiguration()
         {
-            //LEMBRA DE ADD OS HASDATABASEGENERATEDOPTION DPS EM
+           
             ToTable("Carrinho", "Grupo2");
-            //ToTable("Carrinho");
+            
             HasKey(x => x.CarrinhoID);
 
             Property(x => x.CarrinhoID).HasColumnName(@"CarinhoID")
