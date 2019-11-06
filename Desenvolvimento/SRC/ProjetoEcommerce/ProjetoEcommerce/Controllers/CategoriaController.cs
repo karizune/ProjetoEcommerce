@@ -41,7 +41,7 @@ namespace ProjetoEcommerce.Controllers
             db.Categoria.Add(ent);
             db.SaveChanges();
 
-            return Redirect("ListarTodos");
+            return Redirect("ListarTodas");
         }
     }
 }
