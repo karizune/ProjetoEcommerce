@@ -30,7 +30,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
                 .HasMaxLength(100)
                 .IsRequired();
 
-            Property(x => x.Descrição)
+            Property(x => x.Descricao)
                 .HasColumnName(@"Descricao")
                 .HasColumnType("varchar")
                 .HasMaxLength(100)

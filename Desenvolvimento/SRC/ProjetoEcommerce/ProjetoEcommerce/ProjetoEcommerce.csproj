@@ -170,6 +170,8 @@
     <Compile Include="Controllers\CampoRelatorioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\TipoCampoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,11 +220,12 @@
     <Content Include="Views\CampoRelatorio\ListarTodos.cshtml" />
     <Content Include="Views\Registro\ListarTodos.cshtml" />
     <Content Include="Views\CampoRelatorio\Incluir.cshtml" />
+    <Content Include="Views\Relatorio\ListarTodos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Relatorio\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
