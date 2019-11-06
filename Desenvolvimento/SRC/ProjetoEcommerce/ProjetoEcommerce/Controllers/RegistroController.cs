@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
+﻿using ProjetoEcommerce.data.EntityFramework.Context;
+using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ProjetoEcommerce.Controllers
 {
     public class RegistroController : Controller
     {
-        private static List<Registro> Registros { get; set; }
+        /* private static List<Registro> Registros { get; set; }
 
         public RegistroController()
         {
@@ -58,6 +59,47 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult ListarTodos()
         {
             return View(Registros);
+        }*/
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Registro
+
+        public ActionResult ListarTodos()
+        {
+            var Registros =
+                new ProjetoEcommerceContext()
+                .Registro
+                .ToList();
+
+            return View(Registros);
+        }
+
+        [HttpGet]
+        public ActionResult Incluir()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult IncluirConfirm(Registro ent)
+        {
+            var db = new ProjetoEcommerceContext();
+            ent.RelatorioID = 1;
+            ent.UsuarioID = 2;
+            ent.Nome = "Gabriel";
+            ent.Descricao = "2";
+            ent.Usuario = "Carlos";
+            ent.Status = 2;
+            ent.CriadoEm = DateTime.Now;
+            ent.AtualizadoEm = DateTime.Now;
+            db.Registro.Add(ent);
+            db.SaveChanges();
+
+            return Redirect("ListarTodos");
         }
     }
 }
