@@ -1,5 +1,5 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Produto
-@model System.Collections.Generic.List<Produto>
+@model System.Collections.Generic.List<Categoria>
 
 @{
     Layout = null;
@@ -26,7 +26,7 @@
                 @foreach(var item in Model)
                 {
                     <tr>
-                        <td>@item.ProdutoID</td>
+                        <td>@item.CategoriaID</td>
                         <td>@item.Nome</td>
                         <td>@item.Status</td>
                         <td>@item.Usuario</td>

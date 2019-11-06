@@ -1,4 +1,4 @@
-﻿using ProjetoEcommerce.Data.Context;
+﻿using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Produto;
 using System;
 using System.Linq;

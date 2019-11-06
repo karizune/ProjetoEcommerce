@@ -1,11 +1,11 @@
-﻿using ProjetoEcommerce.Data.EntityFramework.Context;
-using ProjetoEcommerce.Dominio.Interfaces.Base;
+﻿using ProjetoEcommerce.Dominio.Interfaces.Base;
+using ProjetoEcommerce.Data.EntityFramework.Context;
+
 
 namespace ProjetoEcommerce.Data.Repositories.Base
 {
     public class RepositoryBase<TObject> : IRepositoryBase<TObject> where TObject : class
     {
-
         private ProjetoEcommerceContext _context = new ProjetoEcommerceContext();
         public TObject Add(TObject t)
         {
@@ -31,7 +31,5 @@ namespace ProjetoEcommerce.Data.Repositories.Base
             _context.SaveChanges();
             return t;
         }
-    }
-    {
     }
 }
