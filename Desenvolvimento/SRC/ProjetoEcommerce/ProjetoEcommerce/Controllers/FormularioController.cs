@@ -23,13 +23,13 @@ namespace ProjetoEcommerce.Controllers
             return View(listFormulario);
         }
 
-        public ActionResult Insert()
+        public ActionResult Incluir()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Insert(Formulario form)
+        public ActionResult IncluirConfirm(Formulario form)
         {
             var db = new ProjetoEcommerceContext();
 
@@ -39,6 +39,7 @@ namespace ProjetoEcommerce.Controllers
             form.Status = 1;
             form.CriadoEm = DateTime.Now;
             form.AtualizadoEm = DateTime.Now;
+            db.Formulario.Add(form);
             db.SaveChanges();
 
             return Redirect("ListarTodos");            

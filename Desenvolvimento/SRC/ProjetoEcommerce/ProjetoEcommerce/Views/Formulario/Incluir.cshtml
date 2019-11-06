@@ -1,0 +1,25 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Seguranca.Formulario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incluir</title>
+</head>
+<body>
+    @using (Html.BeginForm("IncluirConfirm", "Formulario", FormMethod.Post))
+    {
+    <div style="border: 2px dotted black; padding: 45px">
+        @Html.TextBoxFor(modelItem => Model.Descricao)
+        @Html.TextBoxFor(modelItem => Model.URL)
+    </div>
+        <br />
+        <br />
+        <input type="submit" value="VAI" />
+    }
+</body>
+</html>
