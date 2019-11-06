@@ -34,8 +34,47 @@
             <td>
                 @Model.AtualizadoEm
             </td>
-            
+                         
         </tr>
+            <tr>
+                <th>
+                    Status
+                </th>
+                    
+                    
+                        @if(Model.Status == 1)
+                        {
+                           <td>
+                               Ativo
+                           </td>
+
+                        }
+                        else
+                        {
+                            <td>
+                                Inativo
+                            </td>
+                        }
+
+            </tr>
+            <tr>
+                <th>
+                    Usuario
+                </th>
+                    <td>
+                        @Model.Usuario
+                    </td>
+            </tr>
+        <tr>
+            <th>
+                    Criado em
+            </th>
+                <td>
+                    @Model.CriadoEm
+                </td>
+        </tr>
+            
+       
     </tbody>
 </table>
 
