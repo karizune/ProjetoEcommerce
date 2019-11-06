@@ -210,6 +210,7 @@
     <Content Include="Views\Pagar\Pagar.cshtml" />
     <Content Include="Views\Pagamento\Index.cshtml" />
     <Content Include="Views\Carteira\Criar.cshtml" />
+    <Content Include="Views\Carteira\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

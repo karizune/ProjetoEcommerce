@@ -40,7 +40,12 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
             return View(resultado);
         }
-        public ActionResult Edit
+        public ActionResult Editar(int id)
+        {
+            Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
+
+            return View(resultado);
+        }
         public ActionResult Criar()
         {
             return View();
@@ -50,9 +55,18 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         {
             obj.CriadoEm = DateTime.Now;
             obj.AtualizadoEm = DateTime.Now;
-            obj.Status = 0;
+            obj.Status = 1;
             obj.Usuario = "Sistema";
             Context.Carteira.Add(obj);
+            Context.SaveChanges();
+            return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Editar(Carteira obj)
+        {
+            obj.AtualizadoEm = DateTime.Now;
+            obj.Usuario = "Sistema";
+            Context.Carteira.Attach(obj);
+            Context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             Context.SaveChanges();
             return RedirectToAction("ListarTodos");
         }
