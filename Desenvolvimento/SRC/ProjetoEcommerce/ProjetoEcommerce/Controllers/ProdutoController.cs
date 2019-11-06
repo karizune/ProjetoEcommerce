@@ -26,21 +26,26 @@ namespace ProjetoEcommerce.Controllers
             var db = new ProjetoEcommerceContext();
             foreach (var produto in produtos)
             {
-                var carrinhoProduto = new CarrinhoProduto
+
+                if (produto.Qtde > 0)
                 {
-                    CarrinhoID = 1,
-                    Status = 1,
-                    Usuario = "Jose",
-                    CriadoEm = DateTime.Now,
-                    AtualizadoEm = DateTime.Now,
+                    var carrinhoProduto = new CarrinhoProduto
+                    {
+                        CarrinhoID = 1,
+                        Status = 1,
+                        Usuario = "Jose",
+                        CriadoEm = DateTime.Now,
+                        AtualizadoEm = DateTime.Now,
 
-                    ProdutoID = produto.ProdutoID,
-                    Quantidade = produto.Qtde,
-                    PrecoTotal = produto.Preco * produto.Qtde,
-                    //Produto = produto
-                };
+                        ProdutoID = produto.ProdutoID,
+                        Quantidade = produto.Qtde,
+                        PrecoTotal = produto.Preco * produto.Qtde,
+                        //Produto = produto
+                    };
 
-                db.carrinhoProduto.Add(carrinhoProduto);
+                    db.carrinhoProduto.Add(carrinhoProduto);
+                }
+                
             }
                 db.SaveChanges();
             return RedirectToAction("Index","Carrinho");

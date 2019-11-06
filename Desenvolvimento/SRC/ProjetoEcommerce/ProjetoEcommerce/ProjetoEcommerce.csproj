@@ -198,7 +198,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
-    <Content Include="Views\Carrinho\haha.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
