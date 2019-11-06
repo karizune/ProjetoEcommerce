@@ -1,5 +1,5 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<Registro>
+@model System.Collections.Generic.List<TipoCampo>
 @{
     Layout = null;
 }
@@ -15,9 +15,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Relatorio ID</th>
-                    <th>Usuario ID</th>
-                    <th>Nome</th>
+                    <th>TipoCampo ID</th>
                     <th>Descrição</th>
                     <th>Usuário</th>
                     <th>Status</th>
@@ -29,9 +27,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.RelatorioID</td>
-                        <td>@item.UsuarioID</td>
-                        <td>@item.Nome</td>
+                        <td>@item.TipoCampoID</td>                       
                         <td>@item.Descricao</td>
                         <td>@item.Usuario</td>
                         <td>@item.Status</td>
