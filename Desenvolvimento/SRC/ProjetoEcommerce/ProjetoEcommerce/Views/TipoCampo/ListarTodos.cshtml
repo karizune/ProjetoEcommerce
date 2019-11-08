@@ -15,6 +15,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>TipoCampo ID</th>
                     <th>Tipo Campo ID</th>
                     <th>Descrição</th>
                     <th>Usuário</th>
@@ -26,6 +27,14 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+                    <tr>
+                        <td>@item.TipoCampoID</td>
+                        <td>@item.Descricao</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.Status</td>
+                        <td>@item.CriadoEm</td>
+                        <td>@item.AtualizadoEm</td>
+                    </tr>
                 <tr>
                     <td>@item.TipoCampoID</td>
                     <td>@item.Descricao</td>
