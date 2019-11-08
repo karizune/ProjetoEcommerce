@@ -1,0 +1,30 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Relatorio.Usuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incluir</title>
+</head>
+<body>
+    @using (Html.BeginForm("IncluirConfirm", "Usuario", FormMethod.Post))
+    {
+        <div style="border: 2px dotted black; padding: 45px">
+
+            <div>
+                Usuárrio ID:
+                @Html.TextBoxFor(modelItem => Model.UsuarioID)
+            </div>
+
+        </div>
+        <br />
+        <br />
+        <input type="submit" value="Confirmar" />
+    }
+</body>
+</html>

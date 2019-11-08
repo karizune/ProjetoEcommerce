@@ -1,0 +1,30 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Relatorio.Campo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incluir</title>
+</head>
+<body>
+    @using (Html.BeginForm("IncluirConfirm", "Campo", FormMethod.Post))
+    {
+        <div style="border: 2px dotted black; padding: 45px">
+
+            <div>
+                Campo ID:
+                @Html.TextBoxFor(modelItem => Model.CampoID)
+            </div>
+
+        </div>
+        <br />
+        <br />
+        <input type="submit" value="Confirmar" />
+    }
+</body>
+</html>

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace ProjetoEcommerce.Controllers
 {
 
-    public class TipoCampoController : Controllers
+    public class TipoCampoController : Controller
     {
          /*private static List<TipoCampo> TiposCampos { get; set; }
 
@@ -56,8 +56,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(TipoCampo ent)
         {
             var db = new ProjetoEcommerceContext();
-            ent.UsuarioID = 2;
-            ent.Nome = "Walber";
+            ent.TipoCampoID = 2;
             ent.Descricao = "Cóe";
             ent.Usuario = "Fellipe";
             ent.Status = 2;

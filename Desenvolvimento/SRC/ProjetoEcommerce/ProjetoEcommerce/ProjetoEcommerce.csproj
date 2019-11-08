@@ -201,6 +201,15 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Campo\Incluir.cshtml" />
+    <Content Include="Views\Registro\Incluir.cshtml" />
+    <Content Include="Views\Relatorio\Incluir.cshtml" />
+    <Content Include="Views\TipoCampo\Incluir.cshtml" />
+    <Content Include="Views\Campo\Index.cshtml" />
+    <Content Include="Views\CampoRelatorio\Index.cshtml" />
+    <Content Include="Views\Registro\Index.cshtml" />
+    <Content Include="Views\Relatorio\Index.cshtml" />
+    <Content Include="Views\TipoCampo\Index.cshtml" />
     <None Include="Views\TipoCampo\ListarTodos.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -221,11 +230,13 @@
     <Content Include="Views\Registro\ListarTodos.cshtml" />
     <Content Include="Views\CampoRelatorio\Incluir.cshtml" />
     <Content Include="Views\Relatorio\ListarTodos.cshtml" />
+    <Content Include="Views\Usuario\ListarTodos.cshtml" />
+    <Content Include="Views\Usuario\Incluir.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

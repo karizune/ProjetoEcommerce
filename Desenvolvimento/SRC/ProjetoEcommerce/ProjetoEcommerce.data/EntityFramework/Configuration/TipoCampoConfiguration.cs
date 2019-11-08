@@ -22,7 +22,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
                     .HasDatabaseGeneratedOption
                     (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Descrição)
+            Property(x => x.Descricao)
                     .HasColumnName(@"Descricao")
                     .HasColumnType("varchar")
                     .HasMaxLength(100)
