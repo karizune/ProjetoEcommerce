@@ -25,7 +25,7 @@ namespace ProjetoEcommerce.Controllers
 
         [HttpPost]
         public ActionResult Adicionar(List<Produto> produtos)
-        {
+        {   
             var db = new ProjetoEcommerceContext();
             foreach (var produto in produtos)
             {

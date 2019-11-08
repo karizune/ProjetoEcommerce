@@ -13,12 +13,26 @@ namespace ProjetoEcommerce.Controllers
         // GET: Carrinho
         public ActionResult Index()
         {
-            var carrinhoProduto =
+            var carrinhoProdutos =
                 new ProjetoEcommerceContext()
                     .carrinhoProduto
                     .Include("Produto")
                     .ToList();
-            return View("Index", carrinhoProduto);
+            return View("Index", carrinhoProdutos);
+        }
+
+        [HttpPost]
+        public ActionResult Remover(CarrinhoProduto carrinhoProdutos)
+        {
+
+            var db = new ProjetoEcommerceContext();
+
+            var removerCarrinho = carrinhoProdutos;
+
+            db.carrinhoProduto.Remove(removerCarrinho);
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Carrinho");
         }
     }
 }
