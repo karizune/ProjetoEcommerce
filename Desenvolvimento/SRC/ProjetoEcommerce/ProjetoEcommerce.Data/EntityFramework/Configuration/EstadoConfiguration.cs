@@ -1,14 +1,9 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class EstadoConfiguration : EntityTypeConfiguration<Estado>
+    internal class EstadoConfiguration : EntityTypeConfiguration<Estado>
     {
         public EstadoConfiguration()
         {
@@ -53,7 +48,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"AtualizaEm")
                 .HasColumnType("Date")
                 .IsRequired();
-
         }
     }
 }

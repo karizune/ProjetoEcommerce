@@ -4,15 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Repository
 {
-    public abstract class BaseRepository<T> : IRepository<T> where T : class
+    public class BaseRepository<T> : IRepository<T> where T : class
     {
         private readonly ProjetoEcommerceContext _db;
         private readonly DbSet<T> _dbSet;
+
         public BaseRepository()
         {
             _db = new ProjetoEcommerceContext();
@@ -39,7 +38,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Repository
             T ent = GetOne(id);
             if (ent == null) throw new ArgumentNullException("Objeto não encontrado.");
 
-            if(typeof(T) is IGenerica)
+            if (typeof(T) is IGenerica)
             {
                 var obj = ent as IGenerica;
                 obj.Status = 0;
@@ -50,7 +49,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Repository
             }
 
             return ent;
-
         }
 
         public T GetOne(int id)

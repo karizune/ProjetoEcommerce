@@ -1,10 +1,5 @@
-﻿using ProjetoEcommerce.Data.EntityFramework.Context;
-using ProjetoEcommerce.Dominio.Entidades.Entrega;
+﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
 using ProjetoEcommerce.Servico.Entrega;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers.Entrega
@@ -12,10 +7,12 @@ namespace ProjetoEcommerce.Controllers.Entrega
     public class EstadoController : Controller
     {
         private readonly EstadoService _dbContext;
+
         public EstadoController()
         {
             _dbContext = new EstadoService();
         }
+
         public ActionResult ListarTodos()
         {
             var lista = _dbContext.GetAll();

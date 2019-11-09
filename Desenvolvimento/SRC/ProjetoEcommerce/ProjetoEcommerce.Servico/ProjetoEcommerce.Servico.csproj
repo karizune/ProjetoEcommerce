@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entrega\BairroService.cs" />
+    <Compile Include="Entrega\Base\BaseService.cs" />
     <Compile Include="Entrega\CepsService.cs" />
     <Compile Include="Entrega\CidadeService.cs" />
     <Compile Include="Entrega\EnderecoService.cs" />

@@ -1,14 +1,9 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class EnderecoConfiguration : EntityTypeConfiguration<Endereco>
+    internal class EnderecoConfiguration : EntityTypeConfiguration<Endereco>
     {
         public EnderecoConfiguration()
         {
@@ -64,8 +59,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"AtualizaEm")
                 .HasColumnType("Date")
                 .IsRequired();
-
-
         }
     }
 }
