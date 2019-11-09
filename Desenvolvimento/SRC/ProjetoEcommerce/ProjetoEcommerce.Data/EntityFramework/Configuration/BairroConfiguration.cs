@@ -1,18 +1,12 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Data.EntityFramework.Configuration 
+namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class BairroConfiguration : EntityTypeConfiguration<Bairro>
+    internal class BairroConfiguration : EntityTypeConfiguration<Bairro>
     {
         public BairroConfiguration()
         {
-
             ToTable("Bairro");
             HasKey(x => x.BairroID);
 
@@ -53,9 +47,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"AtualizaEm")
                 .HasColumnType("Date")
                 .IsRequired();
-
-
-
         }
     }
 }

@@ -1,14 +1,9 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-     class RuaConfiguration : EntityTypeConfiguration<Rua>
+    internal class RuaConfiguration : EntityTypeConfiguration<Rua>
     {
         public RuaConfiguration()
         {
@@ -48,6 +43,5 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnType("Date")
                 .IsRequired();
         }
-
     }
 }

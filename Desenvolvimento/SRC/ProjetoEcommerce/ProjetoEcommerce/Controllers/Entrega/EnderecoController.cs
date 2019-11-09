@@ -1,23 +1,21 @@
-﻿using ProjetoEcommerce.Data.EntityFramework.Context;
-using ProjetoEcommerce.Dominio.Entidades.Entrega;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
+using ProjetoEcommerce.Servico.Entrega;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers.Entrega
 {
     public class EnderecoController : Controller
     {
-        private readonly ProjetoEcommerceContext _dbContext;
+        private readonly EnderecoService _dbContext;
+
         public EnderecoController()
         {
-            _dbContext = new ProjetoEcommerceContext();
+            _dbContext = new EnderecoService();
         }
+
         public ActionResult ListarTodos()
         {
-            var lista = _dbContext.endereco.ToList();
+            var lista = _dbContext.GetAll();
             return View(lista);
         }
 
@@ -27,10 +25,35 @@ namespace ProjetoEcommerce.Controllers.Entrega
         }
 
         [HttpPost]
-        public ActionResult Adicionar(Endereco cidade)
+        public ActionResult Adicionar(Endereco endereco)
         {
-            _dbContext.endereco.Add(cidade);
+            _dbContext.Save(endereco);
             return RedirectToAction("ListarTodos");
+        }
+
+        [HttpDelete]
+        public ActionResult Deletar(int id, string usuario)
+        {
+            _dbContext.Delete(id, usuario);
+            return RedirectToAction("ListarTodos");
+        }
+
+        public ActionResult Atualiza()
+        {
+            return View();
+        }
+
+        [HttpPut]
+        public ActionResult Atualizar(Endereco endereco)
+        {
+            _dbContext.Update(endereco);
+            return RedirectToAction("ListarTodos");
+        }
+
+        public ActionResult Buscar(int id)
+        {
+            Endereco obj = _dbContext.GetOne(id);
+            return View(obj);
         }
     }
 }
