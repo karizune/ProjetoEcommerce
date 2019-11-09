@@ -8,7 +8,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Seguranca
 {
     public class GrupoDeAcesso : BaseEntity
     {
-        public int GrupoID { get; set; }
+        public int GrupoDeAcessoID { get; set; }
         public string Descricao { get; set; }
 
     }

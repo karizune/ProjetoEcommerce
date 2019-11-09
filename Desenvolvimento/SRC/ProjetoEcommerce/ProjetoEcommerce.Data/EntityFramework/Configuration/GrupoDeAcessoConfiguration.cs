@@ -13,10 +13,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public GrupoDeAcessoConfiguration()
         {
             ToTable("seguranca.GrupoDeAcesso");
-            HasKey(x => x.GrupoID);
+            HasKey(x => x.GrupoDeAcessoID);
 
-            Property(x => x.GrupoID)
-                .HasColumnName(@"GrupoID")
+            Property(x => x.GrupoDeAcessoID)
+                .HasColumnName(@"GrupoDeAcessoID")
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

@@ -186,11 +186,12 @@
     <Content Include="Views\Formulario\ListarTodos.cshtml" />
     <Content Include="Views\Formulario\Incluir.cshtml" />
     <Content Include="Views\FormularioGrupo\ListarTodos.cshtml" />
+    <Content Include="Views\GrupoDeAcesso\ListarTodos.cshtml" />
+    <Content Include="Views\GrupoDeAcesso\Incluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\GrupoDeAcesso\" />
     <Folder Include="Views\GrupoUsuario\" />
   </ItemGroup>
   <ItemGroup>
