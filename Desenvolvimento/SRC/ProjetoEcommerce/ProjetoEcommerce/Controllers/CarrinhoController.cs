@@ -21,18 +21,24 @@ namespace ProjetoEcommerce.Controllers
             return View("Index", carrinhoProdutos);
         }
 
-        [HttpPost]
-        public ActionResult Remover(CarrinhoProduto carrinhoProdutos)
+        public JsonResult Remover(int carrinhoProdutoId)
         {
+            try
+            {
+                var db = new ProjetoEcommerceContext();
 
-            var db = new ProjetoEcommerceContext();
+                var removerCarrinho = db.carrinhoProduto.Find(carrinhoProdutoId);
 
-            var removerCarrinho = carrinhoProdutos;
+                db.carrinhoProduto.Remove(removerCarrinho);
+                db.SaveChanges();
 
-            db.carrinhoProduto.Remove(removerCarrinho);
-            db.SaveChanges();
-
-            return RedirectToAction("Index", "Carrinho");
+                return Json(new { status = 1, message = "You're fired!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = 0, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+            
         }
     }
 }
