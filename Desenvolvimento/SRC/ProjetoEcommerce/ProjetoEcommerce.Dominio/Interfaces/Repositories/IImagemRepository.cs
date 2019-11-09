@@ -11,5 +11,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
     public interface IImagemRepository : IRepositoryBase<Imagem>
     {
         Imagem GetOneBy(int ImagemID);
+        IEnumerable<Imagem> BuscarAtivos();
     }
 }

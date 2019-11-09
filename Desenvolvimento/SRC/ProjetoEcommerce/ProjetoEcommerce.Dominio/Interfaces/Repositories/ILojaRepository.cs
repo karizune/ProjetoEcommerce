@@ -11,5 +11,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
     interface ILojaRepository : IRepositoryBase<Loja>
     {
         Loja GetOneBy(int LojaID);
+        IEnumerable<Loja> BuscarAtivos();
     }
 }
