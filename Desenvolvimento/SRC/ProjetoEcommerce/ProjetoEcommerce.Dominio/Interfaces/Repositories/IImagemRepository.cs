@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
-    interface IImagemRepository
+    public interface IImagemRepository : IRepositoryBase<Imagem>
     {
+        Imagem GetOneBy(int ImagemID);
     }
 }
