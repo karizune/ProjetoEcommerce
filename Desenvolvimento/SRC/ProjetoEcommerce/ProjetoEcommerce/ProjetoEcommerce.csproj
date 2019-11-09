@@ -138,6 +138,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FormularioController.cs" />
     <Compile Include="Controllers\FormularioGrupoController.cs" />
+    <Compile Include="Controllers\GrupoDeAcessoController.cs" />
+    <Compile Include="Controllers\GrupoUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,6 +190,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\GrupoDeAcesso\" />
+    <Folder Include="Views\GrupoUsuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
