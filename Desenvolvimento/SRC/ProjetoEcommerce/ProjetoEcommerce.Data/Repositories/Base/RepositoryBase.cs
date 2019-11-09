@@ -1,28 +1,36 @@
 ﻿using ProjetoEcommerce.Dominio.Interfaces.Base;
 using ProjetoEcommerce.Data.EntityFramework.Context;
-
+using System.Data.Entity;
 
 namespace ProjetoEcommerce.Data.Repositories.Base
 {
     public class RepositoryBase<TObject> : IRepositoryBase<TObject> where TObject : class
     {
-        private ProjetoEcommerceContext _context = new ProjetoEcommerceContext();
+        private readonly ProjetoEcommerceContext _context;
+        protected readonly DbSet<TObject> Entity;
+
+        public RepositoryBase()
+        {
+            _context = new ProjetoEcommerceContext();
+            Entity = _context.Set<TObject>();
+
+        }
         public TObject Add(TObject t)
         {
-            _context.Set<TObject>().Add(t);
+            Entity.Add(t);
             _context.SaveChanges();
             return t;
         }
 
         public void Delete(TObject t)
         {
-            _context.Set<TObject>().Remove(t);
+            Entity.Remove(t);
             _context.SaveChanges();
         }
 
         public TObject GetOne(int id)
         {
-            return _context.Set<TObject>().Find(id);
+            return Entity.Find(id);
         }
 
         public TObject Update(TObject t)
