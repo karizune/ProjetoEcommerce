@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
-    interface ILojaRepository : IRepositoryBase<Loja>
+    public interface ILojaRepository : IRepositoryBase<Loja>
     {
         Loja GetOneBy(int LojaID);
     }

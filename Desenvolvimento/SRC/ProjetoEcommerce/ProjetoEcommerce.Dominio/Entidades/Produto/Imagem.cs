@@ -10,6 +10,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Produto
     public class Imagem:IEntityBase
     {  
         public int ImagemID { get; set; }
+        public int ProdutoID { get; set; }
         public string Nome { get; set; }
         public string URL { get; set; }
         public double Tamanho { get; set; }
@@ -18,5 +19,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Produto
         public string Usuario { get; set; }
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
+
+        public Produto Produto { get; set; }
     }
 }

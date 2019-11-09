@@ -11,6 +11,7 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
     public interface IMarcaRepository:IRepositoryBase<Marca>
     {
-        Rastreamento GetOneBy(int rastreamentoId);
+        Produto GetOneBy(int MarcaID);
+        IEnumerable<Marca> BuscarAtivos();
     }
 }
