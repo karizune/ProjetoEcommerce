@@ -14,6 +14,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
     {
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Imagem> Imagem { get; set; }
+        public DbSet<Loja> Loja { get; set; }
+        public DbSet<Marca> Marca { get; set; }
+        public DbSet<Produto> Produto { get; set; }
 
         static ProjetoEcommerceContext()
         {
@@ -31,6 +34,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new CategoriaConfiguration());
+            modelBuilder.Configurations.Add(new ImagemConfiguration());
+            modelBuilder.Configurations.Add(new LojaConfiguration());
+            modelBuilder.Configurations.Add(new MarcaConfiguration());
+            modelBuilder.Configurations.Add(new ProdutoConfiguration());
         }
     }
 }
