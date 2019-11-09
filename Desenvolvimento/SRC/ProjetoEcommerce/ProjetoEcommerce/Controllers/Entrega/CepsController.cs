@@ -1,10 +1,5 @@
-﻿using ProjetoEcommerce.Data.EntityFramework.Context;
-using ProjetoEcommerce.Dominio.Entidades.Entrega;
+﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
 using ProjetoEcommerce.Servico.Entrega;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers.Entrega
@@ -31,6 +26,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
             _dbContext.Save(cep);
             return RedirectToAction("ListarTodos");
         }
+        [HttpDelete]
         public ActionResult Deletar(int id, string usuario)
         {
             _dbContext.Delete(id, usuario);
@@ -42,7 +38,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
             _dbContext.Update(obj);
             return RedirectToAction("ListarTodos");
         }
-        public ActionResult Atulizar()
+        public ActionResult Atualizar()
         {
             return View();
         }

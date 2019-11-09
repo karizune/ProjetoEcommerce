@@ -38,7 +38,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
             return RedirectToAction("ListarTodos");
         }
 
-        public ActionResult Atualiza()
+        public ActionResult Atualizar()
         {
             return View();
         }
