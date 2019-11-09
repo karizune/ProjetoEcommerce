@@ -11,5 +11,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
     public interface ICategoriaRepository:IRepositoryBase<Categoria>
     {
         Categoria GetOneBy(int CategoriaID);
+        IEnumerable<Categoria> BuscarAtivos();
     }
 }
