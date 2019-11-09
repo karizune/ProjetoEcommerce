@@ -13,7 +13,31 @@
 </head>
 <body>
     <div>
-        
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Descrição</td>
+                    <td>URL</td>
+                    <td>Status</td>
+                    <td>Usuário</td>
+                    <td>Criado Em</td>
+                    <td>Atualizado Em</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FormularioID</td>
+                        <td>@item.GrupoID</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.CriadoEm</td>
+                        <td>@item.AtualizadoEm</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
