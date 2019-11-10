@@ -23,12 +23,12 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
-                .HasColumnType("string")
+                .HasColumnType("varchar")
                 .IsRequired();
 
             Property(x => x.Senha)
                 .HasColumnName(@"Senha")
-                .HasColumnType("string")
+                .HasColumnType("varchar")
                 .HasMaxLength(50)
                 .IsRequired();
 

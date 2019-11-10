@@ -16,7 +16,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
         public string Tipo { get; set; } //celular, residencial, corporativo
         public DateTime CriadoEm { get; set; }
         public DateTime AlteradoEm { get; set; }
-        public int MyProperty { get; set; }
+        public Cliente cliente { get; set; }
 
     }
 }
