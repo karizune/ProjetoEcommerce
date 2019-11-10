@@ -31,7 +31,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
               .HasColumnType("varchar")
               .IsRequired();
 
-            Property(x => x.DDDD)
+            Property(x => x.DDD)
               .HasColumnName(@"DDD")
               .HasColumnType("varchar")
               .IsRequired();

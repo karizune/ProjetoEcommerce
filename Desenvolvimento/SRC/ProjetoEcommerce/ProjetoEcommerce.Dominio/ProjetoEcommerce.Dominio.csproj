@@ -57,6 +57,11 @@
     <Compile Include="Entidades\Perfil\Juridico.cs" />
     <Compile Include="Entidades\Perfil\Sexo.cs" />
     <Compile Include="Entidades\Perfil\Telefone.cs" />
+    <Compile Include="Interfaces\IClienteRepository.cs" />
+    <Compile Include="Interfaces\IFisicoRepository.cs" />
+    <Compile Include="Interfaces\IJuridicoRepository.cs" />
+    <Compile Include="Interfaces\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\ISexoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +71,7 @@
     <Folder Include="Entidades\Produto\" />
     <Folder Include="Entidades\Relatorio\" />
     <Folder Include="Entidades\Seguranca\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,9 +13,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public ClienteConfiguration()
         {
             ToTable("Cliente", "perfil");
-            HasKey(x => x.IDCLiente);
+            HasKey(x => x.IDCliente);
 
-            Property(x => x.IDCLiente)
+            Property(x => x.IDCliente)
                 .HasColumnName(@"IDCliente")
                 .HasColumnType("int")
                 .IsRequired()

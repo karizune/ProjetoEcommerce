@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class EmailConfiguration :EntityTypeConfiguration<Email>
+    public class EmailConfiguration :EntityTypeConfiguration<Email>
     {
         public EmailConfiguration()
         {

@@ -12,6 +12,6 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
         public string CPF { get; set; }
         public DateTime DataNascimento { get; set; }
         public int IDSexo { get; set; }
-        public Sexo Sexo { get; set; }
+        public virtual Sexo Sexo { get; set; }
     }
 }

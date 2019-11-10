@@ -38,6 +38,21 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new ClienteConfiguration());
             modelBuilder.Entity<Cliente>().HasEntitySetName("Cliente");
+
+            modelBuilder.Configurations.Add(new EmailConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Email");
+
+            modelBuilder.Configurations.Add(new TelefoneConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Telefone");
+
+            modelBuilder.Configurations.Add(new FisicoConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Fisico");
+
+            modelBuilder.Configurations.Add(new JuridicoConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Juridico");
+
+            modelBuilder.Configurations.Add(new SexoConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Sexo");
         }
 
 

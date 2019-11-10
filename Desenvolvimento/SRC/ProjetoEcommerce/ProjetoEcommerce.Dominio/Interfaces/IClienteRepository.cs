@@ -5,11 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Data.Repositories
+namespace ProjetoEcommerce.Dominio.Interfaces
 {
-   public interface IEmailRepository 
+    public interface IClienteRepository : IRepositoryBase<Cliente>
     {
-        IEnumerable<Email> Emails { get; }
-
     }
 }

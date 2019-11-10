@@ -12,8 +12,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
         public string Senha { get; set; }
         public bool Tipo { get; set; }
         public string Foto { get; set; }
-        public int IdTelefone { get; set; }
-        public Telefone Telefone { get; set; }
         public List<Telefone> Telefones { get; set; }
+        public List<Email> Email { get; set; }
     }
 }
