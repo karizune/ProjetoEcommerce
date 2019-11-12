@@ -56,8 +56,6 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(TipoCampo ent)
         {
             var db = new ProjetoEcommerceContext();
-            ent.TipoCampoID = 2;
-            ent.Descricao = "Cóe";
             ent.Usuario = "Fellipe";
             ent.Status = 2;
             ent.CriadoEm = DateTime.Now;

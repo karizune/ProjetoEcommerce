@@ -74,6 +74,11 @@ namespace ProjetoEcommerce.Controllers
         [HttpGet]
         public ActionResult Incluir()
         {
+            ViewBag.TipoCampos =
+                new ProjetoEcommerceContext()
+                .TipoCampo
+                .ToList();
+
             return View();
         }
 
@@ -81,12 +86,10 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(Campo ent)
         {
             var db = new ProjetoEcommerceContext();
-            ent.CampoID = 1;
-            ent.Nome = "Gabriel";
+            ent.Usuario = "CJ";
             ent.Status = 2;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
-            ent.TipoCampoID = 2;
             db.Campo.Add(ent);
             db.SaveChanges();
 

@@ -81,17 +81,22 @@ namespace ProjetoEcommerce.Controllers
         [HttpGet]
         public ActionResult Incluir()
         {
+            ViewBag.Relatorios =
+                new ProjetoEcommerceContext()
+                .Relatorio
+                .ToList();
+            ViewBag.Usuarios =
+                new ProjetoEcommerceContext()
+                .Usuario
+                .ToList();
             return View();
+
         }
 
         [HttpPost]
         public ActionResult IncluirConfirm(Registro ent)
         {
             var db = new ProjetoEcommerceContext();
-            ent.RelatorioID = 1;
-            ent.UsuarioID = 2;
-            ent.Nome = "Gabriel";
-            ent.Descricao = "2";
             ent.Usuario = "Carlos";
             ent.Status = 2;
             ent.CriadoEm = DateTime.Now;

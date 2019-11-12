@@ -12,16 +12,20 @@
     <title>Incluir</title>
 </head>
 <body>
-    @using (Html.BeginForm("IncluirConfirm", "Registro", FormMethod.Post))
+    @using (Html.BeginForm("IncluirConfirm", "Relatorio", FormMethod.Post))
     {
-        <div style="border: 2px dotted black; padding: 45px">
+    <div style="border: 2px dotted black; padding: 45px">
 
-            <div>
-                Relatório ID:
-                @Html.TextBoxFor(modelItem => Model.RelatorioID)
-            </div>
-
+        <div>
+            Nome:
+            @Html.TextBoxFor(modelItem => Model.Nome)
         </div>
+        <div>
+            Descrição:
+            @Html.TextBoxFor(modelItem => Model.Descricao)
+        </div>
+
+    </div>
         <br />
         <br />
         <input type="submit" value="Confirmar" />

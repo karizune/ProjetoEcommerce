@@ -17,15 +17,15 @@
     <div style="border: 2px dotted black; padding: 45px">
 
         <div>
-            Relatório ID: 
-            @Html.TextBoxFor(modelItem => Model.RelatorioID)
+            Relatório ID:
+            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))            
         </div>
 
         <div>
             Campo ID:
-            @Html.TextBoxFor(modelItem => Model.CampoID)
+            @Html.DropDownListFor(model => model.CampoID, new SelectList(ViewBag.Campos, "CampoID", "Nome"))
         </div>
-        
+
     </div>
         <br />
         <br />

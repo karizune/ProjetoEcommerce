@@ -14,19 +14,27 @@
 <body>
     @using (Html.BeginForm("IncluirConfirm", "Registro", FormMethod.Post))
     {
-        <div style="border: 2px dotted black; padding: 45px">
+    <div style="border: 2px dotted black; padding: 45px">
 
-            <div>
-                Relatório ID:
-                @Html.TextBoxFor(modelItem => Model.RelatorioID)
-            </div>
-
-            <div>
-                Usuario ID:
-                @Html.TextBoxFor(modelItem => Model.UsuarioID)
-            </div>
-
+        <div>       
+            Nome:
+            @Html.TextBoxFor(modelItem => Model.Nome)
         </div>
+
+        <div>
+            Descrição:
+            @Html.TextBoxFor(modelItem => Model.Descricao)
+        </div>
+        <div>
+            Relatorio ID:
+            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))
+        </div>
+        <div>
+            Usuario:
+            @Html.DropDownListFor(model => model.UsuarioID, new SelectList(ViewBag.Usuarios, "UsuarioID", "NomeUsuario"))
+        </div>
+
+    </div>
         <br />
         <br />
         <input type="submit" value="Confirmar" />
