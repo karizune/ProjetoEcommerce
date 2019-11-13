@@ -10,6 +10,12 @@ namespace ProjetoEcommerce.Controllers
 {
     public class FormularioGrupoController : Controller
     {
+        private readonly ProjetoEcommerceContext db;
+
+        public FormularioGrupoController()
+        {
+            db = new ProjetoEcommerceContext();
+        }
         // GET: FormularioGrupo
         public ActionResult Index()
         {
@@ -17,23 +23,29 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult ListarTodos()
         {
-            var ListFormularioGrupo = new ProjetoEcommerceContext().FormularioGrupo.ToList();
+            var ListFormularioGrupo = db.FormularioGrupo.ToList();
 
             return View(ListFormularioGrupo);
         }
         public ActionResult Incluir()
         {
-            return View();
+            ViewBag.Formularios = db.Formulario.ToList();
+            ViewBag.Grupos = db.GrupoDeAcessos.ToList();
+
+            var obj = new FormularioGrupo();
+
+            return View(obj);
         }
         [HttpPost]
         public ActionResult IncluirConfirm(FormularioGrupo formGrupo)
         {
-            var db = new ProjetoEcommerceContext();
-
             formGrupo.AtualizadoEm= DateTime.Now;
             formGrupo.CriadoEm = DateTime.Now;
             formGrupo.Status = 1;
             formGrupo.Usuario = "Teste";
+
+            db.FormularioGrupo.Add(formGrupo);
+            db.SaveChanges();
 
             return View("ListarTodos");
         }

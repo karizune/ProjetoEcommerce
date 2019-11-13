@@ -188,6 +188,7 @@
     <Content Include="Views\FormularioGrupo\ListarTodos.cshtml" />
     <Content Include="Views\GrupoDeAcesso\ListarTodos.cshtml" />
     <Content Include="Views\GrupoDeAcesso\Incluir.cshtml" />
+    <Content Include="Views\FormularioGrupo\Incluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
