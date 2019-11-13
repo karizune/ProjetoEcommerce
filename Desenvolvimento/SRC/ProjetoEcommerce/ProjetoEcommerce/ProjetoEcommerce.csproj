@@ -212,7 +212,7 @@
     <Content Include="Views\Pagamento\Index.cshtml" />
     <Content Include="Views\Carteira\Criar.cshtml" />
     <Content Include="Views\Carteira\Editar.cshtml" />
-    <Content Include="Views\Cartao\Index.cshtml" />
+    <Content Include="Views\Cartao\Criar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
