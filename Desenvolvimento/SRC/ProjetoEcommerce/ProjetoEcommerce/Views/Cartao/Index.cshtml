@@ -1,0 +1,30 @@
+﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
+@model List<Cartao>
+@{
+    ViewBag.Title = "ListarCartao";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Criar", "Criar")
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nome do Titular</th>
+            <th>Numero do Cartão</th>
+            <th>Vencimento</th>
+            <th>Bandeira</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NomeTitular</td>
+                <td>@item.Numero</td>
+                <td>@item.VencimentoMes / @item.VencimentoAno</td>
+                <td>@item.bandeiraCartao</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

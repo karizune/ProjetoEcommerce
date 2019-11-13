@@ -28,8 +28,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Numero).HasColumnName(@"Numero").HasColumnType("varchar").HasMaxLength(16).IsRequired();
 
-            Property(x => x.Vencimento).HasColumnName("Vencimento").HasColumnType("datetime").IsRequired();
-
+            Property(x => x.VencimentoMes).HasColumnName("VencimentoMes").HasColumnType("int").IsRequired();
+            Property(x => x.VencimentoAno).HasColumnName("VencimentoAno").HasColumnType("int").IsRequired();
             Property(x => x.BandeiraCartaoID).HasColumnName(@"BandeiraCartaoID").HasColumnType("int").IsRequired();
             Property(x => x.StatusCartaoID).HasColumnName("@StatusCartaoID").HasColumnType("int").IsRequired();
             Property(x => x.UsuarioID).HasColumnName(@"UsuarioID").HasColumnType("int").IsRequired();

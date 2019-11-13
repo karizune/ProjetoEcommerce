@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Pagamento\BandeiraCartaoController.cs" />
+    <Compile Include="Controllers\Pagamento\CartaoController.cs" />
     <Compile Include="Controllers\Pagamento\CarteiraController.cs" />
     <Compile Include="Controllers\Pagamento\MetodoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagamentoController.cs" />
@@ -211,6 +212,7 @@
     <Content Include="Views\Pagamento\Index.cshtml" />
     <Content Include="Views\Carteira\Criar.cshtml" />
     <Content Include="Views\Carteira\Editar.cshtml" />
+    <Content Include="Views\Cartao\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
     {
         public int CartaoID { get; set; }
         public string Numero { get; set; }
-        public DateTime Vencimento { get; set; }
+        public int VencimentoAno { get; set; }
+        public int VencimentoMes { get; set; }
         public int UsuarioID { get; set; }
         public string NomeTitular { get; set; }
         public int BandeiraCartaoID { get; set; }
