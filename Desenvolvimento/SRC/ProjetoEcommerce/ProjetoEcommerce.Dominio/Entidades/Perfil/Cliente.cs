@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace ProjetoEcommerce.Dominio.Entidades.Perfil
 {
-    public abstract class Cliente 
+    public abstract class Cliente : EntityBase
     {
         public int IDCliente { get; set; }
         public string Nome { get; set; }

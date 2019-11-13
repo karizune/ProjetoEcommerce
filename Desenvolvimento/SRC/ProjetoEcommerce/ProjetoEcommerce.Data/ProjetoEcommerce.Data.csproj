@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramework\Configuration\ClienteConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\EmailConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\FisicoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\JuridicoConfiguration.cs" />
@@ -64,7 +63,6 @@
     <Compile Include="Repositories\FisicoRepository.cs" />
     <Compile Include="Repositories\JuridicoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
-    <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Repositories\SexoRepository.cs" />
   </ItemGroup>
   <ItemGroup />

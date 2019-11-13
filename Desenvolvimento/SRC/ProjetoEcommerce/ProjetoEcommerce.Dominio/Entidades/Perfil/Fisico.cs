@@ -8,10 +8,11 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
 {
    public class Fisico : Cliente
     {
-        public int IDCliente { get; set; }
         public string CPF { get; set; }
         public DateTime DataNascimento { get; set; }
         public int IDSexo { get; set; }
         public virtual Sexo Sexo { get; set; }
+
+     
     }
 }

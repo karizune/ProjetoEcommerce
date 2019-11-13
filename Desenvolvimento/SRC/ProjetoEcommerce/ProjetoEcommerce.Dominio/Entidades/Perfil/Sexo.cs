@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Perfil
 {
-    public class Sexo
+      
+    public class Sexo : EntityBase
     {
         public int IDSexo { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public bool Status { get; set; }
-        public DateTime CriadoEm { get; set; }
-        public DateTime AlteradoEm { get; set; }
-
     }
 }

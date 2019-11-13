@@ -13,8 +13,35 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public FisicoConfiguration()
         {
             ToTable("Fisico", "perfil");
-            HasKey(x => new { x.IDCliente });
+            HasKey(x => x.IDCliente);
 
+            Property(x => x.IDCliente)
+                .HasColumnName(@"IDCliente")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Nome)
+                .HasColumnName(@"Nome")
+                .HasColumnType("varchar")
+                .IsRequired();
+
+            Property(x => x.Senha)
+                .HasColumnName(@"Senha")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
+                .IsRequired();
+
+            Property(x => x.Tipo)
+                .HasColumnName(@"Tipo")
+                .HasColumnType("bit")
+                .IsRequired();
+
+            Property(x => x.Foto)
+                .HasColumnName(@"Foto")
+                .HasColumnType("varchar")
+                .HasMaxLength(200)
+                .IsRequired();
 
             Property(x => x.CPF)
                 .HasColumnName(@"CPF")

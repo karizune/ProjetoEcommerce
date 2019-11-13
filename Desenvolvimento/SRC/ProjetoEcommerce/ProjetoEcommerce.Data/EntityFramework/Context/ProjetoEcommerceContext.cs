@@ -14,7 +14,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
 {
     public class ProjetoEcommerceContext : DbContext
     {
-        public DbSet<Cliente> clientes { get; set; }
+        public DbSet<Sexo> Sexos { get; set; }
         public DbSet<Email> email { get; set; }
         public DbSet<Fisico> fisico { get; set; }
         public DbSet<Juridico> juridico { get; set; }
@@ -25,7 +25,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         }
         private static string ConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["Context"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["projetoEcommerceContext"].ConnectionString;
         }
 
         public ProjetoEcommerceContext() : base(ConnectionString())
@@ -36,8 +36,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new ClienteConfiguration());
-            modelBuilder.Entity<Cliente>().HasEntitySetName("Cliente");
 
             modelBuilder.Configurations.Add(new EmailConfiguration());
             modelBuilder.Entity<Cliente>().HasEntitySetName("Email");
