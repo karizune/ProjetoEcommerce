@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Entrega.Endereco>
+
+@{
+    ViewBag.Title = "ListarTodos";
+}
+
+<h2>ListarTodos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClienteID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complemento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CriadoEm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AtualizaEm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClienteID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Complemento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriadoEm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AtualizaEm)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EnderecoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EnderecoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EnderecoID })
+        </td>
+    </tr>
+}
+
+</table>

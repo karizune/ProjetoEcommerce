@@ -204,15 +204,33 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Bairro\Index.cshtml" />
     <Content Include="Views\Bairro\ListarTodos.cshtml" />
+    <Content Include="Views\Bairro\Adicionar.cshtml" />
+    <Content Include="Views\Bairro\Atualizar.cshtml" />
+    <Content Include="Views\Bairro\Buscar.cshtml" />
+    <Content Include="Views\Ceps\ListarTodos.cshtml" />
+    <Content Include="Views\Ceps\Adicionar.cshtml" />
+    <Content Include="Views\Ceps\Atualizar.cshtml" />
+    <Content Include="Views\Ceps\Buscar.cshtml" />
+    <Content Include="Views\Cidade\ListarTodos.cshtml" />
+    <Content Include="Views\Cidade\Adicionar.cshtml" />
+    <Content Include="Views\Cidade\Atulizar.cshtml" />
+    <Content Include="Views\Cidade\Buscar.cshtml" />
+    <Content Include="Views\Endereco\ListarTodos.cshtml" />
+    <Content Include="Views\Endereco\Adicionar.cshtml" />
+    <Content Include="Views\Endereco\Atualizar.cshtml" />
+    <Content Include="Views\Endereco\Buscar.cshtml" />
+    <Content Include="Views\Estado\ListarTodos.cshtml" />
+    <Content Include="Views\Estado\Adicionar.cshtml" />
+    <Content Include="Views\Estado\Atualizar.cshtml" />
+    <Content Include="Views\Estado\Buscar.cshtml" />
+    <Content Include="Views\Rua\ListarTodos.cshtml" />
+    <Content Include="Views\Rua\Adicionar.cshtml" />
+    <Content Include="Views\Rua\Atualizar.cshtml" />
+    <Content Include="Views\Rua\Buscar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Ceps\" />
-    <Folder Include="Views\Cidade\" />
-    <Folder Include="Views\Endereco\" />
-    <Folder Include="Views\Estado\" />
-    <Folder Include="Views\Rua\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
