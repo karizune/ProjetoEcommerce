@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public EnderecoConfiguration()
         {
-            ToTable("Endereco");
+            ToTable("Entrega.Endereco");
             HasKey(x => x.EnderecoID);
 
             Property(x => x.EnderecoID)

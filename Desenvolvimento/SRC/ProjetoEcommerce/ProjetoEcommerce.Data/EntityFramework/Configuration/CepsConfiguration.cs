@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public CepsConfiguration()
         {
-            ToTable("Ceps");
+            ToTable("Entrega.Ceps");
             HasKey(x => x.CEP);
 
             Property(x => x.CEP)

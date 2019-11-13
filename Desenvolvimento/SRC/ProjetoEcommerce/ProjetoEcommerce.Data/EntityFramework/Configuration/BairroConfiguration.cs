@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public BairroConfiguration()
         {
-            ToTable("Bairro");
+            ToTable("Entrega.Bairro");
             HasKey(x => x.BairroID);
 
             Property(x => x.BairroID)
