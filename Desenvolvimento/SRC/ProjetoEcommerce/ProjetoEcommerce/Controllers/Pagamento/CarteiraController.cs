@@ -61,6 +61,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             Context.SaveChanges();
             return RedirectToAction("ListarTodos");
         }
+        [HttpPost]
         public ActionResult Editar(Carteira obj)
         {
             obj.AtualizadoEm = DateTime.Now;
