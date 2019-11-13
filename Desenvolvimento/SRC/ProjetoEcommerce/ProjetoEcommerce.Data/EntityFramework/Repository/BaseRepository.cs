@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Repository
 {
-    public class BaseRepository<T> : IRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly ProjetoEcommerceContext _db;
         private readonly DbSet<T> _dbSet;

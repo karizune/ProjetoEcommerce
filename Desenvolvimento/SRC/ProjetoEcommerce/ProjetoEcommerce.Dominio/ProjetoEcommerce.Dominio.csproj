@@ -41,21 +41,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Comum\IGenerica.cs" />
-    <Compile Include="Entidades\Comum\IRepository.cs" />
+    <Compile Include="Entidades\Comum\IBaseRepository.cs" />
     <Compile Include="Entidades\Entrega\Bairro.cs" />
     <Compile Include="Entidades\Entrega\Cidade.cs" />
-    <Compile Include="Entidades\Interfaces\Entrega\ICepsService.cs" />
-    <Compile Include="Entidades\Interfaces\Entrega\ICidadeService.cs" />
-    <Compile Include="Entidades\Interfaces\Entrega\IEnderecoService.cs" />
-    <Compile Include="Entidades\Interfaces\Entrega\IEstadoService.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Repository\IBairroRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Repository\ICepsRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Repository\ICidadeRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Repository\IEnderecoRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Repository\IEstadoRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Repository\IRuaRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\ICepsService.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\ICidadeService.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\IEnderecoService.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\IEstadoService.cs" />
     <Compile Include="Entidades\Comum\IBaseService.cs" />
     <Compile Include="Entidades\Entrega\Rua.cs" />
     <Compile Include="Entidades\Entrega\Ceps.cs" />
     <Compile Include="Entidades\Entrega\Endereco.cs" />
     <Compile Include="Entidades\Entrega\Estado.cs" />
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
-    <Compile Include="Entidades\Interfaces\Entrega\IBairroService.cs" />
-    <Compile Include="Entidades\Interfaces\Entrega\IRuaService.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\IBairroService.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\IRuaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
