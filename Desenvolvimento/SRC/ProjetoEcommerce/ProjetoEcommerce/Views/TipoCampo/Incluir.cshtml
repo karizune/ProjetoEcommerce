@@ -15,8 +15,11 @@
     @using (Html.BeginForm("IncluirConfirm", "TipoCampo", FormMethod.Post))
     {
     <div style="border: 2px dotted black; padding: 45px">
+        <div>
+            Descrição:
+            @Html.TextBoxFor(modelItem => Model.Descricao)
+        </div>
 
-        
         <div>
             Tipo Campo ID:
             @Html.DropDownListFor(model => model.TipoCampoID, new SelectList(ViewBag.TipoCamposID, "TipoCampoID", "Descricao"))

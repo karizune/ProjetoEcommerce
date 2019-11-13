@@ -78,6 +78,10 @@ namespace ProjetoEcommerce.Controllers
         [HttpGet]
         public ActionResult Incluir()
         {
+            ViewBag.Relatorios =
+                new ProjetoEcommerceContext()
+                .Relatorio
+                .ToList();
             return View();
         }
 

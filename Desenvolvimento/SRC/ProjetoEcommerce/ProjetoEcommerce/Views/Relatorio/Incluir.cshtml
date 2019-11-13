@@ -24,6 +24,10 @@
             Descrição:
             @Html.TextBoxFor(modelItem => Model.Descricao)
         </div>
+        <div>
+            Relatorio ID:
+            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))
+        </div>
 
     </div>
         <br />

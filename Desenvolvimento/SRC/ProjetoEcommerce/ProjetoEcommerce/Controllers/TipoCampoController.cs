@@ -49,6 +49,10 @@ namespace ProjetoEcommerce.Controllers
         [HttpGet]
         public ActionResult Incluir()
         {
+            ViewBag.TipoCamposID =
+                new ProjetoEcommerceContext()
+                .TipoCampo
+                .ToList();
             return View();
         }
 
