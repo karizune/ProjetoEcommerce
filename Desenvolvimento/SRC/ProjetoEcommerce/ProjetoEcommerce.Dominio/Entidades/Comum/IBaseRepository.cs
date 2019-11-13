@@ -2,7 +2,7 @@
 
 namespace ProjetoEcommerce.Dominio.Entidades.Comum
 {
-    public interface IRepository<T> where T : class
+    public interface IBaseRepository<T> where T : class
     {
         T Save(T obj);
 
