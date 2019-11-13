@@ -23,6 +23,16 @@ namespace ProjetoEcommerce.Controllers
             return View("Index", produtos);
         }
 
+        public ActionResult ProdutoCarrinho()
+        {
+            var carrinhoProdutos =
+                new ProjetoEcommerceContext()
+                    .carrinhoProduto
+                    .Include("Produto")
+                    .ToList();
+            return PartialView("_ProdutosCarrinho",carrinhoProdutos);
+        }
+
         [HttpPost]
         public ActionResult Adicionar(List<Produto> produtos)
         {   

@@ -1,5 +1,4 @@
-﻿@model List<ProjetoEcommerce.Dominio.Entidades.Carrinho.CarrinhoProduto>
-
+﻿
 @{
     ViewBag.Title = "teste";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,11 +26,12 @@
     </style>
 
     <div style="display: flex; margin: 4em 0">
-        <div style="border:1px solid; background:#f5f5f5; width: 55%;">
-
+        <div style="border:1px solid; background:#f5f5f5; width: 55%;" id="produtos-carrinho" data-url="@Url.Action("ProdutoCarrinho","Produto")">
             
         </div>
     </div>
+
+
 
         @*<div style="border: 1px solid; background: #f5f5f5;width: 35%; margin-left: 5%;text-align: center;">
                 <h4>
@@ -50,6 +50,16 @@
             </div>*@
 
     <script type="text/javascript">
+        var url = $("#produtos-carrinho").data("url");
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (result) {
+                $("#produtos-carrinho").html = result;
+            }
+        });
+
+
         $(function(){
 
             $('.btn-Remover').on('click', function (e) {
