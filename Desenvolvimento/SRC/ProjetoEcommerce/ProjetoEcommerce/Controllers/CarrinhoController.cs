@@ -18,6 +18,7 @@ namespace ProjetoEcommerce.Controllers
                     .carrinhoProduto
                     .Include("Produto")
                     .ToList();
+
             return View("Index", carrinhoProdutos);
         }
 
@@ -31,6 +32,7 @@ namespace ProjetoEcommerce.Controllers
 
                 db.carrinhoProduto.Remove(removerCarrinho);
                 db.SaveChanges();
+
 
                 return Json(new { status = 1, message = "You're fired!" }, JsonRequestBehavior.AllowGet);
             }
