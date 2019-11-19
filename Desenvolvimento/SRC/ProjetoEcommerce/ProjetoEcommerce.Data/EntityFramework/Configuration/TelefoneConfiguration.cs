@@ -40,6 +40,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.Tipo)
                 .HasColumnName(@"Tipo")
                 .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
 
             Property(x => x.Status)

@@ -26,6 +26,12 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnType("int")
                 .IsRequired();
 
+            Property(x => x.E_mail)
+                .HasColumnName(@"E_mail")
+                .HasColumnType("varchar")
+                .HasMaxLength(200)
+                .IsRequired();
+
             Property(x => x.Tipo)
                 .HasColumnName(@"Tipo")
                 .HasColumnType("bit")

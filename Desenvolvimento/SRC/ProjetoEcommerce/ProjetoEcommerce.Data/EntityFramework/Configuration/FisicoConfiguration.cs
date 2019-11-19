@@ -58,6 +58,27 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
               .HasColumnName(@"IDSexo")
               .HasColumnType("int")
               .IsRequired();
+
+            Property(x => x.Status)
+               .HasColumnName(@"Status")
+               .HasColumnType("bit")
+               .IsRequired();
+
+            Property(x => x.Usuario)
+                .HasColumnName(@"Usuario")
+                .HasColumnType("varchar")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(x => x.CriadoEm)
+              .HasColumnName(@"CriadoEm")
+              .HasColumnType("datetime")
+              .IsRequired();
+
+            Property(x => x.AtualizadoEm)
+              .HasColumnName(@"AtualizadoEm")
+              .HasColumnType("datetime")
+              .IsRequired();
         }
     }
 }
