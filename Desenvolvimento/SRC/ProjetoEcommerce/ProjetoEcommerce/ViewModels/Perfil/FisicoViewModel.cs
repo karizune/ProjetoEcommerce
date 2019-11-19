@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace ProjetoEcommerce.Dominio.Entidades.Perfil
+namespace ProjetoEcommerce.ViewModels
 {
-   public class Fisico : Cliente
+    public class FisicoViewModel : ClienteViewModel
     {
         public string CPF { get; set; }
         public DateTime DataNascimento { get; set; }
         public int IDSexo { get; set; }
-        public virtual Sexo Sexo { get; set; }
+        public virtual SexoViewModel Sexo { get; set; }
     }
 }
