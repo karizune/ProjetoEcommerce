@@ -9,13 +9,7 @@ namespace ProjetoEcommerce.Controllers
 {
     public class HomeController : Controller
     {
-        private IClienteRepository _repositorio;
-
-        public HomeController(IClienteRepository repositorio)
-        {
-            _repositorio = repositorio;
-        }
-
+       
         public ActionResult Index()
         {
             return View();
@@ -33,12 +27,6 @@ namespace ProjetoEcommerce.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        public ActionResult Lista()
-        {
-            var clientes = _repositorio.BuscarAtivos();
-            return View(clientes);
         }
 
     }

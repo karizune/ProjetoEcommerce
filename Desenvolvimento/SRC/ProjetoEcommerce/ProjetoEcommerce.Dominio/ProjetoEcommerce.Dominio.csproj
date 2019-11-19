@@ -58,10 +58,18 @@
     <Compile Include="Entidades\Perfil\Juridico.cs" />
     <Compile Include="Entidades\Perfil\Sexo.cs" />
     <Compile Include="Entidades\Perfil\Telefone.cs" />
-    <Compile Include="Interfaces\IFisicoRepository.cs" />
-    <Compile Include="Interfaces\IJuridicoRepository.cs" />
-    <Compile Include="Interfaces\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\ISexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEmailRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFisicoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IJuridicoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\ISexoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITelefoneRepository.cs" />
+    <Compile Include="Interfaces\Services\IEmailService.cs" />
+    <Compile Include="Interfaces\Services\IFisicoService.cs" />
+    <Compile Include="Interfaces\Services\IJuridicoService.cs" />
+    <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\ISexoService.cs" />
+    <Compile Include="Interfaces\Services\ITelefoneService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

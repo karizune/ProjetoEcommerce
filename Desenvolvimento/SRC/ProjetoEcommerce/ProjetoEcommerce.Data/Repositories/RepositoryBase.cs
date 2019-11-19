@@ -1,5 +1,5 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
-using ProjetoEcommerce.Dominio.Interfaces;
+using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
