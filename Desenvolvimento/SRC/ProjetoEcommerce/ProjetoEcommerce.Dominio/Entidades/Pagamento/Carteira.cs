@@ -1,11 +1,6 @@
 ﻿namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
 {
 
-    public struct Usuario
-    {
-        public int ID;
-        public string Nome;
-    }
     public class Carteira : BaseEntity
     {
         public int CarteiraID { get; set; }

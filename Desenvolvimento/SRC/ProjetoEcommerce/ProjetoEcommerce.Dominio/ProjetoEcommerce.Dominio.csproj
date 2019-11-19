@@ -53,6 +53,7 @@
     <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
+    <Compile Include="Entidades\Pagamento\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
