@@ -59,6 +59,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
               .HasColumnType("int")
               .IsRequired();
 
+            HasRequired(x => x.Sexo)
+                .WithMany()
+                .HasForeignKey(p => p.IDSexo);
+
             Property(x => x.Status)
                .HasColumnName(@"Status")
                .HasColumnType("bit")

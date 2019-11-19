@@ -43,6 +43,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasMaxLength(50)
                 .IsRequired();
 
+            HasRequired(x => x.cliente)
+                .WithMany()
+                .HasForeignKey(p => p.IDCliente);
+
             Property(x => x.Status)
                .HasColumnName(@"Status")
                .HasColumnType("bit")

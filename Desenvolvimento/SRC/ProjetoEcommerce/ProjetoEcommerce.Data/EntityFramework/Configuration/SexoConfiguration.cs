@@ -28,7 +28,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasMaxLength(150)
                .IsRequired();
 
-
             Property(x => x.Status)
                    .HasColumnName(@"Status")
                    .HasColumnType("bit")

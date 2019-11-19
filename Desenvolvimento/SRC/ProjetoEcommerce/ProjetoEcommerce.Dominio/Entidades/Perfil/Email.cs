@@ -13,7 +13,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
         public int IDCliente { get; set; }
         public string E_mail { get; set; }
         public bool Tipo { get; set; } // Principal
-        public Cliente CLiente { get; set; }
+        public virtual Cliente CLiente { get; set; }
 
     }
 }

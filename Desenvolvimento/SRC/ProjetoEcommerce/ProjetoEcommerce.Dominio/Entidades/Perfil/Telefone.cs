@@ -13,7 +13,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
         public string Numero { get; set; }
         public string DDD { get; set; }
         public string Tipo { get; set; } //celular, residencial, corporativo
-        public Cliente cliente { get; set; }
+        public virtual Cliente cliente { get; set; }
 
     }
 }
