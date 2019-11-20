@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,10 @@ namespace ProjetoEcommerce.Controllers.Pagamento
     public class PagamentoController : Controller
     {
         // GET: Pagamento
-        public ActionResult Index()
+        public ActionResult Pagar()
         {
-            return View();
+            IEnumerable<Produto> ListaProdutos = new List<Produto>();
+            return View(ListaProdutos);
         }
     }
 }

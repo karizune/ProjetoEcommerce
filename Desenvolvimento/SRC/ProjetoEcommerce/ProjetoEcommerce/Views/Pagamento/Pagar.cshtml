@@ -1,0 +1,15 @@
+﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
+@model IEnumerable<Produto>
+@{
+    ViewBag.Title = "Pagar";
+}
+
+<h2>Pagar</h2>
+<div class="pull-right" style="width:50%">
+
+</div>
+<div class="pull-right" style="width:50%">
+    <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="glyphicon glyphicon-credit-card pull-left" aria-hidden="true"></span>Cartão</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="glyphicon glyphicon-barcode pull-left" aria-hidden="true" style="text-align:left"></span>Boleto</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="glyphicon glyphicon-usd pull-left" aria-hidden="true"></span>Carteira</button>
+</div>

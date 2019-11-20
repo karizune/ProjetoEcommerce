@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
 {
-    class Usuario
+    public class Usuario
     {
             public int ID;
             public string Nome;
+    }
+    public class Produto
+    {
+        public string Nome { get; set; }
+        public double Preco { get; set; }
     }
 }
