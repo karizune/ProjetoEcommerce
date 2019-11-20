@@ -7,6 +7,5 @@ namespace ProjetoEcommerce.AutoMapper
 {
     public class ViewModelToDomainMappingProfile
     {
-        
     }
 }

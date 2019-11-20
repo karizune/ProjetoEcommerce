@@ -7,6 +7,5 @@ namespace ProjetoEcommerce.AutoMapper
 {
     public class DomainToViewModelMappingProfile
     {
-        return _mapper.Map<CategoriasViewModel>(_repositorio.GetById(id));
     }
 }

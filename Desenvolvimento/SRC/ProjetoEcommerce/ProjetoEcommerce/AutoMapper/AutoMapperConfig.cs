@@ -8,16 +8,13 @@ namespace ProjetoEcommerce.AutoMapper
 {
     public class AutoMapperConfig
     {
-        public static IMapper Mapper { get; private set; }
         public static void RegisterMappings()
         {
-            var _mapper = new MapperConfiguration((mapper) =>
+            Mapper.Initialize(x =>
             {
-                mapper.AddProfile<DomainToViewModelMappingProfile>();
-                mapper.AddProfile<ViewModelToDomainMappingProfile>();
+                x.AddProfile<DomainToViewModelMappingProfile>();
+                x.AddProfile<ViewModelToDomainMappingProfile>();
             });
-
-            Mapper = _mapper.CreateMapper();
         }
     }
 }
