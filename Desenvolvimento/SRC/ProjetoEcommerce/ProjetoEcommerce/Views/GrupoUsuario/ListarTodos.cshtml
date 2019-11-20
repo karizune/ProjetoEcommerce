@@ -1,0 +1,43 @@
+﻿@using ProjetoEcommerce.Dominio.Entidades.Seguranca
+@model System.Collections.Generic.List<GrupoUsuario>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListarTodos</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Usuario ID</td>
+                    <td>Grupo ID</td>
+                    <td>Usuario</td>
+                    <td>Status</td>
+                    <td>Criado em</td>
+                    <td>Atualizado em</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UsuarioID</td>
+                        <td>@item.GrupoID</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.Status</td>
+                        <td>@item.CriadoEm</td>
+                        <td>@item.AtualizadoEm</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
