@@ -18,8 +18,6 @@ namespace ProjetoEcommerce.Controllers
                     .produto
                     .ToList();
 
-            produtos = produtos.Where(f => f.ProdutoID == 1).ToList();
-
             return View("Index", produtos);
         }
 
