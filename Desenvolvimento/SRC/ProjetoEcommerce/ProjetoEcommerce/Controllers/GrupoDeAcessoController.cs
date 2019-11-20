@@ -33,10 +33,12 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
 
+            
             grupo.Usuario = "TesteShow";
             grupo.Status = 1;
             grupo.CriadoEm = DateTime.Now;
             grupo.AtualizadoEm = DateTime.Now;
+
             db.GrupoDeAcessos.Add(grupo);
             db.SaveChanges();
 

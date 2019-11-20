@@ -13,19 +13,18 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public GrupoUsuarioConfiguration()
         {
             ToTable("seguranca.Grupo_Usuario");
-            HasKey(x => x.GrupoID);
-            HasKey(x => x.UsuarioID);
+            HasKey(x => new { x.GrupoID, x.UsuarioID });
+
 
             Property(x => x.GrupoID)
                 .HasColumnName(@"GrupoID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
+
             Property(x => x.UsuarioID)
                 .HasColumnName(@"UsuarioID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.Status)
                .HasColumnName(@"Status")
