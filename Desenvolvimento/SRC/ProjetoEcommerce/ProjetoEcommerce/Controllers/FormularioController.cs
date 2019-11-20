@@ -33,8 +33,6 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
 
-            form.Descricao = "TesteShow";
-            form.URL = "Https://testeshow.com.br";
             form.Usuario = "TesteShow";
             form.Status = 1;
             form.CriadoEm = DateTime.Now;
