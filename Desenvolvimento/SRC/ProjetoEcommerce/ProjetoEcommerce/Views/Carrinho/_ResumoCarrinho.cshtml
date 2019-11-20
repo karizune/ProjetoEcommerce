@@ -1,0 +1,19 @@
+﻿@model  ProjetoEcommerce.Dominio.Entidades.Carrinho.Carrinho
+
+<h4>
+    @Html.Label("Resumo do Carrinho", htmlAttributes: new { @class = "control-label" })
+</h4>
+
+@Html.Label("Preco Frete", htmlAttributes: new { @class = "control-label" })
+
+<div class="form-group">
+    <input class="form-control" type="text" value="@Model.PrecoFrete" readonly>
+
+</div>
+@Html.Label("Preco Total", htmlAttributes: new { @class = "control-label" })
+
+<div class="form-group">
+    <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoTotal" readonly>
+</div>
+
+<button type="submit" class="btn btn-success mb-2">Confirmar Compra</button>
