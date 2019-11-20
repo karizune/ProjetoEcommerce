@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Dominio.Entidades.Marketplace
 {
@@ -12,6 +13,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Marketplace
         public DateTime DataCadastro { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual Parceiro Parceiro { get; set; }
-
+        public IEnumerable<Usuario> Usuarios { get; set; }
+        public IEnumerable<Parceiro> Parceiros { get; set; }
     }
 }

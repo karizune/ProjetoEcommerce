@@ -87,6 +87,7 @@
     <Compile Include="EntityFramework\Configuration\FeedbackProdutoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\ParceiroConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RastreioConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\UsuarioConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Repositories\FeedbackProdutosRepository.cs" />
     <Compile Include="Repositories\ParceiroRepository.cs" />
     <Compile Include="Repositories\RastreioRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

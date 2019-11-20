@@ -9,5 +9,7 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Marketplace
 {
     public interface IFeedbackParceiroRepository : IRepositoryBase<FeedbackParceiro>
     {
+        IEnumerable<FeedbackParceiro> GetFeedbacksAtivosPorUsuario(int IdUsuario);
+        IEnumerable<FeedbackParceiro> GetAtivosPorNomeUsuario(string nome);
     }
 }

@@ -1,5 +1,7 @@
-﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+﻿using AutoMapper;
+using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Data.Repositories;
+using ProjetoEcommerce.Dominio.Entidades.Marketplace;
 using ProjetoEcommerce.Dominio.Interfaces.Marketplace;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories.Marketplace;
 using ProjetoEcommerce.Dominio.Interfaces.Services.Marketplace;
@@ -32,6 +34,11 @@ namespace ProjetoEcommerce
             container.Register<IFeedbackProdutoReposytory, FeedbackProdutosRepository>(Lifestyle.Singleton);
             container.Register<IFeedbackProdutoService, FeedbackProdutoService>(Lifestyle.Singleton);
 
+
+            container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Singleton);
+            container.Register<IUsuarioService, UsuarioService>(Lifestyle.Singleton);
+
+
             container.Verify();
 
             DependencyResolver.SetResolver(
@@ -40,6 +47,8 @@ namespace ProjetoEcommerce
 
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ProjetoEcommerceContext>());
 
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackParceiro, FeedbackParceiroViewModel>());
 
 
             AreaRegistration.RegisterAllAreas();

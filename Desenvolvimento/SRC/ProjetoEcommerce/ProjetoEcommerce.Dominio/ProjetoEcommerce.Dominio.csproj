@@ -53,11 +53,13 @@
     <Compile Include="Interfaces\Repositories\Marketplace\IFeedbackProdutoReposytory.cs" />
     <Compile Include="Interfaces\Repositories\Marketplace\IParceiroRepository.cs" />
     <Compile Include="Interfaces\Repositories\Marketplace\IRastreioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Marketplace\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Services\Common\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\Marketplace\IFeedbackParceiroService.cs" />
     <Compile Include="Interfaces\Services\Marketplace\IFeedbackProdutoService.cs" />
     <Compile Include="Interfaces\Services\Marketplace\IParceiroService.cs" />
     <Compile Include="Interfaces\Services\Marketplace\IRastreioService.cs" />
+    <Compile Include="Interfaces\Services\Marketplace\IUsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

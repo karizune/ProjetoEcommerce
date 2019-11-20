@@ -6,6 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,9 +26,9 @@ new { @class = "navbar-brand" })
                 <ul class="nav navbar-nav">                   
                     <li><a href="#"class="dropdown-toggle" data-toggle="dropdown">Listas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Parceiros", "ListParceiros", "Home")</li>
+                            <li>@Html.ActionLink("Parceiros", "ListParceiro", "Home")</li>
                             <li>@Html.ActionLink("Rastreio", "ListRastreio", "Home")</li>
-                            <li>@Html.ActionLink("Feedback Parceiro", "ListFeedbackParceiro", "Home")</li>
+                            <li>@Html.ActionLink("Feedback Parceiro", "Index", "FeedbackParceiro")</li>
                             <li>@Html.ActionLink("Feedback Produto", "ListFeedbackProduto", "Home")</li>
                         </ul>
                     </li>
