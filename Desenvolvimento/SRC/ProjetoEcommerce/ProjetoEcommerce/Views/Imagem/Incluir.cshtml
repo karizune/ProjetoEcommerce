@@ -1,0 +1,24 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Produto.Imagem
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incluir</title>
+</head>
+<body>
+    @using (Html.BeginForm("IncluirConfirm", "Imagem", FormMethod.Post))
+    {
+        <div style="border: 2px dotted black; padding: 45px">
+            @Html.TextBoxFor(modelItem => Model.Nome)
+        </div>
+    }
+    <input type="submit" value="VAI" />
+
+</body>
+</html>
+

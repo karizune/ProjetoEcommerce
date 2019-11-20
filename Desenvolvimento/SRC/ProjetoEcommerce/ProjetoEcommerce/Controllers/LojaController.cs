@@ -13,5 +13,35 @@ namespace ProjetoEcommerce.Controllers
         {
             return View();
         }
+        public ActionResult ListarTodas()
+        {
+            var categorias =
+                new ProjetoEcommerceContext()
+                .Categoria
+                .ToList();
+
+            return View(categorias);
+        }
+
+        [HttpGet]
+
+        public ActionResult Incluir()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult IncluirConfirm(Categoria ent)
+        {
+            var db = new ProjetoEcommerceContext();
+            ent.Status = 1;
+            ent.Usuario = "grupo4";
+            ent.CriadoEm = DateTime.Now;
+            ent.AtualizadoEm = DateTime.Now;
+            db.Categoria.Add(ent);
+            db.SaveChanges();
+
+            return Redirect("ListarTodas");
+        }
     }
 }
