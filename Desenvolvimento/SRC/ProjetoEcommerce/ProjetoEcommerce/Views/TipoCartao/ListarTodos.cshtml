@@ -1,39 +1,27 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
 @model System.Collections.Generic.List<TipoCartao>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListarTodos</title>
-</head>
-<body>
-    <div> 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Descrição</th>
-                    <th>Criado Em</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.TipoCartaoID</td>
-                        <td>@item.Descricao</td>
-                        <td>@item.CriadoEm</td>
-                        <td>@item.Status</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Criado Em</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TipoCartaoID</td>
+                <td>@item.Descricao</td>
+                <td>@item.CriadoEm</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

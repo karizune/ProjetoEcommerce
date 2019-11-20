@@ -1,17 +1,9 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.TipoCartao
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
-<body>
     @using (Html.BeginForm("IncluirConfirm", "TipoCartao", FormMethod.Post))
     {
         <div style="border: 2px dotted black; padding: 45px">
@@ -21,5 +13,3 @@
     <br />
     <input type="submit" value="VAI" />
     }
-</body>
-</html>
