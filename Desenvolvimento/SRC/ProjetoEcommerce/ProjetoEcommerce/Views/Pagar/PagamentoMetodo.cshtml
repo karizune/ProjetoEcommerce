@@ -1,0 +1,65 @@
+﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
+@using ProjetoEcommerce.Models.ViewModels
+@model MetodoPagamentoViewModel
+@{
+    ViewBag.Title = "Pagar";
+    int i = 1;
+    string classe;
+}
+
+<h2>Pagar</h2>
+@*<div class="pull-left" >
+    @foreach (var Produto in Model.ListaProdutos)
+    {
+        <div class="jumbotron">
+        </div>
+
+    }
+</div>*@
+<div class="panel-group pull-left" id="accordion" role="tablist" aria-multiselectable="true" style="width:40%; margin-right:10%; height:90%">
+    @foreach (var item in Model.ListaProdutos)
+    {
+        if (i==0)
+        {
+            classe = "collapsed";
+        }
+        else
+        {
+            classe = "";
+        }
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="true" aria-controls="@("collapse" + ifToString())">
+                        @item.Nome
+                        (@item.Quantidade)
+                        <div class="pull-right" style="font-size:10pt">R$@item.PrecoTotal</div>
+                    </a>
+                </h4>
+            </div>
+            <div id="@("collapse" + i.ToString())" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
+                <div class="panel-body">
+                    <img src="@item.UrlImagem" alt="Imgem do Produto \" @item.Nome \"" class="img-thumbnail" style="height:50%; width:50%; object-fit: contain; margin-left:25%;margin-right:25%" >
+                    <table class="table">
+                        <thead>
+                            <tr><th></th><th></th><th></th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Preço</td><td></td><td>@item.Preco</td></tr>
+                            <tr><td>Quantidade</td><td style="text-align:right"></td><td>@item.Quantidade</td></tr>
+                            <tr><td>Preço total</td><td></td><th>@item.PrecoTotal</th></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        i++;
+    }
+</div>
+<div class="pull-right" style="width:40%; height:90%">
+    @foreach (var Metodo in Model.MetodosPagamento)
+    {
+        <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="@Metodo.Glyphicon pull-left" aria-hidden="true"></span>@Metodo.Descricao</button>
+
+    }
+</div>

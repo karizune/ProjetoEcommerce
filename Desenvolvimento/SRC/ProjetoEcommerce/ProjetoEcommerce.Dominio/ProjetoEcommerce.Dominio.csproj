@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
     <Compile Include="Entidades\Pagamento\BandeiraCartao.cs" />
-    <Compile Include="Entidades\Pagamento\Base\BaseEntity.cs" />
+    <Compile Include="Entidades\Pagamento\Common\BaseEntity.cs" />
     <Compile Include="Entidades\Pagamento\Boleto.cs" />
     <Compile Include="Entidades\Pagamento\Cartao.cs" />
     <Compile Include="Entidades\Pagamento\Cartao_Tipo.cs" />
@@ -53,13 +53,12 @@
     <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
-    <Compile Include="Entidades\Pagamento\classes de apoio.cs" />
+    <Compile Include="Entidades\Pagamento\Classes Auxiliares.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entidades\Carrinho\" />
     <Folder Include="Entidades\Entrega\" />
-    <Folder Include="Entidades\Pagamento\ViewModels\" />
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Produto\" />
     <Folder Include="Entidades\Relatorio\" />

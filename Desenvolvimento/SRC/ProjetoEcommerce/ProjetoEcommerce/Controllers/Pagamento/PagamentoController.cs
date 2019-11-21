@@ -12,8 +12,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         // GET: Pagamento
         public ActionResult Pagar()
         {
-            IEnumerable<Produto> ListaProdutos = new List<Produto>();
-            return View(ListaProdutos);
+            return HttpNotFound();
         }
     }
 }
