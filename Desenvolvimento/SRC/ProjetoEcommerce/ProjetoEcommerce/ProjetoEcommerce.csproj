@@ -165,6 +165,8 @@
     </Compile>
     <Compile Include="Models\ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\ViewModels\MetodoPagamentoViewModel.cs" />
+    <Compile Include="Models\ViewModels\PagamentoCartaoViewModel.cs" />
+    <Compile Include="Models\ViewModels\PagamentoBoletoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +216,7 @@
     <Content Include="Views\Carteira\Editar.cshtml" />
     <Content Include="Views\Cartao\Criar.cshtml" />
     <Content Include="Views\Pagar\PagamentoMetodo.cshtml" />
+    <Content Include="Views\Pagar\PagamentoCartao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,44 +2,38 @@
 @using ProjetoEcommerce.Models.ViewModels
 @model MetodoPagamentoViewModel
 @{
-    ViewBag.Title = "Pagar";
+    ViewBag.Title = "Método de pagamento";
     int i = 1;
-    string classe;
+    
 }
+    
+    <h3 class="text-center">Método de pagamento</h3>
 
-<h2>Pagar</h2>
-@*<div class="pull-left" >
-    @foreach (var Produto in Model.ListaProdutos)
-    {
-        <div class="jumbotron">
-        </div>
-
-    }
-</div>*@
-<div class="panel-group pull-left" id="accordion" role="tablist" aria-multiselectable="true" style="width:40%; margin-right:10%; height:90%">
+<div class="panel-group pull-left" id="accordion" role="tablist" aria-multiselectable="true" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
     @foreach (var item in Model.ListaProdutos)
     {
-        if (i==0)
-        {
-            classe = "collapsed";
-        }
-        else
-        {
-            classe = "";
-        }
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
+            <div class="panel-heading" role="tab" id="@("heading" + i.ToString())">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="true" aria-controls="@("collapse" + ifToString())">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
                         @item.Nome
                         (@item.Quantidade)
-                        <div class="pull-right" style="font-size:10pt">R$@item.PrecoTotal</div>
+                        @if (i == 1)
+                        {
+                            <div class="pull-right" style="font-size:10pt">R$@item.PrecoTotal</div>
+                        }
+                        else
+                        {
+                            <div class="pull-right" style="font-size:10pt">+ R$@item.PrecoTotal</div>
+                        }
+                        <span class="caret"></span>
                     </a>
                 </h4>
             </div>
-            <div id="@("collapse" + i.ToString())" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
+            <div id="@("collapse" + i.ToString())" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
                 <div class="panel-body">
-                    <img src="@item.UrlImagem" alt="Imgem do Produto \" @item.Nome \"" class="img-thumbnail" style="height:50%; width:50%; object-fit: contain; margin-left:25%;margin-right:25%" >
+                    <img src="@item.UrlImagem" alt="Imgem do Produto \" @item.Nome \"" class="img-thumbnail" style="height:50%; width:50%; object-fit: contain; margin-left:25%;margin-right:25%">
+                    <p class="text-center" style="margin-top:5%; margin-bottom:5%;">@item.DescricaoProduto</p>
                     <table class="table">
                         <thead>
                             <tr><th></th><th></th><th></th></tr>
@@ -47,7 +41,7 @@
                         <tbody>
                             <tr><td>Preço</td><td></td><td>@item.Preco</td></tr>
                             <tr><td>Quantidade</td><td style="text-align:right"></td><td>@item.Quantidade</td></tr>
-                            <tr><td>Preço total</td><td></td><th>@item.PrecoTotal</th></tr>
+                            <tr><th>Preço total</th><td></td><th>@item.PrecoTotal</th></tr>
                         </tbody>
                     </table>
                 </div>
@@ -55,11 +49,27 @@
         </div>
         i++;
     }
+    <hr style="margin-top:10px;margin-bottom:10px;" />
+    
+        
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Você vai pagar:
+                    <div class="panel-title pull-right" style="font-size:12pt;"><b>R$@Model.PrecoTotalVenda</b></div>
+                </div>
+
+            </div>
+
+        </div>
+    
+
+
 </div>
-<div class="pull-right" style="width:40%; height:90%">
+
+<div class="pull-right" style="width:49%; height:90%; margin-top:10px">
     @foreach (var Metodo in Model.MetodosPagamento)
     {
-        <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="@Metodo.Glyphicon pull-left" aria-hidden="true"></span>@Metodo.Descricao</button>
-
+    <a href="@Url.Action("Pagamento"+Metodo.Action,"Pagar",new RouteValueDictionary( new { listaPodutos = Model.ListaProdutos }))"><div type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="@Metodo.Glyphicon pull-left" aria-hidden="true"></span>@Metodo.Descricao</div></a>
     }
 </div>

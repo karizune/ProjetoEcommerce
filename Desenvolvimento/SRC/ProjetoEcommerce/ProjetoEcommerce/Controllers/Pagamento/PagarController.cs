@@ -30,8 +30,27 @@ namespace ProjetoEcommerce.Controllers.Pagamento
                     Nome = "Celular Mini",DescricaoProduto="Celular pequeno com uma das melhores Câmeras",UrlImagem="https://i.zst.com.br/images/smartphone-xiaomi-mi-9-se-6gb-ram-64gb-camera-tripla-qualcomm-snapdragon-712-2-chips-android-9-0-pie--photo819343044-45-18-12.jpg",Preco=1300,ProdutoID=1,Quantidade=1,CriadoEm=DateTime.Now,AtualizadoEm=DateTime.Now, Status=1,Usuario="EU"
                 }
             };
-            var listaMetodos = Context.MetodoPagamento.ToList();
+            
+            //var listaMetodos = Context.MetodoPagamento.ToList();
+            var listaMetodos = new List<MetodoPagamento>
+            {
+                new MetodoPagamento
+                {
+                    Descricao = "Boleto",MetodoPagamentoID=0,Glyphicon="glyphicon glyphicon-barcode",Action="Boleto"
+                },
+                new MetodoPagamento
+                {
+                     Descricao = "Cartão de crédito",MetodoPagamentoID=1,Glyphicon="glyphicon glyphicon-credit-card",Action = "Cartao"
+                }
+            };
             return View(new MetodoPagamentoViewModel(ListaProdutos,listaMetodos));
+
+        }
+        
+        public ActionResult PagamentoCartao(IEnumerable<ProdutoCarrinho> listaProdutos)
+        {
+            return View(listaProdutos);
+            
         }
 
     }

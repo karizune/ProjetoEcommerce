@@ -9,7 +9,7 @@ namespace ProjetoEcommerce.Models.ViewModels
 {
     public class MetodoPagamentoViewModel
     {
-        public IEnumerable<ProdutoCarrinho> ListaProdutos { get; set; }
+        public IList<ProdutoCarrinho> ListaProdutos { get; set; }
         public IEnumerable<MetodoPagamento> MetodosPagamento { get; set; }
         public float PrecoTotalVenda
         {
@@ -23,7 +23,7 @@ namespace ProjetoEcommerce.Models.ViewModels
                 return soma;
             }
         }
-        public MetodoPagamentoViewModel(IEnumerable<ProdutoCarrinho> listaProdutos, IEnumerable<MetodoPagamento> listaMetodos)
+        public MetodoPagamentoViewModel(IList<ProdutoCarrinho> listaProdutos, IEnumerable<MetodoPagamento> listaMetodos)
         {
             ListaProdutos = listaProdutos;
             MetodosPagamento = listaMetodos;
