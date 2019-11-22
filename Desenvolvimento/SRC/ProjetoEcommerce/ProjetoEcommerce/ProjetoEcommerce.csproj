@@ -226,6 +226,7 @@
     <Content Include="Views\FeedbackParceiro\Create.cshtml" />
     <Content Include="Views\FeedbackParceiro\Index.cshtml" />
     <Content Include="Views\FeedbackParceiro\UsuariosList.cshtml" />
+    <Content Include="Views\FeedbackParceiro\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

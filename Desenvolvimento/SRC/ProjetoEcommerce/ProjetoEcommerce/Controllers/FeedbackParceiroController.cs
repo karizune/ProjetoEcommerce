@@ -31,21 +31,17 @@ namespace ProjetoEcommerce.Controllers
             //    Nome = "Vts Kuza1zinho"
             //});
         }
-        public ActionResult Index()
+        public ActionResult Index(string usuario)
         {
-            var ent = _feedbackParceiroService.GetFeedbacksAtivosPorUsuario(1);
-            //var ent = _feedbackParceiroService.GetAll();
-            var mapped = ent.Select(f => new FeedbackParceiroViewModel {
-                DataCadastro = f.DataCadastro,
-                Descricao = f.Descricao,
-                Estrelas = f.Estrelas,
-                IdFeedbackParceiro = f.IdFeedbackParceiro,
-                IdParceiro = f.IdParceiro,
-                IdUsuario = f.IdUsuario,
-                Parceiro = f.Parceiro,
-            });
+            var usuarioLogado = 1;
+            IEnumerable<FeedbackParceiro> ent;
 
-            MapperHelper.Container().Map<IEnumerable<FeedbackParceiro>, IEnumerable<FeedbackParceiroViewModel>>(ent);
+            if (string.IsNullOrEmpty(usuario))
+                ent = _feedbackParceiroService.GetFeedbacksAtivosPorUsuario(usuarioLogado);
+            else
+                ent = _feedbackParceiroService.GetAtivosPorNomeUsuario(usuario).ToList();
+
+            var mapped = MapperHelper.Container().Map<IEnumerable<FeedbackParceiro>, IEnumerable<FeedbackParceiroViewModel>>(ent);
 
             return View(mapped);
         }
@@ -86,18 +82,19 @@ namespace ProjetoEcommerce.Controllers
         {
             try
             {
-                var mapped = new FeedbackParceiro
-                {
-                    DataCadastro = ent.DataCadastro,
-                    Descricao = ent.Descricao,
-                    Estrelas = ent.Estrelas,
-                    IdFeedbackParceiro = ent.IdFeedbackParceiro,
-                    IdParceiro = ent.IdParceiro,
-                    IdUsuario = ent.IdUsuario,
-                    Parceiro = ent.Parceiro,
-                    Usuario = ent.Usuario
-                };
 
+                //var mapped = new FeedbackParceiro
+                //{
+                //    DataCadastro = ent.DataCadastro,
+                //    Descricao = ent.Descricao,
+                //    Estrelas = ent.Estrelas,
+                //    IdFeedbackParceiro = ent.IdFeedbackParceiro,
+                //    IdParceiro = ent.IdParceiro,
+                //    IdUsuario = ent.IdUsuario,
+                //    Parceiro = ent.Parceiro,
+                //    Usuario = ent.Usuario
+                //};
+                var mapped = MapperHelper.Container().Map<FeedbackParceiroViewModel, FeedbackParceiro>(ent);
                 _feedbackParceiroService.Add(mapped);
 
                 return RedirectToAction("Index");
@@ -111,7 +108,8 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackParceiro/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var ent = _feedbackParceiroService.GetOneBy(id);
+            return View(ent);
         }
 
         // POST: FeedbackParceiro/Edit/5

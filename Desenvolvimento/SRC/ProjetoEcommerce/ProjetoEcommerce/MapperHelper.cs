@@ -13,6 +13,7 @@ namespace ProjetoEcommerce
         {
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<FeedbackParceiro, FeedbackParceiroViewModel>();
+                cfg.CreateMap<FeedbackParceiroViewModel, FeedbackParceiro>();
                 cfg.CreateMap<FeedbackProduto, FeedbackProdutoViewModel>();
             });
 

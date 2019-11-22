@@ -35,7 +35,33 @@
     </thead>
 
     <tbody id="listaUsuarios">
-
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.IdFeedbackParceiro
+                </td>
+                <td>
+                    @item.Usuario.Nome
+                </td>
+                <td>
+                    @item.Parceiro.NomeFantasia
+                </td>
+                <td>
+                    @item.Estrelas
+                </td>
+                <td>
+                    @item.Descricao
+                </td>
+                <td>
+                    @item.DataCadastro
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {item.IdFeedbackParceiro}) |
+                    @Html.ActionLink("Delete", "Delete", new {item.IdFeedbackParceiro })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -44,7 +70,10 @@
 <script>
 
     $("#btnPesquisa").click(() => {
-        $.ajax({
+        const url = "@Url.Action("Index", "FeedbackParceiro")?usuario=" + $("#UsuarioPesquisa").val()
+        window.location.href = url;
+
+        @*$.ajax({
             url: "/FeedbackParceiro/UsuariosList",
             data: {
                 usuario: $("#UsuarioPesquisa").val()
@@ -63,22 +92,26 @@
                         mainDiv.append(`
                             <tr>
                                 <td class="text-center" >
-                                    ${ item.IdFeedbackParceiro }
+                                    ${ item.IdFeedbackParceiro}
                                 </td>
                                 <td class="text-center">
-                                    ${ item.Usuario.Nome }
+                                    ${ item.Usuario.Nome}
                                 </td>
                                 <td class="text-center">
-                                    ${ item.Parceiro.NomeFantasia }
+                                    ${ item.Parceiro.NomeFantasia}
                                 </td>
                                 <td class="text-center">
-                                    ${ item.Estrelas }
+                                    ${ item.Estrelas}
                                 </td>
                                 <td>
-                                    ${ item.Descricao }
+                                    ${ item.Descricao}
                                 </td>
                                 <td class="text-center">
-                                    ${ moment(item.DataCadastro).format('DD/MM/YYYY') }
+                                    ${ moment(item.DataCadastro).format('DD/MM/YYYY')}
+                                </td>   
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new {}) |                                    
+                                    @Html.ActionLink("Delete", "Delete", new {})
                                 </td>
                             </tr>
                         `)
@@ -87,7 +120,7 @@
 
 
             }
-        })
+        })*@
     })
 
 </script>
