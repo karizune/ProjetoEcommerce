@@ -13,9 +13,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public JuridicoConfiguration()
         {
             ToTable("Juridico", "perfil");
-            HasKey(x => x.IDCliente);
+            HasKey(x => x.ClienteId);
 
-            Property(x => x.IDCliente)
+            Property(x => x.ClienteId)
                 .HasColumnName(@"IDCliente")
                 .HasColumnType("int")
                 .IsRequired()

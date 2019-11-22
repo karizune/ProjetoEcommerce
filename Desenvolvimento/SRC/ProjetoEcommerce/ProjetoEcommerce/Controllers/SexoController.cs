@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ProjetoEcommerce.Data.Repositories;
 using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.ViewModels;
@@ -11,56 +10,56 @@ using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers
 {
-    public class JuridicoController : Controller
+    public class SexoController : Controller
     {
-        private readonly IJuridicoService _juridicoService;
+        private readonly ISexoService _sexoService;
 
-        public JuridicoController(IJuridicoService juridicoService)
+        public SexoController(ISexoService sexoService)
         {
-            _juridicoService = juridicoService;
+            _sexoService = sexoService;
         }
-        // GET: Juridico
+        // GET: Sexo
         public ActionResult Index()
         {
-            var juridicoViewModel = Mapper.Map<IEnumerable<Juridico>, IEnumerable<JuridicoViewModel>>(_juridicoService.GetAll());
-            return View(juridicoViewModel);
+            var sexoViewModel = Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll());
+            return View(sexoViewModel);
         }
 
-        // GET: Juridico/Details/5
+        // GET: Sexo/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Juridico/Create
+        // GET: Sexo/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Juridico/Create
+        // POST: Sexo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(JuridicoViewModel juridico)
+        public ActionResult Create(SexoViewModel sexo)
         {
             if (ModelState.IsValid)
             {
-                var juridicoDomain = Mapper.Map<JuridicoViewModel, Juridico>(juridico);
-                _juridicoService.Add(juridicoDomain);
+                var sexoDomain = Mapper.Map<SexoViewModel, Sexo>(sexo);
+                _sexoService.Add(sexoDomain);
 
                 return RedirectToAction("Index");
             }
 
-            return View(juridico);
+            return View(sexo);
         }
 
-        // GET: Juridico/Edit/5
+        // GET: Sexo/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Juridico/Edit/5
+        // POST: Sexo/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -76,13 +75,13 @@ namespace ProjetoEcommerce.Controllers
             }
         }
 
-        // GET: Juridico/Delete/5
+        // GET: Sexo/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Juridico/Delete/5
+        // POST: Sexo/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

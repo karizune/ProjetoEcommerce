@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Perfil
 {
     public abstract class Cliente : EntityBase
     {
-        public int IDCliente { get; set; }
+        public int ClienteId { get; set; }
         public string Nome { get; set; }
         public string Senha { get; set; }
         public bool Tipo { get; set; }

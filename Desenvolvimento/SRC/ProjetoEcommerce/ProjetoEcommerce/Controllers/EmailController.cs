@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ProjetoEcommerce.Data.Repositories;
 using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.ViewModels;
@@ -11,56 +10,57 @@ using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers
 {
-    public class JuridicoController : Controller
+    public class EmailController : Controller
     {
-        private readonly IJuridicoService _juridicoService;
+        private readonly IEmailService _emailService;
 
-        public JuridicoController(IJuridicoService juridicoService)
+        public EmailController(IEmailService emailService)
         {
-            _juridicoService = juridicoService;
+            _emailService = emailService;
         }
-        // GET: Juridico
+        // GET: Email
         public ActionResult Index()
         {
-            var juridicoViewModel = Mapper.Map<IEnumerable<Juridico>, IEnumerable<JuridicoViewModel>>(_juridicoService.GetAll());
-            return View(juridicoViewModel);
+            var emailViewModel = Mapper.Map<IEnumerable<Email>, IEnumerable<EmailViewModel>>(_emailService.GetAll());
+            return View(emailViewModel);
+           
         }
 
-        // GET: Juridico/Details/5
+        // GET: Email/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Juridico/Create
+        // GET: Email/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Juridico/Create
+        // POST: Email/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(JuridicoViewModel juridico)
+        public ActionResult Create(EmailViewModel email)
         {
             if (ModelState.IsValid)
             {
-                var juridicoDomain = Mapper.Map<JuridicoViewModel, Juridico>(juridico);
-                _juridicoService.Add(juridicoDomain);
+                var emailDomain = Mapper.Map<EmailViewModel, Email>(email);
+                _emailService.Add(emailDomain);
 
                 return RedirectToAction("Index");
             }
 
-            return View(juridico);
+            return View(email);
         }
 
-        // GET: Juridico/Edit/5
+        // GET: Email/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Juridico/Edit/5
+        // POST: Email/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -76,13 +76,13 @@ namespace ProjetoEcommerce.Controllers
             }
         }
 
-        // GET: Juridico/Delete/5
+        // GET: Email/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Juridico/Delete/5
+        // POST: Email/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

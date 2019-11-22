@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ProjetoEcommerce.Data.Repositories;
 using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.ViewModels;
@@ -11,56 +10,56 @@ using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers
 {
-    public class JuridicoController : Controller
+    public class FisicoController : Controller
     {
-        private readonly IJuridicoService _juridicoService;
+        private readonly IFisicoService _fisicoService;
 
-        public JuridicoController(IJuridicoService juridicoService)
+        public FisicoController(IFisicoService fisicoService)
         {
-            _juridicoService = juridicoService;
+            _fisicoService = fisicoService;
         }
-        // GET: Juridico
+        // GET: Fisico
         public ActionResult Index()
         {
-            var juridicoViewModel = Mapper.Map<IEnumerable<Juridico>, IEnumerable<JuridicoViewModel>>(_juridicoService.GetAll());
-            return View(juridicoViewModel);
+            var fisicoViewModel = Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
+            return View(fisicoViewModel);
         }
 
-        // GET: Juridico/Details/5
+        // GET: Fisico/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Juridico/Create
+        // GET: Fisico/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Juridico/Create
+        // POST: Fisico/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(JuridicoViewModel juridico)
+        public ActionResult Create(FisicoViewModel fisico)
         {
             if (ModelState.IsValid)
             {
-                var juridicoDomain = Mapper.Map<JuridicoViewModel, Juridico>(juridico);
-                _juridicoService.Add(juridicoDomain);
+                var fisicoDomain = Mapper.Map<FisicoViewModel, Fisico>(fisico);
+                _fisicoService.Add(fisicoDomain);
 
                 return RedirectToAction("Index");
             }
 
-            return View(juridico);
+            return View(fisico);
         }
 
-        // GET: Juridico/Edit/5
+        // GET: Fisico/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Juridico/Edit/5
+        // POST: Fisico/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -76,13 +75,13 @@ namespace ProjetoEcommerce.Controllers
             }
         }
 
-        // GET: Juridico/Delete/5
+        // GET: Fisico/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Juridico/Delete/5
+        // POST: Fisico/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
