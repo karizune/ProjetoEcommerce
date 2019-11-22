@@ -1,5 +1,6 @@
-﻿using ProjetoEcommerce.Data.EntityFramework.Context;
-using ProjetoEcommerce.Dominio.Entidades.Produto;
+﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
+using ProjetoEcommerce.Service.Produto;
 using System;
 using System.Linq;
 using System.Web.Mvc;
@@ -8,6 +9,13 @@ namespace ProjetoEcommerce.Controllers
 {
     public class CategoriaController : Controller
     {
+        private readonly ICategoriaService categoriaService;
+
+        public CategoriaController()
+        {
+            categoriaService = new CategoriaService();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -15,11 +23,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Categoria
         public ActionResult ListarTodas()
         {
-            var categorias =
-                new ProjetoEcommerceContext()
-                .Categoria
-                .ToList();
-
+            var categorias = categoriaService.BuscarAtivos();
             return View(categorias);
         }
         
@@ -33,14 +37,19 @@ namespace ProjetoEcommerce.Controllers
         [HttpPost]
         public ActionResult IncluirConfirm(Categoria ent)
         {
-            var db = new ProjetoEcommerceContext();
             ent.Status = 1;
             ent.Usuario = "grupo4";
-            ent.CriadoEm = DateTime.Now;
-            ent.AtualizadoEm = DateTime.Now;
-            db.Categoria.Add(ent);
-            db.SaveChanges();
+            categoriaService.Salvar(ent);
 
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Atualizar(int id)
+        {
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Excluir(int id)
+        {
+            categoriaService.Excluir(id, "teste");
             return Redirect("ListarTodas");
         }
     }

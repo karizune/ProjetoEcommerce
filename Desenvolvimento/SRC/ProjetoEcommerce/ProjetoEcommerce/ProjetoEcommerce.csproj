@@ -204,14 +204,14 @@
     <Content Include="Views\Categoria\ListarTodas.cshtml" />
     <Content Include="Views\Categoria\Incluir.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
-    <Content Include="Views\Imagem\Incluir.cshtml" />
-    <Content Include="Views\Marca\Incluir.cshtml" />
-    <Content Include="Views\Loja\Incluir.cshtml" />
-    <Content Include="Views\Produto\Incluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Imagem\" />
+    <Folder Include="Views\Loja\" />
+    <Folder Include="Views\Marca\" />
+    <Folder Include="Views\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -227,13 +227,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj">
-      <Project>{709EBB4C-D47F-4334-A193-CE9E031AF1F0}</Project>
-      <Name>ProjetoEcommerce.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
       <Project>{95b18e84-1845-4b68-8a2e-d8c0d006e485}</Project>
       <Name>ProjetoEcommerce.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoEcommerce.Service\ProjetoEcommerce.Service.csproj">
+      <Project>{34559c02-dea9-41df-8624-c6fbf01e5477}</Project>
+      <Name>ProjetoEcommerce.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

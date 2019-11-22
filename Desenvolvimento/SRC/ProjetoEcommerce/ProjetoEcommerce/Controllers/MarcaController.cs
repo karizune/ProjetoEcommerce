@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Interfaces.Services.Produto;
+using ProjetoEcommerce.Service.Produto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,19 +11,22 @@ namespace ProjetoEcommerce.Controllers
 {
     public class MarcaController : Controller
     {
-        // GET: Marca
+        private readonly IMarcaService marcaService;
+
+        public MarcaController()
+        {
+            marcaService = new MarcaService();
+        }
+
         public ActionResult Index()
         {
             return View();
         }
+        // GET: Marca
         public ActionResult ListarTodas()
         {
-            var categorias =
-                new ProjetoEcommerceContext()
-                .Categoria
-                .ToList();
-
-            return View(categorias);
+            var marcas = marcaService.BuscarAtivos();
+            return View(marcas);
         }
 
         [HttpGet]
@@ -31,16 +37,21 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(Categoria ent)
+        public ActionResult IncluirConfirm(Marca ent)
         {
-            var db = new ProjetoEcommerceContext();
             ent.Status = 1;
             ent.Usuario = "grupo4";
-            ent.CriadoEm = DateTime.Now;
-            ent.AtualizadoEm = DateTime.Now;
-            db.Categoria.Add(ent);
-            db.SaveChanges();
+            marcaService.Salvar(ent);
 
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Atualizar(int id)
+        {
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Excluir(int id)
+        {
+            marcaService.Excluir(id, "teste");
             return Redirect("ListarTodas");
         }
     }

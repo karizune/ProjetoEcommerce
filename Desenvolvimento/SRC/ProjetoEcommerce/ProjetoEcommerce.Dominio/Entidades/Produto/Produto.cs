@@ -11,9 +11,10 @@ namespace ProjetoEcommerce.Dominio.Entidades.Produto
     {
         public int ProdutoID { get; set; }
         public int CategoriaID { get; set; }
+        public int ImagemID { get; set; }
         public string Nome { get; set; }
         public double Preco { get; set; }
-        public int ImagemID { get; set; }
+        
         //LOG
         public int Status { get; set; }
         public string Usuario { get; set; }

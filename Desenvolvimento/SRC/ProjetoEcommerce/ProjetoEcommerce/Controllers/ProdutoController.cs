@@ -1,4 +1,6 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
+using ProjetoEcommerce.Service.Produto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +11,22 @@ namespace ProjetoEcommerce.Controllers
 {
     public class ProdutoController : Controller
     {
-        private static List<Produto> Produtos { get; set; }
+        private readonly IProdutoService produtoService;
 
+        public ProdutoController()
+        {
+            produtoService = new ProdutoService();
+        }
 
-        // GET: Produto
         public ActionResult Index()
         {
-            return View(Produtos);
+            return View();
         }
+        // GET: Produto
         public ActionResult ListarTodas()
         {
-            var categorias =
-                new ProjetoEcommerceContext()
-                .Categoria
-                .ToList();
-
-            return View(categorias);
+            var produtos = produtoService.BuscarAtivos();
+            return View(produtos);
         }
 
         [HttpGet]
@@ -35,16 +37,21 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(Categoria ent)
+        public ActionResult IncluirConfirm(Produto ent)
         {
-            var db = new ProjetoEcommerceContext();
             ent.Status = 1;
             ent.Usuario = "grupo4";
-            ent.CriadoEm = DateTime.Now;
-            ent.AtualizadoEm = DateTime.Now;
-            db.Categoria.Add(ent);
-            db.SaveChanges();
+            produtoService.Salvar(ent);
 
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Atualizar(int id)
+        {
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Excluir(int id)
+        {
+            produtoService.Excluir(id, "teste");
             return Redirect("ListarTodas");
         }
     }

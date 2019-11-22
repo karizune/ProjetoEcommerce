@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
+using ProjetoEcommerce.Service.Produto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,19 +11,22 @@ namespace ProjetoEcommerce.Controllers
 {
     public class ImagemController : Controller
     {
-        // GET: Imagem
+        private readonly IImagemService imagemService;
+
+        public ImagemController()
+        {
+            imagemService = new ImagemService();
+        }
+
         public ActionResult Index()
         {
             return View();
         }
+        // GET: Imagem
         public ActionResult ListarTodas()
         {
-            var categorias =
-                new ProjetoEcommerceContext()
-                .Categoria
-                .ToList();
-
-            return View(categorias);
+            var imagens = imagemService.BuscarAtivos();
+            return View(imagens);
         }
 
         [HttpGet]
@@ -31,16 +37,22 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(Categoria ent)
+        public ActionResult IncluirConfirm(Imagem ent)
         {
-            var db = new ProjetoEcommerceContext();
             ent.Status = 1;
             ent.Usuario = "grupo4";
-            ent.CriadoEm = DateTime.Now;
-            ent.AtualizadoEm = DateTime.Now;
-            db.Categoria.Add(ent);
-            db.SaveChanges();
+            imagemService.Salvar(ent);
 
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Atualizar(int id)
+        {
+
+            return Redirect("ListarTodas");
+        }
+        public ActionResult Excluir(int id)
+        {
+            imagemService.Excluir(id, "teste");
             return Redirect("ListarTodas");
         }
     }

@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
+using ProjetoEcommerce.Data.Repositories.Base;
 using ProjetoEcommerce.Dominio.Entidades.Produto;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 
