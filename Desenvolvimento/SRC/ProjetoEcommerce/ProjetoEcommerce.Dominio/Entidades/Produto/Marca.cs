@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Dominio.Entidades.Produto
+namespace ProjetoEcommerce.Dominio.Entidades
 {
     public class Marca:IEntityBase
     {
