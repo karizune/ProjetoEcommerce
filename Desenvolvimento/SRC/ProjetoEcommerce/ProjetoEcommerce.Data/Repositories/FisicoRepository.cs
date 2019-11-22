@@ -3,7 +3,7 @@ using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 
 namespace ProjetoEcommerce.Data.Repositories
 {
-    class FisicoRepository : RepositoryBase<Fisico>, IFisicoRepository
+    public class FisicoRepository : RepositoryBase<Fisico>, IFisicoRepository
     {
     }
 }

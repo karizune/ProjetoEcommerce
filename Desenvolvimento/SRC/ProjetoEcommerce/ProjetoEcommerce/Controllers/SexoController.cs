@@ -28,7 +28,9 @@ namespace ProjetoEcommerce.Controllers
         // GET: Sexo/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var sexo = _sexoService.GetById(id);
+            var sexoViewModel = Mapper.Map<Sexo, SexoViewModel>(sexo);
+            return View(sexoViewModel);
         }
 
         // GET: Sexo/Create
@@ -56,45 +58,43 @@ namespace ProjetoEcommerce.Controllers
         // GET: Sexo/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var sexo = _sexoService.GetById(id);
+            var sexoViewModel = Mapper.Map<Sexo, SexoViewModel>(sexo);
+            return View(sexoViewModel);
         }
 
         // POST: Sexo/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(SexoViewModel sexo)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var sexoDomain = Mapper.Map<SexoViewModel, Sexo>(sexo);
+                _sexoService.Update(sexoDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+                return View(sexo);
         }
 
         // GET: Sexo/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var sexo = _sexoService.GetById(id);
+            var sexoViewModel = Mapper.Map<Sexo, SexoViewModel>(sexo);
+            return View(sexoViewModel);
         }
 
         // POST: Sexo/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var sexo = _sexoService.GetById(id);
+            _sexoService.Remove(sexo);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
