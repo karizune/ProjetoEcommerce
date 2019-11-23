@@ -17,7 +17,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             
             HasKey(x => x.CarrinhoID);
 
-            Property(x => x.CarrinhoID).HasColumnName(@"CarinhoID")
+            Property(x => x.CarrinhoID).HasColumnName(@"CarrinhoID")
+                .HasColumnType("int")
+                .IsRequired();
+
+            Property(x => x.UsuarioID).HasColumnName(@"UsuarioID")
                 .HasColumnType("int")
                 .IsRequired();
 
@@ -36,27 +40,23 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             //LOG
 
             Property(x => x.Status).HasColumnName(@"Status")
-                .HasColumnType("int")
-                .IsRequired();
-
+               .HasColumnType("int")
+               .IsRequired();
 
 
             Property(x => x.Usuario).HasColumnName(@"Usuario")
                 .HasColumnType("varchar")
                 .IsRequired();
 
-
-
             Property(x => x.CriadoEm).HasColumnName(@"CriadoEm")
                 .HasColumnType("DateTime")
                 .IsRequired();
 
 
-
             Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm")
                 .HasColumnType("DateTime")
                 .IsRequired();
-                
+
         }
     }
 }

@@ -9,7 +9,6 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
     public class Carrinho
     {
 
-
         //LOG
         public int Status { get; set; }
         public string Usuario { get; set; }

@@ -1,4 +1,4 @@
-﻿@model  ProjetoEcommerce.Dominio.Entidades.Carrinho.Carrinho
+﻿@model List<ProjetoEcommerce.Dominio.Entidades.Carrinho.Carrinho>
 
 <h4>
     @Html.Label("Resumo do Carrinho", htmlAttributes: new { @class = "control-label" })
@@ -8,12 +8,12 @@
 
 <div class="form-group">
     <input class="form-control" type="text" value="@Model.PrecoFrete" readonly>
-
 </div>
+
 @Html.Label("Preco Total", htmlAttributes: new { @class = "control-label" })
 
 <div class="form-group">
-    <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoTotal" readonly>
+    <input class="form-control" type="text" value="@Model.PrecoTotal" readonly>
 </div>
 
 <button type="submit" class="btn btn-success mb-2">Confirmar Compra</button>

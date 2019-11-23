@@ -22,6 +22,16 @@ namespace ProjetoEcommerce.Controllers
             return View("Index", carrinhoProdutos);
         }
 
+        public ActionResult ResumoCarrinho()
+        {
+            var resumoCarrinho =
+                new ProjetoEcommerceContext()
+                    .carrinho                    
+                    .ToList();
+
+            return PartialView("_ResumoCarrinho", resumoCarrinho);
+        }
+
         public JsonResult Remover(int carrinhoProdutoId)
         {
             try
