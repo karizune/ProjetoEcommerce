@@ -19,15 +19,16 @@ namespace ProjetoEcommerce.Controllers
                     .Include("Produto")
                     .ToList();
 
-            return View("Index", carrinhoProdutos);
+            return View("Index", 1);
         }
 
-        public ActionResult ResumoCarrinho()
+        public ActionResult ResumoCarrinho(int usuarioId)
         {
             var resumoCarrinho =
                 new ProjetoEcommerceContext()
-                    .carrinho                    
-                    .ToList();
+                    .carrinho
+                    .Where(f => f.UsuarioID == usuarioId);
+
 
             return PartialView("_ResumoCarrinho", resumoCarrinho);
         }

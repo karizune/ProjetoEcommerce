@@ -1,4 +1,5 @@
-﻿
+﻿@model  int 
+
 @{
     ViewBag.Title = "teste";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -66,16 +67,17 @@
                 $("#produtos-carrinho").html(result);
             },
             error: function () {
-                alert('errro hahaa');
+                alert('errro hahaanjkhbkjhnjiuk');
             }
         });
-
-        var urlResumo = $("#resumo-carrinho").data("url");
+        var usuarioId = 1;
+        var urlResumo = $("#resumo-carrinho").data("url") + `?usuarioid=${usuarioId}`;
         $.ajax({
             type: "GET",
             url: urlResumo,
             success: function (result) {
                 $("#resumo-carrinho").html(result);
+                ALERT('oh heyt');
             },
             error: function () {
                 alert('errro hahaa');
