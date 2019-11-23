@@ -237,10 +237,16 @@
     <Content Include="Views\Sexo\Delete.cshtml" />
     <Content Include="Views\Fisico\Index.cshtml" />
     <Content Include="Views\Fisico\Create.cshtml" />
+    <Content Include="Views\Email\Index.cshtml" />
+    <Content Include="Views\Email\Details.cshtml" />
+    <Content Include="Views\Email\Create.cshtml" />
+    <Content Include="Views\Email\Edit.cshtml" />
+    <Content Include="Views\Email\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Fisico\" />
     <Folder Include="Views\Email\" />
     <Folder Include="Views\Juridico\" />
     <Folder Include="Views\Telefone\" />
