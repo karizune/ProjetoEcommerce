@@ -1,1 +1,10 @@
-﻿
+﻿.admin-titulo-principal{
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 700;
+    border-bottom: solid 3px #007bff;
+    border-right: solid 3px #007bff;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}

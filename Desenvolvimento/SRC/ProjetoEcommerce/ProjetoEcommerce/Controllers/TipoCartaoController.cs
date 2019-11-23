@@ -12,19 +12,15 @@ namespace ProjetoEcommerce.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: TipoCartao
-        public ActionResult ListarTodos()
-        {
             var tiposDeCartoes =
                 new ProjetoEcommerceContext()
                     .TipoCartao
+                    .Where(f => f.Status == 1)
                     .ToList();
 
             return View(tiposDeCartoes);
         }
+
 
         [HttpGet]
         public ActionResult Incluir()
@@ -43,7 +39,20 @@ namespace ProjetoEcommerce.Controllers
             db.TipoCartao.Add(ent);
             db.SaveChanges();
 
-            return Redirect("ListarTodos");
+            return Redirect("Index");
+        }
+
+        public ActionResult Excluir(int tipoCartaoId)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.TipoCartao.Find(tipoCartaoId);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "renato";
+            db.Entry<TipoCartao>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("Index");
         }
     }
 }
