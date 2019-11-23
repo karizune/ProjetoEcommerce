@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
-using ProjetoEcommerce.Data.Repositories;
 using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers

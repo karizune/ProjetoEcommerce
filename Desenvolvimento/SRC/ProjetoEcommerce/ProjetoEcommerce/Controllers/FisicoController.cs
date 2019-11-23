@@ -12,34 +12,38 @@ namespace ProjetoEcommerce.Controllers
 {
     public class FisicoController : Controller
     {
+        private readonly ISexoService _sexoService;
         private readonly IFisicoService _fisicoService;
 
-        public FisicoController(IFisicoService fisicoService)
+        public FisicoController(IFisicoService fisicoService, ISexoService sexoService )
         {
+            _sexoService = sexoService;
             _fisicoService = fisicoService;
         }
         // GET: Fisico
         public ActionResult Index()
         {
-            var fisicoViewModel = Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
-            return View(fisicoViewModel);
+            var fisicolViewModel = Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
+            return View(fisicolViewModel);
         }
 
         // GET: Fisico/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var fisico = _fisicoService.GetById(id);
+            var fisicoViewModel = Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            return View(fisicoViewModel);
         }
 
         // GET: Fisico/Create
         public ActionResult Create()
         {
+            ViewBag.IDCliente = new SelectList(_fisicoService.GetAll(), "IDSexo", "Nome");
             return View();
         }
 
         // POST: Fisico/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(FisicoViewModel fisico)
         {
             if (ModelState.IsValid)

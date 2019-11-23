@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjetoEcommerce.ViewModels.SexoViewModel>
+﻿@model IEnumerable<ProjetoEcommerce.ViewModels.EmailViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -24,13 +24,16 @@
             @Html.DisplayNameFor(model => model.AtualizadoEm)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IDSexo)
+            @Html.DisplayNameFor(model => model.IDEmail)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.IDCliente)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+            @Html.DisplayNameFor(model => model.E_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
         </th>
         <th></th>
     </tr>
@@ -50,18 +53,21 @@
             @Html.DisplayFor(modelItem => item.AtualizadoEm)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IDSexo)
+            @Html.DisplayFor(modelItem => item.IDEmail)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Nome)
+            @Html.DisplayFor(modelItem => item.IDCliente)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
+            @Html.DisplayFor(modelItem => item.E_mail)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.IDSexo }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IDSexo }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDSexo })
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDEmail }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDEmail }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDEmail })
         </td>
     </tr>
 }
