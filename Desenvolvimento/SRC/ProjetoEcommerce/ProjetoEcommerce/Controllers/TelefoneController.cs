@@ -66,36 +66,38 @@ namespace ProjetoEcommerce.Controllers
         }
 
         // POST: Telefone/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(TelefoneViewModel telefone)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(TelefoneViewModel Telefone)
+        {
+            if (ModelState.IsValid)
+            {
+                var telefoneDomain = Mapper.Map<TelefoneViewModel, Telefone>(Telefone);
+                _telefoneService.Update(telefoneDomain);
 
-        //    }
-        //}
+                return RedirectToAction("Index");
+            }
+            return View(Telefone);
+        }
+
 
         // GET: Telefone/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var telefone = _telefoneService.GetById(id);
+            var telefoneViewModel = Mapper.Map<Telefone, TelefoneViewModel>(telefone);
+            return View(telefoneViewModel);
         }
 
         // POST: Telefone/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var telefone = _telefoneService.GetById(id);
+            _telefoneService.Remove(telefone);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
