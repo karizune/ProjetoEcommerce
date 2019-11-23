@@ -8,22 +8,19 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
         public RegistroConfiguration()
         {
             ToTable("Registro", "Relatorio");
-            HasKey(x => x.RelatorioID);
-            HasKey(x => x.UsuarioID);
+            HasKey(x => new { x.RelatorioID, x.UsuarioID });
 
             Property(x => x.RelatorioID)
                 .HasColumnName(@"RelatorioID")
                 .HasColumnType("int")
                 .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
 
             Property(x => x.UsuarioID)
                 .HasColumnName(@"UsuarioID")
                 .HasColumnType("int")
                 .IsRequired()
-                .HasDatabaseGeneratedOption
-                (System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")
@@ -54,7 +51,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
                 .IsRequired();
 
             Property(x => x.AtualizadoEm)
-                .HasColumnName(@"AtualizdoEm")
+                .HasColumnName(@"AtualizadoEm")
                 .HasColumnType("datetime")
                 .IsRequired();
         }
