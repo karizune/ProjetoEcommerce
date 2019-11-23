@@ -25,11 +25,13 @@ namespace ProjetoEcommerce.Controllers
             return View(emailViewModel);
            
         }
-
+        
         // GET: Email/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var email = _emailService.GetById(id);
+            var emailViewModel = Mapper.Map<Email, EmailViewModel>(email);
+            return View(emailViewModel);
         }
 
         // GET: Email/Create
@@ -57,45 +59,43 @@ namespace ProjetoEcommerce.Controllers
         // GET: Email/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var email = _emailService.GetById(id);
+            var emailViewModel = Mapper.Map<Email, EmailViewModel>(email);
+            return View(emailViewModel);
         }
 
         // POST: Email/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EmailViewModel email)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var emailDomain = Mapper.Map<EmailViewModel, Email>(email);
+                _emailService.Update(emailDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(email);
         }
 
         // GET: Email/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var email = _emailService.GetById(id);
+            var emailViewModel = Mapper.Map<Email, EmailViewModel>(email);
+            return View(emailViewModel);
         }
 
         // POST: Email/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var email = _emailService.GetById(id);
+            _emailService.Remove(email);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
