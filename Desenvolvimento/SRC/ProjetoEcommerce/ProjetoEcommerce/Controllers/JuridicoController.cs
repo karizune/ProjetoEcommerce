@@ -25,7 +25,9 @@ namespace ProjetoEcommerce.Controllers
         // GET: Juridico/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var juridico = _juridicoService.GetById(id);
+            var juridicoViewModel = Mapper.Map<Juridico, JuridicoViewModel>(juridico);
+            return View(juridicoViewModel);
         }
 
         // GET: Juridico/Create
@@ -53,45 +55,43 @@ namespace ProjetoEcommerce.Controllers
         // GET: Juridico/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var juridico = _juridicoService.GetById(id);
+            var juridicoViewModel = Mapper.Map<Juridico, JuridicoViewModel>(juridico);
+            return View(juridicoViewModel);
         }
 
         // POST: Juridico/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(JuridicoViewModel juridico)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var juridicoDomain = Mapper.Map<JuridicoViewModel, Juridico>(juridico);
+                _juridicoService.Update(juridicoDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(juridico);
         }
 
         // GET: Juridico/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var juridico = _juridicoService.GetById(id);
+            var juridicoViewModel = Mapper.Map<Juridico, JuridicoViewModel>(juridico);
+            return View(juridicoViewModel);
         }
 
         // POST: Juridico/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var juridico = _juridicoService.GetById(id);
+            _juridicoService.Remove(juridico);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }

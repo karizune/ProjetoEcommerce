@@ -38,7 +38,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Fisico/Create
         public ActionResult Create()
         {
-            ViewBag.IDCliente = new SelectList(_fisicoService.GetAll(), "IDSexo", "Nome");
+            ViewBag.IDCliente = new SelectList(_sexoService.GetAll(), "IDSexo", "Nome");
             return View();
         }
 
@@ -60,45 +60,43 @@ namespace ProjetoEcommerce.Controllers
         // GET: Fisico/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var fisico = _fisicoService.GetById(id);
+            var fisicoViewModel = Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            return View(fisicoViewModel);
         }
 
         // POST: Fisico/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(FisicoViewModel fisico)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var fisicoDomain = Mapper.Map<FisicoViewModel, Fisico>(fisico);
+                _fisicoService.Update(fisicoDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(fisico);
         }
 
         // GET: Fisico/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var fisico = _fisicoService.GetById(id);
+            var fisicoViewModel = Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            return View(fisicoViewModel);
         }
 
         // POST: Fisico/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var fisico = _fisicoService.GetById(id);
+            _fisicoService.Remove(fisico);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
