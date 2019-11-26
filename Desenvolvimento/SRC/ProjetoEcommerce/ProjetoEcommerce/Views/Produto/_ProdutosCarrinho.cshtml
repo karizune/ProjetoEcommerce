@@ -2,8 +2,7 @@
 
 @using (Html.BeginForm("Remover", "Carrinho", FormMethod.Post))
 {
-
-    <table>
+    <table class="table">
         <thead class="produto-thead">
             <tr>
                 <th class="produto-th">Nome</th>
@@ -15,35 +14,37 @@
         <tbody>
             @for (int i = 0; i < Model.Count; i++)
             {
-
                 //@Html.HiddenFor(item => item[i].ProdutoID)
                 <tr>
-                    <td class="form-group produto-td">
-                        <div class="form-group">
-                            <div class="">
-                                @Html.EditorFor(item => item[i].Produto.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                    <td class="form-group produto-td" style="vertical-align:middle;">
+                        <div class="form-group" style="display:flex; margin-bottom:0">
+                            <img src="https://res.cloudinary.com/teepublic/image/private/s--mGfDSaHk--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1527371813/production/designs/2726223_0.jpg" style="width:60px" />
+                            <div style="display:flex;">
+                                <span style="margin-left:10px">
+                                    @Html.DisplayFor(item => item[i].Produto.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                </span>
                             </div>
                         </div>
                     </td>
-                    <td class="form-group produto-td">
+                    <td class="form-group produto-td" style="vertical-align:middle;">
                         <div class="form-group">
                             <div class="">
-                                @Html.EditorFor(item => item[i].Produto.Preco, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                @Html.DisplayFor(item => item[i].Produto.Preco, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
                             </div>
                         </div>
                     </td>
-                    <td class="form-group produto-td">
+                    <td class="form-group produto-td" style="vertical-align:middle;">
                         <div class="form-group">
                             <div class="">
                                 @Html.EditorFor(item => item[i].Quantidade, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                         </div>
                     </td>
-                    <td class="form-group produto-td">
+                    <td class="form-group produto-td" style="vertical-align:middle;">
                         <div class="form-group" style="color: red;text-align: center">
 
-                            <button type="button" class="btn-Remover" data-vitor="@Model[i].CarrinhoProdutoID">
-                                <i class="btn-default">Remover Pls!!!!</i>
+                            <button type="button" class="btn btn-default" data-vitor="@Model[i].CarrinhoProdutoID">
+                                <span>Remover</span>
                             </button>
 
                         </div>
@@ -55,7 +56,3 @@
     </table>
 
 }
-
-<div style="margin-left:1em;">
-    <a href="@Url.Action("Index","Carrinho")" class="btn btn-primary mb-2">Atualizar Carrinho</a>
-</div>

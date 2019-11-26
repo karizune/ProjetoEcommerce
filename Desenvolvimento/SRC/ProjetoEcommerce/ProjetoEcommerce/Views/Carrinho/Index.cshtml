@@ -27,7 +27,7 @@
     </style>
     <div style="display: flex; margin: 4em 0">
         <div style=" width: 55%;padding: 50px;">
-            <div style="border:1px solid; background:#f5f5f5;" id="produtos-carrinho" data-url="@Url.Action("ProdutoCarrinho","Produto")">
+            <div style="background:#fff;" id="produtos-carrinho" data-url="@Url.Action("ProdutoCarrinho","Produto")">
 
             </div>
         </div>
@@ -39,22 +39,7 @@
         </div>
     </div>
 
-    @*<div style="border: 1px solid; background: #f5f5f5;width: 35%; margin-left: 5%;text-align: center;">
-            <h4>
-                @Html.Label("Resumo do Carrinho", htmlAttributes: new { @class = "control-label" })
-            </h4>
-            @Html.Label("Preco Frete", htmlAttributes: new { @class = "control-label" })
-            <div class="form-group">
-                <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoFrete" readonly>
-
-            </div>
-            @Html.Label("Preco Total", htmlAttributes: new { @class = "control-label" })
-            <div class="form-group">
-                <input class="form-control" type="text" value="@ViewBag.Carrinho.PrecoTotal" readonly>
-            </div>
-            <button type="submit" class="btn btn-success mb-2">Confirmar Compra</button>
-        </div>*@
-
+    @*JS Scripts*@
 
     <script>
 
