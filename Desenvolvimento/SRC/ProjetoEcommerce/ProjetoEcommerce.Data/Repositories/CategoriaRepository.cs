@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 
 namespace ProjetoEcommerce.Data.Repositories.Base
@@ -10,7 +10,7 @@ namespace ProjetoEcommerce.Data.Repositories.Base
     {
         public IEnumerable<Categoria> BuscarAtivos()
         {
-            return Entity.Where(f => f.Status == 1);
+            return Entity.Where(f => f.Status == 1.0);
         }
 
         public Categoria GetOneBy(int CategoriaID)

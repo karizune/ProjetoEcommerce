@@ -1,4 +1,4 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
+﻿using ProjetoEcommerce.Dominio.Entidades;
 using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Services

@@ -1,11 +1,11 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
+﻿using ProjetoEcommerce.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Dominio.Interfaces.Services.Produto
+namespace ProjetoEcommerce.Dominio.Interfaces.Services
 {
     public interface IMarcaService
     {

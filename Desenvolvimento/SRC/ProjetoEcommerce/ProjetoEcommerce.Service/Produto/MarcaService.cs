@@ -1,14 +1,14 @@
 ﻿using ProjetoEcommerce.Data.Repositories;
-using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
-using ProjetoEcommerce.Dominio.Interfaces.Services.Produto;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.Service.Produto
+namespace ProjetoEcommerce.Service
 {
     public class MarcaService : IMarcaService
     {

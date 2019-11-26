@@ -1,6 +1,6 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Produto;
-using ProjetoEcommerce.Dominio.Interfaces.Services.Produto;
-using ProjetoEcommerce.Service.Produto;
+﻿using ProjetoEcommerce.Dominio.Entidades;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
+using ProjetoEcommerce.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;

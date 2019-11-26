@@ -1,5 +1,5 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Marketplace;
-using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Dominio.Interfaces.Base;
 using System;
 using System.Collections.Generic;

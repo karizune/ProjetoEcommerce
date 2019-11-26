@@ -1,5 +1,5 @@
 ﻿using ProjetoEcommerce.Data.Configuration;
-using ProjetoEcommerce.Dominio.Entidades.Produto;
+using ProjetoEcommerce.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
