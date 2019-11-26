@@ -47,9 +47,10 @@ namespace ProjetoEcommerce.Controllers.Pagamento
 
         }
         
-        public ActionResult PagamentoCartao(IEnumerable<ProdutoCarrinho> listaProdutos)
+        [HttpPost]
+        public ActionResult PagamentoCartao(Cartao cartao)
         {
-            return View(listaProdutos);
+            return View();
             
         }
 

@@ -6,13 +6,18 @@
     int i = 1;
     
 }
+<style>
+    .footer{
+        clear:both;
+    }
+</style>
     
     <h3 class="text-center">Método de pagamento</h3>
 
 <div class="panel-group pull-left" id="accordion" role="tablist" aria-multiselectable="true" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
     @foreach (var item in Model.ListaProdutos)
     {
-        <div class="panel panel-default">
+        <div class="panel panel-info">
             <div class="panel-heading" role="tab" id="@("heading" + i.ToString())">
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
@@ -32,7 +37,7 @@
             </div>
             <div id="@("collapse" + i.ToString())" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
                 <div class="panel-body">
-                    <img src="@item.UrlImagem" alt="Imgem do Produto \" @item.Nome \"" class="img-thumbnail" style="height:50%; width:50%; object-fit: contain; margin-left:25%;margin-right:25%">
+                    <img src="@item.UrlImagem" alt="Imgem do Produto @item.Nome " class="img-thumbnail" style="height:50%; width:50%; object-fit: contain; margin-left:25%;margin-right:25%">
                     <p class="text-center" style="margin-top:5%; margin-bottom:5%;">@item.DescricaoProduto</p>
                     <table class="table">
                         <thead>
@@ -52,7 +57,7 @@
     <hr style="margin-top:10px;margin-bottom:10px;" />
     
         
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="panel-title">
                     Você vai pagar:
@@ -68,8 +73,55 @@
 </div>
 
 <div class="pull-right" style="width:49%; height:90%; margin-top:10px">
-    @foreach (var Metodo in Model.MetodosPagamento)
-    {
-    <a href="@Url.Action("Pagamento"+Metodo.Action,"Pagar",new RouteValueDictionary( new { listaPodutos = Model.ListaProdutos }))"><div type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom:2%"><span class="@Metodo.Glyphicon pull-left" aria-hidden="true"></span>@Metodo.Descricao</div></a>
-    }
+    
+        @*<a href="@Url.Action("Pagamento"+Metodo.Action,"Pagar",new RouteValueDictionary( new { listaPodutos = Model.ListaProdutos }))"><div type="button" class="btn btn-default btn-lg btn-block" style="margin-bottom:2%"><span class="@Metodo.Glyphicon pull-left" aria-hidden="true"></span>@Metodo.Descricao</div></a>*@
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="@("heading" + i.ToString())">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
+                        <span class="glyphicon glyphicon-credit-card pull-left" aria-hidden="true"></span> Cartão de crédito
+                        <span class="caret"></span>
+                    </a>
+                </h4>
+            </div>
+           <div id="@("collapse" + i.ToString())" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
+                <div class="panel-body">
+                    @using (Html.BeginForm("PagamentoCartao", "Pagar", FormMethod.Post))
+                    {
+                        
+
+                        @Html.HiddenFor(c => c.Cartao.CartaoID)
+                        @Html.HiddenFor(c => c.Cartao.CriadoEm)
+                        @Html.HiddenFor(c => c.Cartao.AtualizadoEm)
+                        @Html.HiddenFor(c => c.Cartao.Usuario)
+                        @Html.HiddenFor(c => c.Cartao.UsuarioID)
+                        @Html.HiddenFor(c => c.Cartao.Status)
+                        @Html.HiddenFor(c => c.Cartao.statusCartao)
+                        @Html.HiddenFor(c => c.Cartao.StatusCartaoID)
+                        @Html.HiddenFor(c => c.Cartao.bandeiraCartao)
+                        <table class="center-block">
+                            <tr>
+                                <td>
+                                    @Html.LabelFor(c=>c.Cartao.NomeTitular)
+                                    @Html.TextBoxFor(c=>c.Cartao.NomeTitular)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.TextBoxFor(c=>c.Cartao.CVC)
+                                </td>
+                            </tr>
+                        </table>
+
+                        
+
+                    }
+                </div>
+            </div>
+        </div>
+        
+    
+
 </div>
