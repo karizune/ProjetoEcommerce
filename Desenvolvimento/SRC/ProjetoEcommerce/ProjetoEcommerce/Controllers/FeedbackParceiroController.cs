@@ -108,8 +108,8 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackParceiro/Edit/5
         public ActionResult Edit(int id)
         {
-            var ent = _feedbackParceiroService.GetOneBy(id);
-            return View(ent);
+            //var ent = _feedbackParceiroService.GetOneBy(id);
+            return View();
         }
 
         // POST: FeedbackParceiro/Edit/5
