@@ -4,8 +4,8 @@ CREATE TABLE Entrega.Estado (
                 Sigla CHAR(2) NOT NULL,
                 Nome VARCHAR(100) NOT NULL,
                 Usuario VARCHAR(255) NOT NULL,
-                DataCriacao DATETIME NOT NULL,
-                DataAtualizacao DATETIME NOT NULL,
+                CriadoEm DATETIME NOT NULL,
+                AtualizaEm DATETIME NOT NULL,
                 Status BIT NOT NULL,
                 CONSTRAINT PK_Estado PRIMARY KEY (EstadoID)
 ) 
@@ -71,24 +71,24 @@ CREATE TABLE Entrega.Endereco (
 
 ALTER TABLE Entrega.Cidade ADD CONSTRAINT Estado_Cidade_fk
 FOREIGN KEY (EstadoID)
-REFERENCES Estado (EstadoID)
+REFERENCES Entrega.Estado (EstadoID)
 
 
 ALTER TABLE Entrega.Bairro ADD CONSTRAINT Cidade_Bairro_fk
 FOREIGN KEY (CidadeID)
-REFERENCES Cidade (CidadeID)
+REFERENCES Entrega.Cidade (CidadeID)
 
 
 ALTER TABLE Entrega.Rua ADD CONSTRAINT Bairro_Rua_fk
 FOREIGN KEY (BairroID)
-REFERENCES Bairro (BairroID)
+REFERENCES Entrega.Bairro (BairroID)
 
 
 ALTER TABLE Entrega.CEPS ADD CONSTRAINT Rua_CEPS_fk
 FOREIGN KEY (RuaID)
-REFERENCES Rua (RuaID)
+REFERENCES Entrega.Rua (RuaID)
 
 ALTER TABLE Entrega.Endereco ADD CONSTRAINT CEPS_Endereco_fk
 FOREIGN KEY (CEP)
-REFERENCES CEPS (CEP)
+REFERENCES Entrega.CEPS (CEP)
 
