@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*Estilo do pai amado*/
+.Identidade {
+    background-color: #000;
+}
+
+#Sucesso{
+    margin: 100px 50px 100px 50px;
+}
+
