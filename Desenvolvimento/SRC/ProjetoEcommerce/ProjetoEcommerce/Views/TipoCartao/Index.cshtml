@@ -1,0 +1,42 @@
+﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
+@model System.Collections.Generic.List<TipoCartao>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Tipos de Cartão";
+}
+
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "TipoCartao")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
+
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Descrição</th>
+            <th>Criado Em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Descricao</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Excluir", "TipoCartao", new { tipoCartaoId = item.TipoCartaoID })" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
