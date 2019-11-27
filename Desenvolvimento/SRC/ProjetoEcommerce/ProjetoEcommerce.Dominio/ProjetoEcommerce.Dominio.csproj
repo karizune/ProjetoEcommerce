@@ -52,6 +52,11 @@
     <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
+    <Compile Include="Entidades\Seguranca\BaseEntity.cs" />
+    <Compile Include="Entidades\Seguranca\Formulario.cs" />
+    <Compile Include="Entidades\Seguranca\FormularioGrupo.cs" />
+    <Compile Include="Entidades\Seguranca\GrupoDeAcesso.cs" />
+    <Compile Include="Entidades\Seguranca\GrupoUsuario.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,7 +67,6 @@
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Produto\" />
     <Folder Include="Entidades\Relatorio\" />
-    <Folder Include="Entidades\Seguranca\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

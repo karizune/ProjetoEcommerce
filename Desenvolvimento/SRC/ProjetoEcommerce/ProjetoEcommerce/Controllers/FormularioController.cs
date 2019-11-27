@@ -42,10 +42,6 @@ namespace ProjetoEcommerce.Controllers
 
             return Redirect("ListarTodos");            
         }
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
         [HttpPost]
         public ActionResult Delete(int id)
@@ -53,5 +49,4 @@ namespace ProjetoEcommerce.Controllers
             return Redirect("ListarTodos");
         }
     }
-}
 }
