@@ -18,7 +18,7 @@
                 <tr>
                     <td class="form-group produto-td" style="vertical-align:middle;">
                         <div class="form-group" style="display:flex; margin-bottom:0">
-                            <img src="https://res.cloudinary.com/teepublic/image/private/s--mGfDSaHk--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1527371813/production/designs/2726223_0.jpg" style="width:60px" />
+                            <img src="@Model[i].Produto.Imagem" style="width:60px" />
                             <div style="display:flex;">
                                 <span style="margin-left:10px">
                                     @Html.DisplayFor(item => item[i].Produto.Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
@@ -42,11 +42,9 @@
                     </td>
                     <td class="form-group produto-td" style="vertical-align:middle;">
                         <div class="form-group" style="color: red;text-align: center">
-
-                            <button type="button" class="btn btn-default" data-vitor="@Model[i].CarrinhoProdutoID">
+                            <button type="button" data-action="Remover" class="btn btn-default" data-vitor="@Model[i].CarrinhoProdutoID">
                                 <span>Remover</span>
                             </button>
-
                         </div>
                     </td>
                 </tr>
@@ -56,3 +54,25 @@
     </table>
 
 }
+
+<script>
+    $(document).on('click', 'button[data-action="Remover"]', function (e) {
+        const $self = $(this);
+        let carrinhoProdutoId = $self.data("vitor");
+        const url = '@Url.Action("Remover", "Carrinho")' + '?CarrinhoProdutoID=' + carrinhoProdutoId;
+
+        fetch(url)
+            .then((response) => { console.log(response); return response.json(); })
+            .then((result) => {
+                console.log(result);
+                if (result.status === 1) {
+                    //window.location.href = window.location.href;
+                    $self.parent().parent().parent().remove()
+                }
+                else {
+                    alert(result.message);
+                }
+            });
+        e.stopImmediatePropagation();
+    });
+</script>

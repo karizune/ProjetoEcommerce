@@ -16,19 +16,16 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnType("int")
                 .IsRequired();
 
-
-
             Property(x => x.Nome).HasColumnName(@"Nome")
                 .HasColumnType("varchar")
                 .IsRequired();
 
-
-
             Property(x => x.Preco).HasColumnName(@"Preco")
                 .HasColumnType("decimal")
                 .IsRequired();
-                
 
+            Property(x => x.Imagem).HasColumnName(@"Imagem")
+               .HasColumnType("varchar");
         }
     }
 }

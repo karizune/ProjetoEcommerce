@@ -24,11 +24,11 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult ResumoCarrinho(int usuarioId)
         {
-            var resumoCarrinho =
-                new ProjetoEcommerceContext()
-                    .carrinho
-                    .Where(f => f.UsuarioID == usuarioId);
-
+            var resumoCarrinho = new Carrinho();
+            using (var db = new ProjetoEcommerceContext())
+            {
+                resumoCarrinho = db.Set<Carrinho>().Where(f => f.UsuarioID == usuarioId).FirstOrDefault();
+            }
 
             return PartialView("_ResumoCarrinho", resumoCarrinho);
         }
