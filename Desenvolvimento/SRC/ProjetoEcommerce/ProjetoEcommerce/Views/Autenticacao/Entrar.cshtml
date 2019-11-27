@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Entrar";
+    ViewBag.ShowMenu = false;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            @using (Html.BeginForm("EntrarConfirm", "Autenticacao", FormMethod.Post, new { @class = "form-signin" }))
+            {
+                <div class="text-center mb-4">
+                    <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+                    <h1 class="h3 mb-3 font-weight-normal">E-commerce SIF</h1>
+                    <p>The fastest e-commerce alive</p>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Usuário">
+                </div>
+                <br />
+
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha">
+                </div>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Acessar
+                </button>
+
+            }
+        </div>
+    </div>
+    
+</div>

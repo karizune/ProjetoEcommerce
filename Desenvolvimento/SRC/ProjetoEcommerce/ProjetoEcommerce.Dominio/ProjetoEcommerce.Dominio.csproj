@@ -52,29 +52,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
-    <Compile Include="Entidades\Produto\Categoria.cs" />
-    <Compile Include="Entidades\Produto\Imagem.cs" />
-    <Compile Include="Entidades\Produto\Loja.cs" />
-    <Compile Include="Entidades\Produto\Marca.cs" />
-    <Compile Include="Entidades\Produto\Produto.cs" />
+    <Compile Include="Entidades\Pagamento\BandeiraCartao.cs" />
+    <Compile Include="Entidades\Pagamento\BaseEntity.cs" />
+    <Compile Include="Entidades\Pagamento\Boleto.cs" />
+    <Compile Include="Entidades\Pagamento\Cartao.cs" />
+    <Compile Include="Entidades\Pagamento\Cartao_Tipo.cs" />
+    <Compile Include="Entidades\Pagamento\Carteira.cs" />
+    <Compile Include="Entidades\Pagamento\MetodoPagamento.cs" />
+    <Compile Include="Entidades\Pagamento\Pagamento.cs" />
+    <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
+    <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
+    <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\IEntityBase.cs" />
-    <Compile Include="Interfaces\Repositories\ICategoriaRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IImagemRepository.cs" />
-    <Compile Include="Interfaces\Repositories\ILojaRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IMarcaRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
-    <Compile Include="Interfaces\Services\Produto\ICategoriaService.cs" />
-    <Compile Include="Interfaces\Services\Produto\IImagemService.cs" />
-    <Compile Include="Interfaces\Services\Produto\ILojaService.cs" />
-    <Compile Include="Interfaces\Services\Produto\IMarcaService.cs" />
-    <Compile Include="Interfaces\Services\Produto\IProdutoService.cs" />
+    <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entidades\Carrinho\" />
     <Folder Include="Entidades\Entrega\" />
-    <Folder Include="Entidades\Pagamento\" />
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Relatorio\" />
     <Folder Include="Entidades\Seguranca\" />

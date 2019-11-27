@@ -1,43 +1,37 @@
-﻿using ProjetoEcommerce.Data.Configuration;
-using ProjetoEcommerce.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
+﻿using ProjetoEcommerce.Data.EntityFramework.Configuration;
+using ProjetoEcommerce.Dominio.Entidades.Marketplace;
+using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Context
 {
-    public class ProjetoEcommerceContext:DbContext
+    public class ProjetoEcommerceContext : DbContext
     {
-        public DbSet<Categoria> Categoria { get; set; }
-        public DbSet<Imagem> Imagem { get; set; }
-        public DbSet<Loja> Loja { get; set; }
-        public DbSet<Marca> Marca { get; set; }
-        public DbSet<Produto> Produto { get; set; }
+        public DbSet<Rastreamento> rastreamento { get; set; }
+        public DbSet<TipoCartao> TipoCartao { get; set; }
 
         static ProjetoEcommerceContext()
         {
             Database.SetInitializer<ProjetoEcommerceContext>(null);
         }
-        public static string ConnectionString()
+
+        private static string ConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["projetoEcommerceContext"].ConnectionString;
         }
-        public ProjetoEcommerceContext():base(ConnectionString())
+
+        public ProjetoEcommerceContext() : base(ConnectionString())
         {
 
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new CategoriaConfiguration());
-            modelBuilder.Configurations.Add(new ImagemConfiguration());
-            modelBuilder.Configurations.Add(new LojaConfiguration());
-            modelBuilder.Configurations.Add(new MarcaConfiguration());
-            modelBuilder.Configurations.Add(new ProdutoConfiguration());
+
+            modelBuilder.Configurations.Add(new RastreamentoConfiguration());
+            modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
         }
     }
 }
