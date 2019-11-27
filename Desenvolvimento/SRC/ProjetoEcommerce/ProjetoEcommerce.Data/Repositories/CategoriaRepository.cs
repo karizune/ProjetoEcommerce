@@ -10,7 +10,7 @@ namespace ProjetoEcommerce.Data.Repositories.Base
     {
         public IEnumerable<Categoria> BuscarAtivos()
         {
-            return Entity.Where(f => f.Status == 1.0);
+            return Entity.Where(f => f.Status == 1);
         }
 
         public Categoria GetOneBy(int CategoriaID)
