@@ -1,0 +1,16 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.TipoCartao
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("IncluirConfirm", "TipoCartao", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="inputAddress">Descrição</label>
+        @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Digite a Descrição do Tipo de Cartão" })
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block"  />
+}
+
