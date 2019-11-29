@@ -1,75 +1,45 @@
-﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Entrega.Endereco>
-
+﻿@using ProjetoEcommerce.Dominio.Entidades.Entrega
+@model System.Collections.Generic.List<Endereco>
 @{
-    ViewBag.Title = "ListarTodos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Endereço";
 }
 
-<h2>ListarTodos</h2>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Adicionar", "Endereco")">
+        <i class="fa fa-plus"></i>
+        Adicionar
+    </a>
+</div>
 
-<p>
-    @Html.ActionLink("Criar", "Adicionar")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ClienteID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CEP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Complemento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CriadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AtualizaEm)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClienteID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CEP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complemento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CriadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtualizaEm)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnderecoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnderecoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnderecoID })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>CEP</th>
+            <th>Complemento</th>
+            <th>Numero</th>
+            <th>CriadoEm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CEP</td>
+                <td>@item.Complemento</td>
+                <td>@item.Numero</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Deletar", "Endereco", new { id = item.EnderecoID, usuario = "Admin" })" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
