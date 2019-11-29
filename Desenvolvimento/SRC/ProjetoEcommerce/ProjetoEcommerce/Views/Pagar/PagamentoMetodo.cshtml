@@ -4,42 +4,44 @@
 @{
     ViewBag.Title = "Método de pagamento";
     int i = 1;
-    
+    ViewBag.ShowMenu = true;
+
 }
-<style>
-    .footer{
-        clear:both;
-    }
-</style>
     
     <h3 class="text-center">Método de pagamento</h3>
 
-<div class="panel-group pull-left" id="accordion" role="tablist" aria-multiselectable="true" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
+
+<div id="accordion" class="float-left" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
     @foreach (var item in Model.ListaProdutos)
     {
-        <div class="panel panel-info">
-            <div class="panel-heading" role="tab" id="@("heading" + i.ToString())">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
-                        @item.Nome
-                        (@item.Quantidade)
-                        @if (i == 1)
-                        {
-                            <div class="pull-right" style="font-size:10pt">R$@item.PrecoTotal</div>
-                        }
-                        else
-                        {
-                            <div class="pull-right" style="font-size:10pt">+ R$@item.PrecoTotal</div>
-                        }
-                        <span class="caret"></span>
-                    </a>
-                </h4>
+        <div class="card text-white bg-primary" style="margin-bottom:0.4em">
+            <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-white collapsed" data-toggle="collapse" data-target="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
+                        <div class="float-left">
+                            @item.Nome
+                            (@item.Quantidade)
+
+                        </div>
+
+
+
+                    </button>
+                    @if (i == 1)
+                    {
+                        <span class="float-right" style="font-size:10pt; margin-top:0.7em">R$@item.PrecoTotal</span>
+                    }
+                    else
+                    {
+                        <span class="float-right" style="font-size:10pt;margin-top:0.7em">+ R$@item.PrecoTotal</span>
+                    }
+                </h5>
             </div>
-            <div id="@("collapse" + i.ToString())" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
-                <div class="panel-body">
-                    <img src="@item.UrlImagem" alt="Imgem do Produto @item.Nome " class="img-thumbnail" style="height:50%; width:50%; object-fit: contain; margin-left:25%;margin-right:25%">
-                    <p class="text-center" style="margin-top:5%; margin-bottom:5%;">@item.DescricaoProduto</p>
-                    <table class="table">
+            <div id="@("collapse" + i.ToString())" class="collapse" aria-labelledby="@("heading" + i.ToString())" data-parent="#accordion">
+                <div class="card-body bg-white">
+                    <img src="@item.UrlImagem" alt="Imgem do Produto @item.Nome " class="img-thumbnail float-left" style="height:50%; width:50%; object-fit: contain; margin-top:1em;margin-bottom:1em">
+                    <p style="width:49%; margin-top:25%;margin-bottom:25%" class="text-center text-dark float-right">@item.DescricaoProduto</p>
+                    <table class="table" style="border-top:hidden">
                         <thead>
                             <tr><th></th><th></th><th></th></tr>
                         </thead>
@@ -55,73 +57,58 @@
         i++;
     }
     <hr style="margin-top:10px;margin-bottom:10px;" />
-    
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    Você vai pagar:
-                    <div class="panel-title pull-right" style="font-size:12pt;"><b>R$@Model.PrecoTotalVenda</b></div>
-                </div>
-
-            </div>
-
-        </div>
-    
-
-
+    <div class="card text-white bg-info mb-3">
+        <div class="card-header">Você vai pagar: <div class="float-right" style="font-size:12pt;"><b>R$@Model.PrecoTotalVenda</b></div></div>
+    </div>
 </div>
 
-<div class="pull-right" style="width:49%; height:90%; margin-top:10px">
+<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
     
-        @*<a href="@Url.Action("Pagamento"+Metodo.Action,"Pagar",new RouteValueDictionary( new { listaPodutos = Model.ListaProdutos }))"><div type="button" class="btn btn-default btn-lg btn-block" style="margin-bottom:2%"><span class="@Metodo.Glyphicon pull-left" aria-hidden="true"></span>@Metodo.Descricao</div></a>*@
-
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="@("heading" + i.ToString())">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
-                        <span class="glyphicon glyphicon-credit-card pull-left" aria-hidden="true"></span> Cartão de crédito
-                        <span class="caret"></span>
-                    </a>
-                </h4>
+        <div class="card" style="margin-bottom:0.4em">
+            <div class="card-header" style="max-height:10em" id="HeadingBoleto">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseBoleto" aria-expanded="false" aria-controls="collapseBoleto">
+                        <div class="float-left">
+                            Cartão de crédito
+                        </div>
+                    </button>
+                </h5>
             </div>
-           <div id="@("collapse" + i.ToString())" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@("heading" + i.ToString())">
-                <div class="panel-body">
-                    @using (Html.BeginForm("PagamentoCartao", "Pagar", FormMethod.Post))
+            <div id="collapseBoleto" class="collapse" aria-labelledby="HeadingBoleto" data-parent="#accordion">
+                <div class="card-body bg-white">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Endereço de email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+                            <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Clique em mim</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                    @using (Html.BeginForm("Pagar", "PagamentoCartao", FormMethod.Post))
                     {
-                        
+                        <div class="form-group">
+                            @Html.TextBoxFor(c => c.Cartao.Numero)
 
-                        @Html.HiddenFor(c => c.Cartao.CartaoID)
-                        @Html.HiddenFor(c => c.Cartao.CriadoEm)
-                        @Html.HiddenFor(c => c.Cartao.AtualizadoEm)
-                        @Html.HiddenFor(c => c.Cartao.Usuario)
-                        @Html.HiddenFor(c => c.Cartao.UsuarioID)
-                        @Html.HiddenFor(c => c.Cartao.Status)
-                        @Html.HiddenFor(c => c.Cartao.statusCartao)
-                        @Html.HiddenFor(c => c.Cartao.StatusCartaoID)
-                        @Html.HiddenFor(c => c.Cartao.bandeiraCartao)
-                        <table class="center-block">
-                            <tr>
-                                <td>
-                                    @Html.LabelFor(c=>c.Cartao.NomeTitular)
-                                    @Html.TextBoxFor(c=>c.Cartao.NomeTitular)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBoxFor(c=>c.Cartao.CVC)
-                                </td>
-                            </tr>
-                        </table>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(c => c.Cartao.Numero)
 
-                        
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(c => c.Cartao.Numero)
 
+                        </div>
                     }
                 </div>
             </div>
         </div>
-        
-    
-
 </div>
+
