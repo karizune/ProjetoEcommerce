@@ -1,65 +1,41 @@
-﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Entrega.Bairro>
-
+﻿@using ProjetoEcommerce.Dominio.Entidades.Entrega
+@model System.Collections.Generic.List<Bairro>
 @{
-    ViewBag.Title = "ListarTodos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Bairro";
 }
 
-<h2>ListarTodos</h2>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Adicionar", "Bairro")">
+        <i class="fa fa-plus"></i>
+        Adicionar
+    </a>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-    <button type="button" class="btn btn-primary" id="btn-create">Create</button>
-    
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CidadeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CriadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AtualizaEm)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CidadeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CriadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtualizaEm)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BairroID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BairroID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BairroID })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Criado Em</th>  
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Deletar", "Bairro", new { id = item.BairroID, usuario = "admin"})" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
