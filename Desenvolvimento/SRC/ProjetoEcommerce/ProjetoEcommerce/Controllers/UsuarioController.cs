@@ -32,7 +32,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
             ent.UsuarioID = 1;
-            ent.NomeUsuario = "Gabriel";
+            //ent.NomeUsuario = "";
             ent.Status = 2;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
