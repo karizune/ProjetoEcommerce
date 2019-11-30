@@ -35,14 +35,17 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"AtualizadoEm")
                 .HasColumnType("datetime")
                 .IsRequired();
+
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
                 .HasColumnType("datetime")
                 .IsRequired();
+
             Property(x => x.Status)
                 .HasColumnName(@"Status")
                 .HasColumnType("int")
                 .IsRequired();
+
             Property(x => x.Usuario)
                 .HasColumnName(@"Usuario")
                 .HasColumnType("varchar")

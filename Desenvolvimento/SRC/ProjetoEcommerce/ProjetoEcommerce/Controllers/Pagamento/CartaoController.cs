@@ -16,15 +16,35 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         
             return View();
         }
-        public ActionResult Criar()
+        public ActionResult Inserir()
         {
-
             return View();
         }
+        public ActionResult ListarTodos()
+        {
+            return View(context.Cartao.ToList());
+        }
+
         [HttpPost]
-        public ActionResult Criar(Cartao cartao)
+        public ActionResult Inserir(Cartao cartao)
         {
             context.Cartao.Add(cartao);
+            cartao.Status = 1;
+            cartao.Usuario = "Sistema";
+            cartao.AtualizadoEm = DateTime.Now;
+            cartao.CriadoEm = DateTime.Now;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Remover(int id)
+        {
+            Cartao obj = context.Cartao.First(c => c.CartaoID == id);
+            obj.AtualizadoEm = DateTime.Now;
+            obj.Status = 0;
+            obj.Usuario = "Sistema";
+            context.Cartao.Attach(obj);
+            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
