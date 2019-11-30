@@ -23,7 +23,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Fisico
         public ActionResult Index()
         {
-            var fisicolViewModel = Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
+            var fisicolViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
             return View(fisicolViewModel);
         }
 
@@ -31,7 +31,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Details(int id)
         {
             var fisico = _fisicoService.GetById(id);
-            var fisicoViewModel = Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            var fisicoViewModel = AutoMapperConfig.Mapper.Map<Fisico, FisicoViewModel>(fisico);
             return View(fisicoViewModel);
         }
 
@@ -48,7 +48,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var fisicoDomain = Mapper.Map<FisicoViewModel, Fisico>(fisico);
+                var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
                 _fisicoService.Add(fisicoDomain);
 
                 return RedirectToAction("Index");
@@ -61,7 +61,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Edit(int id)
         {
             var fisico = _fisicoService.GetById(id);
-            var fisicoViewModel = Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            var fisicoViewModel = AutoMapperConfig.Mapper.Map<Fisico, FisicoViewModel>(fisico);
             return View(fisicoViewModel);
         }
 
@@ -72,7 +72,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var fisicoDomain = Mapper.Map<FisicoViewModel, Fisico>(fisico);
+                var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
                 _fisicoService.Update(fisicoDomain);
 
                 return RedirectToAction("Index");
@@ -84,7 +84,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Delete(int id)
         {
             var fisico = _fisicoService.GetById(id);
-            var fisicoViewModel = Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            var fisicoViewModel = AutoMapperConfig.Mapper.Map<Fisico, FisicoViewModel>(fisico);
             return View(fisicoViewModel);
         }
 

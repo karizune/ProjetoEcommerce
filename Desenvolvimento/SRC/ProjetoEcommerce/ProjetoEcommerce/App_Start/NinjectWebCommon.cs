@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ProjetoEcommerce.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(ProjetoEcommerce.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ProjetoEcommerce.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(ProjetoEcommerce.NinjectWebCommon), "Stop")]
 
-namespace ProjetoEcommerce.App_Start
+namespace ProjetoEcommerce
 {
     using System;
     using System.Web;
@@ -10,6 +10,7 @@ namespace ProjetoEcommerce.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Ninject.Web.Common.WebHost;
     using ProjetoEcommerce.Data.Repositories;
     using ProjetoEcommerce.Dominio.Interfaces.Repositories;
     using ProjetoEcommerce.Dominio.Interfaces.Services;

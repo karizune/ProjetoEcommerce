@@ -1,20 +1,34 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using ProjetoEcommerce.Dominio.Entidades.Perfil;
+using ProjetoEcommerce.ViewModels;
 
-namespace ProjetoEcommerce.AutoMapper
+namespace ProjetoEcommerce
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
-        public static void RegisterMappings()
+        public static Mapper Mapper;
+
+        public static void Configuration()
         {
-            Mapper.Initialize(x =>
+
+            var config = new MapperConfiguration(cfg =>
             {
-                x.AddProfile<DomainToViewModelMappingProfile>();
-                x.AddProfile<ViewModelToDomainMappingProfile>();
+                cfg.CreateMap<Cliente, ClienteViewModel>();
+                cfg.CreateMap<Juridico, JuridicoViewModel>();
+                cfg.CreateMap<Fisico, FisicoViewModel>();
+                cfg.CreateMap<Telefone, TelefoneViewModel>();
+                cfg.CreateMap<Email, EmailViewModel>();
+                cfg.CreateMap<Sexo, SexoViewModel>();
+
+                cfg.CreateMap<ClienteViewModel, Cliente>();
+                cfg.CreateMap<JuridicoViewModel, Juridico>();
+                cfg.CreateMap<FisicoViewModel, Fisico>();
+                cfg.CreateMap<TelefoneViewModel, Telefone>();
+                cfg.CreateMap<EmailViewModel, Email>();
+                cfg.CreateMap<SexoViewModel, Sexo>();
             });
+
+            Mapper = new Mapper(config);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Juridico
         public ActionResult Index()
         {
-            var juridicoViewModel = Mapper.Map<IEnumerable<Juridico>, IEnumerable<JuridicoViewModel>>(_juridicoService.GetAll());
+            var juridicoViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Juridico>, IEnumerable<JuridicoViewModel>>(_juridicoService.GetAll());
             return View(juridicoViewModel);
         }
 
@@ -26,7 +26,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Details(int id)
         {
             var juridico = _juridicoService.GetById(id);
-            var juridicoViewModel = Mapper.Map<Juridico, JuridicoViewModel>(juridico);
+            var juridicoViewModel = AutoMapperConfig.Mapper.Map<Juridico, JuridicoViewModel>(juridico);
             return View(juridicoViewModel);
         }
 
@@ -43,7 +43,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var juridicoDomain = Mapper.Map<JuridicoViewModel, Juridico>(juridico);
+                var juridicoDomain = AutoMapperConfig.Mapper.Map<JuridicoViewModel, Juridico>(juridico);
                 _juridicoService.Add(juridicoDomain);
 
                 return RedirectToAction("Index");
@@ -56,7 +56,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Edit(int id)
         {
             var juridico = _juridicoService.GetById(id);
-            var juridicoViewModel = Mapper.Map<Juridico, JuridicoViewModel>(juridico);
+            var juridicoViewModel = AutoMapperConfig.Mapper.Map<Juridico, JuridicoViewModel>(juridico);
             return View(juridicoViewModel);
         }
 
@@ -67,7 +67,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var juridicoDomain = Mapper.Map<JuridicoViewModel, Juridico>(juridico);
+                var juridicoDomain = AutoMapperConfig.Mapper.Map<JuridicoViewModel, Juridico>(juridico);
                 _juridicoService.Update(juridicoDomain);
 
                 return RedirectToAction("Index");
@@ -79,7 +79,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Delete(int id)
         {
             var juridico = _juridicoService.GetById(id);
-            var juridicoViewModel = Mapper.Map<Juridico, JuridicoViewModel>(juridico);
+            var juridicoViewModel = AutoMapperConfig.Mapper.Map<Juridico, JuridicoViewModel>(juridico);
             return View(juridicoViewModel);
         }
 

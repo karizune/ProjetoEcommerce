@@ -1,6 +1,7 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Configuration;
 using ProjetoEcommerce.Dominio.Entidades.Marketplace;
 using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using System.Configuration;
 using System.Data.Entity;
 
@@ -11,39 +12,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         public DbSet<Rastreamento> rastreamento { get; set; }
         public DbSet<TipoCartao> TipoCartao { get; set; }
 
-        static ProjetoEcommerceContext()
-        {
-            Database.SetInitializer<ProjetoEcommerceContext>(null);
-        }
-
-        private static string ConnectionString()
-        {
-            return ConfigurationManager.ConnectionStrings["projetoEcommerceContext"].ConnectionString;
-        }
-
-        public ProjetoEcommerceContext() : base(ConnectionString())
-        {
-
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Configurations.Add(new RastreamentoConfiguration());
-            modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
-        }
-    }
-}
-using ProjetoEcommerce.Data.EntityFramework.Configuration;
-using ProjetoEcommerce.Dominio.Entidades.Perfil;
-using System.Configuration;
-using System.Data.Entity;
-
-namespace ProjetoEcommerce.Data.EntityFramework.Context
-{
-    public class ProjetoEcommerceContext : DbContext
-    {
         public DbSet<Sexo> Sexo { get; set; }
         public DbSet<Email> email { get; set; }
         public DbSet<Fisico> fisico { get; set; }
@@ -67,6 +35,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Configurations.Add(new RastreamentoConfiguration());
+            modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
 
             modelBuilder.Configurations.Add(new EmailConfiguration());
             modelBuilder.Entity<Email>().HasEntitySetName("Email");

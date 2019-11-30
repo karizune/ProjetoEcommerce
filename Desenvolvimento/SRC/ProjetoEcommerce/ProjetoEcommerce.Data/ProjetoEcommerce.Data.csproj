@@ -52,12 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Configuration\EmailConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\FisicoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\JuridicoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\SexoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\TelefoneConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\TipoCartaoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RastreamentoConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
+    <Compile Include="Repositories\EmailRepository.cs" />
+    <Compile Include="Repositories\FisicoRepository.cs" />
+    <Compile Include="Repositories\JuridicoRepository.cs" />
     <Compile Include="Repositories\RastreamentoRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\SexoRepository.cs" />
+    <Compile Include="Repositories\TelefoneRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

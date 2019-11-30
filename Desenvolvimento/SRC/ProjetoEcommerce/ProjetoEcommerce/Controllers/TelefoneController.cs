@@ -21,7 +21,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Telefone
         public ActionResult Index()
         {
-            var telefoneViewModel = Mapper.Map<IEnumerable<Telefone>, IEnumerable<TelefoneViewModel>>(_telefoneService.GetAll());
+            var telefoneViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Telefone>, IEnumerable<TelefoneViewModel>>(_telefoneService.GetAll());
             return View(telefoneViewModel);
         }
 
@@ -29,7 +29,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Details(int id)
         {
             var telefone = _telefoneService.GetById(id);
-            var telefoneViewModel = Mapper.Map<Telefone, TelefoneViewModel>(telefone);
+            var telefoneViewModel = AutoMapperConfig.Mapper.Map<Telefone, TelefoneViewModel>(telefone);
 
             return View(telefoneViewModel);
         }
@@ -47,7 +47,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var telefoneDomain = Mapper.Map<TelefoneViewModel, Telefone>(telefone);
+                var telefoneDomain = AutoMapperConfig.Mapper.Map<TelefoneViewModel, Telefone>(telefone);
                 _telefoneService.Add(telefoneDomain);
 
                 return RedirectToAction("Index");
@@ -60,7 +60,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Edit(int id)
         {
             var telefone = _telefoneService.GetById(id);
-            var telefoneViewModel = Mapper.Map<Telefone, TelefoneViewModel>(telefone);
+            var telefoneViewModel = AutoMapperConfig.Mapper.Map<Telefone, TelefoneViewModel>(telefone);
 
             return View(telefoneViewModel);
         }
@@ -72,7 +72,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var telefoneDomain = Mapper.Map<TelefoneViewModel, Telefone>(Telefone);
+                var telefoneDomain = AutoMapperConfig.Mapper.Map<TelefoneViewModel, Telefone>(Telefone);
                 _telefoneService.Update(telefoneDomain);
 
                 return RedirectToAction("Index");
@@ -85,7 +85,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Delete(int id)
         {
             var telefone = _telefoneService.GetById(id);
-            var telefoneViewModel = Mapper.Map<Telefone, TelefoneViewModel>(telefone);
+            var telefoneViewModel = AutoMapperConfig.Mapper.Map<Telefone, TelefoneViewModel>(telefone);
             return View(telefoneViewModel);
         }
 

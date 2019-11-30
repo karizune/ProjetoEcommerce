@@ -21,7 +21,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Sexo
         public ActionResult Index()
         {
-            var sexoViewModel = Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll());
+            var sexoViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll());
             return View(sexoViewModel);
         }
 
@@ -29,7 +29,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Details(int id)
         {
             var sexo = _sexoService.GetById(id);
-            var sexoViewModel = Mapper.Map<Sexo, SexoViewModel>(sexo);
+            var sexoViewModel = AutoMapperConfig.Mapper.Map<Sexo, SexoViewModel>(sexo);
             return View(sexoViewModel);
         }
 
@@ -46,7 +46,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var sexoDomain = Mapper.Map<SexoViewModel, Sexo>(sexo);
+                var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
                 _sexoService.Add(sexoDomain);
 
                 return RedirectToAction("Index");
@@ -59,7 +59,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Edit(int id)
         {
             var sexo = _sexoService.GetById(id);
-            var sexoViewModel = Mapper.Map<Sexo, SexoViewModel>(sexo);
+            var sexoViewModel = AutoMapperConfig.Mapper.Map<Sexo, SexoViewModel>(sexo);
             return View(sexoViewModel);
         }
 
@@ -70,7 +70,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var sexoDomain = Mapper.Map<SexoViewModel, Sexo>(sexo);
+                var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
                 _sexoService.Update(sexoDomain);
 
                 return RedirectToAction("Index");
@@ -82,7 +82,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Delete(int id)
         {
             var sexo = _sexoService.GetById(id);
-            var sexoViewModel = Mapper.Map<Sexo, SexoViewModel>(sexo);
+            var sexoViewModel = AutoMapperConfig.Mapper.Map<Sexo, SexoViewModel>(sexo);
             return View(sexoViewModel);
         }
 

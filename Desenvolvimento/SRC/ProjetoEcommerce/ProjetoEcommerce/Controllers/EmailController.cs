@@ -21,7 +21,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Email
         public ActionResult Index()
         {
-            var emailViewModel = Mapper.Map<IEnumerable<Email>, IEnumerable<EmailViewModel>>(_emailService.GetAll());
+            var emailViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Email>, IEnumerable<EmailViewModel>>(_emailService.GetAll());
             return View(emailViewModel);
            
         }
@@ -30,7 +30,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Details(int id)
         {
             var email = _emailService.GetById(id);
-            var emailViewModel = Mapper.Map<Email, EmailViewModel>(email);
+            var emailViewModel = AutoMapperConfig.Mapper.Map<Email, EmailViewModel>(email);
             return View(emailViewModel);
         }
 
@@ -47,7 +47,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var emailDomain = Mapper.Map<EmailViewModel, Email>(email);
+                var emailDomain = AutoMapperConfig.Mapper.Map<EmailViewModel, Email>(email);
                 _emailService.Add(emailDomain);
 
                 return RedirectToAction("Index");
@@ -60,7 +60,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Edit(int id)
         {
             var email = _emailService.GetById(id);
-            var emailViewModel = Mapper.Map<Email, EmailViewModel>(email);
+            var emailViewModel = AutoMapperConfig.Mapper.Map<Email, EmailViewModel>(email);
             return View(emailViewModel);
         }
 
@@ -71,7 +71,7 @@ namespace ProjetoEcommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var emailDomain = Mapper.Map<EmailViewModel, Email>(email);
+                var emailDomain = AutoMapperConfig.Mapper.Map<EmailViewModel, Email>(email);
                 _emailService.Update(emailDomain);
 
                 return RedirectToAction("Index");
@@ -83,7 +83,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Delete(int id)
         {
             var email = _emailService.GetById(id);
-            var emailViewModel = Mapper.Map<Email, EmailViewModel>(email);
+            var emailViewModel = AutoMapperConfig.Mapper.Map<Email, EmailViewModel>(email);
             return View(emailViewModel);
         }
 
