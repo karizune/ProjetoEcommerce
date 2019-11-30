@@ -8,7 +8,7 @@ namespace ProjetoEcommerce.data.EntityFramework.Configuration
         public UsuarioConfiguration()
         {
             ToTable("Usuario", "Relatorio");
-            HasKey(x => x.UsuarioID);
+            HasKey(x => new { x.UsuarioID});
 
             Property(x => x.UsuarioID)
                 .HasColumnName(@"UsuarioID")
