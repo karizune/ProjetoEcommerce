@@ -1,4 +1,5 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Marketplace;
+using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Dominio.Interfaces.Base;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
-    public interface IRastreamentoRepository : IRepositoryBase<Rastreamento>
+    public interface IMarcaRepository : IRepositoryBase<Marca>
     {
-        Rastreamento GetOneBy(int rastreamentoId);
+        Marca GetOneBy(int MarcaID);
+        IEnumerable<Marca> BuscarAtivos();
     }
 }

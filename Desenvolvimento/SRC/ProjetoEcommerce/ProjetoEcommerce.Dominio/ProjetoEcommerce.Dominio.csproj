@@ -69,7 +69,12 @@
     <Compile Include="Entidades\Produto\Marca.cs" />
     <Compile Include="Entidades\Produto\Produto.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
+    <Compile Include="Interfaces\IEntityBase.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoriaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IImagemRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILojaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMarcaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
