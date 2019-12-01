@@ -7,7 +7,7 @@ using ProjetoEcommerce.Data.EntityFramework;
 
 namespace ProjetoEcommerce.Data.Repositories.Base
 {
-    public class CategoriaRepository : RepositoryBase<Categoria>, ICategoriaRepository
+    public class CategeriaRepository : RepositoryBase<Categoria>, ICategoriaRepository
     {
         public IEnumerable<Categoria> BuscarAtivos()
         {

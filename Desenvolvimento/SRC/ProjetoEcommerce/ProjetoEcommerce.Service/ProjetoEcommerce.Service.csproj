@@ -50,5 +50,15 @@
     <Compile Include="Produto\ProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj">
+      <Project>{6769A0D3-82A2-480B-BCE4-A82507CC7B65}</Project>
+      <Name>ProjetoEcommerce.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
+      <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
+      <Name>ProjetoEcommerce.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
