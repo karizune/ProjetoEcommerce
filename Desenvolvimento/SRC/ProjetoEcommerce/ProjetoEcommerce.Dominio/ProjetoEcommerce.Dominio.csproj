@@ -75,6 +75,11 @@
     <Compile Include="Interfaces\Repositories\ILojaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IMarcaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
+    <Compile Include="Interfaces\Services\Produto\ICategoriaService.cs" />
+    <Compile Include="Interfaces\Services\Produto\IImagemService.cs" />
+    <Compile Include="Interfaces\Services\Produto\ILojaService.cs" />
+    <Compile Include="Interfaces\Services\Produto\IMarcaService.cs" />
+    <Compile Include="Interfaces\Services\Produto\IProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
