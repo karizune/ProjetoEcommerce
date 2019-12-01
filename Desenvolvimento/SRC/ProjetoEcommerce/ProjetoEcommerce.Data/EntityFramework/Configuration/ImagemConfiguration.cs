@@ -8,21 +8,23 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Configuration
 {
-    public class LojaConfiguration:EntityTypeConfiguration<Loja>
+    public class ImagemConfiguration : EntityTypeConfiguration<Imagem>
     {
-        public LojaConfiguration()
+        public ImagemConfiguration()
         {
-            ToTable("Loja","produto");
-            HasKey(x => x.LojaID);
-            Property(x => x.LojaID).HasColumnName(@"LojaID").HasColumnType("int").IsRequired().
+            //ImagemID
+            ToTable("Imagem", "produto");
+            HasKey(x => x.ImagemID);
+            Property(x => x.ImagemID).HasColumnName(@"ImagemID").HasColumnType("int").IsRequired().
             HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();      
+            Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
+            Property(x => x.URL).HasColumnName(@"URL").HasColumnType("varchar").IsRequired();
+            Property(x => x.Tamanho).HasColumnName(@"Tamanho").HasColumnType("real").IsRequired();
 
             Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
             Property(x => x.Usuario).HasColumnName(@"Usuario").HasColumnType("varchar").IsRequired();
             Property(x => x.CriadoEm).HasColumnName(@"CriadoEm").HasColumnType("datetime").IsRequired();
             Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm").HasColumnType("datetime").IsRequired();
-
         }
     }
 }

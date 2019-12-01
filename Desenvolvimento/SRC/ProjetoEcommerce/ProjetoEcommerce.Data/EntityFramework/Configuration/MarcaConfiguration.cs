@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Configuration
 {
-    public class CategoriaConfiguration:EntityTypeConfiguration<Categoria>
+    public class MarcaConfiguration : EntityTypeConfiguration<Marca>
     {
-        public CategoriaConfiguration()
+        public MarcaConfiguration()
         {
-            ToTable("Categoria","produto");
-            HasKey(x => x.CategoriaID);
-            Property(x => x.CategoriaID).HasColumnName(@"CategoriaID").HasColumnType("int").IsRequired().
+            ToTable("Marca", "produto");
+            HasKey(x => x.MarcaID);
+            Property(x => x.MarcaID).HasColumnName(@"MarcaID").HasColumnType("int").IsRequired().
             HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
 
