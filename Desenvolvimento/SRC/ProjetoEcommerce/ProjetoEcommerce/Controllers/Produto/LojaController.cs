@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.Service;
 using System;
