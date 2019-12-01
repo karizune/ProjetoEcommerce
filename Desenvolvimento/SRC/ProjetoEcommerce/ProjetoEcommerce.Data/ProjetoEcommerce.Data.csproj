@@ -50,6 +50,11 @@
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
+    <Compile Include="Repositories\Produto\CatogoriaRepository.cs" />
+    <Compile Include="Repositories\Produto\ImagemRepository.cs" />
+    <Compile Include="Repositories\Produto\LojaRepository.cs" />
+    <Compile Include="Repositories\Produto\MarcaRepository.cs" />
+    <Compile Include="Repositories\Produto\ProdutoRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
