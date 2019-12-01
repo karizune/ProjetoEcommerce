@@ -42,15 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="EntityFramework\Configuration\Categoriaconfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\ImagemConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\LojaConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\MarcaConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\ProdutoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\Produto\Categoriaconfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\Produto\ImagemConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\Produto\LojaConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\Produto\MarcaConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\Produto\ProdutoConfiguration.cs" />
+    <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EntityFramework\Context\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
