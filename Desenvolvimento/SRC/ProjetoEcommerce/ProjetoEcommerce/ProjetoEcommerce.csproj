@@ -206,6 +206,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Produto\Categoria\" />
+    <Folder Include="Views\Produto\Imagem\" />
+    <Folder Include="Views\Produto\Loja\" />
+    <Folder Include="Views\Produto\Marca\" />
+    <Folder Include="Views\Produto\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
