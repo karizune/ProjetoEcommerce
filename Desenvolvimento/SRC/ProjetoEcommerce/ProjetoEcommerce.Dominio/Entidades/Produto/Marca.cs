@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades
 {
-    public class Marca:IEntityBase
+    public class Marca : IEntityBase
     {
         public int MarcaID { get; set; }
         public string Nome { get; set; }
