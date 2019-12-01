@@ -139,6 +139,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Produto\CategoriaController.cs" />
+    <Compile Include="Controllers\Produto\ImagemController.cs" />
+    <Compile Include="Controllers\Produto\LojaController.cs" />
+    <Compile Include="Controllers\Produto\MarcaController.cs" />
+    <Compile Include="Controllers\Produto\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

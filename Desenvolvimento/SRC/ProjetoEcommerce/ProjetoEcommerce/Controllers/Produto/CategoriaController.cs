@@ -26,7 +26,7 @@ namespace ProjetoEcommerce.Controllers
             var categorias = categoriaService.BuscarAtivos();
             return View(categorias);
         }
-        
+
         [HttpGet]
 
         public ActionResult Incluir()
@@ -41,16 +41,16 @@ namespace ProjetoEcommerce.Controllers
             ent.Usuario = "grupo4";
             categoriaService.Salvar(ent);
 
-            return Redirect("ListarTodas");
+            return Redirect("Index");
         }
         public ActionResult Atualizar(int id)
         {
-            return Redirect("ListarTodas");
+            return Redirect("Index");
         }
         public ActionResult Excluir(int id)
         {
             categoriaService.Excluir(id, "teste");
-            return Redirect("ListarTodas");
+            return Redirect("Index");
         }
     }
 }
