@@ -24,7 +24,7 @@ namespace ProjetoEcommerce.Service
 
         public bool Excluir(int imagemId, string usuario)
         {
-            var ent= _repository.GetOne(imagemId);
+            var ent = _repository.GetOne(imagemId);
 
             if (ent == null)
                 return false;

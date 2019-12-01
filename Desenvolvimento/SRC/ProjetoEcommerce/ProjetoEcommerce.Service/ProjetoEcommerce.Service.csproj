@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{34559C02-DEA9-41DF-8624-C6FBF01E5477}</ProjectGuid>
+    <ProjectGuid>{DD418907-C76B-4F37-BFB2-00FDCCB2A0BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoEcommerce.Service</RootNamespace>
@@ -48,16 +48,6 @@
     <Compile Include="Produto\MarcaService.cs" />
     <Compile Include="Produto\ProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj">
-      <Project>{709EBB4C-D47F-4334-A193-CE9E031AF1F0}</Project>
-      <Name>ProjetoEcommerce.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
-      <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
-      <Name>ProjetoEcommerce.Dominio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
