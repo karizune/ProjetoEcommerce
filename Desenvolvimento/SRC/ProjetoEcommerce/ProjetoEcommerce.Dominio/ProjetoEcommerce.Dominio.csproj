@@ -50,6 +50,7 @@
     <Compile Include="Entidades\Interfaces\Entrega\Repository\IEnderecoRepository.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\Repository\IEstadoRepository.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\Repository\IRuaRepository.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\IBairroService.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\Service\ICepsService.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\Service\ICidadeService.cs" />
     <Compile Include="Entidades\Interfaces\Entrega\Service\IEnderecoService.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Entidades\Entrega\Ceps.cs" />
     <Compile Include="Entidades\Entrega\Endereco.cs" />
     <Compile Include="Entidades\Entrega\Estado.cs" />
+    <Compile Include="Entidades\Interfaces\Entrega\Service\IRuaService.cs" />
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
     <Compile Include="Entidades\Pagamento\BandeiraCartao.cs" />
     <Compile Include="Entidades\Pagamento\BaseEntity.cs" />
@@ -77,8 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entidades\Carrinho\" />
-    <Folder Include="Entidades\Entrega\" />
-    <Folder Include="Entidades\Pagamento\" />
     <Folder Include="Entidades\Perfil\" />
     <Folder Include="Entidades\Produto\" />
     <Folder Include="Entidades\Relatorio\" />
