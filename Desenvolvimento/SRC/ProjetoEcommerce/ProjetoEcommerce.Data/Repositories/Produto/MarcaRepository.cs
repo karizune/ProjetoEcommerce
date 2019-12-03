@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Repositories
 {
-    class MarcaRepository : RepositoryBase<Marca>, IMarcaRepository
+    public class MarcaRepository : RepositoryBase<Marca>, IMarcaRepository
     {
         public IEnumerable<Marca> BuscarAtivos()
         {
