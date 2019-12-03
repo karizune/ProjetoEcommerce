@@ -60,6 +60,11 @@
     <Compile Include="Entidades\Produto\Produto.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Produto\ICategoriaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Produto\IImagemRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Produto\ILojaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Produto\IMarcaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Produto\IProdutoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
