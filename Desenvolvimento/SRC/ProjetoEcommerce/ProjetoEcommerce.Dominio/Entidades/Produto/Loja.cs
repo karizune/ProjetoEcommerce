@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades
 {
-    public class Categoria : BaseEntity
+    public class Loja : BaseEntity
     {
-        public int CategoriaID { get; set; }
+        public int LojaID { get; set; }
         public string Nome { get; set; }
     }
 }

@@ -52,7 +52,12 @@
     <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
+    <Compile Include="Entidades\Produto\BaseEntity.cs" />
     <Compile Include="Entidades\Produto\Categoria.cs" />
+    <Compile Include="Entidades\Produto\Imagem.cs" />
+    <Compile Include="Entidades\Produto\Loja.cs" />
+    <Compile Include="Entidades\Produto\Marca.cs" />
+    <Compile Include="Entidades\Produto\Produto.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
