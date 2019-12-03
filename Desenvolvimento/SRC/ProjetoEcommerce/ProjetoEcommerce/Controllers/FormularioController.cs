@@ -10,6 +10,8 @@ namespace ProjetoEcommerce.Controllers
 {
     public class FormularioController : Controller
     {
+        Formulario form = new Formulario();
+        ProjetoEcommerceContext db = new ProjetoEcommerceContext();
         // GET: Formulario
         public ActionResult Index()
         {
@@ -29,9 +31,9 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(Formulario form)
+        public ActionResult IncluirConfirm()
         {
-            var db = new ProjetoEcommerceContext();
+            //var db = new ProjetoEcommerceContext();
 
             form.Usuario = "TesteShow";
             form.Status = 1;
@@ -39,13 +41,18 @@ namespace ProjetoEcommerce.Controllers
             form.AtualizadoEm = DateTime.Now;
             db.Formulario.Add(form);
             db.SaveChanges();
-
+            
             return Redirect("ListarTodos");            
         }
 
-        [HttpPost]
         public ActionResult Delete(int id)
         {
+            //var db = new ProjetoEcommerceContext();
+
+            Formulario formulario = db.Formulario.First(x => x.FormularioID == id);
+            db.Formulario.Remove(formulario);
+            db.SaveChanges();
+
             return Redirect("ListarTodos");
         }
     }

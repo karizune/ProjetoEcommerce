@@ -1,7 +1,7 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Seguranca
 @model System.Collections.Generic.List<Formulario>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -23,23 +23,37 @@
                     <td>Usuário</td>
                     <td>Criado Em</td>
                     <td>Atualizado Em</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@item.FormularioID</td>
-                    <td>@item.Descricao</td>
-                    <td>@item.URL</td>
-                    <td>@item.Status</td>
-                    <td>@item.Usuario</td>
-                    <td>@item.CriadoEm</td>
-                    <td>@item.AtualizadoEm</td>
-                </tr>
+                    <tr>
+                        <td>@item.FormularioID</td>
+                        <td>@item.Descricao</td>
+                        <td>@item.URL</td>
+                        <td>@item.Status</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.CriadoEm</td>
+                        <td>@item.AtualizadoEm</td>
+                        <td>
+                            <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { id = item.FormularioID })')">Deletar</a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 </body>
 </html>
+<script>
+    function myFunction(url) {
+        $.ajax({
+            method: "POST",
+            url: url,
+        })
+    }
+
+
+</script>
