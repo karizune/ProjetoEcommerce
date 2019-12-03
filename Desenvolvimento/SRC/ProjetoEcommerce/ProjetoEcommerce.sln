@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce", "ProjetoEcommerce\ProjetoEcommerce.csproj", "{587050A9-5E42-47D3-AC51-C42A63B9A1D1}"
 EndProject
@@ -16,20 +16,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Dominio", "1 - Dominio"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Dominio", "ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj", "{95B18E84-1845-4B68-8A2E-D8C0D006E485}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Service", "2 - Service", "{0C29A488-9E79-43D8-A987-171CCE7E3F6B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Service", "2 - Service", "{B15F1BBD-A621-438F-8EB0-C2D684C70AEB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{8D52C4D8-F831-4683-B709-609D7AF90E92}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{705C0BBC-D6D5-4996-AEA1-5E0DCC2A5F63}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{723A889B-C336-46D5-A20E-8E8019848D0E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{C84C53F9-3F19-4685-9517-988F058ED568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.data", "ProjetoEcommerce.data\ProjetoEcommerce.data.csproj", "{B1C5F533-6862-4347-9853-AF311265618B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{DF90DFFB-45E7-4F9E-A6D4-5E91DDF19A08}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{C76CB091-8AB2-4395-BDF4-096BC1A0EADF}"
-	ProjectSection(SolutionItems) = preProject
-		RepositoryBase.cs = RepositoryBase.cs
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Data", "ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj", "{AF6E0475-07B3-4592-B95C-D6CB789C8697}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +38,10 @@ Global
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1C5F533-6862-4347-9853-AF311265618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1C5F533-6862-4347-9853-AF311265618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1C5F533-6862-4347-9853-AF311265618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1C5F533-6862-4347-9853-AF311265618B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,10 +49,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{587050A9-5E42-47D3-AC51-C42A63B9A1D1} = {C90D2165-4B4F-4BAD-BDAF-9E7629692CEF}
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485} = {102921D9-4288-45FB-AB7A-D9083B926120}
-		{723A889B-C336-46D5-A20E-8E8019848D0E} = {8D52C4D8-F831-4683-B709-609D7AF90E92}
-		{B1C5F533-6862-4347-9853-AF311265618B} = {723A889B-C336-46D5-A20E-8E8019848D0E}
-		{DF90DFFB-45E7-4F9E-A6D4-5E91DDF19A08} = {723A889B-C336-46D5-A20E-8E8019848D0E}
-		{C76CB091-8AB2-4395-BDF4-096BC1A0EADF} = {DF90DFFB-45E7-4F9E-A6D4-5E91DDF19A08}
+		{C84C53F9-3F19-4685-9517-988F058ED568} = {705C0BBC-D6D5-4996-AEA1-5E0DCC2A5F63}
+		{AF6E0475-07B3-4592-B95C-D6CB789C8697} = {C84C53F9-3F19-4685-9517-988F058ED568}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA1788EF-9948-4CFA-8F11-B97088D43200}

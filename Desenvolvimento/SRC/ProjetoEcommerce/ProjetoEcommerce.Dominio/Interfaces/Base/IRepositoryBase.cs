@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Base
 {
@@ -12,5 +8,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Base
         TObject Add(TObject t);
         TObject Update(TObject t);
         void Delete(TObject t);
+
     }
 }
