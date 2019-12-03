@@ -22,6 +22,7 @@ namespace ProjetoEcommerce.Controllers
         }
 
         public ActionResult ProdutoCarrinho()
+        
         {
             var carrinhoProdutos =
                 new ProjetoEcommerceContext()
