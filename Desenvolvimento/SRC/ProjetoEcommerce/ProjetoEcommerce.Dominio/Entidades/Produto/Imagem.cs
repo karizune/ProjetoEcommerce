@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Dominio.Entidades
 {
-    public class Imagem : IEntityBase
-    {
+    public class Imagem:IEntityBase
+    {  
         public int ImagemID { get; set; }
         public int ProdutoID { get; set; }
         public string Nome { get; set; }
