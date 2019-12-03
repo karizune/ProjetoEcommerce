@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Base
 {
-    public interface IRepositoryBase<TObject> where TObject:class
+    public interface IRepositoryBase<TObject> where TObject : class
     {
         TObject GetOne(int id);
         TObject Add(TObject t);
