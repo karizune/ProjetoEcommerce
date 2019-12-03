@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Configuration
 {
-    class ProdutoConfiguration : EntityTypeConfiguration<Produto>
+    public class MarcaConfiguration : EntityTypeConfiguration<Marca>
     {
-        public ProdutoConfiguration()
+        public MarcaConfiguration()
         {
-            ToTable("Produto", "produto");
-            HasKey(x => x.ProdutoID);
-            Property(x => x.ProdutoID).HasColumnName(@"ProdutoID").HasColumnType("int").IsRequired().
-            HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.CategoriaID).HasColumnName(@"CategoriaID").HasColumnType("int").IsRequired().
+            ToTable("Marca", "produto");
+            HasKey(x => x.MarcaID);
+            Property(x => x.MarcaID).HasColumnName(@"MarcaID").HasColumnType("int").IsRequired().
             HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
-            Property(x => x.Preco).HasColumnName(@"Preco").HasColumnType("double").IsRequired();
-            Property(x => x.ImagemID).HasColumnName(@"ImagemID").HasColumnType("int").IsRequired();
 
             Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
             Property(x => x.Usuario).HasColumnName(@"Usuario").HasColumnType("varchar").IsRequired();

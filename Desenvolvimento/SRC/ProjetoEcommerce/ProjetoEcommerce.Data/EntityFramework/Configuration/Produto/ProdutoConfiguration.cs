@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Configuration
 {
-    class ProdutoConfiguration : EntityTypeConfiguration<Produto>
+    public class ProdutoConfiguration : EntityTypeConfiguration<Produto>
     {
         public ProdutoConfiguration()
         {
