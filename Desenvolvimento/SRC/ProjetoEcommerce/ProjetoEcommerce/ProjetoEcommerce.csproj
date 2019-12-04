@@ -275,7 +275,6 @@
     <Folder Include="Views\Loja\" />
     <Folder Include="Views\Marca\" />
     <Folder Include="Views\Pagamento\" />
-    <Folder Include="Views\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
