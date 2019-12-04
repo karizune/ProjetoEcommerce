@@ -13,16 +13,16 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
         public EnderecoConfiguration()
         {
-            ToTable("Carrinho", "Grupo2");
+            ToTable("Endereco", "Grupo2");
 
             HasKey(x => x.EnderecoID);
 
-            Property(x => x.EnderecoID).HasColumnName(@"EndereciID")
+            Property(x => x.EnderecoID).HasColumnName(@"EnderecoID")
                 .HasColumnType("int")
                 .IsRequired();
 
             Property(x => x.Descricao).HasColumnName(@"Descricao")
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar");
         }
 
     }

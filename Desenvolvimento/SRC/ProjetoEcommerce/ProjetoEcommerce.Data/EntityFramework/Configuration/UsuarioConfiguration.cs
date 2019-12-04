@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
-    class UsuarioConfiguration : EntityTypeConfiguration<Usuario>
+    public class UsuarioConfiguration : EntityTypeConfiguration<Usuario>
     {
 
         public UsuarioConfiguration()
         {
-            ToTable("Carrinho", "Grupo2");
+            ToTable("Usuario", "Grupo2");
 
             HasKey(x => x.UsuarioID);
 
@@ -22,7 +22,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired();
 
             Property(x => x.Nome).HasColumnName(@"Nome")
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar");
         }
 
     }
