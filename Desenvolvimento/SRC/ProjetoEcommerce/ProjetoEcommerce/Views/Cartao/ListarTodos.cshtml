@@ -1,0 +1,84 @@
+﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
+@model List<Cartao>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("ListarTodos", "Cartao", FormMethod.Post))
+{
+    <table class="table" style="width:50%; margin: 50px auto auto auto; ">
+        <thead class="thead-dark;" style="background-color: #343a40; color:aliceblue">
+            <tr>
+                <th style="border-color: #454d55" scope="col">ID Usuário</th>
+                <th style="border-color: #454d55" scope="col">Saldo</th>
+                <th style="border-color: #454d55"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.Status != 0)
+                {
+                    <tr>
+                        <th scope="row">ID: @item.UsuarioID</th>
+                    </tr>
+                    <tr>
+                        <td>Cartão ID: @item.CartaoID</td>
+                    </tr>
+                    <tr>
+                        <td>Usuario ID: @item.UsuarioID</td>
+                    </tr>
+                    <tr>
+                        <td>Numero do cartão: @item.Numero</td>
+                    </tr>
+                    <tr>
+                        <td>@item.NomeTitular</td>
+                    </tr>
+                    <tr>
+                        <td>@item.BandeiraCartaoID</td>
+                    </tr>
+                    <tr>
+                        <td>@item.CVC</td>
+                    </tr>
+                    <tr>
+                        <td>@item.VencimentoMes</td>
+                    </tr>
+                    <tr>
+                        <td>@item.VencimentoAno</td>
+                    </tr>
+                    <tr>
+                        <th>LOG</th>
+                    </tr>
+                    <tr>
+                        <td>Usuario: @item.Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>Criado em: @item.CriadoEm</td>
+                    </tr>
+                    <tr>
+                        <td>Atualizado em: @item.AtualizadoEm</td>
+                    </tr>
+                    <tr>
+                        <td>Ativo: @item.status</td>
+                    </tr>
+                    <tr>
+                        <td>| @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CartaoID }) | @Html.ActionLink("Editar", "Editar", new { id = item.CartaoID }) | @Html.ActionLink("Deletar", "Deletar", new { id = item.CartaoID }) |</td>
+                    </tr>
+
+                }
+                else
+                {
+                    <tr style="background-color: red">
+                        <th scope="row">@item.UsuarioID</th>
+                        <td></td>
+                        <td>| @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CartaoID }) | @Html.ActionLink("Editar", "Editar", new { id = item.CartaoID }) | @Html.ActionLink("Deletar", "Deletar", new { id = item.CartaoID }) |</td>
+                    </tr>
+                }
+            }
+            <tr>
+                <td><a class="btn btn-default" href="@Url.Action("Criar", "Carteira")" role="button">Criar</a></td>
+            </tr>
+        </tbody>
+    </table>
+}

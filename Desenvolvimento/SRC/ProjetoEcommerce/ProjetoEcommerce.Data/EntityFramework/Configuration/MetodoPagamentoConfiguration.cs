@@ -14,9 +14,22 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("MetodoPagamento", "pagamento");
             HasKey(x => x.MetodoPagamentoID);
-            Property(x => x.MetodoPagamentoID).HasColumnName(@"MetodoPagamentoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Descricao).HasColumnName(@"Descricao").HasColumnType("varchar").HasMaxLength(50).IsRequired();
-            Property(x => x.Glyphicon).HasColumnName("Glyphicon").HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.MetodoPagamentoID)
+                .HasColumnName(@"MetodoPagamentoID")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Descricao)
+                .HasColumnName(@"Descricao")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
+                .IsRequired();
+
+            Property(x => x.Glyphicon)
+                .HasColumnName(@"Glyphicon")
+                .HasColumnType("varchar")
+                .HasMaxLength(100);
 
             Property(x => x.AtualizadoEm)
              .HasColumnName(@"AtualizadoEm")

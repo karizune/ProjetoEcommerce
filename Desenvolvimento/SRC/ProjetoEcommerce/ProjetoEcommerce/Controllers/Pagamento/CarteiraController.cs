@@ -30,20 +30,18 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         }
         public ActionResult ListarTodos()
         {
-
             return View(Context.Carteira.ToList());
-
-            
         }
+
         public ActionResult Detalhes(int id)
         {
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
             return View(resultado);
         }
+
         public ActionResult Editar(int id)
         {
             Carteira resultado = Context.Carteira.First(c => c.CarteiraID == id);
-
             return View(resultado);
         }
         public ActionResult Criar()
@@ -66,6 +64,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         {
             obj.AtualizadoEm = DateTime.Now;
             obj.Usuario = "Sistema";
+            //obj.Status = 1;
             Context.Carteira.Attach(obj);
             Context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             Context.SaveChanges();
@@ -73,13 +72,14 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         }
         public ActionResult Deletar(int id)
         {
-            Context.Carteira.Remove(Context.Carteira.First(c => c.CarteiraID == id));
+            Carteira obj = Context.Carteira.First(c => c.CarteiraID == id);
+            obj.AtualizadoEm = DateTime.Now;
+            obj.Status = 0;
+            obj.Usuario = "Sistema";
+            Context.Carteira.Attach(obj);
+            Context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             Context.SaveChanges();
             return RedirectToAction("ListarTodos");
-
-
-
-
         }
     }
 }

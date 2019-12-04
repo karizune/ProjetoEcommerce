@@ -14,8 +14,17 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("StatusCartao", "pagamento");
             HasKey(x => x.StatusCartaoID);
-            Property(x => x.StatusCartaoID).HasColumnName("StatusCartaoID").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Descricao).HasColumnName("Descricao").HasColumnType("varchar").HasMaxLength(50).IsRequired();
+            Property(x => x.StatusCartaoID)
+                .HasColumnName(@"StatusCartaoID")
+                .HasColumnType("int")
+                .IsRequired()
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
+            Property(x => x.Descricao)
+                .HasColumnName(@"Descricao")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
+                .IsRequired();
 
             Property(x => x.AtualizadoEm)
             .HasColumnName(@"AtualizadoEm")

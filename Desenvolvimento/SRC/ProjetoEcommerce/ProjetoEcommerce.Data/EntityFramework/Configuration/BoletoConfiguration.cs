@@ -20,19 +20,62 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.AgenciaCodigoCedente).HasColumnName("AgenciaCodigoCedente").HasColumnType("varchar").HasMaxLength(6).IsRequired();
-            Property(x => x.Carteira).HasColumnName("Carteira").HasColumnType("char").IsRequired();
-            Property(x => x.Cedente).HasColumnName("Cedente").HasColumnType("varchar").HasMaxLength(50).IsRequired();
-            Property(x => x.CodigoBanco).HasColumnName("CodigoBanco").HasColumnType("varchar").HasMaxLength(4).IsRequired();
-            Property(x => x.DataDocumento).HasColumnName("DataDocumento").HasColumnType("datetime").IsRequired();
-            Property(x => x.LinhaDigitavel).HasColumnName("LinhaDigitavel").HasColumnType("varchar").HasMaxLength(44).IsRequired();
-            Property(x => x.NossoNumero).HasColumnName("NossoNumero").HasColumnType("varchar").HasMaxLength(10).IsRequired();
-            Property(x => x.Pagador).HasColumnName("Pagador").HasColumnType("varchar").HasMaxLength(50).IsRequired();
-            Property(x => x.Valor).HasColumnName("Valor").HasColumnType("decimal").IsRequired();
-            Property(x => x.Vencimento).HasColumnName("Vencimento").HasColumnType("datetime").IsRequired();
+            Property(x => x.AgenciaCodigoCedente)
+                .HasColumnName(@"AgenciaCodigoCedente")
+                .HasColumnType("varchar")
+                .HasMaxLength(6)
+                .IsRequired();
+
+            Property(x => x.Carteira)
+                .HasColumnName(@"Carteira")
+                .HasColumnType("char")
+                .IsRequired();
+
+            Property(x => x.Cedente)
+                .HasColumnName(@"Cedente")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
+                .IsRequired();
+
+            Property(x => x.CodigoBanco)
+                .HasColumnName(@"CodigoBanco")
+                .HasColumnType("varchar")
+                .HasMaxLength(4)
+                .IsRequired();
+
+            Property(x => x.DataDocumento)
+                .HasColumnName(@"DataDocumento")
+                .HasColumnType("datetime")
+                .IsRequired();
+
+            Property(x => x.LinhaDigitavel)
+                .HasColumnName(@"LinhaDigitavel")
+                .HasColumnType("varchar")
+                .HasMaxLength(44)
+                .IsRequired();
+
+            Property(x => x.NossoNumero)
+                .HasColumnName(@"NossoNumero")
+                .HasColumnType("varchar")
+                .HasMaxLength(10)
+                .IsRequired();
+
+            Property(x => x.Pagador)
+                .HasColumnName(@"Pagador")
+                .HasColumnType("varchar")
+                .HasMaxLength(50)
+                .IsRequired();
+
+            Property(x => x.Valor)
+                .HasColumnName(@"Valor")
+                .HasColumnType("decimal")
+                .IsRequired();
+
+            Property(x => x.Vencimento)
+                .HasColumnName(@"Vencimento")
+                .HasColumnType("datetime")
+                .IsRequired();
             
-
-
             Property(x => x.AtualizadoEm)
             .HasColumnName(@"AtualizadoEm")
             .HasColumnType("datetime")

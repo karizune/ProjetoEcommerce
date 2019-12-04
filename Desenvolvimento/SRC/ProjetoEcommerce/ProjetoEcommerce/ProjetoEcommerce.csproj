@@ -266,7 +266,7 @@
     <Content Include="Views\Pagamento\Index.cshtml" />
     <Content Include="Views\Carteira\Criar.cshtml" />
     <Content Include="Views\Carteira\Editar.cshtml" />
-    <Content Include="Views\Cartao\Criar.cshtml" />
+    <Content Include="Views\Cartao\Inserir.cshtml" />
     <Content Include="Views\Pagar\PagamentoMetodo.cshtml" />
     <Content Include="Views\Pagar\PagamentoCartao.cshtml" />
     <Content Include="Views\TipoCartao\Index.cshtml" />
@@ -283,6 +283,7 @@
     <Content Include="Views\Autenticacao\Entrar.cshtml" />
     <Content Include="Views\Autenticacao\Sair.cshtml" />
     <Content Include="Views\BandeiraCartao\Incluir.cshtml" />
+    <Content Include="Views\Cartao\ListarTodos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

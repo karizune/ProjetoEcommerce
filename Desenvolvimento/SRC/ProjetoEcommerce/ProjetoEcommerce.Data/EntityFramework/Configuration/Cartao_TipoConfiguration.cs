@@ -14,8 +14,14 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("Cartao_Tipo", "pagamento");
             HasKey(x => new { x.CartaoID, x.TipoCartaoID });
-            Property(x => x.CartaoID).HasColumnName("CartaoID").HasColumnType("int").IsRequired();
-            Property(x => x.TipoCartaoID).HasColumnName("TipoCartaoID").HasColumnType("int").IsRequired();
+            Property(x => x.CartaoID)
+                .HasColumnName(@"CartaoID")
+                .HasColumnType("int")
+                .IsRequired();
+            Property(x => x.TipoCartaoID)
+                .HasColumnName(@"TipoCartaoID")
+                .HasColumnType("int")
+                .IsRequired();
 
             Property(x => x.AtualizadoEm)
             .HasColumnName(@"AtualizadoEm")
