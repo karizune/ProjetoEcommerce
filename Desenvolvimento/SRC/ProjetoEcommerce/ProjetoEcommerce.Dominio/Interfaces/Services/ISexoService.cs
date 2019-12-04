@@ -4,5 +4,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Services
 {
     public interface ISexoService : IServiceBase<Sexo>
     {
+        bool Salvar(Sexo ent);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.ViewModels;
@@ -44,15 +45,16 @@ namespace ProjetoEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SexoViewModel sexo)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
-                _sexoService.Add(sexoDomain);
+                sexoDomain.Usuario = "askdflas";
+                _sexoService.Salvar(sexoDomain);
 
                 return RedirectToAction("Index");
-            }
+            //}
 
-            return View(sexo);
+            //return View(sexo);
         }
 
         // GET: Sexo/Edit/5
@@ -68,33 +70,29 @@ namespace ProjetoEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SexoViewModel sexo)
         {
-            if (ModelState.IsValid)
-            {
-                var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
-                _sexoService.Update(sexoDomain);
-
-                return RedirectToAction("Index");
-            }
-                return View(sexo);
-        }
-
-        // GET: Sexo/Delete/5
-        public ActionResult Delete(int id)
-        {
-            var sexo = _sexoService.GetById(id);
-            var sexoViewModel = AutoMapperConfig.Mapper.Map<Sexo, SexoViewModel>(sexo);
-            return View(sexoViewModel);
-        }
-
-        // POST: Sexo/Delete/5
-        [HttpPost,ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            var sexo = _sexoService.GetById(id);
-            _sexoService.Remove(sexo);
+            //if (ModelState.IsValid)
+            //{
+            var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
+            sexoDomain.Usuario = "askdflas";
+            _sexoService.Salvar(sexoDomain);
 
             return RedirectToAction("Index");
+            //}
+
+            //return View(sexo);
+        }
+
+        public ActionResult Delete (int id)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.Sexo.Find(id);
+            ent.Status = false;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "askdflas";
+            db.Entry<Sexo>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("Index");
         }
     }
 }

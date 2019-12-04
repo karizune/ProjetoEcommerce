@@ -8,13 +8,9 @@ namespace ProjetoEcommerce.ViewModels
 {
     public class EntityBaseViewModel
     {
-        [Required(ErrorMessage = "Campo obrigatório")]
         public bool Status { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório")]
         public string Usuario { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório")]
         public DateTime CriadoEm { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório")]
         public DateTime AtualizadoEm { get; set; }
     }
 }

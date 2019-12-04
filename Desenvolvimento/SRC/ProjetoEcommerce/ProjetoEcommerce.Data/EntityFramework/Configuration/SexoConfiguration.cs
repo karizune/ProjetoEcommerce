@@ -15,6 +15,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             ToTable("Sexo", "perfil");
             HasKey(x => new { x.IDSexo});
 
+            Property(x => x.IDSexo)
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
             Property(x => x.Nome)
                .HasColumnName(@"Nome")
                .HasColumnType("varchar")

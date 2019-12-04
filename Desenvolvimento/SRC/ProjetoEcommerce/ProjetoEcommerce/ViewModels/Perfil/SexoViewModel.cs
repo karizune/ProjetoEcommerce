@@ -8,8 +8,8 @@ namespace ProjetoEcommerce.ViewModels
 {
     public class SexoViewModel : EntityBaseViewModel
     {
-        [Required]
         public int IDSexo { get; set; }
+     
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]

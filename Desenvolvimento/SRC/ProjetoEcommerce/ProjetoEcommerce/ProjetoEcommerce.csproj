@@ -308,16 +308,14 @@
     <Content Include="Views\Juridico\Details.cshtml" />
     <Content Include="Views\Juridico\Edit.cshtml" />
     <Content Include="Views\Juridico\Index.cshtml" />
-    <Content Include="Views\Sexo\Create.cshtml" />
-    <Content Include="Views\Sexo\Delete.cshtml" />
-    <Content Include="Views\Sexo\Details.cshtml" />
-    <Content Include="Views\Sexo\Edit.cshtml" />
-    <Content Include="Views\Sexo\Index.cshtml" />
     <Content Include="Views\Telefone\Create.cshtml" />
     <Content Include="Views\Telefone\Delete.cshtml" />
     <Content Include="Views\Telefone\Details.cshtml" />
     <Content Include="Views\Telefone\Edit.cshtml" />
     <Content Include="Views\Telefone\Index.cshtml" />
+    <Content Include="Views\Sexo\Index.cshtml" />
+    <Content Include="Views\Sexo\Create.cshtml" />
+    <Content Include="Views\Sexo\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,31 +1,21 @@
 ﻿@model IEnumerable<ProjetoEcommerce.ViewModels.SexoViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Gênero";
 }
 
-<h2>Index</h2>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Create", "Sexo")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CriadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AtualizadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDSexo)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
@@ -35,35 +25,23 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CriadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtualizadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDSexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.IDSexo }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IDSexo }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDSexo })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IDSexo }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IDSexo }) |
+                <a href="@Url.Action("Delete", "Sexo", new { id = item.IDSexo })" class="btn btn-danger btn-sm">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </td>
+        </tr>
+    }
 
 </table>
