@@ -58,6 +58,10 @@
     <Compile Include="Entidades\Seguranca\GrupoDeAcesso.cs" />
     <Compile Include="Entidades\Seguranca\GrupoUsuario.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IFormularioGrupoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFormularioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGrupoDeAcessoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGrupoUsuarioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

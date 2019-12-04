@@ -61,12 +61,22 @@
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
+    <Compile Include="Repositories\FormularioGrupoRepository.cs" />
+    <Compile Include="Repositories\GrupoDeAcessoRepository.cs" />
+    <Compile Include="Repositories\GrupoUsuarioRepository.cs" />
     <Compile Include="Repositories\RastreamentoRepository.cs" />
     <Compile Include="Repositories\FormularioRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="obj\Debug\ProjetoEcommerce.Data.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ProjetoEcommerce.Data.dll" />
+    <Content Include="obj\Debug\ProjetoEcommerce.Data.pdb" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ProjetoEcommerce.Data.csproj.CopyComplete" />
+    <None Include="obj\Debug\ProjetoEcommerce.Data.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +84,9 @@
       <Project>{95B18E84-1845-4B68-8A2E-D8C0D006E485}</Project>
       <Name>ProjetoEcommerce.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
