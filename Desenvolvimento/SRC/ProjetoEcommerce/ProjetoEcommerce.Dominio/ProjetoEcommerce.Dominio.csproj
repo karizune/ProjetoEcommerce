@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Entidades\Carrinho\CarrinhoProduto.cs" />
     <Compile Include="Entidades\Carrinho\Carrinho.cs" />
+    <Compile Include="Entidades\Carrinho\Endereco.cs" />
     <Compile Include="Entidades\Carrinho\Produto.cs" />
+    <Compile Include="Entidades\Carrinho\Usuario.cs" />
     <Compile Include="Entidades\Marketplace\Rastreamento.cs" />
     <Compile Include="Entidades\Pagamento\BandeiraCartao.cs" />
     <Compile Include="Entidades\Pagamento\BaseEntity.cs" />
