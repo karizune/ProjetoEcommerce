@@ -10,5 +10,9 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
     public interface IFormularioRepository : IRepositoryBase<Formulario>
     {
+
+        IEnumerable<Formulario> BuscarAtivos();
+
+
     }
 }

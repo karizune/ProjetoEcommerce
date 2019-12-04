@@ -9,8 +9,17 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Repositories.Base
 {
-    class FormularioRepository : RepositoryBase<Formulario>,IFormularioRepository
+    public class FormularioRepository : RepositoryBase<Formulario>, IFormularioRepository
     {
+        public IEnumerable<Formulario> BuscarAtivos()
+        {
+            return Entity.Where(f => f.Status == 1);
+        }
+
+        public IEnumerable<Formulario> BuscarTodos()
+        {
+            return Entity.ToList();
+        }
 
     }
 }

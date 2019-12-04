@@ -1,59 +1,57 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Seguranca
-@model System.Collections.Generic.List<Formulario>
+@model System.Collections.Generic.IEnumerable<Formulario>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Formulários";
 }
 
-<!DOCTYPE html>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Formulario")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListarTodos</title>
-</head>
-<body>
-    <div>
-        <table border="1">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Descrição</td>
-                    <td>URL</td>
-                    <td>Status</td>
-                    <td>Usuário</td>
-                    <td>Criado Em</td>
-                    <td>Atualizado Em</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.FormularioID</td>
-                        <td>@item.Descricao</td>
-                        <td>@item.URL</td>
-                        <td>@item.Status</td>
-                        <td>@item.Usuario</td>
-                        <td>@item.CriadoEm</td>
-                        <td>@item.AtualizadoEm</td>
-                        <td>
-                            <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { id = item.FormularioID })')">Deletar</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Descrição</td>
+            <td>URL</td>
+            <td>Status</td>
+            <td>Usuário</td>
+            <td>Criado Em</td>
+            <td>Atualizado Em</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FormularioID</td>
+                <td>@item.Descricao</td>
+                <td>@item.URL</td>
+                <td>@item.Status</td>
+                <td>@item.Usuario</td>
+                <td>@item.CriadoEm</td>
+                <td>@item.AtualizadoEm</td>
+                <td>
+                    <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { id = item.FormularioID })')">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 <script>
     function myFunction(url) {
         $.ajax({
             method: "POST",
             url: url,
         })
+        location.reload()
     }
-
-
 </script>

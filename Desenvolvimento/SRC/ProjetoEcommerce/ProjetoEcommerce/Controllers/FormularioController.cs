@@ -1,5 +1,7 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Data.Repositories.Base;
 using ProjetoEcommerce.Dominio.Entidades.Seguranca;
+using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,14 @@ namespace ProjetoEcommerce.Controllers
     {
         Formulario form = new Formulario();
         ProjetoEcommerceContext db = new ProjetoEcommerceContext();
+
+        private readonly IFormularioRepository _formularioRepository;
+
+        public FormularioController()
+        {
+            _formularioRepository = new FormularioRepository();
+        }
+
         // GET: Formulario
         public ActionResult Index()
         {
@@ -20,9 +30,7 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult ListarTodos()
         {
-            var listFormulario = new ProjetoEcommerceContext().Formulario.ToList();
-
-            return View(listFormulario);
+            return View(_formularioRepository.BuscarAtivos());
         }
 
         public ActionResult Incluir()

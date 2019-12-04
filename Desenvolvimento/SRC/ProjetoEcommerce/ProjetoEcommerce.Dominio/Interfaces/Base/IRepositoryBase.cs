@@ -8,6 +8,5 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Base
         TObject Add(TObject t);
         TObject Update(TObject t);
         void Delete(TObject t);
-
     }
 }
