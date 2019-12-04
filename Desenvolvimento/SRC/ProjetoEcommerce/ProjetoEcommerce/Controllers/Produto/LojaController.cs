@@ -2,29 +2,31 @@
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using ProjetoEcommerce.Service;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers
 {
-    public class CategoriaController : Controller
+    public class LojaController : Controller
     {
-        private readonly ICategoriaService categoriaService;
+        private readonly ILojaService lojaService;
 
-        public CategoriaController()
+        public LojaController()
         {
-            categoriaService = new CategoriaService();
+            lojaService = new LojaService();
         }
 
         public ActionResult Index()
         {
             return View();
         }
-        // GET: Categoria
+        // GET: loja
         public ActionResult ListarTodas()
         {
-            var categorias = categoriaService.BuscarAtivos();
-            return View(categorias);
+            var lojas = lojaService.BuscarAtivos();
+            return View(lojas);
         }
 
         [HttpGet]
@@ -35,22 +37,22 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(Categoria ent)
+        public ActionResult IncluirConfirm(Loja ent)
         {
             ent.Status = 1;
             ent.Usuario = "grupo4";
-            categoriaService.Salvar(ent);
+            lojaService.Salvar(ent);
 
-            return Redirect("Index");
+            return Redirect("ListarTodas");
         }
         public ActionResult Atualizar(int id)
         {
-            return Redirect("Index");
+            return Redirect("ListarTodas");
         }
         public ActionResult Excluir(int id)
         {
-            categoriaService.Excluir(id, "teste");
-            return Redirect("Index");
+            lojaService.Excluir(id, "teste");
+            return Redirect("ListarTodas");
         }
     }
 }
