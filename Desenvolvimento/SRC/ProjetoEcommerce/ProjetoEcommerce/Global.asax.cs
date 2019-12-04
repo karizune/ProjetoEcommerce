@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Host;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,9 @@ namespace ProjetoEcommerce
     {
         protected void Application_Start()
         {
+            DependencyInjector.CreateInstance();
+            DependencyInjector.Config();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

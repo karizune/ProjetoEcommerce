@@ -1,57 +1,42 @@
 ﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.BandeiraCartao>
 
 @{
-    ViewBag.Title = "ListarTodos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Bandeiras de Cartão";
 }
 
-<h2>ListarTodos</h2>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "BandeiraCartao")">
+        <i class="fa fa-plus"></i>
+        Incluir
+    </a>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AtualizadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CriadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtualizadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CriadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BandeiraCartaoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BandeiraCartaoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BandeiraCartaoID })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Descrição</th>
+            <th>Criado Em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Descricao</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Excluir", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

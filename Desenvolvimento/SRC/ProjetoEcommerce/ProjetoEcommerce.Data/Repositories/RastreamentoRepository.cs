@@ -15,7 +15,7 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public Rastreamento GetOneBy(int rastreamentoId)
         {
-            return GetOne(rastreamentoId);
+            return Get(rastreamentoId);
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.BandeiraCartao
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("Incluir", "BandeiraCartao", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="inputAddress">Descrição</label>
+        @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Digite a Bandeira do cartão" })
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

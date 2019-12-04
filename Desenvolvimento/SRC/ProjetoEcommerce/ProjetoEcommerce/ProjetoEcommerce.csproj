@@ -282,6 +282,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Autenticacao\Entrar.cshtml" />
     <Content Include="Views\Autenticacao\Sair.cshtml" />
+    <Content Include="Views\BandeiraCartao\Incluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +298,10 @@
     <ProjectReference Include="..\ProjetoEcommerce.Dominio\ProjetoEcommerce.Dominio.csproj">
       <Project>{95b18e84-1845-4b68-8a2e-d8c0d006e485}</Project>
       <Name>ProjetoEcommerce.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoEcommerce.Host\ProjetoEcommerce.Host.csproj">
+      <Project>{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}</Project>
+      <Name>ProjetoEcommerce.Host</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
