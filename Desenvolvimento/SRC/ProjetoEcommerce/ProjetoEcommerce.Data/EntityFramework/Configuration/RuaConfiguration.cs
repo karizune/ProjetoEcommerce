@@ -9,7 +9,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("Entrega.Rua");
             HasKey(x => x.RuaID);
-
+           
             Property(x => x.RuaID)
                 .HasColumnName(@"RuaID")
                 .HasColumnType("int")
