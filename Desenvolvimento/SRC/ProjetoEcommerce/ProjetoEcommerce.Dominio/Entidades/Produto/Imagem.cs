@@ -13,6 +13,6 @@ namespace ProjetoEcommerce.Dominio.Entidades
         public int ProdutoID { get; set; }
         public string Nome { get; set; }
         public string URL { get; set; }
-        public double Tamanho { get; set; }
+        public decimal Tamanho { get; set; }
     }
 }

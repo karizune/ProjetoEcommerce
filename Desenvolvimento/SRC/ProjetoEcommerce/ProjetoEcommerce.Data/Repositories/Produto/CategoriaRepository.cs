@@ -13,12 +13,13 @@ namespace ProjetoEcommerce.Data.Repositories
     {
         public IEnumerable<Categoria> BuscarAtivos()
         {
-            throw new NotImplementedException();
+            return Entity
+                .Where(f => f.Status == 1);
         }
 
         public Categoria GetOneBy(int CategoriaID)
         {
-            throw new NotImplementedException();
+            return GetOne(CategoriaID);
         }
     }
 }

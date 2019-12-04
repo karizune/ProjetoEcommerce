@@ -13,6 +13,6 @@ namespace ProjetoEcommerce.Dominio.Entidades
         public int CategoriaID { get; set; }
         public int ImagemID { get; set; }
         public string Nome { get; set; }
-        public double Preco { get; set; }
+        public decimal Preco { get; set; }
     }
 }

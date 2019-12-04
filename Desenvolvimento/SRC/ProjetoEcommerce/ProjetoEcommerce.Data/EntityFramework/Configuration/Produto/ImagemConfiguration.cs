@@ -19,7 +19,7 @@ namespace ProjetoEcommerce.Data.Configuration
             HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
             Property(x => x.URL).HasColumnName(@"URL").HasColumnType("varchar").IsRequired();
-            Property(x => x.Tamanho).HasColumnName(@"Tamanho").HasColumnType("real").IsRequired();
+            Property(x => x.Tamanho).HasColumnName(@"Tamanho").HasColumnType("numeric").IsRequired();
 
             Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
             Property(x => x.Usuario).HasColumnName(@"Usuario").HasColumnType("varchar").IsRequired();
