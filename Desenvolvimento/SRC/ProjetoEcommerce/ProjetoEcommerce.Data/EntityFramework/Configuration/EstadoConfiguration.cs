@@ -31,8 +31,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.Usuario)
                .HasColumnName(@"Usuario")
                .HasColumnType("varchar")
-               .HasMaxLength(255)
-               .IsRequired();
+               .HasMaxLength(255);
 
             Property(x => x.Status)
               .HasColumnName(@"Status")
@@ -41,13 +40,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
-                .HasColumnType("Date")
-                .IsRequired();
+                .HasColumnType("Date");
 
             Property(x => x.AtualizaEm)
                 .HasColumnName(@"AtualizaEm")
-                .HasColumnType("Date")
-                .IsRequired();
+                .HasColumnType("Date");
         }
     }
 }
