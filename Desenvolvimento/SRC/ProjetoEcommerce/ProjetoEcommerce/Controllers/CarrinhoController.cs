@@ -30,6 +30,8 @@ namespace ProjetoEcommerce.Controllers
                 resumoCarrinho = db.Set<Carrinho>().Where(f => f.UsuarioID == usuarioId).FirstOrDefault();
             }
 
+            AtualizarPrecoCarrinho(usuarioId);
+
             return PartialView("_ResumoCarrinho", resumoCarrinho);
         }
 
@@ -51,7 +53,29 @@ namespace ProjetoEcommerce.Controllers
             {
                 return Json(new { status = 0, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
-            
         }
+
+
+        public void AtualizarPrecoCarrinho(int usuarioID)
+        {
+            using (var db = new ProjetoEcommerceContext())
+            {
+                var result = db.Set<Carrinho>().Where(f => f.UsuarioID == usuarioID).FirstOrDefault();
+                if (result != null)
+                {
+                    var carrinhoProdutos =
+                        new ProjetoEcommerceContext()
+                            .carrinhoProduto
+                            .Include("Produto")
+                            .ToList();
+
+                    result.PrecoTotal = carrinhoProdutos.Sum(x => x.Produto.Preco * x.Quantidade);
+
+                    db.SaveChanges();
+                }
+
+            }
+        }
+
     }
 }
