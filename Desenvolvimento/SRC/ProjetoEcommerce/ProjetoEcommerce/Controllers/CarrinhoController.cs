@@ -19,6 +19,9 @@ namespace ProjetoEcommerce.Controllers
                     .Include("Produto")
                     .ToList();
 
+
+            ViewBag.QtdProdutos = carrinhoProdutos.Count;
+
             return View("Index", 1);
         }
 

@@ -22,9 +22,12 @@
                 display: initial;
             }
         </style>
-        
+
         <h2>Produtos Disponiveis</h2>
-       
+
+        @*<a class="p-2 text-dark" href="@Url.Action("Index", "Carrinho")">Carrinho</a><span class="badge badge-primary">@ViewBag.QtdCarrinho</span>*@
+        <button type="button"  class="btn btn-outline-primary" href="@Url.Action("Index", "Carrinho")">Carrinho <span class="badge badge-primary">@ViewBag.QtdCarrinho</span></button>
+
         <div style="display: flex; margin: 4em 0">
             <div style="border: outset; background:#f5f5f5; width: 60%;">
                 @using (Html.BeginForm("Adicionar", "Produto", FormMethod.Post))
@@ -60,7 +63,7 @@
                                     <td class="form-group produto-td">
                                         <div class="form-group">
                                             <div class="">
-                                                @Html.TextBoxFor(item => item[i].Qtde, new { htmlAttributes = new { @class = "form-control"} })
+                                                @Html.TextBoxFor(item => item[i].Qtde, new { htmlAttributes = new { @class = "form-control" } })
                                             </div>
                                         </div>
                                     </td>
