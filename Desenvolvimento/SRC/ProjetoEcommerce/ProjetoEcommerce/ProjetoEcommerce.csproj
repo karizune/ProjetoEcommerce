@@ -267,13 +267,19 @@
     <Content Include="Views\Autenticacao\Entrar.cshtml" />
     <Content Include="Views\Autenticacao\Sair.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Incluir.cshtml" />
+    <Content Include="Views\Imagem\Index.cshtml" />
+    <Content Include="Views\Imagem\Incluir.cshtml" />
+    <Content Include="Views\Loja\Index.cshtml" />
+    <Content Include="Views\Loja\Incluir.cshtml" />
+    <Content Include="Views\Marca\Index.cshtml" />
+    <Content Include="Views\Marca\Incluir.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Produto\Incluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Imagem\" />
-    <Folder Include="Views\Loja\" />
-    <Folder Include="Views\Marca\" />
     <Folder Include="Views\Pagamento\" />
   </ItemGroup>
   <ItemGroup>

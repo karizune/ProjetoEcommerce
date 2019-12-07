@@ -13,7 +13,8 @@ namespace ProjetoEcommerce.Data.Repositories
     {
         public IEnumerable<Imagem> BuscarAtivos()
         {
-            throw new NotImplementedException();
+            return Entity
+                .Where(f => f.Status == 1);
         }
 
         public Imagem GetOneBy(int ImagemID)

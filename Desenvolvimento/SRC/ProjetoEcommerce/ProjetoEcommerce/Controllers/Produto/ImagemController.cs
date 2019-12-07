@@ -20,7 +20,7 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(imagemService.BuscarAtivos());
         }
         // GET: Imagem
         public ActionResult ListarTodas()
@@ -43,17 +43,17 @@ namespace ProjetoEcommerce.Controllers
             ent.Usuario = "grupo4";
             imagemService.Salvar(ent);
 
-            return Redirect("ListarTodas");
+            return RedirectToAction("Index");
         }
         public ActionResult Atualizar(int id)
         {
 
-            return Redirect("ListarTodas");
+            return RedirectToAction("Index");
         }
         public ActionResult Excluir(int id)
         {
             imagemService.Excluir(id, "teste");
-            return Redirect("ListarTodas");
+            return RedirectToAction("Index");
         }
     }
 }

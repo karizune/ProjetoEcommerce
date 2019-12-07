@@ -1,14 +1,13 @@
-﻿
-@model System.Collections.Generic.IEnumerable<ProjetoEcommerce.Dominio.Entidades.Categoria>
+﻿@model System.Collections.Generic.IEnumerable<ProjetoEcommerce.Dominio.Entidades.Imagem>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Manutenção de Categorias";
+    ViewBag.Title = "Manutenção de Imagens";
 }
 
 <div class="admin-titulo-principal">
     @ViewBag.Title
-    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Categoria")">
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Imagem")">
         <i class="fa fa-plus"></i>
         INCLUIR
     </a>
@@ -30,10 +29,10 @@
                 <td>@item.Nome</td>
                 <td>@item.CriadoEm</td>
                 <td>
-                    <a href="@Url.Action("Atualizar", "Categoria", new { id = item.CategoriaID })" class="btn btn-warning btn-sm">
+                    <a href="@Url.Action("Incluir", "Imagem", new { id = item.ImagemID})" class="btn btn-warning btn-sm">
                         <i class="fa fa-edit"></i>
                     </a>
-                    <a href="@Url.Action("Excluir", "Categoria", new { id = item.CategoriaID })" class="btn btn-danger btn-sm">
+                    <a href="@Url.Action("Excluir", "Imagem", new { id = item.ImagemID })" class="btn btn-danger btn-sm">
                         <i class="fa fa-remove"></i>
                     </a>
                 </td>

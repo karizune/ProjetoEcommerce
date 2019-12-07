@@ -1,0 +1,32 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Imagem
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("IncluirConfirm", "Imagem", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="inputAddress">Nome</label>
+        @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Digite o nome da Imagem" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">URL</label>
+        @Html.TextBoxFor(modelItem => Model.URL, new { @class = "form-control", @placeholder = "Digite a URL da Imagem" })
+    </div>
+    <br><div class="container">
+        <div class="row">
+            <div class="col-sm-2 imgUp">
+                <div class="imagePreview"></div>
+                <label class="btn btn-primary">
+                    Procurar imagem<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                </label>
+            </div><!-- col-2 -->
+            <i class=" imgAdd"></i>
+        </div><!-- row -->
+    </div><!-- container -->
+
+
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

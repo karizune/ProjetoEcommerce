@@ -1,0 +1,15 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Loja
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("IncluirConfirm", "Loja", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="inputAddress">Nome</label>
+        @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Digite o nome da Loja" })
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

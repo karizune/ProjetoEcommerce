@@ -13,7 +13,8 @@ namespace ProjetoEcommerce.Data.Repositories
     {
         public IEnumerable<Loja> BuscarAtivos()
         {
-            throw new NotImplementedException();
+            return Entity
+                .Where(f => f.Status == 1);
         }
 
         public Loja GetOneBy(int LojaID)
