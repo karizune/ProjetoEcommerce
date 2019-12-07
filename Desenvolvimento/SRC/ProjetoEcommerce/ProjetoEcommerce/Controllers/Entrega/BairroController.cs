@@ -1,5 +1,6 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
 using ProjetoEcommerce.Servico.Entrega;
+using System;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers.Entrega
@@ -27,6 +28,8 @@ namespace ProjetoEcommerce.Controllers.Entrega
         [HttpPost]
         public ActionResult Adicionar(Bairro bairro)
         {
+            bairro.CriadoEm = DateTime.Now;
+            bairro.AtualizaEm = DateTime.Now;
             _dbContext.Save(bairro);
             return RedirectToAction("ListarTodos");
         }
@@ -40,6 +43,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
         [HttpPut]
         public ActionResult Atualizar(Bairro obj)
         {
+            obj.AtualizaEm = DateTime.Now;
             _dbContext.Update(obj);
             return RedirectToAction("ListarTodos");
         }
