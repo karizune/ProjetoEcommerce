@@ -32,15 +32,12 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasMaxLength(16)
                 .IsRequired();
 
-            Property(x => x.VencimentoMes)
-                .HasColumnName(@"VencimentoMes")
-                .HasColumnType("int")
+            Property(x => x.Vencimento)
+                .HasColumnName(@"Vencimento")
+                .HasColumnType("varchar").HasMaxLength(5)
                 .IsRequired();
 
-            Property(x => x.VencimentoAno)
-                .HasColumnName(@"VencimentoAno")
-                .HasColumnType("int")
-                .IsRequired();
+            
 
             Property(x => x.BandeiraCartaoID)
                 .HasColumnName(@"BandeiraCartaoID")

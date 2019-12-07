@@ -13,7 +13,7 @@ namespace ProjetoEcommerce
     {
         protected void Application_Start()
         {
-            DependencyInjector.CreateInstance();
+            
             DependencyInjector.Config();
 
             AreaRegistration.RegisterAllAreas();

@@ -26,13 +26,12 @@
 
     <div class="container body-content">
         @RenderBody()
-
-        <footer class="text-center fixed-bottom" >
-            <hr />
-            <p>&copy; @DateTime.Now.Year - E-commerce - SIF</p>
-        </footer>
-        </div>
     </div>
+
+    <footer class="text-center fixed-bottom" style="background-color: #FFF !important;">
+        <hr />
+        <p>&copy; @DateTime.Now.Year - E-commerce - SIF</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

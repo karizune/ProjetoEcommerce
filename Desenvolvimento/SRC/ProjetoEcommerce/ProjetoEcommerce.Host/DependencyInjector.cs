@@ -9,17 +9,21 @@ namespace ProjetoEcommerce.Host
 {
     public class DependencyInjector
     {
-        private Container _container;
-        private Lifestyle _lifestyle;
+        private static Container _container;
+        private static Lifestyle _lifestyle;
 
-        public void CreateInstance()
+        public static Container CreateInstance()
         {
             _lifestyle = Lifestyle.Transient;
             _container = new Container();
+
+            return _container;
         }
 
-        public void Config()
+        public static void Config()
         {
+            CreateInstance();
+
             _container.Register(typeof(IRepositoryBase<>), typeof(RepositoryBase<>), _lifestyle);
             _container.Register(typeof(IServiceBase<>), typeof(ServiceBase<>), _lifestyle);
             //_container.Register<ILogger, FileLogger>(Lifestyle.Singleton);
