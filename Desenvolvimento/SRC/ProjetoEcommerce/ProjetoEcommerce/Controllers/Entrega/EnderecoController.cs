@@ -1,5 +1,6 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
 using ProjetoEcommerce.Servico.Entrega;
+using System;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers.Entrega
@@ -27,6 +28,8 @@ namespace ProjetoEcommerce.Controllers.Entrega
         [HttpPost]
         public ActionResult Adicionar(Endereco endereco)
         {
+            endereco.CriadoEm = DateTime.Now;
+            endereco.AtualizaEm = DateTime.Now;
             _dbContext.Save(endereco);
             return RedirectToAction("ListarTodos");
         }
@@ -46,6 +49,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
         [HttpPut]
         public ActionResult Atualizar(Endereco endereco)
         {
+            endereco.AtualizaEm = DateTime.Now;
             _dbContext.Update(endereco);
             return RedirectToAction("ListarTodos");
         }
