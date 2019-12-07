@@ -52,8 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Configuration\CampoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\CampoRelatorioConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\RegistroConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\RelatorioConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\TipoCampoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\TipoCartaoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RastreamentoConfiguration.cs" />
+    <Compile Include="EntityFramework\Configuration\UsuarioConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />

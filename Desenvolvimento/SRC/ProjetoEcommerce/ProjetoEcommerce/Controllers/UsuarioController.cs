@@ -16,7 +16,7 @@ namespace ProjetoEcommerce.Controllers
             var Usuarios =
                 new ProjetoEcommerceContext()
                 .Usuario
-                .ToList();
+                .Where(f => f.Status == 1);
 
             return View(Usuarios);
         }
@@ -33,10 +33,23 @@ namespace ProjetoEcommerce.Controllers
             var db = new ProjetoEcommerceContext();
             ent.UsuarioID = 1;
             //ent.NomeUsuario = "";
-            ent.Status = 2;
+            ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
             db.Usuario.Add(ent);
+            db.SaveChanges();
+
+            return Redirect("ListarTodos");
+        }
+
+        public ActionResult Excluir(int usuarioId)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.Usuario.Find(usuarioId);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.NomeUsuario = "renato";
+            db.Entry<Usuario>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Redirect("ListarTodos");

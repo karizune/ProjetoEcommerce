@@ -1,7 +1,7 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 using System.Data.Entity.ModelConfiguration;
 
-namespace ProjetoEcommerce.data.EntityFramework.Configuration
+namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
     class UsuarioConfiguration : EntityTypeConfiguration<Usuario>
     {

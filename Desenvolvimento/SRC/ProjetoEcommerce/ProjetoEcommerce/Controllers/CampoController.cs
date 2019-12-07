@@ -1,4 +1,4 @@
-﻿using ProjetoEcommerce.data.EntityFramework.Context;
+﻿using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 using System;
 using System.Collections.Generic;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 
-namespace ProjetoEcommerce.data.EntityFramework.Configuration
+namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
     class RelatorioConfiguration : EntityTypeConfiguration<Relatorio>
     {

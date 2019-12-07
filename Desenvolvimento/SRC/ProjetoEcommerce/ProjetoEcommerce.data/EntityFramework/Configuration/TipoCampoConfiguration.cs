@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoEcommerce.data.EntityFramework.Configuration
+namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 {
     class TipoCampoConfiguration : EntityTypeConfiguration<TipoCampo>
     {
