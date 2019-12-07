@@ -283,6 +283,7 @@
     <Content Include="Views\Autenticacao\Entrar.cshtml" />
     <Content Include="Views\Autenticacao\Sair.cshtml" />
     <Content Include="Views\Cartao\ListarTodos.cshtml" />
+    <Content Include="Views\Cartao\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

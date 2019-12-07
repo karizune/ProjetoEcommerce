@@ -3,82 +3,180 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-}
+    int i = 1;
 
-@using (Html.BeginForm("ListarTodos", "Cartao", FormMethod.Post))
-{
-    <table class="table" style="width:50%; margin: 50px auto auto auto; ">
-        <thead class="thead-dark;" style="background-color: #343a40; color:aliceblue">
-            <tr>
-                <th style="border-color: #454d55" scope="col">ID Usuário</th>
-                <th style="border-color: #454d55" scope="col">Saldo</th>
-                <th style="border-color: #454d55"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                if (item.Status != 0)
-                {
-                    <tr>
-                        <th scope="row">ID: @item.UsuarioID</th>
-                    </tr>
-                    <tr>
-                        <td>Cartão ID: @item.CartaoID</td>
-                    </tr>
-                    <tr>
-                        <td>Usuario ID: @item.UsuarioID</td>
-                    </tr>
-                    <tr>
-                        <td>Numero do cartão: @item.Numero</td>
-                    </tr>
-                    <tr>
-                        <td>@item.NomeTitular</td>
-                    </tr>
-                    <tr>
-                        <td>@item.BandeiraCartaoID</td>
-                    </tr>
-                    <tr>
-                        <td>@item.CVC</td>
-                    </tr>
-                    <tr>
-                        <td>@item.VencimentoMes</td>
-                    </tr>
-                    <tr>
-                        <td>@item.VencimentoAno</td>
-                    </tr>
-                    <tr>
-                        <th>LOG</th>
-                    </tr>
-                    <tr>
-                        <td>Usuario: @item.Usuario</td>
-                    </tr>
-                    <tr>
-                        <td>Criado em: @item.CriadoEm</td>
-                    </tr>
-                    <tr>
-                        <td>Atualizado em: @item.AtualizadoEm</td>
-                    </tr>
-                    <tr>
-                        <td>Ativo: @item.status</td>
-                    </tr>
-                    <tr>
-                        <td>| @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CartaoID }) | @Html.ActionLink("Editar", "Editar", new { id = item.CartaoID }) | @Html.ActionLink("Deletar", "Deletar", new { id = item.CartaoID }) |</td>
-                    </tr>
-
-                }
-                else
-                {
-                    <tr style="background-color: red">
-                        <th scope="row">@item.UsuarioID</th>
-                        <td></td>
-                        <td>| @Html.ActionLink("Detalhes", "Detalhes", new { id = item.CartaoID }) | @Html.ActionLink("Editar", "Editar", new { id = item.CartaoID }) | @Html.ActionLink("Deletar", "Deletar", new { id = item.CartaoID }) |</td>
-                    </tr>
-                }
-            }
-            <tr>
-                <td><a class="btn btn-default" href="@Url.Action("Criar", "Carteira")" role="button">Criar</a></td>
-            </tr>
-        </tbody>
-    </table>
 }
+<div id="accordion" class="float-left" style=" margin-top:10px; margin-left:2%; width:35%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
+    <div class="card text-white bg-primary" style="margin-bottom:0.4em">
+        <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
+            <div style="text-align: center;">
+                Cartões Ativos
+            </div>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        if (item.Status != 0)
+        {
+            <div class="card text-white bg-secondary" style="margin-bottom:0.4em">
+                <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white collapsed" data-toggle="collapse" data-target="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
+                            <div class="float-left">
+                                @item.NomeTitular
+                            </div>
+                        </button>
+                        <span class="float-right" style="font-size:10pt; margin-top:0.7em">Cadastrado Em: @item.CriadoEm</span>
+                    </h5>
+                </div>
+                <div id="@("collapse" + i.ToString())" class="collapse" aria-labelledby="@("heading" + i.ToString())" data-parent="#accordion">
+                    <div class="card-body bg-white">
+                        <table class="table" style="border-top:hidden">
+                            <thead>
+                                <tr><th></th><th></th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ID:<br />@item.UsuarioID</th>
+                                </tr>
+                                <tr>
+                                    <td>Cartão ID:<br />@item.CartaoID</td>
+                                </tr>
+                                <tr>
+                                    <td>Usuario ID:<br />@item.UsuarioID</td>
+                                </tr>
+                                <tr>
+                                    <td>Numero do cartão:<br />@item.Numero</td>
+                                </tr>
+                                <tr>
+                                    <td>Nome do Titular:<br />@item.NomeTitular</td>
+                                </tr>
+                                <tr>
+                                    <td>ID Bandeira Cartão:<br />@item.BandeiraCartaoID</td>
+                                </tr>
+                                <tr>
+                                    <td>CVC:<br />@item.CVC</td>
+                                </tr>
+                                <tr>
+                                    <td>Vencimento(Mês/Ano):<br />@item.Vencimento</td>
+                                </tr>
+                                <tr>
+                                    <th style="border-color: #454d55" scope="col">Log</th>
+                                </tr>
+                                <tr>
+                                    <td>Usuario:<br />@item.Usuario</td>
+                                </tr>
+                                <tr>
+                                    <td>Criado em:<br />@item.CriadoEm</td>
+                                </tr>
+                                <tr>
+                                    <td>Atualizado em:<br />@item.AtualizadoEm</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Ativo:<br />Sim
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary btn-sm" style="color: white !important">@Html.ActionLink("Editar", "Editar", new { id = item.CartaoID, @style = "color:white!important" }, new { @class = "text-light" })</button>
+                                        <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Remover", "Remover", new { id = item.CartaoID }, new { @class = "text-light" })</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            i++;
+        }
+    }
+</div>
+
+<div id="accordion" class="float-right" style=" margin-top:10px; margin-left:10px; width:35%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
+
+    <div class="card text-white bg-primary" style="margin-bottom:0.4em">
+        <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
+            <div style="text-align: center;">
+                Cartões Inativos
+            </div>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        if (item.Status == 0)
+        {
+            <div class="card text-white bg-secondary" style="margin-bottom:0.4em">
+                <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white collapsed" data-toggle="collapse" data-target="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
+                            <div class="float-left">
+                                @item.NomeTitular
+                            </div>
+                        </button>
+                        <span class="float-right" style="font-size:10pt; margin-top:0.7em">Cadastrado Em: @item.CriadoEm</span>
+                    </h5>
+                </div>
+                <div id="@("collapse" + i.ToString())" class="collapse" aria-labelledby="@("heading" + i.ToString())" data-parent="#accordion">
+                    <div class="card-body bg-white">
+                        <table class="table" style="border-top:hidden">
+                            <thead>
+                                <tr><th></th><th></th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ID:<br />@item.UsuarioID</th>
+                                </tr>
+                                <tr>
+                                    <td>Cartão ID:<br />@item.CartaoID</td>
+                                </tr>
+                                <tr>
+                                    <td>Usuario ID:<br />@item.UsuarioID</td>
+                                </tr>
+                                <tr>
+                                    <td>Numero do cartão:<br />@item.Numero</td>
+                                </tr>
+                                <tr>
+                                    <td>Nome do Titular:<br />@item.NomeTitular</td>
+                                </tr>
+                                <tr>
+                                    <td>ID Bandeira Cartão:<br />@item.BandeiraCartaoID</td>
+                                </tr>
+                                <tr>
+                                    <td>CVC:<br />@item.CVC</td>
+                                </tr>
+                                <tr>
+                                    <td>Vencimento(Mês/Ano):<br />@item.Vencimento</td>
+                                </tr>
+                                <tr>
+                                    <th style="border-color: #454d55" scope="col">Log</th>
+                                </tr>
+                                <tr>
+                                    <td>Usuario:<br />@item.Usuario</td>
+                                </tr>
+                                <tr>
+                                    <td>Criado em:<br />@item.CriadoEm</td>
+                                </tr>
+                                <tr>
+                                    <td>Atualizado em:<br />@item.AtualizadoEm</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Ativo:<br />Não
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary btn-sm" style="color: white !important">@Html.ActionLink("Editar", "Editar", new { id = item.CartaoID, @style = "color:white!important" }, new { @class = "text-light" })</button>
+                                        <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Remover", "Remover", new { id = item.CartaoID }, new { @class = "text-light" })</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            i++;
+        }
+    }
+</div> <br /><br />
