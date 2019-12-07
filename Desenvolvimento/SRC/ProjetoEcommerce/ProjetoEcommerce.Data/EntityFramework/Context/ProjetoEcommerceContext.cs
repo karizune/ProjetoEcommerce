@@ -1,4 +1,5 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Configuration;
+using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using ProjetoEcommerce.Dominio.Entidades.Relatorio;
 using System.Configuration;
 using System.Data.Entity;
@@ -13,6 +14,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         public DbSet<TipoCampo> TipoCampo { get; set; }
         public DbSet<Relatorio> Relatorio { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<TipoCartao> TipoCartao { get; set; }
 
         static ProjetoEcommerceContext()
         {
@@ -37,6 +39,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             modelBuilder.Configurations.Add(new TipoCampoConfiguration());
             modelBuilder.Configurations.Add(new RelatorioConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
+            modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
         }
     }
 }
