@@ -10,5 +10,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Services
         void Update(TEntity obj);
         void Remove(TEntity obj);
         void Dispose();
+
     }
 }

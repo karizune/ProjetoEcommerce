@@ -316,6 +316,7 @@
     <Content Include="Views\Sexo\Index.cshtml" />
     <Content Include="Views\Sexo\Create.cshtml" />
     <Content Include="Views\Sexo\Edit.cshtml" />
+    <Content Include="Views\Sexo\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

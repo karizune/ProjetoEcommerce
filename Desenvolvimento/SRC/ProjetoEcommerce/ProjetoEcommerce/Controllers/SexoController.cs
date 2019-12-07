@@ -22,7 +22,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Sexo
         public ActionResult Index()
         {
-            var sexoViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll());
+            var sexoViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.BuscarAtivos());
             return View(sexoViewModel);
         }
 
@@ -74,6 +74,7 @@ namespace ProjetoEcommerce.Controllers
             //{
             var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
             sexoDomain.Usuario = "askdflas";
+            sexoDomain.AtualizadoEm = DateTime.Now;
             _sexoService.Salvar(sexoDomain);
 
             return RedirectToAction("Index");
@@ -84,15 +85,22 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult Delete (int id)
         {
-            var db = new ProjetoEcommerceContext();
-            var ent = db.Sexo.Find(id);
-            ent.Status = false;
-            ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "askdflas";
-            db.Entry<Sexo>(ent).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
+            var sexoDomain = _sexoService.GetById(id);
+            sexoDomain.Usuario = "Renato";
+            sexoDomain.AtualizadoEm = DateTime.Now;
+            sexoDomain.Status = false;
+            _sexoService.Salvar(sexoDomain);
 
-            return Redirect("Index");
+            return RedirectToAction("Index");
+            //var db = new ProjetoEcommerceContext();
+            //var ent = db.Sexo.Find(id);
+            //ent.Status = false;
+            //ent.AtualizadoEm = DateTime.Now;
+            //ent.Usuario = "Renato";
+            //db.Entry<Sexo>(ent).State = System.Data.Entity.EntityState.Modified;
+            //db.SaveChanges();
+
+            //return RedirectToAction("Index");
         }
     }
 }

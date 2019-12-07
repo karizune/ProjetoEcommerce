@@ -2,6 +2,7 @@
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using System;
+using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Dominio.Services
 {
@@ -13,6 +14,11 @@ namespace ProjetoEcommerce.Dominio.Services
             : base(sexoRepository)
         {
             _sexoRepository = sexoRepository;
+        }
+
+        public IEnumerable<Sexo> BuscarAtivos()
+        {
+            return _sexoRepository.BuscarAtivos();
         }
 
         public bool Salvar(Sexo ent)
