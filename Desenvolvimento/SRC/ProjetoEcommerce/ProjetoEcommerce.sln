@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce", "ProjetoEcommerce\ProjetoEcommerce.csproj", "{587050A9-5E42-47D3-AC51-C42A63B9A1D1}"
 EndProject
@@ -17,7 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{C84C53F9-3F19-4685-9517-988F058ED568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Data", "ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj", "{AF6E0475-07B3-4592-B95C-D6CB789C8697}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Data", "ProjetoEcommerce.Data\ProjetoEcommerce.Data.csproj", "{987285B4-521A-4977-BE76-CBC2A5B05239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Service", "ProjetoEcommerce.Service\ProjetoEcommerce.Service.csproj", "{6A38656D-1942-4448-9787-7CB7C4FBA02C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2 - Host", "3.2 - Host", "{829591EC-679A-477C-8FDA-979D8772A5F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEcommerce.Host", "ProjetoEcommerce.Host\ProjetoEcommerce.Host.csproj", "{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +39,18 @@ Global
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF6E0475-07B3-4592-B95C-D6CB789C8697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{987285B4-521A-4977-BE76-CBC2A5B05239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{987285B4-521A-4977-BE76-CBC2A5B05239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{987285B4-521A-4977-BE76-CBC2A5B05239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{987285B4-521A-4977-BE76-CBC2A5B05239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A38656D-1942-4448-9787-7CB7C4FBA02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A38656D-1942-4448-9787-7CB7C4FBA02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A38656D-1942-4448-9787-7CB7C4FBA02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A38656D-1942-4448-9787-7CB7C4FBA02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,7 +59,10 @@ Global
 		{587050A9-5E42-47D3-AC51-C42A63B9A1D1} = {C90D2165-4B4F-4BAD-BDAF-9E7629692CEF}
 		{95B18E84-1845-4B68-8A2E-D8C0D006E485} = {102921D9-4288-45FB-AB7A-D9083B926120}
 		{C84C53F9-3F19-4685-9517-988F058ED568} = {705C0BBC-D6D5-4996-AEA1-5E0DCC2A5F63}
-		{AF6E0475-07B3-4592-B95C-D6CB789C8697} = {C84C53F9-3F19-4685-9517-988F058ED568}
+		{987285B4-521A-4977-BE76-CBC2A5B05239} = {C84C53F9-3F19-4685-9517-988F058ED568}
+		{6A38656D-1942-4448-9787-7CB7C4FBA02C} = {B15F1BBD-A621-438F-8EB0-C2D684C70AEB}
+		{829591EC-679A-477C-8FDA-979D8772A5F6} = {705C0BBC-D6D5-4996-AEA1-5E0DCC2A5F63}
+		{B70BE5E2-D6FB-4D20-A710-7328E7FB3544} = {829591EC-679A-477C-8FDA-979D8772A5F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA1788EF-9948-4CFA-8F11-B97088D43200}

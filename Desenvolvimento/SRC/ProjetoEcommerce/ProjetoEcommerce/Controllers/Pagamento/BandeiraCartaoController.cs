@@ -1,4 +1,6 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,26 +11,20 @@ namespace ProjetoEcommerce.Controllers.Pagamento
 {
     public class BandeiraCartaoController : Controller
     {
-        List<BandeiraCartao> bandeirasCartao = new List<BandeiraCartao>()
+        private readonly IBandeiraCartaoService _bandeiraCartaoService;
+        public BandeiraCartaoController(IBandeiraCartaoService bandeiraCartaoService)
         {
-            new BandeiraCartao
-            {
-                BandeiraCartaoID=1,Descricao="Mastercard"
-            },
-            new BandeiraCartao
-            {
-                BandeiraCartaoID=2,Descricao="Visa"
-            }
-        };
+            _bandeiraCartaoService = bandeiraCartaoService;
+        }
+
+        [Route("ListarTodos")]
         public ActionResult Index()
         {
-            return RedirectToAction("ListarTodos");
-        }
-        public ActionResult ListarTodos()
-        {
+            var ent = _bandeiraCartaoService.GetAll();
 
-            return View(bandeirasCartao);
+            return View("ListarTodos", ent);
         }
+
         [HttpGet]
         public ActionResult Incluir()
         {
@@ -36,8 +32,25 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         }
 
         [HttpPost]
-        public ActionResult Incluirconfirm(BandeiraCartao bandeira)
+        public ActionResult Incluir(BandeiraCartao ent)
         {
+            _bandeiraCartaoService.Add(ent);
+            return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Excluir(int id)
+        {
+            _bandeiraCartaoService.Delete(id);
+            return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Editar(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Editar(BandeiraCartao bandeiraCartao)
+        {
+            _bandeiraCartaoService.Update(bandeiraCartao);
+
             return View();
         }
     }

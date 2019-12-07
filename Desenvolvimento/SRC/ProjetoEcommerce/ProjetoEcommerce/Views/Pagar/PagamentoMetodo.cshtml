@@ -76,39 +76,30 @@
             </div>
             <div id="collapseBoleto" class="collapse" aria-labelledby="HeadingBoleto" data-parent="#accordion">
                 <div class="card-body bg-white">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Endereço de email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
-                            <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Clique em mim</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
+
                     @using (Html.BeginForm("Pagar", "PagamentoCartao", FormMethod.Post))
                     {
                         <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Numero)
+                            @Html.TextBoxFor(c => c.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Nome do Titular" })
 
                         </div>
                         <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Numero)
+                            @Html.TextBoxFor(c => c.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
 
                         </div>
                         <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Numero)
+                            @Html.TextBoxFor(c => c.Cartao.CVC, new { @class = "form-control float-left", @placeholder = "CVC", @style = "width:49%;margin-bottom: 1em" })
 
                         </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(c => c.Cartao.Vencimento, new { @class = "form-control float-right", @placeholder = "Vencimento", @style = "width:49%" })
+
+                        </div>
+                        <input type="submit" value="Confirmar" class="btn btn-primary" />
                     }
                 </div>
             </div>
         </div>
 </div>
 
+<div class="clearfix"></div>
