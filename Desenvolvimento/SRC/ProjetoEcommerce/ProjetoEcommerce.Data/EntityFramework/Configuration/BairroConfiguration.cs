@@ -40,13 +40,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.CriadoEm)
                 .HasColumnName(@"CriadoEm")
-                .HasColumnType("Date")
-                .IsRequired();
+                .HasColumnType("Date");
 
             Property(x => x.AtualizaEm)
                 .HasColumnName(@"AtualizaEm")
-                .HasColumnType("Date")
-                .IsRequired();
+                .HasColumnType("Date");
         }
     }
 }

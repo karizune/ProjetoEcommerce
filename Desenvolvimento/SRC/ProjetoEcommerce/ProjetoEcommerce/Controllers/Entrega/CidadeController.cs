@@ -40,7 +40,7 @@ namespace ProjetoEcommerce.Controllers.Entrega
             _dbContext.Update(obj);
             return RedirectToAction("ListarTodos");
         }
-        public ActionResult Atulizar()
+        public ActionResult Atualizar()
         {
             return View();
         }
