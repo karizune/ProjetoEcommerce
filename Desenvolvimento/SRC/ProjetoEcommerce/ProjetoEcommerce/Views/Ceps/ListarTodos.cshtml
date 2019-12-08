@@ -28,7 +28,7 @@
                 <td>@item.CEP</td>
                 <td>@item.CriadoEm</td>
                 <td>
-                    <a href="#" class="btn btn-warning btn-sm">
+                    <a href="@Url.Action("Editar", "Ceps", new { Ceps = item.CEP })" class="btn btn-warning btn-sm">
                         <i class="fa fa-edit"></i>
                     </a>
                     <a href="@Url.Action("Deletar", "Ceps", new { id = item.CEP, usuario = "admin"})" class="btn btn-danger btn-sm">

@@ -28,7 +28,7 @@
                 <td>@item.Nome</td>
                 <td>@item.CriadoEm</td>
                 <td>
-                    <a href="#" class="btn btn-warning btn-sm">
+                    <a href="@Url.Action("Editar", "Rua", new { tipoCartaoId = item.RuaID })" class="btn btn-warning btn-sm">
                         <i class="fa fa-edit"></i>
                     </a>
                     <a href="@Url.Action("Deletar", "Estado", new { id = item.RuaID, usuario = "admin" })" class="btn btn-danger btn-sm">
