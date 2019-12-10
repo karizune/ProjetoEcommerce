@@ -1,6 +1,8 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Perfil;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
+using System;
+using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Dominio.Services
 {
@@ -12,6 +14,29 @@ namespace ProjetoEcommerce.Dominio.Services
             : base(fisicoRepository)
         {
             _fisicoRepository = fisicoRepository;
+        }
+
+        public IEnumerable<Fisico> BuscarAtivos()
+        {
+            return _fisicoRepository.BuscarAtivos();
+        }
+
+        public bool Salvar (Fisico ent)
+        {
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "System";
+            if (ent.ClienteId == 0)
+            {
+                ent.CriadoEm = DateTime.Now;
+                ent.Status = true;
+                _fisicoRepository.Add(ent);
+            }
+            else
+            {
+                _fisicoRepository.Update(ent);
+            }
+            return true;
+
         }
     }
 }

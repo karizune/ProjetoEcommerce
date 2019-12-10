@@ -34,14 +34,14 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Tipo)
                 .HasColumnName(@"Tipo")
-                .HasColumnType("bit")
+                .HasColumnType("varchar")
+                .HasMaxLength(1)
                 .IsRequired();
 
             Property(x => x.Foto)
                 .HasColumnName(@"Foto")
                 .HasColumnType("varchar")
-                .HasMaxLength(200)
-                .IsRequired();
+                .HasMaxLength(200);
 
             Property(x => x.CPF)
                 .HasColumnName(@"CPF")

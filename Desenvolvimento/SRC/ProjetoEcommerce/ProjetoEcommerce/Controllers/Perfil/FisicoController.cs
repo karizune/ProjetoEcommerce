@@ -23,6 +23,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Fisico
         public ActionResult Index()
         {
+
             var fisicolViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
             return View(fisicolViewModel);
         }
@@ -38,23 +39,32 @@ namespace ProjetoEcommerce.Controllers
         // GET: Fisico/Create
         public ActionResult Create()
         {
-            ViewBag.IDCliente = new SelectList(_sexoService.GetAll(), "IDSexo", "Nome");
-            return View();
+            var ent = new FisicoViewModel
+            {
+                Sexos = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll())
+        };
+            return View(ent);
         }
 
         // POST: Fisico/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(FisicoViewModel fisico)
         {
-            if (ModelState.IsValid)
-            {
-                var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
-                _fisicoService.Add(fisicoDomain);
+            var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
+            fisicoDomain.Status = true;
+            
+            return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
+            //    _fisicoService.Add(fisicoDomain);
 
-            return View(fisico);
+            //    return RedirectToAction("Index");
+            //}
+
+            //return View(fisico);
         }
 
         // GET: Fisico/Edit/5

@@ -183,14 +183,14 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="Controllers\AutenticacaoController.cs" />
-    <Compile Include="Controllers\EmailController.cs" />
-    <Compile Include="Controllers\FisicoController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JuridicoController.cs" />
-    <Compile Include="Controllers\SexoController.cs" />
-    <Compile Include="Controllers\TelefoneController.cs" />
-    <Compile Include="Controllers\TipoCartaoController.cs" />
+    <Compile Include="Controllers\Perfil\AutenticacaoController.cs" />
+    <Compile Include="Controllers\Perfil\EmailController.cs" />
+    <Compile Include="Controllers\Perfil\FisicoController.cs" />
+    <Compile Include="Controllers\Perfil\HomeController.cs" />
+    <Compile Include="Controllers\Perfil\JuridicoController.cs" />
+    <Compile Include="Controllers\Perfil\SexoController.cs" />
+    <Compile Include="Controllers\Perfil\TelefoneController.cs" />
+    <Compile Include="Controllers\Perfil\TipoCartaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -320,7 +320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Perfil\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Pagamento\" />
   </ItemGroup>

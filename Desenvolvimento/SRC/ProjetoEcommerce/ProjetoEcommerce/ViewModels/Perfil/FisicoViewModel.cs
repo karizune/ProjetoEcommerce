@@ -12,7 +12,9 @@ namespace ProjetoEcommerce.ViewModels
         public string CPF { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         public DateTime DataNascimento { get; set; }
+        [Display(Name = "Sexo")]
         public int IDSexo { get; set; }
-        public virtual List<SexoViewModel> Sexo { get; set; }
+        public virtual SexoViewModel Sexo { get; set; }
+        public virtual IEnumerable<SexoViewModel> Sexos { get; set; }
     }
 }

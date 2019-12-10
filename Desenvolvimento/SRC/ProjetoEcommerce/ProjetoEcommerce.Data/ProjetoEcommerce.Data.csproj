@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Configuration\ClienteConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\EmailConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\FisicoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\JuridicoConfiguration.cs" />

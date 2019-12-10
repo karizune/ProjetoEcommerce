@@ -45,6 +45,9 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             modelBuilder.Configurations.Add(new TelefoneConfiguration());
             modelBuilder.Entity<Telefone>().HasEntitySetName("Telefone");
 
+            modelBuilder.Configurations.Add(new ClienteConfiguration());
+            modelBuilder.Entity<Cliente>().HasEntitySetName("Clientes");
+
             modelBuilder.Configurations.Add(new FisicoConfiguration());
             modelBuilder.Entity<Fisico>().HasEntitySetName("Fisico");
 

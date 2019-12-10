@@ -35,9 +35,13 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IDSexo }) |
-                @Html.ActionLink("Details", "Details", new { id=item.IDSexo }) |
-                <a href="@Url.Action("Delete", "Sexo", new { id = item.IDSexo })" class="btn btn-danger btn-sm">
+                <a href="@Url.Action("Edit", "Sexo", new { id = item.IDSexo })" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="fa fa-pencil-square-o"></i>
+                </a>
+                <a href="@Url.Action("Details", "Sexo", new { id=item.IDSexo })" class="btn btn-info btn-sm" title="Detalhes">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+                <a href="@Url.Action("Delete", "Sexo", new { id = item.IDSexo })" class="btn btn-danger btn-sm" title="Desativar">
                     <i class="fa fa-remove"></i>
                 </a>
             </td>
