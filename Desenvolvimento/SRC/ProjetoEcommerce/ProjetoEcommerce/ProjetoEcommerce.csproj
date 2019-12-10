@@ -307,7 +307,7 @@
       <Name>ProjetoEcommerce.Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjetoEcommerce.Host\ProjetoEcommerce.Host.csproj">
-      <Project>{B70BE5E2-D6FB-4D20-A710-7328E7FB3544}</Project>
+      <Project>{1580764d-53d1-4143-b287-27de4fd079e1}</Project>
       <Name>ProjetoEcommerce.Host</Name>
     </ProjectReference>
   </ItemGroup>
