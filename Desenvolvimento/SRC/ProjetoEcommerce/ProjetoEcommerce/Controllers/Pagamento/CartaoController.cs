@@ -24,6 +24,11 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         {
             return View(context.Cartao.ToList());
         }
+        public ActionResult Editar(int id)
+        {
+            Cartao resultado = context.Cartao.First(c => c.CartaoID == id);
+            return View(resultado);
+        }
 
         [HttpPost]
         public ActionResult Inserir(Cartao cartao)
@@ -46,7 +51,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             context.Cartao.Attach(obj);
             context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ListarTodos");
         }
 
     }
