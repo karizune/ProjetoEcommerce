@@ -26,7 +26,8 @@ namespace ProjetoEcommerce.Controllers
             var ListFormularioGrupo = db.FormularioGrupo
                 .Include("Formulario")
                 .Include("GrupoDeAcesso")
-                .ToList();
+                .Where(f => f.Status == 1);
+   
 
             return View(ListFormularioGrupo);
         }
@@ -50,7 +51,7 @@ namespace ProjetoEcommerce.Controllers
             db.FormularioGrupo.Add(formGrupo);
             db.SaveChanges();
 
-            return View("ListarTodos");
+            return RedirectToAction("ListarTodos");
         }
         public ActionResult Delete(int FormID,int GrupoID)
         {
@@ -62,7 +63,7 @@ namespace ProjetoEcommerce.Controllers
             db.Entry<FormularioGrupo>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
-            return Redirect("ListarTodos");
+            return RedirectToAction("ListarTodos");
         }
     }
 }

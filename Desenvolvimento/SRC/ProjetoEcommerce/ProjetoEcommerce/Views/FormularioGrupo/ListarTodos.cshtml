@@ -6,6 +6,7 @@
     ViewBag.Title = "";
 }
 
+
 <div class="admin-titulo-principal">
     @ViewBag.Title
     <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "FormularioGrupo")">
@@ -36,7 +37,7 @@
                 <td>@item.CriadoEm</td>
                 <td>@item.AtualizadoEm</td>
                 <td>
-                    <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { FormID = item.FormularioID, item.GrupoID })')">Deletar</a>
+                    <a class="btnDelete" href="@Url.Action("Delete","FormularioGrupo", new { FormID = item.FormularioID, item.GrupoID })">Deletar</a>
                 </td>
             </tr>
         }

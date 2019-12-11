@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public GrupoUsuarioConfiguration()
         {
-            ToTable("seguranca.Grupo_Usuario");
+            ToTable("Grupo_Usuario", "seguranca");
             HasKey(x => new { x.GrupoID, x.UsuarioID });
 
 

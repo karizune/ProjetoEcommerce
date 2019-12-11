@@ -55,10 +55,11 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult Delete(int id)
         {
-            //var db = new ProjetoEcommerceContext();
-
-            Formulario formulario = db.Formulario.First(x => x.FormularioID == id);
-            db.Formulario.Remove(formulario);
+            var ent = db.Formulario.Find(id);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "delete";
+            db.Entry<Formulario>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Redirect("ListarTodos");

@@ -39,19 +39,9 @@
                 <td>@item.CriadoEm</td>
                 <td>@item.AtualizadoEm</td>
                 <td>
-                    <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { id = item.FormularioID })')">Deletar</a>
+                    <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { FormID = item.FormularioID})')">Deletar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
-<script>
-    function myFunction(url) {
-        $.ajax({
-            method: "POST",
-            url: url,
-        })
-        location.reload()
-    }
-</script>
