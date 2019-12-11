@@ -18,6 +18,8 @@ namespace ProjetoEcommerce.Controllers
                     .produto
                     .ToList();
 
+            ViewBag.QtdProdutos = produtos.Count;
+
             return View("Index", produtos);
         }
 

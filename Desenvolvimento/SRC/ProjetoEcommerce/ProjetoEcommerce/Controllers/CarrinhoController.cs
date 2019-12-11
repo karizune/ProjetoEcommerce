@@ -20,7 +20,6 @@ namespace ProjetoEcommerce.Controllers
                     .ToList();
 
 
-            ViewBag.QtdProdutos = carrinhoProdutos.Count;
 
             return View("Index", 1);
         }
