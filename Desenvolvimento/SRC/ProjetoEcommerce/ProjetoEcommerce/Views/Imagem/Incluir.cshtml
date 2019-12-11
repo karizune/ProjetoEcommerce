@@ -5,22 +5,21 @@
     ViewBag.ShowMenu = true;
 }
 
-@using (Html.BeginForm("IncluirConfirm", "Imagem", FormMethod.Post))
+@using (Html.BeginForm("IncluirConfirm", "Imagem", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.HiddenFor(model => model.ImagemID)
+    @Html.HiddenFor(model => model.CriadoEm)
+    @Html.HiddenFor(model => model.Status)
     <div class="form-group">
         <label for="inputAddress">Nome</label>
         @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Digite o nome da Imagem" })
-    </div>
-    <div class="form-group">
-        <label for="inputAddress">URL</label>
-        @Html.TextBoxFor(modelItem => Model.URL, new { @class = "form-control", @placeholder = "Digite a URL da Imagem" })
     </div>
     <br><div class="container">
         <div class="row">
             <div class="col-sm-2 imgUp">
                 <div class="imagePreview"></div>
                 <label class="btn btn-primary">
-                    Procurar imagem<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                    Procurar imagem<input id="ImagemArquivo" name="ImagemArquivo" type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
                 </label>
             </div><!-- col-2 -->
             <i class=" imgAdd"></i>

@@ -47,7 +47,9 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult Atualizar(int id)
         {
-            return RedirectToAction("Index");
+            var entidade = marcaService.GetOneBy(id);
+            return View("Incluir", entidade);
+
         }
         public ActionResult Excluir(int id)
         {

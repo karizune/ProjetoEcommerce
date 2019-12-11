@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Repositories
 {
-    class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
+    public class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
     {
         public IEnumerable<Produto> BuscarAtivos()
         {
@@ -19,7 +19,7 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public Produto GetOneBy(int ProdutoID)
         {
-            throw new NotImplementedException();
+            return GetOne(ProdutoID);
         }
     }
 }

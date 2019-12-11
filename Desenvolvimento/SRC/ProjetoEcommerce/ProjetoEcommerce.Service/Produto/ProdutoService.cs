@@ -1,4 +1,6 @@
-﻿using ProjetoEcommerce.Dominio.Entidades;
+﻿using ProjetoEcommerce.Data.Repositories;
+using ProjetoEcommerce.Dominio.Entidades;
+using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -8,26 +10,53 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Service
 {
-    public class ProdutoService : IProdutoService
+    public class ProdutoService : IProdutoService       
     {
-        public IEnumerable<Dominio.Entidades.Produto> BuscarAtivos()
+        private readonly IProdutoRepository _repository;
+        public ProdutoService()
         {
-            throw new NotImplementedException();
+            _repository = new ProdutoRepository();
+        }
+        public IEnumerable<Produto> BuscarAtivos()
+        {
+            return _repository.BuscarAtivos();
         }
 
         public bool Excluir(int produtoId, string usuario)
         {
-            throw new NotImplementedException();
+            var ent = _repository.GetOne(produtoId);
+
+            if (ent == null)
+                return false;
+
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = usuario;
+            _repository.Update(ent);
+
+            return true;
         }
 
-        public Dominio.Entidades.Produto GetOneBy(int ProdutoID)
+        public Produto GetOneBy(int ProdutoID)
         {
-            throw new NotImplementedException();
+            return _repository.GetOneBy(ProdutoID);
         }
 
         public bool Salvar(Dominio.Entidades.Produto produto)
         {
-            throw new NotImplementedException();
+            produto.AtualizadoEm = DateTime.Now;
+
+            if (produto.ProdutoID == 0)
+            {
+                produto.CriadoEm = DateTime.Now;
+                _repository.Add(produto);
+            }
+            else
+            {
+                _repository.Update(produto);
+            }
+
+            return true;
         }
     }
 }

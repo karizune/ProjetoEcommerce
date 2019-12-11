@@ -20,6 +20,7 @@ namespace ProjetoEcommerce.Data.Configuration
             Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
             Property(x => x.URL).HasColumnName(@"URL").HasColumnType("varchar").IsRequired();
             Property(x => x.Tamanho).HasColumnName(@"Tamanho").HasColumnType("numeric").IsRequired();
+            Ignore(x => x.ImagemArquivo);
 
             Property(x => x.Status).HasColumnName(@"Status").HasColumnType("int").IsRequired();
             Property(x => x.Usuario).HasColumnName(@"Usuario").HasColumnType("varchar").IsRequired();

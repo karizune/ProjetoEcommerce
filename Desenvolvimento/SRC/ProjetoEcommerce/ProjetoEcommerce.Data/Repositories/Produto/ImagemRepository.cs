@@ -19,7 +19,7 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public Imagem GetOneBy(int ImagemID)
         {
-            throw new NotImplementedException();
+            return GetOne(ImagemID);
         }
     }
 }

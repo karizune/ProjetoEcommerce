@@ -19,7 +19,7 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public Marca GetOneBy(int MarcaID)
         {
-            throw new NotImplementedException();
+            return GetOne(MarcaID);
         }
     }
 }

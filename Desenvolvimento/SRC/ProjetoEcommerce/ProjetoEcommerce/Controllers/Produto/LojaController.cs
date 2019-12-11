@@ -43,17 +43,17 @@ namespace ProjetoEcommerce.Controllers
             ent.Usuario = "grupo4";
             lojaService.Salvar(ent);
 
-            return Redirect("Index");
+            return RedirectToAction("Index");
         }
         public ActionResult Atualizar(int id)
         {
-
-            return Redirect("Index");
+            var entidade = lojaService.GetOneBy(id);
+            return View("Incluir", entidade);
         }
         public ActionResult Excluir(int id)
         {
             lojaService.Excluir(id, "marciel");
-            return Redirect("Index");
+            return RedirectToAction("Index");
         }
     }
 }

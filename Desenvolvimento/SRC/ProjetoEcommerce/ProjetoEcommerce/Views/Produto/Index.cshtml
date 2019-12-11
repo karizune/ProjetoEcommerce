@@ -1,8 +1,43 @@
 ﻿
+@model System.Collections.Generic.IEnumerable<ProjetoEcommerce.Dominio.Entidades.Produto>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/TipoCartao/Index.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Produtos";
 }
 
-<h2>Index</h2>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Produto")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
 
+
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Criado Em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a href="@Url.Action("Atualizar", "Produto", new { id=item.ProdutoID})" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Excluir", "Produto", new { id = item.ProdutoID })" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

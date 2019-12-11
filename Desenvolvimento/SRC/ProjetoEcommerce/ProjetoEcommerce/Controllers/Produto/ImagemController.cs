@@ -39,16 +39,25 @@ namespace ProjetoEcommerce.Controllers
         [HttpPost]
         public ActionResult IncluirConfirm(Imagem ent)
         {
+            if (ent.ImagemArquivo == null)
+                throw new Exception("imaagem vazia");
+            
+            var nomeDoArquivo = ent.ImagemArquivo.FileName;
+
             ent.Status = 1;
             ent.Usuario = "grupo4";
+            ent.URL = $@"~/Content/img/{nomeDoArquivo}";
             imagemService.Salvar(ent);
+
+            var nomeDoArquivo_Escrita = $@"{Server.MapPath("~")}Content\img\{nomeDoArquivo}";
+            ent.ImagemArquivo.SaveAs(nomeDoArquivo_Escrita);
 
             return RedirectToAction("Index");
         }
         public ActionResult Atualizar(int id)
         {
-
-            return RedirectToAction("Index");
+            var entidade = imagemService.GetOneBy(id);
+            return View("Incluir", entidade);
         }
         public ActionResult Excluir(int id)
         {
