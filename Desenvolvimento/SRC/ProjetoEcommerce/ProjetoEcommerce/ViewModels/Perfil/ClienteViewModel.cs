@@ -8,7 +8,7 @@ namespace ProjetoEcommerce.ViewModels
 {
     public abstract class ClienteViewModel : EntityBaseViewModel
     {
-        public int IDCliente { get; set; }
+        public int ClienteId { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]

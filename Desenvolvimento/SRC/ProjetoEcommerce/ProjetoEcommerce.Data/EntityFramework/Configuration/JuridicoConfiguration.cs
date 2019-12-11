@@ -18,8 +18,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             Property(x => x.ClienteId)
                 .HasColumnName(@"IDCliente")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.Nome)
                 .HasColumnName(@"Nome")

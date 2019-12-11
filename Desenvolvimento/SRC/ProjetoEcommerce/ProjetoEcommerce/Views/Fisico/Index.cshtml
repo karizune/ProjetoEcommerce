@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Foto)
+                <img src="~/Content/img/@item.Foto" height="50" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CPF)
@@ -58,13 +58,13 @@
                 @Html.DisplayFor(modelItem => item.Sexo.Nome)
             </td>
             <td>
-                <a href="@Url.Action("Edit", "Fisico", new { id =item.IDCliente })" class="btn btn-warning btn-sm" title="Editar">
+                <a href="@Url.Action("Edit", "Fisico", new { id =item.ClienteId })" class="btn btn-warning btn-sm" title="Editar">
                     <i class="fa fa-pencil-square-o"></i>
                 </a>
-                <a href="@Url.Action("Details", "Fisico", new { id=item.IDCliente })" class="btn btn-info btn-sm" title="Detalhes">
+                <a href="@Url.Action("Details", "Fisico", new { id=item.ClienteId })" class="btn btn-info btn-sm" title="Detalhes">
                     <i class="fa fa-info-circle"></i>
                 </a>
-                <a href="@Url.Action("Delete", "Fisico", new { id = item.IDCliente })" class="btn btn-danger btn-sm" title="Desativar">
+                <a href="@Url.Action("Delete", "Fisico", new { id = item.ClienteId })" class="btn btn-danger btn-sm" title="Desativar">
                     <i class="fa fa-remove"></i>
             </td>
         </tr>
