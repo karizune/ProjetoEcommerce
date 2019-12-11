@@ -167,8 +167,9 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn btn-secondary btn-sm" style="color: white !important">@Html.ActionLink("Editar", "Editar", new { id = item.CartaoID, @style = "color:white!important" }, new { @class = "text-light" })</button>
+                                        <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Editar", "Editar", new { id = item.CartaoID}, new { @class = "text-light" })</button>
                                         <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Remover", "Remover", new { id = item.CartaoID }, new { @class = "text-light" })</button>
+                                        <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Reativar", "Reativar", new { id = item.CartaoID }, new { @class = "text-light" })</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -178,5 +179,6 @@
             </div>
             i++;
         }
+        <br /><br />
     }
 </div> <br /><br />
