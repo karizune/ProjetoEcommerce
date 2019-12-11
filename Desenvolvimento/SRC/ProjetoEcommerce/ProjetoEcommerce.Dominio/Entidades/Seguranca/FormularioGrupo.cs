@@ -10,7 +10,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Seguranca
     {
         public int FormularioID { get; set; }
         public int GrupoID { get; set; }
-        //public Formulario Formulario { get; set; }
-        //public GrupoDeAcesso GrupoDeAcesso { get; set; }
+
+        public Formulario Formulario { get; set; }
+        public GrupoDeAcesso GrupoDeAcesso { get; set; }
     }
 }

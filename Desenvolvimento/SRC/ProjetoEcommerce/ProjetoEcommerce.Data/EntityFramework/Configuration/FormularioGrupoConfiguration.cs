@@ -12,21 +12,18 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
     {
         public FormularioGrupoConfiguration()
         {
-            ToTable("seguranca.FormularioGrupo");
-            HasKey(x => x.FormularioID);
-            HasKey(x => x.GrupoID);
+            ToTable("FormularioGrupo","seguranca");
+            HasKey(x => new { x.FormularioID, x.GrupoID });
 
             Property(x => x.FormularioID)
                 .HasColumnName(@"FormularioID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.GrupoID)
                 .HasColumnName(@"GrupoID")
                 .HasColumnType("int")
-                .IsRequired()
-                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+                .IsRequired();
 
             Property(x => x.Status)
                 .HasColumnName(@"Status")
@@ -48,6 +45,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"AtualizadoEm")
                 .HasColumnType(@"datetime")
                 .IsRequired();
+
+            this.HasRequired(f => f.GrupoDeAcesso)
+                .WithMany()
+                .HasForeignKey(f => f.GrupoID);
 
         }
     }

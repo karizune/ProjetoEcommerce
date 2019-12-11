@@ -23,7 +23,10 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult ListarTodos()
         {
-            var ListFormularioGrupo = db.FormularioGrupo.ToList();
+            var ListFormularioGrupo = db.FormularioGrupo
+                .Include("Formulario")
+                .Include("GrupoDeAcesso")
+                .ToList();
 
             return View(ListFormularioGrupo);
         }
@@ -42,12 +45,24 @@ namespace ProjetoEcommerce.Controllers
             formGrupo.AtualizadoEm= DateTime.Now;
             formGrupo.CriadoEm = DateTime.Now;
             formGrupo.Status = 1;
-            formGrupo.Usuario = "Teste";
+            formGrupo.Usuario = "Adriano";
 
             db.FormularioGrupo.Add(formGrupo);
             db.SaveChanges();
 
             return View("ListarTodos");
+        }
+        public ActionResult Delete(int FormID,int GrupoID)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.FormularioGrupo.Find(FormID, GrupoID);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "deleteeeeeeeeee carai";
+            db.Entry<FormularioGrupo>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("ListarTodos");
         }
     }
 }

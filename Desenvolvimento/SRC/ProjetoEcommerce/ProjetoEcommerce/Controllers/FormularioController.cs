@@ -12,7 +12,7 @@ namespace ProjetoEcommerce.Controllers
 {
     public class FormularioController : Controller
     {
-        Formulario form = new Formulario();
+        //Formulario form = new Formulario();
         ProjetoEcommerceContext db = new ProjetoEcommerceContext();
 
         private readonly IFormularioRepository _formularioRepository;
@@ -39,11 +39,11 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm()
+        public ActionResult IncluirConfirm(Formulario form)
         {
             //var db = new ProjetoEcommerceContext();
 
-            form.Usuario = "TesteShow";
+            form.Usuario = "User da sessão";
             form.Status = 1;
             form.CriadoEm = DateTime.Now;
             form.AtualizadoEm = DateTime.Now;
