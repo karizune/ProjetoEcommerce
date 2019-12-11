@@ -41,12 +41,34 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult Editar(Cartao obj)
+        {
+            obj.AtualizadoEm = DateTime.Now;
+            obj.Usuario = "Sistema";
+            //obj.Status = 1;
+            context.Cartao.Attach(obj);
+            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+            return RedirectToAction("ListarTodos");
+        }
 
         public ActionResult Remover(int id)
         {
             Cartao obj = context.Cartao.First(c => c.CartaoID == id);
             obj.AtualizadoEm = DateTime.Now;
             obj.Status = 0;
+            obj.Usuario = "Sistema";
+            context.Cartao.Attach(obj);
+            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+            return RedirectToAction("ListarTodos");
+        }
+        public ActionResult Reativar(int id)
+        {
+            Cartao obj = context.Cartao.First(c => c.CartaoID == id);
+            obj.AtualizadoEm = DateTime.Now;
+            obj.Status = 1;
             obj.Usuario = "Sistema";
             context.Cartao.Attach(obj);
             context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
