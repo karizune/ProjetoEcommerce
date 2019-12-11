@@ -1,39 +1,41 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Repositories
 {
-    public class BandeiraCartaoRepository : IBandeiraCartaoRespository
+    class CartaoRepository : ICartaoRepository
     {
         ProjetoEcommerceContext _context = new ProjetoEcommerceContext();
-
-        public void Add(BandeiraCartao t)
+        public void Add(Cartao t)
         {
-            _context.Set<BandeiraCartao>().Add(t);
+            _context.Set<Cartao>().Add(t);
         }
 
         public void Delete(int id)
         {
             var ent = Get(id);
-            _context.Set<BandeiraCartao>().Remove(ent);
+            _context.Set<Cartao>().Remove(ent);
         }
 
-        public BandeiraCartao Get(int id)
+        public Cartao Get(int id)
         {
-            return _context.Set<BandeiraCartao>().Find(id);
+           return _context.Set<Cartao>().First(f => f.CartaoID == id);
         }
 
-        public IEnumerable<BandeiraCartao> GetAll()
+        public IEnumerable<Cartao> GetAll()
         {
-            return _context.Set<BandeiraCartao>();
+            return _context.Set<Cartao>();
         }
 
-        public BandeiraCartao Update(BandeiraCartao t)
+        public Cartao Update(Cartao t)
         {
-            var ent = _context.Set<BandeiraCartao>().Attach(t);
+            var ent = _context.Set<Cartao>().Attach(t);
             _context.SaveChanges();
             return ent;
         }

@@ -12,6 +12,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
     public class BandeiraCartaoController : Controller
     {
         private readonly IBandeiraCartaoService _bandeiraCartaoService;
+
         public BandeiraCartaoController(IBandeiraCartaoService bandeiraCartaoService)
         {
             _bandeiraCartaoService = bandeiraCartaoService;
@@ -25,7 +26,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             return View("ListarTodos", ent);
         }
 
-        [HttpGet]
+        
         public ActionResult Incluir()
         {
             return View();
@@ -37,6 +38,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             _bandeiraCartaoService.Add(ent);
             return RedirectToAction("ListarTodos");
         }
+
         public ActionResult Excluir(int id)
         {
             _bandeiraCartaoService.Delete(id);

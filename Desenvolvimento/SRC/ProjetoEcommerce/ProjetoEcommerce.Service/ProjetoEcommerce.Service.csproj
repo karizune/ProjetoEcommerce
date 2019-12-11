@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BandeiraCartaoService.cs" />
     <Compile Include="Base\ServiceBase.cs" />
+    <Compile Include="CartaoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
 using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+using ProjetoEcommerce.Dominio.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,25 +12,20 @@ namespace ProjetoEcommerce.Controllers.Pagamento
     public class CartaoController : Controller
     {
         ProjetoEcommerceContext context = new ProjetoEcommerceContext();
+        ICartaoService _service;
+        public CartaoController(ICartaoService service)
+        {
+            _service = service;
+        }
         public ActionResult Index()
         {
-        
-            return View();
+
+            return RedirectToAction("ListarTodos");
         }
         public ActionResult Inserir()
         {
             return View();
         }
-        public ActionResult ListarTodos()
-        {
-            return View(context.Cartao.ToList());
-        }
-        public ActionResult Editar(int id)
-        {
-            Cartao resultado = context.Cartao.First(c => c.CartaoID == id);
-            return View(resultado);
-        }
-
         [HttpPost]
         public ActionResult Inserir(Cartao cartao)
         {
@@ -41,6 +37,16 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult ListarTodos()
+        {
+            return View(context.Cartao.ToList());
+        }
+        public ActionResult Editar(int id)
+        {
+            Cartao resultado = context.Cartao.First(c => c.CartaoID == id);
+            return View(resultado);
+        }
+
 
         public ActionResult Remover(int id)
         {

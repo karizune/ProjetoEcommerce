@@ -8,11 +8,11 @@ namespace ProjetoEcommerce.Data.Repositories.Base
     {
         private ProjetoEcommerceContext _context = new ProjetoEcommerceContext();
 
-        public TObject Add(TObject t)
+        public void Add(TObject t)
         {
             _context.Set<TObject>().Add(t);
             _context.SaveChanges();
-            return t;
+           
         }
 
         public void Delete(int id)
