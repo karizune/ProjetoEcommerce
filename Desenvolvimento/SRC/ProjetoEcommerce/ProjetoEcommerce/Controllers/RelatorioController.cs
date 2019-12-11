@@ -70,7 +70,7 @@ namespace ProjetoEcommerce.Controllers
             var Relatorios =
                 new ProjetoEcommerceContext()
                 .Relatorio
-                .ToList();
+                .Where(f => f.Status == 1);
 
             return View(Relatorios);
         }
@@ -90,7 +90,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
             ent.Usuario = "Carlos";
-            ent.Status = 2;
+            ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
             db.Relatorio.Add(ent);

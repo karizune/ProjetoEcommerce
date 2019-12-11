@@ -16,7 +16,9 @@ namespace ProjetoEcommerce.Dominio.Entidades.Relatorio
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
 
+
         public Relatorio Relatorio { get; set; }
         public Campo Campo { get; set; }
+
     }
 }

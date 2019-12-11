@@ -66,7 +66,7 @@ namespace ProjetoEcommerce.Controllers
             var Campos =
                 new ProjetoEcommerceContext()
                 .Campo
-                .ToList();
+                .Where(f => f.Status == 1);
 
             return View(Campos);
         }
@@ -77,7 +77,7 @@ namespace ProjetoEcommerce.Controllers
             ViewBag.TipoCampos =
                 new ProjetoEcommerceContext()
                 .TipoCampo
-                .ToList();
+                .Where(f => f.Status == 1);
 
             return View();
         }
@@ -87,7 +87,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
             ent.Usuario = "CJ";
-            ent.Status = 2;
+            ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
             db.Campo.Add(ent);
@@ -96,20 +96,19 @@ namespace ProjetoEcommerce.Controllers
             return Redirect("ListarTodos");
         }
 
-        public ActionResult Excluir(int campoId)
+        public ActionResult Excluir(int CampoId)
         {
             var db = new ProjetoEcommerceContext();
-            var ent = db.Campo.Find(campoId);
+            var ent = db.Campo.Find(CampoId);
             ent.Status = 0;
             ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "walber";
+            ent.Usuario = "renato";
             db.Entry<Campo>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Redirect("ListarTodos");
+
         }
-
-    }
-
+     }
 
 }

@@ -41,7 +41,7 @@ namespace ProjetoEcommerce.Controllers
             var TiposCampos =
                 new ProjetoEcommerceContext()
                 .TipoCampo
-                .ToList();
+                .Where(f => f.Status == 1);
 
             return View(TiposCampos);
         }
