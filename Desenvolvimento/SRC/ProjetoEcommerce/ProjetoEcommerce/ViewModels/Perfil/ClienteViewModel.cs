@@ -14,6 +14,7 @@ namespace ProjetoEcommerce.ViewModels
         [Required(ErrorMessage = "Campo obrigatório")]
         [MinLength(8)]
         public string Senha { get; set; }
+
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Tipo { get; set; }
         public string Foto { get; set; }

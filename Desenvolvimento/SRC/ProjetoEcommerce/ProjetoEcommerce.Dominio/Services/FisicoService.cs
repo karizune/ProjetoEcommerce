@@ -24,7 +24,8 @@ namespace ProjetoEcommerce.Dominio.Services
         public bool Salvar (Fisico ent)
         {
             ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "System";
+            ent.Tipo = "F";
+            ent.Foto = "NÃO TEM FOTO";
             if (ent.ClienteId == 0)
             {
                 ent.CriadoEm = DateTime.Now;

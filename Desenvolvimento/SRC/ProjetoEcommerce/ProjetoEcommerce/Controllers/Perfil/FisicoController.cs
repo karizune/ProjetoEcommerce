@@ -49,22 +49,23 @@ namespace ProjetoEcommerce.Controllers
         // POST: Fisico/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FisicoViewModel fisico)
+        public ActionResult Create( FisicoViewModel fisico)
         {
-            var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
-            fisicoDomain.Status = true;
+
+            ModelState.Remove("Tipo");
             
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
+                fisicoDomain.Status = true;
+                fisicoDomain.Usuario = "renato";
+                _fisicoService.Salvar(fisicoDomain);
 
-            //if (ModelState.IsValid)
-            //{
-            //    var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
-            //    _fisicoService.Add(fisicoDomain);
+                return RedirectToAction("Index");
+            }
 
-            //    return RedirectToAction("Index");
-            //}
 
-            //return View(fisico);
+            return View(fisico);
         }
 
         // GET: Fisico/Edit/5
