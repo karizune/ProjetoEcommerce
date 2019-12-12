@@ -40,7 +40,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(Imagem ent)
         {
             if (ent.ImagemArquivo == null)
-                throw new Exception("imaagem vazia");
+                throw new Exception("imagem vazia");
             
             var nomeDoArquivo = ent.ImagemArquivo.FileName;
 
