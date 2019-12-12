@@ -46,14 +46,29 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             return View(new MetodoPagamentoViewModel(ListaProdutos,listaMetodos));
 
         }
-        
-        [HttpPost]
-        public ActionResult PagamentoCartao(Cartao cartao)
+        public ActionResult PagamentoCartao()
         {
             return View();
-            
         }
 
+        //Fazer actionResult para redirecionamento de uma view pegando o cartao do usuario onde pergunta o usuario quantas parcelas realizar
+        [HttpPost]
+        public ActionResult PagamentoCartao(int id) 
+        {
+            //acho que recebe o valor do usuarioID pra acesso ao cartao
+            Cartao obj = Context.Cartao.First(c => c.UsuarioID == id);
+
+            return RedirectToAction("");
+        }
+
+        //[HttpPost]
+        //public ActionResult PagamentoCartao(int id)
+        //{
+        //    Cartao obj = Context.Cartao.First(c => c.CartaoID == id);
+
+        //    return View();
+            
+        //}
     }
 
    

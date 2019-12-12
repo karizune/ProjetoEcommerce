@@ -12,6 +12,8 @@ namespace ProjetoEcommerce.Models.ViewModels
         public IList<ProdutoCarrinho> ListaProdutos { get; set; }
         public IEnumerable<MetodoPagamento> MetodosPagamento { get; set; }
         public Cartao Cartao { get; set; }
+        public Usuario usuario { get; set; }
+        
         public float PrecoTotalVenda
         {
             get
@@ -29,6 +31,7 @@ namespace ProjetoEcommerce.Models.ViewModels
             ListaProdutos = listaProdutos;
             MetodosPagamento = listaMetodos;
             Cartao = new Cartao();
+            usuario = new Usuario();
         }
 
     }

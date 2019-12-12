@@ -1,7 +1,30 @@
-﻿
+﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
+@model Usuario
 @{
-    ViewBag.Title = "Pagamento por cartão";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    int i = 1;
+
 }
 
-<h2>Pagamento por cartão</h2>
+<h4>Dividir em Quantas vezes?</h4>
+<div class="container">
+    <select class="form-control">
+        <option>1x</option>
+        <option>2x</option>
+        <option>3x</option>
+        <option>4x</option>
+        <option>5x</option>
+        <option>6x</option>
+        <option>7x</option>
+        <option>8x</option>
+        <option>9x</option>
+        <option>10x</option>
+        <option>11x</option>
+        <option>12x</option>
+        <option>13x</option>
+        <option>14x</option>
+        <option>15x</option>
+    </select>
+</div>
 

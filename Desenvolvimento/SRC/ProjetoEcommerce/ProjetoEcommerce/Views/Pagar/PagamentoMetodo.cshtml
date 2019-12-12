@@ -7,10 +7,10 @@
     ViewBag.ShowMenu = true;
 
 }
-    
-    <h3 class="text-center">Método de pagamento</h3>
 
+<h3 class="text-center">Método de pagamento</h3>
 
+@*lado esquerdo da tela feito por Gabriel e alterado por Luan*@
 <div id="accordion" class="float-left" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
     @foreach (var item in Model.ListaProdutos)
     {
@@ -60,49 +60,159 @@
     <div class="card text-white bg-info mb-3">
         <div class="card-header">Você vai pagar: <div class="float-right" style="font-size:12pt;"><b>R$@Model.PrecoTotalVenda</b></div></div>
     </div>
+    <br /><br /><br />@*esses 3 <br/> é para corrigir o bug do layout do renato de maneira porca*@
 </div>
 
+@*Botao onde se tem um formulário de cartão, acho que deveria aparecer apenas se o usuario não possuir um cartão
+    caso o usuario tenha um, deveria mostrar o cartão já cadastrado e possivelmente "em quantas parcelas realizar"... algo assim*@
 <div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
-    
-        <div class="card" style="margin-bottom:0.4em">
-            <div class="card-header" style="max-height:10em" id="HeadingBoleto">
-                <h5 class="mb-0">
-                    <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseBoleto" aria-expanded="false" aria-controls="collapseBoleto">
-                        <div class="float-left">
-                            Cartão de crédito
-                        </div>
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseBoleto" class="collapse" aria-labelledby="HeadingBoleto" data-parent="#accordion">
-                <div class="card-body bg-white">
 
-                    @using (Html.BeginForm("Pagar", "PagamentoCartao", FormMethod.Post))
+    <div class="card" style="margin-bottom:0.4em">
+        <div class="card-header" style="max-height:10em" id="HeadingCartao">
+            <h5 class="mb-0">
+                <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseCartao" aria-expanded="false" aria-controls="collapseCartao">
+                    <div class="float-left">
+                        Cartão de crédito
+                    </div>
+                </button>
+                <div class="float-right">
+                    @*ignora o aviso ali, o site funciona normalmente mesmo com o aviso!!!!!!*@
+                    @if (Model.usuario.cartaoID > -1)
                     {
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Nome do Titular" })
-
-                        </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
-
-                        </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.CVC, new { @class = "form-control float-left", @placeholder = "CVC", @style = "width:49%;margin-bottom: 1em" })
-
-                        </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Vencimento, new { @class = "form-control float-right", @placeholder = "Vencimento", @style = "width:49%;margin-bottom: 1em" })
-
-                        </div>
-                        <div class="form-group">
-
-                        <input type="submit" value="Confirmar" class="btn btn-primary" style="clear:both" />
-                        </div>
+                        @*falta fazer o botao ter um link de acesso para pagamento usando a carteira*@
+                        @*<button type="button" class="btn btn-primary">@Html.ActionLink("Comprar Agora!", "PagamentoCartao", new { id = Model.Cartao.UsuarioID }, new { @class = "text-light" })</button>*@
+                        <button type="button" class="btn btn-primary">@Html.ActionLink("Comprar Agora!", "PagamentoCartao", new { id = Model.usuario.cartaoID }, new { @class = "text-light" })</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-secondary" disabled="disabled">Comprar Agora!</button>
                     }
                 </div>
+            </h5>
+        </div>
+        <div id="collapseCartao" class="collapse" aria-labelledby="HeadingCartao" data-parent="#accordion">
+            <div class="card-body bg-white">
+                @if (Model.usuario.cartaoID == null) {
+                using (Html.BeginForm("Pagar", "PagamentoCartao", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.TextBoxFor(c => c.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Nome do Titular" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(c => c.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(c => c.Cartao.CVC, new { @class = "form-control float-left", @placeholder = "CVC", @style = "width:49%;margin-bottom: 1em" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(c => c.Cartao.Vencimento, new { @class = "form-control float-right", @placeholder = "Vencimento", @style = "width:49%;margin-bottom: 1em" })
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Confirmar" class="btn btn-primary" style="clear:both" />
+
+                    </div>
+                }
+                }
+                else
+                {
+                    @*eu fiz com variavel estática por que aqui em casa não tenho acesso ao banco de dados e eu n sei como funça a entity framework do renato ;-;*@
+                    <table border="0">
+                        <thead>
+                            <tr>
+                                <td>
+                                    @if (Model.usuario.BandeiraCartaoID == 1 ) 
+                                    {
+                                        <p>
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAACuCAMAAAClZfCTAAABp1BMVEX/////mQDMAADIAAAAAGb/nAD/nwAAAGj/lwD/kAD/kwDNAAD/mAAAAGf/lQD/oADRIAAAAFoAAF/VAADvdwAAAFYAAFzeSwDTKwDvx8fe3ud8AEUkJHD4iQDp6e/89PT/0qjnqKgAAE//xo//3b7ZZmb/+vXyz8/ikZHde3v67Oy5uctkAE9vAErSPz//pj3129vtv7//qUjT09/ln5/09PeXl7OLU0qjYkHPKSn/7+H/wob/tGbqsbHUSUn/27pnZ5OFAED/6NPbcXHWWVnehSO7ABqiort6ep+RADquACfExNOKiqptbZfEAA//9Ov/vXrgiYlVVYhLAFeiAC//r1lERH8zM3ZcAFLNey4wAF//oSv/zZ3nZQCXADaCTk4bEGMoAGDAczUrK3O7cDc1IGBSAFWyACNeOVd1RlHcRgDQnn+8ZxZxOD5HIFFrO1DAQEs1AEiWVj6ZiJjMiVipmqeWdZFpADiuaHsAAEXhw68qGWHAt71BTojsjRh/Qjt/ACJNADySAB2zAAC6jp6WTGpdS3M/Jl6Pg6GuT2JwNmdRHUOhAAtQWYDAAAAZYklEQVR4nO1dCXvbRnomCfAAQIEmEDKxbIvUSd2iTusiRVOnZR2UZEmxpEjybe8mTpN21+0mVjd126Td/OjO4Jj5BgApngD36b7Pk8gEQczgxXfPYMbn+we8QGoYI+ViiwMD+/uL+/sDAy62WQeGM7nB1fxCgKMILORXD7rvDreqycW+9NLyVFAUEETt/4IYnFpeSvcttqrJepHtHhrHjDgDfbOw2p1pbpPFi+VzRIsoRyJRP0Q0IsvouHBeSheb22TdyAzmy5LDEjU+eLc5TfYtIXZkmaXGiigiSpjo9ZqmVK6/KnooTWvdDWrdfnoK0VOZHYqILArH6f3m3G3tSOXytdBDaBrvrtuQ718g8YlUSQ+hCQlT2gs7fnetHn4MlvKT9TS5MiVULT42lo77ms1AZaQGA/UTpJEUOKhR4faXxJrlh2VJ7nVP4bKrjfFjsNSfrb7J4rEgN8CPDllYdicWyDagYRaS8lUGAn0TQiMCBEmaar2Hax5BGknjVUhSsVkEYUSEqdZKUqq/mQRpJK3dYpMWp5pIkE7ScQtt0mCzCdJIGqrUZKnJBGHIwlKLCLrbAn505Mo1mRYbN9KOJMmtCAFSTTVCLLi8o7btT4gtIQghKhw3PZicbB1BGknd9iYvWqBjFBEx3VyGmm6mbRzlLVnJQOtEyIB43ESCsi3mRyeJKQP0NRRKVwdZblqQNNNqETI4OqBNloSWE+THFqm3OQy10E5bMG602HolMyFONYGg1IJbBGFowfai3HolMyH7G44jXTFDFNgg9Qn1VTzqQ1Rs0CC12Nc7cJRLu2KGAISVRhjqdpuhQOBOa+Lpihxd1M+QS64MgPtDzHWGEEd1O7aWZK2VGfrSC4YQR3Xmtf9/GELOvy6OPNAyzxiqT9fct9ReMlSPzXbd23vMUO2+P+u+t/9DLOgpRX6hphgy5TpBgTvCAxay24xFxVpyEVfzMgOcBQH3EjUDEX/1DPV7wJAdX4Xc5kiuusjmvrt3hvv2W6zSrXlgqp3BfeG6Aa/SZHvNDAXnVmWNIBqphqH2MEQ6vnJd1aoxR+7HjBXAfeO6ya4igvSaFRac2/U1ZLJvG4P0QM2sARGDO65b7NtU7a77avZNrBJcVzSkapXH+/dcZyjgcWZmR7RikD3jOkEexD63QqxQO0q5r2buu/UqIJS32KuuM8Q9aD8hQhZ7uRxDw14UibymwxFCufmQ7jt8D8KeqhAp4/i9qDR64NOrQhkx8kKIQsHq4DZFzmLkgSWqHFgDeFAVcRKjIfcZqhoeZPwlB4raKcO3gnvgNkVOsZH7gXUt+NL9Ora9RutBdlYDOLcZcsjUMu2sZ7i25rrBts1ecz/3qA0eGGxrFtLeQuRJHC6wDOXcp6jamMjAl+5rGlvFXnOfoQdibXCbIWuE7cG0z/bM8SGY0MiDkSH3FadmMJrmQS2tDQuyVjA+zXWGAlwTGIrImpFq3esQImWIrRQxk3wcj9a0TogzGq4UIXqOe9N9fSvppVoWEbn9qjq0CfIiTfeZ/Kz7LsAgOZyBhzMNlwUajJZlYRkGv8WL8yYsdYDz+z4DvfhyIE+DLp9j3i4kQ4+rbBzVKEWNlfWjQsmWh++XmsARTTrS+GrA7dOuS6rKNGxQpEqWlYfG66XGRCxUO0xWI+dO9a50w5FTMBYlsx11wokxovVG6VI5ZNrVs1tVUSz9qdMYDeqrrA2nJqU7NSOgO8Gg+EcHgsybaoSh9XCCXG1CM26k9jhJbkEd43fsFEkb/C7bnfqKuFKAyGI9E9/1bD/2LdtDgqlGHVvwRccpuZoukiQyOqAUHSkjdorUe8knbHfqmh0hcRx5Hb8uW4a9YOi7Mgz5GjZFwXkqCft61iybr4bkKUV8cpppVwsH1OdJS3e667lDlefJBeqzZTF/8EOhDEMDoBQQkTVUGQhEo/qJoStlzrxaUZeiiPnqLOmCxIUTszaKkJ5tWfpjCgEKkMb7hw4OhlbHHWIlLpDvHxpaXV3TVuuTAmFq59iTOW5tsLt75mCt0sJR6BrB0If7ZRgiNyWLQmRqubS0VFqeEMB6GjIIeNA5gmHcI6LgnzjXDofeUWUxbb+sf6STHaTtsMUuY4rseqYLAV5hD0QI2UH2jtYm4SoXwwfSNrVzqZnu7pwZanDjdNmwDFwzYS3XrSG3h18IRU19/z7exXZk+smTTv1fK/imRGHqogjigWLJDJfki7SOJdmvxVTa+RFhuU87vbgkyLHreKf5Q9P2G5ksja2lxzzr0HSKnlv9mSYEM/ZF4w7Ilbh+6yogg9Jji50zKWLXVcvSNwfIIhkc14//jChUEzCeHCbiyWQ8cbKJRB/HerJ9nuLAsi4PpD62IoraFKvzKH4FnUYPA8cicGim7TcCJejQFIsxRK7LQc80h2brjY+acc6+lky/Omqxc/qAwrjtTIM6GosNG+v33Ofhs5r9FOfD4XAHz/NK4o8Dy5FgcMKpTxfYSAXPzY9LuiPHeml5v2olQbXYVFDDpdH0Azq0LqN3AfWReWvETGU4Sf0np+4YVRXOYQGwBfUswR7RTl1zuIimxuroD6ZSTea1P9Px5CY9qYu/fjj/av7hB8xS+EYOhtZ//GfHPvWK/vUP5KsJfZrecsQ+YW+EqBCx/UYKAnw+cGi6+cEUnSnwCEZ3YEOxSpYBbWLAjMMXnNpxzRzQRDHvdA3NOKK+kOb0Z7OlxOk5XR/WY9pof8j/6tdwOBRc7wgrm7ZLaTgPvuKJhhpuXHCa0khMUdGM1A2vT6Y7MA5t0+gt1TNqB4aQXSnTHWS8pKcOx4cDG3yBOYJDLsn5IiimkPbCJ+ZHo08KfCz/QqdCBGPP3oWCP4Z5m1cx0Bd5SLTDWMt4RX7wJ+eTNZBkJqKXjEhYhBwaiVw6TYqontEIe1wdK9cd34L0+4jD4UzgKWtrfTn0SMotNof7YrWAnfE4tWVsQoZEKfR9B291dwTRd8lO9khJPHE+VceSaYuMwIi4EOjQRghFpp6NULnh1CPSndlZNpIa5CyhlY6c9Mji0AYD0p/pp1nivTGGAnY53UwCY20LC2M/dVDNtPbp+NpiBn3BnnJ06j8wk5mobuYdHdqO8cgDRM9OiNwMc5qhmJ7bPU0mEvF4InlIn2/uI010fE8K95NJ/vTTvw6tqV9bnuSq+pHeyFYimUycks93OdQXi5wWklSMV2xZfTDM8yeI6LnCyzjqUyKhFCgJvdY0fPE7RkSnR1hf6/OTJ6DHjiSYgQ7t0KBIMvVs9t9Ik5kAF75fSCQVnu9A/gS5XaWHtJFJ0DsZ6UGnYGxLAejQdhX+a1X6nQYYJ0oY3aJChB8J7xur2ihJKoW2lBVl6YiiE71PuEc4EiCM/yVpCfd+7gFiNhePJ+M8fH4gmREsFPFU200XoJ4Z5mmzh1yhO7CNHW34+dHXo6Ojb56jD1T8phP0zj+dHZ09x8HLBqIoTKOOU75jTFWprM99vHw8iu4xQfoZUBVGN0bmRpI09h2wDc0GX6BWwvzrd++vrq6+/0mLliilPydguNe1ubkLhOgwiR8PHwekLYplKEJOhBLfY1z0s5k1nFL9GZIe8WOXG6qJvaMwpWgkQa1yXv8+gBiSoENDnXqkXn4in1GYKKkbHeCmxgPhl+CuTuNKkqec9dn17OFPD5/dmLW32M2viCMaRc0lgBmcRqLWQ2Vm7t9fvXrYAR8yo8caRSRFYxyaSdFfDT3r6qH6kw/sqeim9Dhay1DjPYSXuThty0ht8KkScGjDnIQoiZNu66Pl6uMOelN5pkS1pWjaTD732gsfNyEzCtDGRYR4It5DjNlugtqa2TgSGSrQ+w9COLZ63cFf+5yub6EIOrSEIYo/GKz9KU4dDC6O6fyszUxmh1O+VFcnEb9dYFV9w2TRcPUetXN4DU3paZLo2cHegob711SKLkGI0BU/e3PWwVOpWy5bPYuI4vJF3yKKfma7pkmfToGT3VLCr8G1dfcevAnz4BxwfT2PJXcBHNpc3KDI1GIQCBklR5igA5woTHEpa6Tu0KF1a5+vnX5tIgAY9f32GWlrh0KpnyhTCYqUWfg7ARxa8lVsHiSLhkqhsIqaOi3FdbRF0KEVkgZFhqvK/EKvoNez98psNfADbAsjq0kSdGhDmmvYtf4SQnoDQgSkqCjwB7G135kiccJ5tnRXgjq0kZtg7DXtiplpBF+FQWAKvIGFIuDQjsxnZvA/FKeXxUKgVycckPoYVgqWY7hQrYavyec8tnuWWJvFsPqctqeX9YBH8DmOdQTLvgA0naDslqL+CPAEF4bVQUEDvXng0FiKoEMb+MX0P0a/AsBlD1VaXTj7H0irrcnJXZzpMSVHaJoccFcCjOJKhPT2FoqCoW9/Lne1kQS1o/5o8BkQYDJschOmwt9no4g6tA5yo7+Yd6T/7u5n4LLzAcmphKFjkkNBhkXVcD3tKS05YlumvrEUj1jMwPb69c4BiuwOLXhzVqb04MM+n7S1L/iD8+BKJNOIgIDnAlxfj64X7A4tN8qWH/thDhpQ37Ip0CyIgwele5gjq4jADC2jVTIrUrQKGNUeofQU2iKbuQ69CLNF7dku0KdCgnxAAhK6AtkfuVKUBjy+ZUqRkaPl7Q7tYIxnMmEJ6EUq8DswIyOHCsrSaHKyigwz5qjAsngASo6aQwvbJA1iATCqOVBMUYF8bR1VRLF1HCj35gmKihI0GzildSYU8YTeAR0nvuuGd3SYRqbfb3doayxFOQm47AxHW+zkkyhN40HgO45ipuc430psQZIyP9AAf0irTFHrOHd9n8XlAgoRyNdasReHtbRH1ugaRTXX5MsnST0xpEcS9JdIsUKvFXuyF3wGDsLhJr1edEAcGqFBHeNBvo4SiTOqqd0fiQ7OKsrR6NiYAqJV7H3UUZwjKTAxSiUor3nNNVAOtoxc1wTK6GB7Wt0YmWtYuGYpir3roArQ+cvVwyucxRbMI109VEUjUX/oGrBh6hQyUOTYPqDIqDrOEIdGbkga40GKhPJuoKkHSaJn//lZy8GOaAf1UF3dPtNI4qlBSFDK9cZoPjYXf/5c0aBT1KEGYHurRu94alF8FwxHN7DgeBwMBbXiETE40z3knzj/jfHAFpmWOfQ3ajygjBq1a70kD8fQstI9WGjuDmx0UOv9X7Q741oigh45ET8zK1OfnjHVDR9NSzCL6I6p/c9KKgsUBYH29IFbla27TgBrFHzIg4Ijvr8Yej5UDEdosoYjxRjMWE2JiYTptWFF0xgB0W8LObSCeVIOUUQfo28BumwfMBMLhobS7IkMOEnqJRIkql00/9eak6D1tc1oZtozEpizDmZEYUI0baos//cWqA0JunsCNMzRqgtO4WPXoL++ks7HPHCA0BkY42iGckCHJj0Cw7JZTn1EZXO4h5osXQc2ktQwz9AhZ3WPBzNxeqj+a18qPEjlxuE4Ncr9xmF7BkVjjDHCKiKKeK84uVT0zYHi0nkE2d6wck3PLFDfhpPW0K/gySFrhLfnm4KuBdbrzHnFdoeGKKKXGQzAUcJMkvoi3R/fA+57lct0rxlzIaW/viQtd1Fh96UO1vJDBZDtILFdwL/B//Xj/dOkUYtD07w+KCdpKKZ7e9NaVlYAUlQU5OBV8j6451NqVnGkiDNWGJMtrqywqR20c7LJiEYRSD+R1oHBWy4Aqvm+nAJswvDBWj+z98I4px2+m5uZmcmB8Y2RHkuk+JvCpnKpzGRuMqOPcg9LZzREMCehSMi2nfqccQ0HPxZLxwWGS1Apxvlv8MewdcyZATPFxJzJd2B1aBykCAXDagfVigO+3BAahrrgfPwwYaHof3jooVhMwvbMSSgokrAH7QYSZYfQEGZpuU8zVEgN+WTZs43kX5Zl4PN1G4sc2rV5UoaTLilFQ8ywn2+Nt06NYLrzZ8fjwwnrPag8zwbwAIMcaM8c5UO5PnKRTuNPvs44X0EupqmO6yl8MFzxKWOHJl+ktbiCzFLDJoVxaAFIkWXYT2Xqc9buJJxLHGu8tfaBU7lkmXpI/1vQHjHj6tdhGEUAjCR53jZ5hX7bY0nhQ+/DTDHfAmTSxb5SaQJ7P/qetSbH9CYOsHE0eUDmEg77paQzWP8zYGrRSI+jKiCx4Nk0MxvAFYGE88Nk2qMzezgUWipOEjynwFq+AZJbz1GHpgeKeEDJzjXh7DgSWV5OT6yUpqJg+n4/dmjUX+QxRSbP/Vo8QGQ1gx+/tSB0an6es1plDQc4OmftyCSH4ibEkZN+oNieqiV4IfWrZ1jVTu3P/zcclifYtHiW6GSBGh4j3Yi9C/PWut8JuWwkGilN9RXPl5cjYN51t8WhQYpw5QI6tMAevjV4v9PXxPDu9vhsmP5fCV0BZQTQOs/o9pdX7tvtbFZi2iP4MjavDXjZRA8PM/LsLM2RJDEULwvkqJnX32iRP+B6mo5oY4cWXSkJS0grwbZFWQ4nTZ06sujBIeOdfKJ9mNHiPPLd8KoWxPHxQ5PQJ4cfkT+ZxshkT5XC5jR8zJ2bpz249IxFhorpcG7c8FHoSvc34fOffTIoqXxytkvD8DCdWst9EYy9wqlfkp8Dv+jq6w2+1zhKbBnEzv7lFBnwTtSjYrG4GN8xLrZP8lPs1FDLO8b5Tz79jX+p3d90ZxGboMjUSnplIgrfAfHpkVkc4weJ02sP+GOPio1AAKmJhuTvepCJH0Jc2d3Z2TpMKpcbxk+VwGckwMl4ItFxenKIcHI/kcQj01r+gDlSduc257YO+c+GAX6sjYMq8eSnrZ25ubmd3UM+oUgSx7ZnUoQt7fq1/gvlcGdzE19L6fHL/uDrsD5EfX9rZ2f35bff4sFYPAztFyMoCtIv9iFCY8LQCy3NjvOHhcJpXJlfN1pMfqefFBVlnODIlCHfKgqnDYxqrLzVPzyWwAeEPe0zevxaRxE6zt6q28aXvPoU/9FH1HlsHzrCR9uqbmv3nmud0vL5sDFMiXKUMXMqnpHqh8NHqrTNtmeaIvzuUTA4z4eNKyW1H3yvvZL0vdYjfJj/cBN6Yfz8Q8gfemde6wq+dRJaf200zId/XUfSaWAensQsijEZuLxnYFtjYU//oFPy1vzunmrc2ttRPFIfVka3VUnaeKTjMfrn5b2vj7RRfNTls9HHe6p5j5J0zzj85tEGuXFJlS5Hn5v944/GLvdQnr89ZkIFUmS8exQMPbu6Nn5w/e7HZ7p5ia2/14789HA95vevz+t4EUSx9EMdV8+YF3PQZd7jy7y+wrPdnhk/mF+H54jMoBxHChKS0Xf7B1ymILem7m1sBPQTJPpLia1rSEAI0Ml7b7c3OHJVeilp7+3btxt7kvkDiQDqmUDvLuZfX3+2fuOPkVFqdDB0c4OO6AfAmj5lF/hBlwn6QyH2JOYM9i302t+wttxBtT+hv/nqy9rAvuPnwppGljesvXh/uLb3rdx/ldbynr4Hb6E34+3YlsKy2sM/3rG2wbZmiAcrz7TlqpcU9n3T3F+/qF1XLNThsNJsXa+YNQb3l7aqAU47FXiwPE87GyOndWbdX5GP+6Zdl3UssyKfB+s63vmiSniwOaHj5jvttqY8xR331+NzXqvYi+VBq0K7LA7qjRhVhTZYaq7NxciDZcPLrnfdpsvMtskCszo8WHv/dnghRBV2S2mXbb8g3I/BK28B1oYrzbq557eGyvuAeLLU7FeVcMebPdLS6XRZjryoG1UsP7q/JxFy+L3FvoHy+6W4TlHA/X0rK0L0+RYX0wMXi2UdvwcbN7XVZiB4hYPFxYuL/fIUeaFq7i9mXRZ6XN1b9BUrbWrtQaVfbBeOolGNggFkrivtJOfBlinup/JlUO0mze5vgu7BFrGOqHbfWE/2lXEoQLrPUPW7D3uxhzVnLzW6v8vO+e3MEHiwE7qtAul69hq9da9PBp5v0ty+mzMTeBBBMgx5sKdu5Y0+HeDBng6QIdc9nJCulSFPa0ec+zGAULW7bwuOvGCoUrrRfhz9HTHkEUd/N1qmw4t9eDxgKF0/Qx74fm4y7fK0o2jt3p5F1mWGMj5fn+BmRT9in41WK1Ju5mv6suqLUfdmgsjnjlNAakS/W8rGmSvODky4tY+VWENuXwku1Y+4QdrkkisGKdqIK2PhTlLLrADdJ7Z+XESONGyGAFZbTRJnXTVqYKrVyiaU3RK+PkzefpcNMWRfZt2XFlopSLL1/YUmoIVWm1uzr+OPsD8ltsr9R4XjmupnVSLTsjkRjgtEYqzIrXH/or/BcLEsWpKzcQeVmlxqgbbJ9WettyM11GyS7LthWLB/3GSSIsJyK3SMYripJonLl1taHqA41USSIsJx+bH6ZiHbNJK4tSoIwmgaSbIbBGEMN0XduNUqCcIoLje+0WBUFkruEKRhpsEdLbnAoKOfL4/9XrmhgDsiRi9aa4NsyDSgb9xamWWOK6PvWKiTpYgoLLfKzVdEbq0eWeLy3TUKEMVAeqJ2lhA/UxWnwrQWk6uVtjSz08P15+rmR8d+GslS1bvp4lXml1e840dHdqY6YeK4/IzDdk71oNg7JYi3bacblUVtu7TmNNkwsrmDfPk9idE340O5GvxXNSimSxMCJkqOsFRFI3gtQ0GcKKVd9F/VIZXJzQxpmw7SfZzH14YGc5lbAuj6sV9M95amziMCRfT8uNSbLjaj3NpSpDBcbXFgYGB/YKAlRuf/AOL+sTS4EWyLAAAAAElFTkSuQmCC" height="10" />CartaoMestre
+                                        </p>
+                                    }
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nome do Titular: @Model.usuario.Nome</td>
+                            </tr>
+                            <tr>
+                                <td>Numero do Cartão: @Model.usuario.CardNumber</td>
+                            </tr>
+                            <tr>
+                                <td>Vencimento: @Model.usuario.Vencimento</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
             </div>
         </div>
+    </div>
+</div>
+
+@*o botao de boleto onde tem uma imagem de boleto dentro... ja deu pra entender oque fazer nessa tela*@
+<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
+
+    <div class="card" style="margin-bottom:0.4em">
+        <div class="card-header" style="max-height:10em" id="HeadingBoleto">
+            <h5 class="mb-0">
+                <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseBoleto" aria-expanded="false" aria-controls="collapseBoleto">
+                    <div class="float-left">
+                        Boleto
+                    </div>
+                </button>
+                <div class="float-right">
+                    <button type="button" class="btn btn-primary">Comprar Agora!</button>
+                </div>
+            </h5>
+        </div>
+        <div id="collapseBoleto" class="collapse" aria-labelledby="HeadingBoleto" data-parent="#accordion">
+            <div class="card-body bg-white">
+                <p><img src="https://www.rtek.com.br/wp-content/uploads/2017/08/boletobancario.jpg" width="400" /></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* this is a button whith a dropdown, contains the get value of $BRL of the user account "NOT HAVE ONE"*@
+<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
+
+    <div class="card" style="margin-bottom:0.4em">
+        <div class="card-header" style="max-height:10em" id="HeadingCarteira">
+            <h5 class="mb-0">
+                <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseCarteira" aria-expanded="false" aria-controls="collapseCarteira">
+                    <div class="float-left">
+                        Carteira
+                    </div>
+                </button>
+                <div class="float-right">
+                    @*ignora o aviso ali, o site funciona normalmente mesmo com o aviso!!!!!!
+                      falta fazer o botao ter um link de acesso para pagamento usando a carteira*@
+                    @if (Model.usuario.dinheiro >= Model.PrecoTotalVenda)
+                    {
+
+                        <button type="button" class="btn btn-primary">Comprar Agora!</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-secondary" disabled="disabled">Comprar Agora!</button>
+                    }
+                </div>
+            </h5>
+        </div>
+        <div id="collapseCarteira" class="collapse" aria-labelledby="HeadingCarteira" data-parent="#accordion">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-header">Quantia disponível em carteira: <div class="float-right" style="font-size:12pt;"><b>R$@Model.usuario.dinheiro</b></div></div>
+            </div>
+            @if (Model.usuario.dinheiro < Model.PrecoTotalVenda)
+            {
+                @*mostra para o usuario que não é possivel usar a carteira para realizar compras com o atual saldo*@
+                <p class="text-center">Você não possui dinheiro suficiente para efetuar esta compra.</p>
+            }
+        </div>                
+
+    </div>
 </div>
 
 <div class="clearfix"></div>
