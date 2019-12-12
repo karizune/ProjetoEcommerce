@@ -38,7 +38,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(Categoria ent)
         {
             ent.Status = 1;
-            ent.Usuario = "grupo4";
+            ent.Usuario = "Marciel";
             categoriaService.Salvar(ent);
 
             return RedirectToAction("Index");
@@ -50,7 +50,7 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult Excluir(int id)
         {
-            categoriaService.Excluir(id, "marciel");
+            categoriaService.Excluir(id, "Marciel");
             return RedirectToAction("Index");
         }
     }

@@ -40,7 +40,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult IncluirConfirm(Marca ent)
         {
             ent.Status = 1;
-            ent.Usuario = "grupo4";
+            ent.Usuario = "Marciel";
             marcaService.Salvar(ent);
 
             return RedirectToAction("Index");
@@ -53,7 +53,7 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult Excluir(int id)
         {
-            marcaService.Excluir(id, "marciel");
+            marcaService.Excluir(id, "Marciel");
             return RedirectToAction("Index");
         }
     }

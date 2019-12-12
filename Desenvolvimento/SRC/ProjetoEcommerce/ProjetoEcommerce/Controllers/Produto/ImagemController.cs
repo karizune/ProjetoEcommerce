@@ -45,7 +45,7 @@ namespace ProjetoEcommerce.Controllers
             var nomeDoArquivo = ent.ImagemArquivo.FileName;
 
             ent.Status = 1;
-            ent.Usuario = "grupo4";
+            ent.Usuario = "Marciel";
             ent.URL = $@"~/Content/img/{nomeDoArquivo}";
             imagemService.Salvar(ent);
 
@@ -61,7 +61,7 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult Excluir(int id)
         {
-            imagemService.Excluir(id, "teste");
+            imagemService.Excluir(id, "Marciel");
             return RedirectToAction("Index");
         }
     }
