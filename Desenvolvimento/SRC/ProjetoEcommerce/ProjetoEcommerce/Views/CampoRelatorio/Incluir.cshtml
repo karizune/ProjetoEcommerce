@@ -1,24 +1,17 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Relatorio.CampoRelatorio
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
-<body>
-    @using (Html.BeginForm("IncluirConfirm", "CampoRelatorio", FormMethod.Post))
-    {
+@using (Html.BeginForm("IncluirConfirm", "CampoRelatorio", FormMethod.Post))
+{
     <div style="border: 2px dotted black; padding: 45px">
 
         <div>
             Relatório ID:
-            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))            
+            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))
         </div>
 
         <div>
@@ -27,9 +20,8 @@
         </div>
 
     </div>
-        <br />
-        <br />
-        <input type="submit" value="Confirmar" />
-    }
-</body>
-</html>
+    <br />
+    <br />
+    <input type="submit" value="Confirmar" class="btn btn-success btn-block" />
+}
+
