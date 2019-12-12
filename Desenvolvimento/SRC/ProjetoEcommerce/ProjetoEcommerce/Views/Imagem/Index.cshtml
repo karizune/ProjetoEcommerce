@@ -28,11 +28,10 @@
         {
             <tr>
                 <td>
-                    <img src="https://cdn.pixabay.com/photo/2015/12/22/04/00/photo-1103595_960_720.png" width="50"/>
+                    <img src="@item.URL" width="50"/>
                 </td>
                 <td>@item.Nome</td>
                 <td>@item.CriadoEm</td>
-
                 <td>
                     <a href="@Url.Action("Atualizar", "Imagem", new { id = item.ImagemID})" class="btn btn-warning btn-sm">
                         <i class="fa fa-edit"></i>

@@ -16,8 +16,7 @@ namespace ProjetoEcommerce.Data.Configuration
             HasKey(x => x.ProdutoID);
             Property(x => x.ProdutoID).HasColumnName(@"ProdutoID").HasColumnType("int").IsRequired().
             HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.CategoriaID).HasColumnName(@"CategoriaID").HasColumnType("int").IsRequired().
-            HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            Property(x => x.CategoriaID).HasColumnName(@"CategoriaID").HasColumnType("int").IsRequired();
             Property(x => x.Nome).HasColumnName(@"Nome").HasColumnType("varchar").IsRequired();
             Property(x => x.Preco).HasColumnName(@"Preco").HasColumnType("numeric").IsRequired();
             Property(x => x.ImagemID).HasColumnName(@"ImagemID").HasColumnType("int").IsRequired();
@@ -26,6 +25,7 @@ namespace ProjetoEcommerce.Data.Configuration
             Property(x => x.Usuario).HasColumnName(@"Usuario").HasColumnType("varchar").IsRequired();
             Property(x => x.CriadoEm).HasColumnName(@"CriadoEm").HasColumnType("datetime").IsRequired();
             Property(x => x.AtualizadoEm).HasColumnName(@"AtualizadoEm").HasColumnType("datetime").IsRequired();
+
         }
     }
 }

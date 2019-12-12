@@ -12,9 +12,11 @@ namespace ProjetoEcommerce.Controllers
     public class ProdutoController : Controller
     {
         private readonly IProdutoService produtoService;
+        private readonly ICategoriaService categoriaService;
 
         public ProdutoController()
         {
+            categoriaService = new CategoriaService();
             produtoService = new ProdutoService();
         }
 
@@ -26,6 +28,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult ListarTodas()
         {
             var produtos = produtoService.BuscarAtivos();
+
             return View(produtos);
         }
 
@@ -33,7 +36,12 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult Incluir()
         {
-            return View();
+            var ent = new Produto
+            {
+                Categorias = categoriaService.BuscarAtivos()
+            };
+
+            return View(ent);
         }
 
         [HttpPost]

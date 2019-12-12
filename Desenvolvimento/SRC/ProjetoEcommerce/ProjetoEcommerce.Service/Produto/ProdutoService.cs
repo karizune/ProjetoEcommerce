@@ -50,6 +50,7 @@ namespace ProjetoEcommerce.Service
             {
                 produto.CriadoEm = DateTime.Now;
                 _repository.Add(produto);
+
             }
             else
             {

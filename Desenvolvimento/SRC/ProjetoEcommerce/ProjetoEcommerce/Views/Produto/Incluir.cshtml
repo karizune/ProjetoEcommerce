@@ -3,7 +3,9 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
+    
 }
+
 
 @using (Html.BeginForm("IncluirConfirm", "Produto", FormMethod.Post))
 {
@@ -15,24 +17,14 @@
         @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Digite o nome do Produto" })
     </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Categoria</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
+        @Html.LabelFor(m => m.CategoriaID, htmlAttributes: new { @class = "control-label col-md-2"})
+        @Html.DropDownListFor(m => Model.CategoriaID,
+                                new SelectList(Model.Categorias, "CategoriaID", "Nome"), new {@class = "form-control"})
     </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Imagem</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
+        @Html.LabelFor(m => m.ImagemID, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(i => Model.ImagemID,
+                                new SelectList(Model.Imagens, "ImagemID", "Nome"), new { @class = "form-control" })
     </div>
     <div class="form-group">
         <label for="inputAddress">Preço</label>
