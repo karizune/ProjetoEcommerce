@@ -16,11 +16,11 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         {
             new Usuario
             {
-                ID=1,Nome="Nomenclatura Silveira"
+                UsuarioID=1,Nome="Nomenclatura Silveira"
             },
             new Usuario
             {
-                ID=2,Nome="Nome da Silva"
+                UsuarioID=2,Nome="Nome da Silva"
             }
         };
         

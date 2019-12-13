@@ -77,7 +77,7 @@
                 </button>
                 <div class="float-right">
                     @*ignora o aviso ali, o site funciona normalmente mesmo com o aviso!!!!!!*@
-                    @if (Model.usuario.cartaoID > -1)
+                    @if (Model.usuario.CartoesUsuario.Count > 0)
                     {
                         @*falta fazer o botao ter um link de acesso para pagamento usando a carteira*@
                         @*<button type="button" class="btn btn-primary">@Html.ActionLink("Comprar Agora!", "PagamentoCartao", new { id = Model.Cartao.UsuarioID }, new { @class = "text-light" })</button>*@
@@ -92,7 +92,7 @@
         </div>
         <div id="collapseCartao" class="collapse" aria-labelledby="HeadingCartao" data-parent="#accordion">
             <div class="card-body bg-white">
-                @if (Model.usuario.cartaoID == null) {
+                @if (Model.usuario.CartoesUsuario.Count == 0) {
                 using (Html.BeginForm("Pagar", "PagamentoCartao", FormMethod.Post))
                 {
                     <div class="form-group">
@@ -138,10 +138,10 @@
                                 <td>Nome do Titular: @Model.usuario.Nome</td>
                             </tr>
                             <tr>
-                                <td>Numero do Cartão: @Model.usuario.CardNumber</td>
+                                <td>Numero do Cartão: @Model.usuario.CartoesUsuario[0].Numero</td>
                             </tr>
                             <tr>
-                                <td>Vencimento: @Model.usuario.Vencimento</td>
+                                <td>Vencimento: @Model.usuario.CartoesUsuario[0].Vencimento</td>
                             </tr>
                         </tbody>
                     </table>
@@ -149,10 +149,10 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @*o botao de boleto onde tem uma imagem de boleto dentro... ja deu pra entender oque fazer nessa tela*@
-<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
+
 
     <div class="card" style="margin-bottom:0.4em">
         <div class="card-header" style="max-height:10em" id="HeadingBoleto">
@@ -173,10 +173,10 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @* this is a button whith a dropdown, contains the get value of $BRL of the user account "NOT HAVE ONE"*@
-<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
+
 
     <div class="card" style="margin-bottom:0.4em">
         <div class="card-header" style="max-height:10em" id="HeadingCarteira">

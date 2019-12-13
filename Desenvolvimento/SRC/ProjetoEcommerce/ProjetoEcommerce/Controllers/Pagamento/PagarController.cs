@@ -43,7 +43,28 @@ namespace ProjetoEcommerce.Controllers.Pagamento
                      Descricao = "Cartão de crédito",MetodoPagamentoID=1,Glyphicon="glyphicon glyphicon-credit-card",Action = "Cartao"
                 }
             };
-            return View(new MetodoPagamentoViewModel(ListaProdutos,listaMetodos));
+            var usuario = new Usuario
+            {
+                UsuarioID = 1,
+                Nome = "Jose oswaldo da silva cunha vieira resende borges honorato junior oliveira dos santos",
+                Endereco = "Rua São Domingos dorminhocos",
+                CEP = "00000-000",
+                dinheiro = 10000,
+            };
+            usuario.CartoesUsuario.Add
+            (
+                new Cartao
+                {
+                    CartaoID = 1,
+                    Numero = "1111222233334444",
+                    Vencimento = "01/01",
+                    BandeiraCartaoID = 1,
+                    NomeTitular = "Jose oswaldo da silva cunha vieira resende borges honorato junior oliveira dos santos",
+
+                }
+            );
+
+            return View(new MetodoPagamentoViewModel(ListaProdutos,listaMetodos, usuario));
 
         }
         public ActionResult PagamentoCartao()

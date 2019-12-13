@@ -10,15 +10,22 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
      tambem notei um fluxo que deve ser seguido para se acessar os cartoes, onde o cartao deve ter um UsuarioID para que possamos encontrar o cartao do usuario. (usuario id vem da tabela usuario)*/
     public class Usuario : BaseEntity
     {
-        public int ID = 1;
-        public string Nome = "Jose oswaldo da silva cunha vieira resende borges honorato junior oliveira dos santos";
-        public string Endereco = "Rua São Domingos dorminhocos";
-        public string CEP ="00000-000";
-        public int dinheiro = 100;
-        public int? cartaoID = 1;
-        public string CardNumber = "1111222233334444";
-        public string Vencimento = "01/01";
-        public int BandeiraCartaoID = 1;
+        public int UsuarioID { get; set; }
+        public string Nome { get; set; }
+        public string Endereco { get; set; }
+        public string CEP { get; set; }
+        public int dinheiro { get; set; }
+        public int cartaoID { get; set; }
+        public string CardNumber { get; set; }
+        public string Vencimento { get; set; }
+        public int BandeiraCartaoID { get; set; }
+        public List<Cartao> CartoesUsuario { get; set; } = new List<Cartao>()
+        {
+            new Cartao
+            {
+
+            }
+        };
     }
     public class ProdutoCarrinho : BaseEntity
     {
