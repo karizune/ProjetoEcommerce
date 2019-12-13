@@ -10,5 +10,11 @@ namespace ProjetoEcommerce.Data.Repositories
 {
     public class EmailRepository : RepositoryBase<Email>, IEmailRepository
     {
+        public IEnumerable<Email> BuscarAtivos()
+        {
+            return Db
+                .email
+                .Where(f => f.Status == true);
+        }
     }
 }

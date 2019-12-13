@@ -48,6 +48,7 @@ namespace ProjetoEcommerce.Controllers
             if (ModelState.IsValid)
             {
                 var emailDomain = AutoMapperConfig.Mapper.Map<EmailViewModel, Email>(email);
+                emailDomain.Usuario = "System";
                 _emailService.Add(emailDomain);
 
                 return RedirectToAction("Index");
@@ -72,7 +73,9 @@ namespace ProjetoEcommerce.Controllers
             if (ModelState.IsValid)
             {
                 var emailDomain = AutoMapperConfig.Mapper.Map<EmailViewModel, Email>(email);
-                _emailService.Update(emailDomain);
+                emailDomain.Usuario = "System";
+                emailDomain.AtualizadoEm = DateTime.Now;
+                _emailService.Salvar(emailDomain);
 
                 return RedirectToAction("Index");
             }
@@ -82,18 +85,11 @@ namespace ProjetoEcommerce.Controllers
         // GET: Email/Delete/5
         public ActionResult Delete(int id)
         {
-            var email = _emailService.GetById(id);
-            var emailViewModel = AutoMapperConfig.Mapper.Map<Email, EmailViewModel>(email);
-            return View(emailViewModel);
-        }
-
-        // POST: Email/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            var email = _emailService.GetById(id);
-            _emailService.Remove(email);
+            var emailDomain = _emailService.GetById(id);
+            emailDomain.Usuario = "Renato";
+            emailDomain.AtualizadoEm = DateTime.Now;
+            emailDomain.Status = false;
+            _emailService.Salvar(emailDomain);
 
             return RedirectToAction("Index");
         }

@@ -9,5 +9,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
     public interface IEmailRepository : IRepositoryBase<Email>
     {
+        IEnumerable<Email> BuscarAtivos();
     }
 }

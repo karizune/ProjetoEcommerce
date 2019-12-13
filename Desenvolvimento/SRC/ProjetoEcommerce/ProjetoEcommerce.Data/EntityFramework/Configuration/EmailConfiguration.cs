@@ -16,9 +16,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             HasKey(x => new { x.IDEmail, x.ClienteId });
 
             Property(x => x.IDEmail)
-                .HasColumnName(@"IDEmail")
-                .HasColumnType("int")
-                .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
             Property(x => x.ClienteId)

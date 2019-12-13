@@ -45,16 +45,16 @@ namespace ProjetoEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SexoViewModel sexo)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
                 sexoDomain.Usuario = "askdflas";
                 _sexoService.Salvar(sexoDomain);
 
                 return RedirectToAction("Index");
-            //}
+            }
 
-            //return View(sexo);
+            return View(sexo);
         }
 
         // GET: Sexo/Edit/5
@@ -70,17 +70,17 @@ namespace ProjetoEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SexoViewModel sexo)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
             var sexoDomain = AutoMapperConfig.Mapper.Map<SexoViewModel, Sexo>(sexo);
             sexoDomain.Usuario = "askdflas";
             sexoDomain.AtualizadoEm = DateTime.Now;
             _sexoService.Salvar(sexoDomain);
 
             return RedirectToAction("Index");
-            //}
+            }
 
-            //return View(sexo);
+            return View(sexo);
         }
 
         public ActionResult Delete (int id)

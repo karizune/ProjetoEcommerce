@@ -7,10 +7,8 @@ using System.Web;
 namespace ProjetoEcommerce.ViewModels
 {
     public class EmailViewModel : EntityBaseViewModel
-    {
-        [Required]
+    {        
         public int IDEmail { get; set; }
-        [Required]
         public int ClienteId { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         [EmailAddress]
