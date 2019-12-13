@@ -41,5 +41,18 @@ namespace ProjetoEcommerce.Controllers
 
             return Redirect("ListarTodos");
         }
+
+        public ActionResult Excluir(int UsuarioID)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.Usuario.Find(UsuarioID);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            //ent.Usuario = "renato";
+            db.Entry<Usuario>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("Index");
+        }
     }
 }

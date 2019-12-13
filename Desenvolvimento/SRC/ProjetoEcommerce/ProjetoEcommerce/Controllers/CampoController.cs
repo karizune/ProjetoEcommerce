@@ -95,6 +95,18 @@ namespace ProjetoEcommerce.Controllers
 
             return Redirect("ListarTodos");
         }
+        public ActionResult Excluir(int CampoID)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.Campo.Find(CampoID);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "renato";
+            db.Entry<Campo>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("Index");
+        }
 
     }
 
