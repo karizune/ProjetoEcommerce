@@ -10,7 +10,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
     public class ProjetoEcommerceContext : DbContext
     {
         public DbSet<Rastreamento> rastreamento { get; set; }
-        public DbSet<TipoCartao> TipoCartao { get; set; }
 
         public DbSet<Bairro> Bairro { get; set; }
         public DbSet<Ceps> Ceps { get; set; }
@@ -40,7 +39,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             modelBuilder.Configurations.Add(new RuaConfiguration());
 
             modelBuilder.Configurations.Add(new RastreamentoConfiguration());
-            modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
         }
     }
 }

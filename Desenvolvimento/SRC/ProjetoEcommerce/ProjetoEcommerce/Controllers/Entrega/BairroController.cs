@@ -1,5 +1,6 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Entrega;
 using ProjetoEcommerce.Servico.Entrega;
+using ProjetoEcommerce.ViewModels;
 using System;
 using System.Web.Mvc;
 
@@ -8,10 +9,12 @@ namespace ProjetoEcommerce.Controllers.Entrega
     public class BairroController : Controller
     {
         private readonly BairroService _dbContext;
+        private readonly CidadeService _dbCidadeContext;
 
         public BairroController()
         {
             _dbContext = new BairroService();
+            _dbCidadeContext = new CidadeService();
         }
 
         public ActionResult ListarTodos()
@@ -22,15 +25,26 @@ namespace ProjetoEcommerce.Controllers.Entrega
 
         public ActionResult Adicionar()
         {
-            return View();
+            BairroViewModel ent = new BairroViewModel();
+            ent.Cidades = _dbCidadeContext.GetAll();
+            return View(ent);
         }
 
         [HttpPost]
-        public ActionResult Adicionar(Bairro bairro)
+        public ActionResult Adicionar(BairroViewModel bairro)
         {
-            bairro.CriadoEm = DateTime.Now;
-            bairro.AtualizaEm = DateTime.Now;
-            _dbContext.Save(bairro);
+            var mapped = new Bairro
+            {
+                CidadeID = bairro.CidadeID,
+                Nome = bairro.Nome,
+                BairroID = bairro.BairroID,
+            };
+
+            mapped.CriadoEm = DateTime.Now;
+            mapped.AtualizaEm = DateTime.Now;
+            mapped.Usuario = "Abner";
+            mapped.Status = true;
+            _dbContext.Save(mapped);
             return RedirectToAction("ListarTodos");
         }
         [HttpDelete]

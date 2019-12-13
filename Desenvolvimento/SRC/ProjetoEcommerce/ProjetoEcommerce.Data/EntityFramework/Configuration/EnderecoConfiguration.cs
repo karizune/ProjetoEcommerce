@@ -47,7 +47,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             Property(x => x.Status)
               .HasColumnName(@"Status")
-              .HasColumnType("int")
+              .HasColumnType("bit")
               .IsRequired();
 
             Property(x => x.CriadoEm)
