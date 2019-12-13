@@ -1,10 +1,11 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<CampoRelatorio>
+@model System.Collections.Generic.IEnumerable<CampoRelatorio>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
     ViewBag.Title = "Manutenção de Relatório de Campos";
 }
+
 
 <div class="admin-titulo-principal">
     @ViewBag.Title
@@ -14,18 +15,16 @@
     </a>
 </div>
 
-
-<table class="table table-striped">
-    <thead>
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
         <tr>
             <th>Relatorio ID</th>
-            <th>Usuario ID</th>
-            <th>ID</th>
             <th>Campo ID</th>
-            <th>Usuario</th>
+            <th>Usuario</th>>
             <th>Status</th>
             <th>Criado em</th>
             <th>Atualizado em</th>
+            <th>Ação</th>
         </tr>
     </thead>
     <tbody>
@@ -38,6 +37,11 @@
                 <td>@item.Status</td>
                 <td>@item.CriadoEm</td>
                 <td>@item.AtualizadoEm</td>
+                <td>
+                    <a href="@Url.Action("Excluir", "Relatorio" , new { item.RelatorioID, item.CampoID })" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>

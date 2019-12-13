@@ -1,31 +1,31 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<Campo>
-
-
+@model System.Collections.Generic.IEnumerable<Campo>
 @{
 Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
     ViewBag.Title = "Manutenção de Campos";
 }
 
-    <div class="admin-titulo-principal">
-        @ViewBag.Title
-        <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Campo")">
-            <i class="fa fa-plus"></i>
-            INCLUIR
-        </a>
-    </div>
 
-<table class="table table-striped">
-    <thead>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Campo")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
+
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
         <tr>
-            <th>ID</th>
+            <th>CampoID</th>
             <th>Nome</th>
             <th>Usuario</th>
             <th>Status</th>
             <th>Criado em</th>
             <th>Atualizado em</th>
             <th>Tipo Campo</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +39,11 @@ Layout = "~/Views/Shared/_Layout.cshtml";
             <td>@item.CriadoEm</td>
             <td>@item.AtualizadoEm</td>
             <td>@item.TipoCampoID</td>
+            <td>
+                <a href="@Url.Action(" Excluir", "Campo" , new { item.CampoID})" class="btn btn-danger btn-sm">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </td>
         </tr>
         }
     </tbody>
