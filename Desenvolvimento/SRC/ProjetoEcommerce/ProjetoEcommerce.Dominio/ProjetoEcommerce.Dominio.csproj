@@ -52,6 +52,7 @@
     <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
+    <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
     <Compile Include="Entidades\Relatorio\Campo.cs" />
     <Compile Include="Entidades\Relatorio\CampoRelatorio.cs" />
