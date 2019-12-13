@@ -92,15 +92,6 @@ namespace ProjetoEcommerce.Controllers
             _sexoService.Salvar(sexoDomain);
 
             return RedirectToAction("Index");
-            //var db = new ProjetoEcommerceContext();
-            //var ent = db.Sexo.Find(id);
-            //ent.Status = false;
-            //ent.AtualizadoEm = DateTime.Now;
-            //ent.Usuario = "Renato";
-            //db.Entry<Sexo>(ent).State = System.Data.Entity.EntityState.Modified;
-            //db.SaveChanges();
-
-            //return RedirectToAction("Index");
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ProjetoEcommerce.Dominio.Services
         {
             ent.AtualizadoEm = DateTime.Now;
             ent.Tipo = "F";
-            ent.Foto = "NÃO TEM FOTO";
+            ent.Foto = "avatar.png";
             if (ent.ClienteId == 0)
             {
                 ent.CriadoEm = DateTime.Now;
