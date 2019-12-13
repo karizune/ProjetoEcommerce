@@ -15,7 +15,7 @@ namespace ProjetoEcommerce.Controllers
         private readonly ISexoService _sexoService;
         private readonly IFisicoService _fisicoService;
 
-        public FisicoController(IFisicoService fisicoService, ISexoService sexoService )
+        public FisicoController(IFisicoService fisicoService, ISexoService sexoService)
         {
             _sexoService = sexoService;
             _fisicoService = fisicoService;
@@ -42,18 +42,18 @@ namespace ProjetoEcommerce.Controllers
             var ent = new FisicoViewModel
             {
                 Sexos = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll())
-        };
+            };
             return View(ent);
         }
 
         // POST: Fisico/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( FisicoViewModel fisico)
+        public ActionResult Create(FisicoViewModel fisico)
         {
 
             ModelState.Remove("Tipo");
-            
+
             if (ModelState.IsValid)
             {
                 var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);

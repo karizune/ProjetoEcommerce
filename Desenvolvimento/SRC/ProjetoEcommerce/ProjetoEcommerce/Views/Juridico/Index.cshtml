@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.AtualizadoEm)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IDCliente)
+            @Html.DisplayNameFor(model => model.ClienteId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -65,7 +65,7 @@
             @Html.DisplayFor(modelItem => item.AtualizadoEm)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IDCliente)
+            @Html.DisplayFor(modelItem => item.ClienteId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
@@ -89,9 +89,9 @@
             @Html.DisplayFor(modelItem => item.Responsavel)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDCliente }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDCliente }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDCliente })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClienteId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClienteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClienteId })
         </td>
     </tr>
 }
