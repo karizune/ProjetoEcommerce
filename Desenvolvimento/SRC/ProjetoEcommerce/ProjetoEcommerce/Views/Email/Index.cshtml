@@ -1,36 +1,25 @@
 ﻿@model IEnumerable<ProjetoEcommerce.ViewModels.EmailViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Email";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Create", "Juridico")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CriadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AtualizadoEm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClienteId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.E_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tipo)
@@ -38,38 +27,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CriadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtualizadoEm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClienteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.E_mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDEmail }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDEmail }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDEmail })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.E_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDEmail }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDEmail }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDEmail })
+            </td>
+        </tr>
+    }
 
 </table>
