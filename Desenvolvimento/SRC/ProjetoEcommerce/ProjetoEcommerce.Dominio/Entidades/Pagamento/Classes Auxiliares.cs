@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Pagamento;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,12 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
         {
             new Cartao
             {
-
+            }
+        };
+        public List<Carteira> CarteiraUsuario { get; set; } = new List<Carteira>()
+        {
+            new Carteira
+            {
             }
         };
     }

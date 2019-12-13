@@ -16,5 +16,6 @@
         public Boleto Boleto { get; set; }
         public MetodoPagamento MetodoPagamento { get; set; }
         // public Usuario Usuario { get; set; }
+        
     }
 }
