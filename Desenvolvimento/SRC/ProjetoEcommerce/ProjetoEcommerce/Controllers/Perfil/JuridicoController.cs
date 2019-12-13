@@ -10,8 +10,7 @@ namespace ProjetoEcommerce.Controllers
     public class JuridicoController : Controller
     {
         private readonly IJuridicoService _juridicoService;
-
-        public JuridicoController(IJuridicoService juridicoService)
+        public JuridicoController(IJuridicoService juridicoService, ISexoService sexoService)
         {
             _juridicoService = juridicoService;
         }
@@ -41,10 +40,13 @@ namespace ProjetoEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(JuridicoViewModel juridico)
         {
+            ModelState.Remove("Tipo");
             if (ModelState.IsValid)
             {
                 var juridicoDomain = AutoMapperConfig.Mapper.Map<JuridicoViewModel, Juridico>(juridico);
-                _juridicoService.Add(juridicoDomain);
+                juridicoDomain.Status = true;
+                juridicoDomain.Usuario = "Renato";
+                _juridicoService.Salvar(juridicoDomain);
 
                 return RedirectToAction("Index");
             }

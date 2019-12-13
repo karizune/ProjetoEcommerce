@@ -13,7 +13,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public TelefoneConfiguration()
         {
             ToTable("Telefone","perfil");
-            HasKey(x => new { x.IDTelefone, x.IDCliente });
+            HasKey(x => new { x.IDTelefone, x.ClienteId });
 
             Property(x => x.IDTelefone)
                .HasColumnName(@"IDTelefone")
@@ -21,7 +21,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                .IsRequired()
                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.IDCliente)
+            Property(x => x.ClienteId)
                .HasColumnName(@"IDCliente")
                .HasColumnType("int")
                .IsRequired();
@@ -45,7 +45,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             HasRequired(x => x.cliente)
                 .WithMany()
-                .HasForeignKey(p => p.IDCliente);
+                .HasForeignKey(p => p.ClienteId);
 
             Property(x => x.Status)
                .HasColumnName(@"Status")

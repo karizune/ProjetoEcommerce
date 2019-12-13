@@ -13,7 +13,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public EmailConfiguration()
         {
             ToTable("Email","perfil");
-            HasKey(x => new { x.IDEmail, x.IDCliente });
+            HasKey(x => new { x.IDEmail, x.ClienteId });
 
             Property(x => x.IDEmail)
                 .HasColumnName(@"IDEmail")
@@ -21,7 +21,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
-            Property(x => x.IDCliente)
+            Property(x => x.ClienteId)
                 .HasColumnName(@"IDCliente")
                 .HasColumnType("int")
                 .IsRequired();
@@ -39,7 +39,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             HasRequired(x => x.CLiente)
                 .WithMany()
-                .HasForeignKey(p => p.IDCliente);
+                .HasForeignKey(p => p.ClienteId);
 
             Property(x => x.Status)
                .HasColumnName(@"Status")

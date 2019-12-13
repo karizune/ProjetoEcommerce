@@ -11,7 +11,7 @@ namespace ProjetoEcommerce.ViewModels
         [Required]
         public int IDTelefone { get; set; }
         [Required]
-        public int IDCliente { get; set; }
+        public int ClienteId { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Numero { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
