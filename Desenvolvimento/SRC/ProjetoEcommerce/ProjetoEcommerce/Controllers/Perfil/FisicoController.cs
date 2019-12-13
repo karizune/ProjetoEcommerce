@@ -92,21 +92,14 @@ namespace ProjetoEcommerce.Controllers
             return View(fisico);
         }
 
-        // GET: Fisico/Delete/5
-        public ActionResult Delete(int id)
-        {
-            var fisico = _fisicoService.GetById(id);
-            var fisicoViewModel = AutoMapperConfig.Mapper.Map<Fisico, FisicoViewModel>(fisico);
-            return View(fisicoViewModel);
-        }
-
         // POST: Fisico/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete  (int id)
         {
             var fisico = _fisicoService.GetById(id);
-            _fisicoService.Remove(fisico);
+            fisico.Usuario = "Renato";
+            fisico.AtualizadoEm = DateTime.Now;
+            fisico.Status = false;
+            _fisicoService.Salvar(fisico);
 
             return RedirectToAction("Index");
         }
