@@ -10,7 +10,7 @@ namespace ProjetoEcommerce.Controllers
     public class JuridicoController : Controller
     {
         private readonly IJuridicoService _juridicoService;
-        public JuridicoController(IJuridicoService juridicoService, ISexoService sexoService)
+        public JuridicoController(IJuridicoService juridicoService)
         {
             _juridicoService = juridicoService;
         }

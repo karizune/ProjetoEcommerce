@@ -12,6 +12,7 @@ namespace ProjetoEcommerce.ViewModels
         public int ClienteId { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         [EmailAddress]
+        [Display(Name = "Email")]
         public string E_mail { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         public bool Tipo { get; set; } // Principal
