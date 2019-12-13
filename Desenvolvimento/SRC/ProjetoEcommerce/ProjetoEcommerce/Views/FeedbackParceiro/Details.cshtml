@@ -1,0 +1,60 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Marketplace.FeedbackParceiroViewModel
+
+<div>
+    <h4>FeedbackParceiroViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdFeedbackParceiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdFeedbackParceiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdParceiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdParceiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estrelas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estrelas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

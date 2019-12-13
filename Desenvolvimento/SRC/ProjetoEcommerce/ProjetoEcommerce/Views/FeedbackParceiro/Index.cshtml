@@ -1,0 +1,126 @@
+﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Marketplace.FeedbackParceiroViewModel>
+
+<div style="margin: 10px">
+    @Html.ActionLink("Create New", "Create", "", new { @class="btn btn-info" })
+
+    <div class="pull-right">
+        <input id="UsuarioPesquisa" placeholder="Pesquisa por Usuario"/>
+        <button id="btnPesquisa" class="btn btn-info" >Pesquisar</button>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFeedbackParceiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdParceiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estrelas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody id="listaUsuarios">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.IdFeedbackParceiro
+                </td>
+                <td>
+                    @item.Usuario.Nome
+                </td>
+                <td>
+                    @item.Parceiro.NomeFantasia
+                </td>
+                <td>
+                    @item.Estrelas
+                </td>
+                <td>
+                    @item.Descricao
+                </td>
+                <td>
+                    @item.DataCadastro
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {item.IdFeedbackParceiro}) |
+                    @Html.ActionLink("Delete", "Delete", new {item.IdFeedbackParceiro })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<script>
+
+    $("#btnPesquisa").click(() => {
+        const url = "@Url.Action("Index", "FeedbackParceiro")?usuario=" + $("#UsuarioPesquisa").val()
+        window.location.href = url;
+
+        @*$.ajax({
+            url: "/FeedbackParceiro/UsuariosList",
+            data: {
+                usuario: $("#UsuarioPesquisa").val()
+            },
+            method: "POST",
+            success: function (data) {
+                var mainDiv = $("#listaUsuarios"); 
+                var { usuarios } = data;
+
+                if (data["usuarios"].length == 0) {
+                    mainDiv.html(`<div>NENHUM USUARIO ENCONTRADO</div>`)
+                } else {
+                    mainDiv.html(``)
+
+                    usuarios.map(item => {
+                        mainDiv.append(`
+                            <tr>
+                                <td class="text-center" >
+                                    ${ item.IdFeedbackParceiro}
+                                </td>
+                                <td class="text-center">
+                                    ${ item.Usuario.Nome}
+                                </td>
+                                <td class="text-center">
+                                    ${ item.Parceiro.NomeFantasia}
+                                </td>
+                                <td class="text-center">
+                                    ${ item.Estrelas}
+                                </td>
+                                <td>
+                                    ${ item.Descricao}
+                                </td>
+                                <td class="text-center">
+                                    ${ moment(item.DataCadastro).format('DD/MM/YYYY')}
+                                </td>   
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new {}) |                                    
+                                    @Html.ActionLink("Delete", "Delete", new {})
+                                </td>
+                            </tr>
+                        `)
+                    })
+                }
+
+
+            }
+        })*@
+    })
+
+</script>

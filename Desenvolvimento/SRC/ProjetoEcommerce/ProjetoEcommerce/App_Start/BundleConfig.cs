@@ -9,8 +9,11 @@ namespace ProjetoEcommerce
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js")
-            );
+                                "~/Scripts/jquery-{version}.js").Include(
+                                "~/Scripts/jquery-ui.js").Include(
+                                "~/Scripts/jquery-ui.structure.js").Include(
+                                "~/Scripts/jquery-ui.theme.js").Include(
+                                "~/Scripts/jquery-ui.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -25,7 +28,6 @@ namespace ProjetoEcommerce
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
     }
