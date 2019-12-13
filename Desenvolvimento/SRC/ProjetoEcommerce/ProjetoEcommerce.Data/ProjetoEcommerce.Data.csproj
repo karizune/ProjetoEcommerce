@@ -58,7 +58,6 @@
     <Compile Include="EntityFramework\Configuration\EnderecoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\EstadoConfiguration.cs" />
     <Compile Include="EntityFramework\Configuration\RuaConfiguration.cs" />
-    <Compile Include="EntityFramework\Configuration\TipoCartaoConfiguration.cs" />
     <Compile Include="EntityFramework\Context\ProjetoEcommerceContext.cs" />
     <Compile Include="EntityFramework\Repository\BaseRepository.cs" />
     <Compile Include="EntityFramework\Repository\Entrega\BairroRepository.cs" />
