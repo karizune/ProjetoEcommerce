@@ -21,7 +21,7 @@ namespace ProjetoEcommerce.Controllers
         // GET: Telefone
         public ActionResult Index()
         {
-            var telefoneViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Telefone>, IEnumerable<TelefoneViewModel>>(_telefoneService.GetAll());
+            var telefoneViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Telefone>, IEnumerable<TelefoneViewModel>>(_telefoneService.BuscarAtivos());
             return View(telefoneViewModel);
         }
 
@@ -48,7 +48,8 @@ namespace ProjetoEcommerce.Controllers
             if (ModelState.IsValid)
             {
                 var telefoneDomain = AutoMapperConfig.Mapper.Map<TelefoneViewModel, Telefone>(telefone);
-                _telefoneService.Add(telefoneDomain);
+                telefoneDomain.Usuario = "system";
+                _telefoneService.Salvar(telefoneDomain);
 
                 return RedirectToAction("Index");
             }
@@ -73,7 +74,9 @@ namespace ProjetoEcommerce.Controllers
             if (ModelState.IsValid)
             {
                 var telefoneDomain = AutoMapperConfig.Mapper.Map<TelefoneViewModel, Telefone>(Telefone);
-                _telefoneService.Update(telefoneDomain);
+                telefoneDomain.Usuario = "System";
+                telefoneDomain.AtualizadoEm = DateTime.Now;
+                _telefoneService.Salvar(telefoneDomain);
 
                 return RedirectToAction("Index");
             }
@@ -84,18 +87,11 @@ namespace ProjetoEcommerce.Controllers
         // GET: Telefone/Delete/5
         public ActionResult Delete(int id)
         {
-            var telefone = _telefoneService.GetById(id);
-            var telefoneViewModel = AutoMapperConfig.Mapper.Map<Telefone, TelefoneViewModel>(telefone);
-            return View(telefoneViewModel);
-        }
-
-        // POST: Telefone/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            var telefone = _telefoneService.GetById(id);
-            _telefoneService.Remove(telefone);
+            var telefoneDomain = _telefoneService.GetById(id);
+            telefoneDomain.Usuario = "Renato";
+            telefoneDomain.AtualizadoEm = DateTime.Now;
+            telefoneDomain.Status = false;
+            _telefoneService.Salvar(telefoneDomain);
 
             return RedirectToAction("Index");
         }

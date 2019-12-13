@@ -7,10 +7,8 @@ using System.Web;
 namespace ProjetoEcommerce.ViewModels
 {
     public class TelefoneViewModel : EntityBaseViewModel
-    {
-        [Required]
-        public int IDTelefone { get; set; }
-        [Required]
+    {    
+        public int IDTelefone { get; set; }   
         public int ClienteId { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Numero { get; set; }

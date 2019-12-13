@@ -9,5 +9,7 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Services
 {
     public interface ITelefoneService : IServiceBase<Telefone>
     {
+        bool Salvar(Telefone ent);
+        IEnumerable<Telefone> BuscarAtivos();
     }
 }

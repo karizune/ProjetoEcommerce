@@ -10,5 +10,11 @@ namespace ProjetoEcommerce.Data.Repositories
 {
     public class TelefoneRepository : RepositoryBase<Telefone>, ITelefoneRepository
     {
+        public IEnumerable<Telefone> BuscarAtivos()
+        {
+            return Db
+                .Telefone
+                .Where(f => f.Status == true);
+        }
     }
 }
