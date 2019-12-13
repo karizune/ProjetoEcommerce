@@ -41,7 +41,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var ent = new FisicoViewModel
             {
-                Sexos = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.GetAll())
+                Sexos = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.BuscarAtivos())
         };
             return View(ent);
         }
@@ -68,6 +68,7 @@ namespace ProjetoEcommerce.Controllers
             return View(fisico);
         }
 
+
         // GET: Fisico/Edit/5
         public ActionResult Edit(int id)
         {
@@ -84,7 +85,7 @@ namespace ProjetoEcommerce.Controllers
             if (ModelState.IsValid)
             {
                 var fisicoDomain = AutoMapperConfig.Mapper.Map<FisicoViewModel, Fisico>(fisico);
-                _fisicoService.Update(fisicoDomain);
+                _fisicoService.Salvar(fisicoDomain);
 
                 return RedirectToAction("Index");
             }
