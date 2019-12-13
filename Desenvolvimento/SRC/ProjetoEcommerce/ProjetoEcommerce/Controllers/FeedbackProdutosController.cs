@@ -1,23 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ProjetoEcommerce.Dominio.Entidades.Marketplace;
+using ProjetoEcommerce.Dominio.Interfaces.Services.Marketplace;
 using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers
 {
     public class FeedbackProdutosController : Controller
     {
+        private IFeedbackProdutoService _feedbackProdutoService;
+
+        public FeedbackProdutosController(IFeedbackProdutoService feedbackProdutoService)
+        {
+            _feedbackProdutoService = feedbackProdutoService;
+        }
+
         // GET: FeedbackProdutos
         public ActionResult Index()
         {
-            return View();
+            var feeds = _feedbackProdutoService.GetAll();
+
+            return View(feeds);
         }
 
         // GET: FeedbackProdutos/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ent = _feedbackProdutoService.GetOneBy(f => f.IdFeedbackProduto == id);
+
+            return View(ent);
         }
 
         // GET: FeedbackProdutos/Create
@@ -28,11 +37,12 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: FeedbackProdutos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FeedbackProdutoViewModel ent)
         {
             try
             {
-                // TODO: Add insert logic here
+                var mapped = MapperHelper.Container().Map<FeedbackProdutoViewModel, FeedbackProduto>(ent);
+                _feedbackProdutoService.Add(mapped);
 
                 return RedirectToAction("Index");
             }
@@ -45,16 +55,20 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackProdutos/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var ent = _feedbackProdutoService.GetOneBy(f => f.IdFeedbackProduto == id);
+            var mapped = MapperHelper.Container().Map<FeedbackProduto, FeedbackProdutoViewModel>(ent);
+
+            return View(mapped);
         }
 
         // POST: FeedbackProdutos/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(FeedbackProdutoViewModel ent)
         {
             try
             {
-                // TODO: Add update logic here
+                var mapped = MapperHelper.Container().Map<FeedbackProdutoViewModel, FeedbackProduto>(ent);
+                _feedbackProdutoService.Update(mapped);
 
                 return RedirectToAction("Index");
             }
@@ -67,7 +81,10 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackProdutos/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var ent = _feedbackProdutoService.GetOneBy(f => f.IdFeedbackProduto == id);
+            var mapped = MapperHelper.Container().Map<FeedbackProduto, FeedbackProdutoViewModel>(ent);
+
+            return View(mapped);
         }
 
         // POST: FeedbackProdutos/Delete/5
@@ -76,7 +93,8 @@ namespace ProjetoEcommerce.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                var ent = _feedbackProdutoService.GetOneBy(f => f.IdFeedbackProduto == id);
+                var mapped = MapperHelper.Container().Map<FeedbackProduto, FeedbackProdutoViewModel>(ent);
 
                 return RedirectToAction("Index");
             }

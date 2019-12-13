@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Marketplace;
+using ProjetoEcommerce.Service.Interfaces.Marketplace;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,16 +10,29 @@ namespace ProjetoEcommerce.Controllers
 {
     public class ParceiroController : Controller
     {
+        private readonly IParceiroService _parceiroService;
+
+        public ParceiroController(IParceiroService parceiroService)
+        {
+            _parceiroService = parceiroService;
+        }
+
         // GET: Parceiro
         public ActionResult Index()
         {
-            return View();
+            var ent = _parceiroService.GetAll();
+            var mapped = MapperHelper.Container().Map<IEnumerable<Parceiro>, IEnumerable<ParceiroViewModel>>(ent);
+
+            return View(mapped);
         }
 
         // GET: Parceiro/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ent = _parceiroService.GetOneBy(f => f.IdParceiro == id);
+            var mapped = MapperHelper.Container().Map<Parceiro, ParceiroViewModel>(ent);
+
+            return View(mapped);
         }
 
         // GET: Parceiro/Create
@@ -28,11 +43,12 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: Parceiro/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ParceiroViewModel ent)
         {
             try
             {
-                // TODO: Add insert logic here
+                var mapped = MapperHelper.Container().Map<ParceiroViewModel, Parceiro>(ent);
+                _parceiroService.Add(mapped);
 
                 return RedirectToAction("Index");
             }
@@ -45,7 +61,10 @@ namespace ProjetoEcommerce.Controllers
         // GET: Parceiro/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var ent = _parceiroService.GetOneBy(f => f.IdParceiro == id);
+            var mapped = MapperHelper.Container().Map<Parceiro, ParceiroViewModel>(ent);
+
+            return View(mapped);
         }
 
         // POST: Parceiro/Edit/5
@@ -54,7 +73,8 @@ namespace ProjetoEcommerce.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var ent = _parceiroService.GetOneBy(f => f.IdParceiro == id);
+                var mapped = MapperHelper.Container().Map<Parceiro, ParceiroViewModel>(ent);
 
                 return RedirectToAction("Index");
             }
@@ -67,7 +87,10 @@ namespace ProjetoEcommerce.Controllers
         // GET: Parceiro/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var ent = _parceiroService.GetOneBy(f => f.IdParceiro == id);
+            var mapped = MapperHelper.Container().Map<Parceiro, ParceiroViewModel>(ent);
+
+            return View(mapped);
         }
 
         // POST: Parceiro/Delete/5
@@ -76,7 +99,8 @@ namespace ProjetoEcommerce.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                var ent = _parceiroService.GetOneBy(f => f.IdParceiro == id);
+                _parceiroService.Delete(ent);
 
                 return RedirectToAction("Index");
             }

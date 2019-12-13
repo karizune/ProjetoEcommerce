@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetoEcommerce.Dominio.Entidades.Marketplace;
+using ProjetoEcommerce.Service.Interfaces.Marketplace;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,16 +10,29 @@ namespace ProjetoEcommerce.Controllers
 {
     public class RastreioController : Controller
     {
+        private readonly IRastreioService _rastreioService;
+
+        public RastreioController(IRastreioService rastreioService)
+        {
+            _rastreioService = rastreioService;
+        }
+
         // GET: Rastreio
         public ActionResult Index()
         {
-            return View();
+            var ent = _rastreioService.GetAll();
+            var mapped = MapperHelper.Container().Map<IEnumerable<Rastreio>, IEnumerable<RastreioViewModel>>(ent);
+
+            return View(mapped);
         }
 
         // GET: Rastreio/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ent = _rastreioService.GetOneBy(f => f.IdRastreio == id);
+            var mapped = MapperHelper.Container().Map<Rastreio, RastreioViewModel>(ent);
+            
+            return View(mapped);
         }
 
         // GET: Rastreio/Create
@@ -28,11 +43,12 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: Rastreio/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(RastreioViewModel ent)
         {
             try
             {
-                // TODO: Add insert logic here
+                var mapped = MapperHelper.Container().Map<RastreioViewModel, Rastreio>(ent);
+                _rastreioService.Add(mapped);
 
                 return RedirectToAction("Index");
             }
@@ -45,16 +61,19 @@ namespace ProjetoEcommerce.Controllers
         // GET: Rastreio/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var ent = _rastreioService.GetOneBy(f => f.IdRastreio == id);
+            var mapped = MapperHelper.Container().Map<Rastreio, RastreioViewModel>(ent);
+
+            return View(mapped);
         }
 
         // POST: Rastreio/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Rastreio ent)
         {
             try
             {
-                // TODO: Add update logic here
+                _rastreioService.Update(ent);
 
                 return RedirectToAction("Index");
             }
@@ -67,16 +86,20 @@ namespace ProjetoEcommerce.Controllers
         // GET: Rastreio/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var ent = _rastreioService.GetOneBy(f => f.IdRastreio == id);
+            var mapped = MapperHelper.Container().Map<Rastreio, RastreioViewModel>(ent);
+
+            return View(mapped);
         }
 
         // POST: Rastreio/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, RastreioViewModel ent)
         {
             try
             {
-                // TODO: Add delete logic here
+                var mapped = MapperHelper.Container().Map<RastreioViewModel, Rastreio>(ent);
+                _rastreioService.Delete(mapped);
 
                 return RedirectToAction("Index");
             }

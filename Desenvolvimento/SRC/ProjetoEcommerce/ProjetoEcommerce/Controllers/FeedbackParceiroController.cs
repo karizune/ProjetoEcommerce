@@ -16,21 +16,13 @@ namespace ProjetoEcommerce.Controllers
         private readonly IParceiroService _parceiroService;
         private readonly IUsuarioService _usuarioService;
 
-        //List<Usuario> usuarios = new List<Usuario>();
         public FeedbackParceiroController(IFeedbackParceiroService feedbackParceiroService, IParceiroService parceiroService, IUsuarioService usuarioService)
         {
             _feedbackParceiroService = feedbackParceiroService;
             _parceiroService = parceiroService;
             _usuarioService = usuarioService;
-            //usuarios.Add(new Usuario{
-            //    IdUsuario = 1,
-            //    Nome = "Vit1 Kuza1"
-            //});
-            //usuarios.Add(new Usuario{
-            //    IdUsuario = 2,
-            //    Nome = "Vts Kuza1zinho"
-            //});
         }
+
         public ActionResult Index(string usuario)
         {
             var usuarioLogado = 1;
@@ -64,7 +56,10 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackParceiro/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ent = _feedbackParceiroService.GetOneBy(f => f.IdFeedbackParceiro == id);
+            var mapped = MapperHelper.Container().Map<FeedbackParceiro, FeedbackParceiroViewModel>(ent);
+
+            return View(mapped);
         }
 
         // GET: FeedbackParceiro/Create
@@ -82,18 +77,6 @@ namespace ProjetoEcommerce.Controllers
         {
             try
             {
-
-                //var mapped = new FeedbackParceiro
-                //{
-                //    DataCadastro = ent.DataCadastro,
-                //    Descricao = ent.Descricao,
-                //    Estrelas = ent.Estrelas,
-                //    IdFeedbackParceiro = ent.IdFeedbackParceiro,
-                //    IdParceiro = ent.IdParceiro,
-                //    IdUsuario = ent.IdUsuario,
-                //    Parceiro = ent.Parceiro,
-                //    Usuario = ent.Usuario
-                //};
                 var mapped = MapperHelper.Container().Map<FeedbackParceiroViewModel, FeedbackParceiro>(ent);
                 _feedbackParceiroService.Add(mapped);
 
@@ -108,17 +91,18 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackParceiro/Edit/5
         public ActionResult Edit(int id)
         {
-            //var ent = _feedbackParceiroService.GetOneBy(id);
-            return View();
+            var ent = _feedbackParceiroService.GetOneBy(f => f.IdFeedbackParceiro == id);
+            return View(ent);
         }
 
         // POST: FeedbackParceiro/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(FeedbackParceiroViewModel ent)
         {
             try
             {
-                // TODO: Add update logic here
+                var mapped = MapperHelper.Container().Map<FeedbackParceiroViewModel, FeedbackParceiro>(ent);
+                _feedbackParceiroService.Update(mapped);
 
                 return RedirectToAction("Index");
             }
@@ -134,20 +118,21 @@ namespace ProjetoEcommerce.Controllers
             return View();
         }
 
-        // POST: FeedbackParceiro/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //// POST: FeedbackParceiro/Delete/5
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+        //    try
+        //    {
+        //        var ent = _feedbackParceiroService.GetOne(id);
+        //        _feedbackParceiroService.Delete(ent);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
