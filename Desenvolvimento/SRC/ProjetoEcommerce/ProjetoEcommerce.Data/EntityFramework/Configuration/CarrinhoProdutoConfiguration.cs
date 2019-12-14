@@ -14,7 +14,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("CarrinhoProduto", "Grupo2");
             //ToTable("CarrinhoProduto");
-            HasKey(x => new { x.CarrinhoID, x.ProdutoID });
+            HasKey(x => new { x.CarrinhoID, x.ProdutoID, x.UsuarioID });
 
             //.HasDatabaseGeneratedOption
             //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
@@ -23,7 +23,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnType("int")
                 .IsRequired();
             
-            Property(x => x.ProdutoID).HasColumnName(@"UsuarioID")
+            Property(x => x.UsuarioID).HasColumnName(@"UsuarioID")
                 .HasColumnType("int")
                 .IsRequired();
 
