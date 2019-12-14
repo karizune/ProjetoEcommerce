@@ -22,7 +22,8 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired();
 
             Property(x => x.UsuarioID).HasColumnName(@"UsuarioID")
-                .HasColumnType("int");
+                .HasColumnType("int")
+                .IsRequired();
 
             Property(x => x.EnderecoID).HasColumnName(@"EnderecoID")
                 .HasColumnType("int")

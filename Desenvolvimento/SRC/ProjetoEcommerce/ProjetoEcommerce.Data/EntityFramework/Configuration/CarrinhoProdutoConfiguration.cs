@@ -14,7 +14,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         {
             ToTable("CarrinhoProduto", "Grupo2");
             //ToTable("CarrinhoProduto");
-            HasKey(x => new { x.CarrinhoID, x.ProdutoID,x.UsuarioID });
+            HasKey(x => new { x.CarrinhoID, x.ProdutoID,x.UsuarioID});
 
             //.HasDatabaseGeneratedOption
             //(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
