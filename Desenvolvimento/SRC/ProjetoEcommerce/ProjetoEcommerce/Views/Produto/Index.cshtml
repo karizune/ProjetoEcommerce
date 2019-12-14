@@ -4,85 +4,99 @@
     ViewBag.Title = "Index";
     ViewBag.ShowMenu = true;
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-
-    var usuarioId = 1;
 }
 
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Index</title>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
 
-    </head>
+</head>
 
-    <body>
-        <style>
-            .produto-td, .produto-th {
-                padding: 0 1em;
-            }
+<body>
+    <style>
+        .produto-td, .produto-th {
+            padding: 0 1em;
+        }
 
-            .form-control {
-                display: initial;
-            }
-        </style>
-        
-        <h2>Produtos Disponiveis</h2>
-       
-        <div style="display: flex; margin: 4em 0">
-            <div style="border: outset; background:#f5f5f5; width: 60%;">
-                @using (Html.BeginForm("Adicionar", "Produto", FormMethod.Post))
-                {
-                    <table>
-                        <thead class="produto-thead">
+        .form-control {
+            display: initial;
+        }
+    </style>
+
+    <h2>Produtos Disponiveis</h2>
+
+    @*<a class="p-2 text-dark" href="@Url.Action("Index", "Carrinho")">Carrinho</a><span class="badge badge-primary">@ViewBag.QtdCarrinho</span>*@
+    <button type="button" class="btn btn-outline-primary" id="btnCarrinho">Carrinho <span class="badge badge-primary">@ViewBag.QtdCarrinho</span></button>
+
+    <div style="display: flex; margin: 4em 0">
+        <div >
+            @using (Html.BeginForm("Adicionar", "Produto", FormMethod.Post))
+            {
+                <table class="table">
+                    <thead class="produto-thead">
+                        <tr>
+                            <th class="produto-th">Nome</th>
+                            <th class="produto-th">Preco</th>
+                            <th class="produto-th">Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            @Html.HiddenFor(item => item[i].ProdutoID)
                             <tr>
-                                <th style="display:none;"></th>
-                                <th class="produto-th">Nome</th>
-                                <th class="produto-th">Preco</th>
-                                <th class="produto-th">Quantidade</th>
+                                <td class="form-group produto-td">
+                                    <div class="form-group">
+                                        <div class="">
+                                            @Html.DisplayFor(item => item[i].Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="form-group produto-td">
+                                    <div class="form-group">
+                                        <div class="">
+                                            @Html.DisplayFor(item => item[i].Preco, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="form-group produto-td">
+                                    <div class="form-group">
+                                        <div class="">
+                                            @Html.EditorFor(item => item[i].Qtde, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </td>
+
                             </tr>
-                        </thead>
-                        <tbody>
+                        }
 
-                            @for (int i = 0; i < Model.Count; i++)
-                            {
-                                @Html.HiddenFor(item => item[i].ProdutoID)
-                                <tr>
-                                    <td style="display:none">@Html.Hidden(usuarioId.ToString())</td>
-                                    <td class="form-group produto-td">
-                                        <div class="form-group">
-                                            <div class="">
-                                                @Html.TextBoxFor(item => item[i].Nome, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="form-group produto-td">
-                                        <div class="form-group">
-                                            <div class="">
-                                                @Html.TextBoxFor(item => item[i].Preco, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="form-group produto-td">
-                                        <div class="form-group">
-                                            <div class="">
-                                                @Html.TextBoxFor(item => item[i].Qtde, new { htmlAttributes = new { @class = "form-control"} })
-                                            </div>
-                                        </div>
-                                    </td>
+                    </tbody>
+                </table>
 
-                                </tr>
-                            }
+                <button class="btn btn-primary">
+                    <span>Adicionar</span>
+                </button>
 
-                        </tbody>
-                    </table>
+            }
 
-                    <button type="submit">
-                        <i class="fas fa-plus"></i>
-                    </button>
-
-                }
-
-            </div>
         </div>
-    </body>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+        $(function () {
+            $("#btnCarrinho").click(function () {
+                location.href = '@Url.Action("Index", "Carrinho")';
+            });
+        });
+
+
+
+    </script>
+</body>
 
