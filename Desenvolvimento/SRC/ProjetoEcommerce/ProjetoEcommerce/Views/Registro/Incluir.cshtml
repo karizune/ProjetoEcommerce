@@ -11,12 +11,12 @@
 
         <div>
             Nome:
-            @Html.TextBoxFor(modelItem => Model.Nome)
+            @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Insira seu nome" })
         </div>
 
         <div>
             Descrição:
-            @Html.TextBoxFor(modelItem => Model.Descricao)
+            @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Insira aqui a descrição do registro" })
         </div>
         <div>
             Relatorio ID:
