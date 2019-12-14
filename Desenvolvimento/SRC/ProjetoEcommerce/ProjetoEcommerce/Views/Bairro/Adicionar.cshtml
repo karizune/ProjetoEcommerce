@@ -17,6 +17,8 @@
 @using (Html.BeginForm())
 {
 
+ @Html.HiddenFor(f => f.Status)
+
     <form>
         <br />
         <div class="form-group">
@@ -31,7 +33,7 @@
             <label for="exampleInputPassword1">Endereco</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Endereço">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             <label for="exampleInputPassword1">Status</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Status">
         </div>
