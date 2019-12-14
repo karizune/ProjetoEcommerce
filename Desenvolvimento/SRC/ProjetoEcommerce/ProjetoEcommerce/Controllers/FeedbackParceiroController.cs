@@ -80,9 +80,9 @@ namespace ProjetoEcommerce.Controllers
                 var mapped = MapperHelper.Container().Map<FeedbackParceiroViewModel, FeedbackParceiro>(ent);
                 _feedbackParceiroService.Add(mapped);
 
-                return RedirectToAction("Index");
+                return View("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }
@@ -92,7 +92,10 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Edit(int id)
         {
             var ent = _feedbackParceiroService.GetOneBy(f => f.IdFeedbackParceiro == id);
-            return View(ent);
+            var mapped = MapperHelper.Container().Map<FeedbackParceiro, FeedbackParceiroViewModel>(ent);
+            mapped.Parceiros = _parceiroService.GetAll();
+
+            return View(mapped);
         }
 
         // POST: FeedbackParceiro/Edit/5
@@ -104,9 +107,9 @@ namespace ProjetoEcommerce.Controllers
                 var mapped = MapperHelper.Container().Map<FeedbackParceiroViewModel, FeedbackParceiro>(ent);
                 _feedbackParceiroService.Update(mapped);
 
-                return RedirectToAction("Index");
+                return View("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }
@@ -115,24 +118,26 @@ namespace ProjetoEcommerce.Controllers
         // GET: FeedbackParceiro/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var ent = _feedbackParceiroService.GetOneBy(f => f.IdFeedbackParceiro == id);
+            var mapped = MapperHelper.Container().Map<FeedbackParceiro, FeedbackParceiroViewModel>(ent);
+            return View(mapped);
         }
 
-        //// POST: FeedbackParceiro/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id)
-        //{
-        //    try
-        //    {
-        //        var ent = _feedbackParceiroService.GetOne(id);
-        //        _feedbackParceiroService.Delete(ent);
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        // POST: FeedbackParceiro/Delete/5
+        [HttpPost]
+        public ActionResult DeleteConfirm(int id, FormCollection collection)
+        {
+            try
+            {
+                var ent = _feedbackParceiroService.GetOneBy(f => f.IdFeedbackParceiro == id);
+                _feedbackParceiroService.Delete(ent);
+                    
+                return View("Index");
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
     }
 }

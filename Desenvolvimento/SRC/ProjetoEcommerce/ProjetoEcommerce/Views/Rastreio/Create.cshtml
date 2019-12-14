@@ -1,6 +1,6 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Marketplace.RastreioViewModel
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Rastreio")) 
 {
     @Html.AntiForgeryToken()
     
@@ -8,13 +8,9 @@
         <h4>RastreioViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdRastreio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdRastreio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdRastreio, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        
+        @Html.HiddenFor(model => model.IdRastreio)
+        @Html.HiddenFor(model => model.DataCadastro)
 
         <div class="form-group">
             @Html.LabelFor(model => model.CodigoRastreio, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -37,14 +33,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DestinatarioRastreio, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DestinatarioRastreio, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataCadastro, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataCadastro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataCadastro, "", new { @class = "text-danger" })
             </div>
         </div>
 

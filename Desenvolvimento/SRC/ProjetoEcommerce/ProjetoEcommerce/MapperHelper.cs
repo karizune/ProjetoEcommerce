@@ -15,6 +15,11 @@ namespace ProjetoEcommerce
                 cfg.CreateMap<FeedbackParceiro, FeedbackParceiroViewModel>();
                 cfg.CreateMap<FeedbackParceiroViewModel, FeedbackParceiro>();
                 cfg.CreateMap<FeedbackProduto, FeedbackProdutoViewModel>();
+                cfg.CreateMap<FeedbackProdutoViewModel, FeedbackProduto>();
+                cfg.CreateMap<Parceiro, ParceiroViewModel>();
+                cfg.CreateMap<ParceiroViewModel, Parceiro>();
+                cfg.CreateMap<RastreioViewModel, Rastreio>();
+                cfg.CreateMap<Rastreio, RastreioViewModel>();
             });
 
             return config;

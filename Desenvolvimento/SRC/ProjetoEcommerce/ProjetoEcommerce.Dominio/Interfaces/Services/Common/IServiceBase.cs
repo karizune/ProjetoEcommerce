@@ -10,7 +10,7 @@ namespace ProjetoEcommerce.Service.Interfaces
         TEntity GetOneBy(Expression<Func<TEntity, bool>> match);
         IEnumerable<TEntity> GetManyBy(Expression<Func<TEntity, bool>> match);
         TEntity Add(TEntity obj);
-        TEntity Update(TEntity obj);
+        void Update(TEntity obj);
         void Delete(TEntity obj);
         void Dispose();
 

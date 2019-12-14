@@ -1,4 +1,5 @@
-﻿using ProjetoEcommerce.Dominio.Entidades.Marketplace;
+﻿using AutoMapper;
+using ProjetoEcommerce.Dominio.Entidades.Marketplace;
 using ProjetoEcommerce.Service.Interfaces.Marketplace;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace ProjetoEcommerce.Controllers
     public class ParceiroController : Controller
     {
         private readonly IParceiroService _parceiroService;
+        private readonly IMapper _mapper;
 
-        public ParceiroController(IParceiroService parceiroService)
+        public ParceiroController(IParceiroService parceiroService, IMapper mapper)
         {
             _parceiroService = parceiroService;
+            _mapper = mapper;
         }
 
         // GET: Parceiro

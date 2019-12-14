@@ -3,6 +3,7 @@ using ProjetoEcommerce.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -27,7 +28,9 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public IEnumerable<TEntity> GetAll()
         {
-            return Db.Set<TEntity>();
+            return Db.Set<TEntity>()
+                .AsNoTracking()
+                .ToList();
         }
 
         public TEntity GetById(int id)
@@ -53,13 +56,9 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public void Update(TEntity obj)
         {
-            Db.Entry(obj).State = EntityState.Modified;
+            Db.Set<TEntity>().AddOrUpdate(obj);
             Db.SaveChanges();
         }
 
-        TEntity IRepositoryBase<TEntity>.Update(TEntity obj)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

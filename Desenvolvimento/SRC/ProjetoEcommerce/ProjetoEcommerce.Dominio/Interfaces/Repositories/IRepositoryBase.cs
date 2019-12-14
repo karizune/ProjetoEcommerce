@@ -11,12 +11,13 @@ namespace ProjetoEcommerce.Dominio.Interfaces
     {
         TEntity GetOneBy(Expression<Func<TEntity, bool>> match);
         IEnumerable<TEntity> GetManyBy(Expression<Func<TEntity, bool>> match);
-        TEntity Update(TEntity obj);
-
         void Add(TEntity obj);
         TEntity GetById(int id);
         IEnumerable<TEntity> GetAll();
+
+
         void Remove(TEntity obj);
+        void Update(TEntity obj);
         void Dispose();
     }
 }

@@ -48,9 +48,6 @@ namespace ProjetoEcommerce
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ProjetoEcommerceContext>());
 
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<FeedbackParceiro, FeedbackParceiroViewModel>());
-
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

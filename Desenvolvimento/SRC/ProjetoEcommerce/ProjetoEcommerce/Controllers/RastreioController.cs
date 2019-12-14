@@ -69,10 +69,11 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: Rastreio/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Rastreio ent)
+        public ActionResult EditConfirm(int id)
         {
             try
             {
+                var ent = _rastreioService.GetOneBy(f => f.IdRastreio == id);
                 _rastreioService.Update(ent);
 
                 return RedirectToAction("Index");

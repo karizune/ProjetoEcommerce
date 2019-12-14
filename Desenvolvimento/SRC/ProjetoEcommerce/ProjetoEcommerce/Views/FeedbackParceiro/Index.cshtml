@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Marketplace.FeedbackParceiroViewModel>
 
 <div style="margin: 10px">
-    @Html.ActionLink("Create New", "Create", "", new { @class="btn btn-info" })
+    @Html.ActionLink("Create New", "Create", "FeedbackParceira", new { @class="btn btn-info" })
 
     <div class="pull-right">
         <input id="UsuarioPesquisa" placeholder="Pesquisa por Usuario"/>
@@ -57,8 +57,9 @@
                     @item.DataCadastro
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {item.IdFeedbackParceiro}) |
-                    @Html.ActionLink("Delete", "Delete", new {item.IdFeedbackParceiro })
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdFeedbackParceiro }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdFeedbackParceiro })
                 </td>
             </tr>
         }
@@ -73,54 +74,21 @@
         const url = "@Url.Action("Index", "FeedbackParceiro")?usuario=" + $("#UsuarioPesquisa").val()
         window.location.href = url;
 
-        @*$.ajax({
-            url: "/FeedbackParceiro/UsuariosList",
-            data: {
-                usuario: $("#UsuarioPesquisa").val()
-            },
-            method: "POST",
-            success: function (data) {
-                var mainDiv = $("#listaUsuarios"); 
-                var { usuarios } = data;
 
-                if (data["usuarios"].length == 0) {
-                    mainDiv.html(`<div>NENHUM USUARIO ENCONTRADO</div>`)
-                } else {
-                    mainDiv.html(``)
-
-                    usuarios.map(item => {
-                        mainDiv.append(`
-                            <tr>
-                                <td class="text-center" >
-                                    ${ item.IdFeedbackParceiro}
-                                </td>
-                                <td class="text-center">
-                                    ${ item.Usuario.Nome}
-                                </td>
-                                <td class="text-center">
-                                    ${ item.Parceiro.NomeFantasia}
-                                </td>
-                                <td class="text-center">
-                                    ${ item.Estrelas}
-                                </td>
-                                <td>
-                                    ${ item.Descricao}
-                                </td>
-                                <td class="text-center">
-                                    ${ moment(item.DataCadastro).format('DD/MM/YYYY')}
-                                </td>   
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new {}) |                                    
-                                    @Html.ActionLink("Delete", "Delete", new {})
-                                </td>
-                            </tr>
-                        `)
-                    })
+        $(document).on("ready", function () {
+            $.ajax({
+                url: "/FeedbackParceiro/",
+                data: {
+                    usuario: $("#UsuarioPesquisa").val()
+                },
+                method: "POST",
+                success: function (data) {
+                    console.log(data)
                 }
+            })
+        })
 
 
-            }
-        })*@
     })
 
 </script>

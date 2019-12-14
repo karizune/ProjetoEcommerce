@@ -33,9 +33,9 @@ namespace ProjetoEcommerce.Service.Interfaces
             return _repositoryBase.GetManyBy(match);
         }
 
-        public TEntity Update(TEntity obj)
+        public void Update(TEntity obj)
         {
-            return _repositoryBase.Update(obj);
+            _repositoryBase.Update(obj);
         }
 
         public void Delete(TEntity obj)
