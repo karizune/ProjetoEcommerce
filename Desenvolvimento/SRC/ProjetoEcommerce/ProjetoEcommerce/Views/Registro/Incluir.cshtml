@@ -7,28 +7,28 @@
 
 @using (Html.BeginForm("IncluirConfirm", "Registro", FormMethod.Post))
 {
-    <div style="border: 2px dotted black; padding: 45px">
+    <div style="color: blue; border: 2px dotted black; padding: 45px">
 
-        <div>
-            Nome:
+        <div class="form-group">
+            <label for="inputAddress">Nome</label>
             @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Insira seu nome" })
         </div>
 
-        <div>
-            Descrição:
+        <div class="form-group">
+            <label for="inputAddress">Descrição</label>
             @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Insira aqui a descrição do registro" })
         </div>
-        <div>
-            Relatorio ID:
+        <div class="form-group">
+            <label for="inputAddress">Relatorio ID</label>
             @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))
         </div>
-        <div>
-            Usuario ID:
+        <div class="form-group">
+            <label for="inputAddress">Usuario ID</label>
             @Html.DropDownListFor(model => model.UsuarioID, new SelectList(ViewBag.Usuarios, "UsuarioID", "NomeUsuario"))
         </div>
 
     </div>
     <br />
     <br />
-    <input type="submit" value="Confirmar" class="btn btn-success btn-block"/>
+    <input type="submit" value="SALVAR class="btn btn-success btn-block" />
 }

@@ -14,8 +14,8 @@
             @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))            
         </div>
 
-        <div>
-            Campo ID:
+        <div class="form-group">
+            <label for="inputAddress">Campo ID</label>
             @Html.DropDownListFor(model => model.CampoID, new SelectList(ViewBag.Campos, "CampoID", "Nome"))
         </div>
 
