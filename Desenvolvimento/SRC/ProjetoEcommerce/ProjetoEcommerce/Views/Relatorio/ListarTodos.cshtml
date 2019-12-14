@@ -1,21 +1,20 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<Relatorio>
+@model System.Collections.Generic.IEnumerable<Relatorio>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Manutenção de Relatorios";
 }
 
 <div class="admin-titulo-principal">
     @ViewBag.Title
-    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Relatorio")">
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Campo")">
         <i class="fa fa-plus"></i>
         INCLUIR
     </a>
 </div>
 
-<table class="table table-striped">
-    <thead>
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Nome</th>

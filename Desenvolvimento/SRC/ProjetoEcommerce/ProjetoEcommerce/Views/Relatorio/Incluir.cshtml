@@ -5,6 +5,7 @@
     ViewBag.ShowMenu = true;
 }
 
+<!DOCTYPE html>
 
 @using (Html.BeginForm("IncluirConfirm", "Relatorio", FormMethod.Post))
 {
@@ -23,8 +24,10 @@
             @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.TipoCampos, "RelatorioID", "RelatorioID"), new { @class = "form-control" })
         </div>
 
-    </div>
-    <br />
-    <br />
-    <input type="submit" value="Confirmar" class="btn btn-success btn-block" />
-}
+        </div>
+        <br />
+        <br />
+        <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+    }
+</body>
+</html>
