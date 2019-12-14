@@ -41,7 +41,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Repository
             if (typeof(T) is IGenerica)
             {
                 var obj = ent as IGenerica;
-                obj.Status = 0;
+                obj.Status = false;
                 obj.Usuario = usuario;
                 obj.AtualizaEm = DateTime.Now;
 

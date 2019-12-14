@@ -1,4 +1,4 @@
-﻿@model ProjetoEcommerce.Dominio.Entidades.Entrega.Bairro
+﻿@model ProjetoEcommerce.ViewModels.BairroViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,37 +16,46 @@
 
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>BairroViewModel</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <form>
-        <br />
-        <div class="form-group">
-            <label for="exampleInputEmail1">Cidade</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cidade">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Nome</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nome">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Endereco</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Endereço">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Status</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Status">
-        </div>
+    @Html.HiddenFor(f => f.BairroID)
+    @Html.HiddenFor(f => f.Status)
+    @Html.HiddenFor(f => f.CriadoEm)
+    @Html.HiddenFor(f => f.AtualizaEm)
+    @Html.HiddenFor(f => f.Usuario)
 
-        <button type="submit" class="btn btn-primary">Confirmar</button>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CidadeID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CidadeID,
+                        new SelectList(Model.Cidades, "CidadeID", "Nome"),
+                        "Selecione Uma Cidade", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CidadeID, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
-    </form>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 
 <div>
     @Html.ActionLink("Voltar ao menu", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
