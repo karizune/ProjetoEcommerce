@@ -13,11 +13,11 @@ namespace ProjetoEcommerce.Controllers
         // GET: Carrinho
         public ActionResult Index(int usuarioId)
         {
-            var carrinhoProdutos =
-                new ProjetoEcommerceContext()
-                    .carrinhoProduto
-                    .Include("Produto")
-                    .ToList();
+            //var carrinhoProdutos =
+            //    new ProjetoEcommerceContext()
+            //        .carrinhoProduto
+            //        .Include("Produto")
+            //        .ToList();
 
             AtualizarPrecoCarrinho(usuarioId);
 
