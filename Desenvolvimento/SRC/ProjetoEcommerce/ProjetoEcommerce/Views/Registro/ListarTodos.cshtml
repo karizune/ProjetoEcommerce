@@ -3,43 +3,43 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Registros";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListarTodos</title>
-</head>
-<body>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Usuário</th>
-                    <th>Status</th>
-                    <th>Criado em</th>
-                    <th>Atualizado em</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.RelatorioID</td>
-                        <td>@item.UsuarioID</td>
-                        <td>@item.Nome</td>
-                        <td>@item.Descricao</td>
-                        <td>@item.Usuario</td>
-                        <td>@item.Status</td>
-                        <td>@item.CriadoEm</td>
-                        <td>@item.AtualizadoEm</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Registro")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Usuário</th>
+            <th>Status</th>
+            <th>Criado em</th>
+            <th>Atualizado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RelatorioID</td>
+                <td>@item.UsuarioID</td>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.Usuario</td>
+                <td>@item.Status</td>
+                <td>@item.CriadoEm</td>
+                <td>@item.AtualizadoEm</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

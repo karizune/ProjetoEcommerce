@@ -5,16 +5,8 @@
     ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
-<body>
-    @using (Html.BeginForm("IncluirConfirm", "CampoRelatorio", FormMethod.Post))
-    {
+@using (Html.BeginForm("IncluirConfirm", "CampoRelatorio", FormMethod.Post))
+{
     <div style="border: 2px dotted black; padding: 45px">
 
         <div class="form-group">

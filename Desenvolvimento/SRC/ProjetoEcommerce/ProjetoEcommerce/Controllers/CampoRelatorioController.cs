@@ -115,5 +115,18 @@ namespace ProjetoEcommerce.Controllers
 
             return Redirect("ListarTodos");
         }
+
+        public ActionResult Excluir(int RelatorioID )
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.Relatorio.Find(RelatorioID);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "renato";
+            db.Entry<Relatorio>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("Index");
+        }
     }
 }
