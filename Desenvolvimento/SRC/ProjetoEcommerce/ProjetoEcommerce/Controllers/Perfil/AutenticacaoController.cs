@@ -28,7 +28,8 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult Sair()
         {
-            return View();
+            Session.RemoveAll();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -44,11 +45,19 @@ namespace ProjetoEcommerce.Controllers
             {
                 cliente = _juridicoService.Autenticar(ent.Email, ent.Senha);
             }
+            if (cliente != null)
+            {
+                Session["UsuarioNome"] = cliente.Nome;
+                Session["UsuarioId"] = cliente.ClienteId;
+                Session["Avatar"] = cliente.Foto;
 
-            Session["UsuarioNome"] = cliente.Nome;
-            Session["UsuarioId"] = cliente.ClienteId;
-
-            return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Message = "Usuário e/ou senha incorretos";
+                return RedirectToAction("Entrar", "Autenticacao");
+            }
         }
     }
 }
