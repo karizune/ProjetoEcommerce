@@ -15,7 +15,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
            
             ToTable("Carrinho", "Grupo2");
             
-            HasKey(x => x.CarrinhoID);
+            HasKey(x => new { x.CarrinhoID, x.UsuarioID });
 
             Property(x => x.CarrinhoID).HasColumnName(@"CarrinhoID")
                 .HasColumnType("int")
@@ -37,7 +37,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired();
 
             //LOG
-
+            
             Property(x => x.Status).HasColumnName(@"Status")
                .HasColumnType("int")
                .IsRequired();

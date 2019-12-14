@@ -9,8 +9,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
     public class CarrinhoProduto
     {
         //PROPERTIES
-        public int CarrinhoProdutoID { get; set; }
         public int CarrinhoID { get; set; }
+        public int UsuarioID { get; set; }
         public int ProdutoID { get; set; }
         public int Quantidade { get; set; }
         public decimal PrecoTotal { get; set; }
@@ -23,7 +23,5 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
 
         public Produto Produto { get; set; }
         public Carrinho Carrinho { get; set; }
-
-
     }
 }

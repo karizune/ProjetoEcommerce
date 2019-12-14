@@ -33,14 +33,15 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult Adicionar(List<Produto> produtos)
+        public ActionResult Adicionar(List<Produto> produtos/*, int usuarioId*/)
         {   
             var db = new ProjetoEcommerceContext();
             foreach (var produto in produtos)
             {
-
                 if (produto.Qtde > 0)
                 {
+                    //var produtoCarrinho = db.carrinhoProduto.Where(f => f.CarrinhoID == usuarioId).ToList();
+
                     var carrinhoProduto = new CarrinhoProduto
                     {
                         CarrinhoID = 1,

@@ -10,8 +10,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
     {
         //PROPERTIES
         public int CarrinhoID { get; set; }
-        public int EnderecoID { get; set; }
         public int UsuarioID { get; set; }
+        public int EnderecoID { get; set; }
         public decimal PrecoTotal { get; set; }
         public decimal PrecoFrete { get; set; }
 
@@ -22,8 +22,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Carrinho
         public DateTime AtualizadoEm { get; set; }
 
 
-        //public Usuario Usuario { get; set; } // MUDAR PARA A CLASSE DEPOIS
-        //public Endereco Endereco { get; set; } // MUDAR PARA A CLASSE DEPOIS
+        public Usuario User { get; set; } // MUDAR PARA A CLASSE DEPOIS
+        public Endereco Endereco { get; set; } // MUDAR PARA A CLASSE DEPOIS
 
     }
 }

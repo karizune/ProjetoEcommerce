@@ -11,7 +11,7 @@ namespace ProjetoEcommerce.Controllers
     public class CarrinhoController : Controller
     {
         // GET: Carrinho
-        public ActionResult Index()
+        public ActionResult Index(int usuarioId)
         {
             var carrinhoProdutos =
                 new ProjetoEcommerceContext()
@@ -19,7 +19,9 @@ namespace ProjetoEcommerce.Controllers
                     .Include("Produto")
                     .ToList();
 
-            return View("Index", 1);
+            AtualizarPrecoCarrinho(usuarioId);
+
+            return View("Index", usuarioId);
         }
 
         public ActionResult ResumoCarrinho(int usuarioId)

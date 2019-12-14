@@ -7,7 +7,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -64,6 +63,7 @@
 
     <script>
 
+        alert(@Model);
 
         var urlProdutos = $("#produtos-carrinho").data("url");
         $.ajax({
@@ -77,8 +77,7 @@
             }
         });
 
-        var usuarioId = 1;
-        var urlResumo = $("#resumo-carrinho").data("url") + `?usuarioid=${usuarioId}`;
+        var urlResumo = $("#resumo-carrinho").data("url") + `?usuarioid=${@Model}`;
         $.ajax({
             type: "GET",
             url: urlResumo,
