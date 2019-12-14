@@ -5,20 +5,13 @@
     ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
 <body>
     @using (Html.BeginForm("IncluirConfirm", "Usuario", FormMethod.Post))
     {
-        <div style="border: 2px dotted black; padding: 45px">
+        <div style="color: blue; border: 2px dotted black; padding: 45px">
 
-            <div>
-                Usuario:
+            <div class="form-group">
+                <label for="inputAddress">Nome</label>
                 @Html.TextBoxFor(modelItem => Model.NomeUsuario)
             </div>
 
@@ -27,5 +20,3 @@
         <br />
         <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
     }
-</body>
-</html>

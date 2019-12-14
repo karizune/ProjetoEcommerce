@@ -5,31 +5,22 @@
     ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
-<body>
-    @using (Html.BeginForm("IncluirConfirm", "TipoCampo", FormMethod.Post))
-    {
+@using (Html.BeginForm("IncluirConfirm", "TipoCampo", FormMethod.Post))
+{
     <div style="border: 2px dotted black; padding: 45px">
-        <div>
-            Descrição:
+        <div class="form-group">
+            <label for="inputAddress">Descrição</label>
             @Html.TextBoxFor(modelItem => Model.Descricao)
         </div>
 
-        <div>
-            Tipo Campo ID:
+        <div class="form-group">
+            <label for="inputAddress">Tipo Campo ID</label>
             @Html.DropDownListFor(model => model.TipoCampoID, new SelectList(ViewBag.TipoCamposID, "TipoCampoID", "Descricao"))
         </div>
 
     </div>
-        <br />
-        <br />
-        <input type="submit" value="Confirmar" />
-    }
-</body>
-</html>
+    <br />
+    <br />
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}
