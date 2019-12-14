@@ -6,5 +6,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
     public interface IFisicoRepository : IRepositoryBase<Fisico>
     {
         IEnumerable<Fisico> BuscarAtivos();
+        Cliente Autenticar(string email, string senha);
     }
 }

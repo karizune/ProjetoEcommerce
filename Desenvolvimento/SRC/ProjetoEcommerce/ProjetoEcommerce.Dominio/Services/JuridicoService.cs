@@ -16,6 +16,11 @@ namespace ProjetoEcommerce.Dominio.Services
             _juridicoRepository = juridicoRepository;
         }
 
+        public Cliente Autenticar(string email, string senha)
+        {
+            return _juridicoRepository.Autenticar(email, senha);
+        }
+
         public IEnumerable<Juridico> BuscarAtivos()
         {
             return _juridicoRepository.BuscarAtivos();

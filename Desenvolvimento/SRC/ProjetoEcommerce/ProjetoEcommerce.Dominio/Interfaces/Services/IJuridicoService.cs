@@ -7,5 +7,6 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Services
     {
         bool Salvar(Juridico ent);
         IEnumerable<Juridico> BuscarAtivos();
+        Cliente Autenticar(string email, string senha);
     }
 }

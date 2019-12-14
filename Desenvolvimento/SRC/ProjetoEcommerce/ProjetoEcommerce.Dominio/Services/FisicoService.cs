@@ -16,6 +16,11 @@ namespace ProjetoEcommerce.Dominio.Services
             _fisicoRepository = fisicoRepository;
         }
 
+        public Cliente Autenticar(string email, string senha)
+        {
+            return _fisicoRepository.Autenticar(email, senha);
+        }
+
         public IEnumerable<Fisico> BuscarAtivos()
         {
             return _fisicoRepository.BuscarAtivos();

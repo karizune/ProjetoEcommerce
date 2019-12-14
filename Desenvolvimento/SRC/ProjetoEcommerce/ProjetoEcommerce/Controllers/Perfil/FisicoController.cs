@@ -74,6 +74,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var fisico = _fisicoService.GetById(id);
             var fisicoViewModel = AutoMapperConfig.Mapper.Map<Fisico, FisicoViewModel>(fisico);
+            fisicoViewModel.Sexos = AutoMapperConfig.Mapper.Map<IEnumerable<Sexo>, IEnumerable<SexoViewModel>>(_sexoService.BuscarAtivos());
             return View(fisicoViewModel);
         }
 

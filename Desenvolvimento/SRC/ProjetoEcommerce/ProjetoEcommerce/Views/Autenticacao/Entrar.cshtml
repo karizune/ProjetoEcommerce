@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ProjetoEcommerce.ViewModels.Perfil.AutenticacaoViewModel
+@{
     ViewBag.Title = "Entrar";
     ViewBag.ShowMenu = false;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,13 +17,30 @@
                 </div>
 
                 <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Usuário">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
                 </div>
                 <br />
 
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha">
+                    @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                    </div>
                 </div>
+
+                <div class="form-label-group">
+                    @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
                 <br />
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Acessar
@@ -31,5 +49,5 @@
             }
         </div>
     </div>
-    
+
 </div>
