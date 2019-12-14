@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.ShowMenu = true; ;
+    ViewBag.ShowMenu = true;
 }
 
 <!DOCTYPE html>
@@ -15,25 +15,25 @@
 <body>
     @using (Html.BeginForm("IncluirConfirm", "Relatorio", FormMethod.Post))
     {
-    <div style="border: 2px dotted black; padding: 45px">
+        <div style="border: 2px dotted black; padding: 45px">
 
-        <div>
-            Nome:
-            @Html.TextBoxFor(modelItem => Model.Nome)
-        </div>
-        <div>
-            Descrição:
-            @Html.TextBoxFor(modelItem => Model.Descricao)
-        </div>
-        <div>
-            Relatorio ID:
-            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))
-        </div>
+            <div class="form-group">
+                <label for="inputAddress">Nome</label>
+                @Html.TextBoxFor(modelItem => Model.Nome)
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Descricao</label>
+                @Html.TextBoxFor(modelItem => Model.Descricao)
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Relatorio ID</label>
+                @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"))
+            </div>
 
-    </div>
+        </div>
         <br />
         <br />
-        <input type="submit" value="Confirmar" />
+        <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
     }
 </body>
 </html>

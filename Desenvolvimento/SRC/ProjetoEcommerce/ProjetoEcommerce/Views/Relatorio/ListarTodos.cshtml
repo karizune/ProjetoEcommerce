@@ -1,45 +1,48 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<Relatorio>
+@model System.Collections.Generic.IEnumerable<Relatorio>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListarTodos</title>
-</head>
-<body>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Usuario</th>
-                    <th>Status</th>
-                    <th>Criado em</th>
-                    <th>Atualizado em</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>@item.RelatorioID</td>
-                    <td>@item.Nome</td>
-                    <td>@item.Descricao</td>
-                    <td>@item.Usuario</td>
-                    <td>@item.Status</td>
-                    <td>@item.CriadoEm</td>
-                    <td>@item.AtualizadoEm</td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Campo")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
+
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Usuario</th>
+            <th>Status</th>
+            <th>Criado em</th>
+            <th>Atualizado em</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.RelatorioID</td>
+            <td>@item.Nome</td>
+            <td>@item.Descricao</td>
+            <td>@item.Usuario</td>
+            <td>@item.Status</td>
+            <td>@item.CriadoEm</td>
+            <td>@item.AtualizadoEm</td>
+            <td>
+                <a href="@Url.Action("Excluir", "Relatorio" , new { item.RelatorioID})" class="btn btn-danger btn-sm">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

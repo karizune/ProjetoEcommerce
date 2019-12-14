@@ -10,54 +10,6 @@ namespace ProjetoEcommerce.Controllers
 {
     public class RelatorioController : Controller
     {
-        /* private static List<Relatorio> Relatorios { get; set; }
-
-        public RelatorioController()
-        {
-            Relatorios = new List<Relatorio>();
-            Relatorios.Add(new Relatorio
-            {
-                RelatorioID = 1,
-                Nome = "Cristina",
-                Descricao = "Oi",
-                Usuario = "Carlos",
-                Status = 1,
-                CriadoEm = DateTime.Now,
-                AtualizadoEm = DateTime.Now
-
-            });
-            Relatorios.Add(new Relatorio
-            {
-                RelatorioID = 2,
-                Nome = "Maria",
-                Descricao = "Oi",
-                Usuario = "Carlos",
-                Status = 1,
-                CriadoEm = DateTime.Now,
-                AtualizadoEm = DateTime.Now
-
-            });
-            Relatorios.Add(new Relatorio
-            {
-                RelatorioID = 3,
-                Nome = "Carla",
-                Descricao = "Oi",
-                Usuario = "Carlos",
-                Status = 1,
-                CriadoEm = DateTime.Now,
-                AtualizadoEm = DateTime.Now
-
-            });
-
-        }
- 
-   
-        // GET: Relatorio
-        public ActionResult ListarTodos()
-        {
-            return View(Relatorios);
-        }*/
-
         public ActionResult Index()
         {
             return View();
@@ -97,6 +49,19 @@ namespace ProjetoEcommerce.Controllers
             db.SaveChanges();
 
             return Redirect("ListarTodos");
+        }
+        public ActionResult Excluir(int RelatorioId)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.Relatorio.Find(RelatorioId);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "Walber";
+            db.Entry<Relatorio>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return Redirect("ListarTodos");
+
         }
     }
 }
