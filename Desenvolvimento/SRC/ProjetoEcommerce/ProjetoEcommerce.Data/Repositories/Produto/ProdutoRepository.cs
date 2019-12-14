@@ -13,8 +13,8 @@ namespace ProjetoEcommerce.Data.Repositories
     {
         public IEnumerable<Produto> BuscarAtivos()
         {
-            return Entity
-                .Where(f => f.Status == 1);
+            Entity.Include("Imagem");
+            return Entity.Where(f => f.Status == 1);
         }
 
         public Produto GetOneBy(int ProdutoID)

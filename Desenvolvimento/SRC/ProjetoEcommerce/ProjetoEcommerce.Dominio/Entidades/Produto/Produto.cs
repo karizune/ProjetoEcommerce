@@ -13,8 +13,10 @@ namespace ProjetoEcommerce.Dominio.Entidades
         public int ProdutoID { get; set; }
         [Display(Name = "Categorias")]
         public int CategoriaID { get; set; }
+        [Display(Name = "Imagens")]
         public int ImagemID { get; set; }
         public string Nome { get; set; }
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual IEnumerable<Categoria> Categorias { get; set; }

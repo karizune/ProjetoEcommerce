@@ -1,87 +1,64 @@
-﻿@{
+﻿@model System.Collections.Generic.IEnumerable<ProjetoEcommerce.Dominio.Entidades.Produto>
+@{
     ViewBag.Title = "Início";
     ViewBag.ShowMenu = true;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    
-    
-    
-    var end0 = "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSYPD107KyI9qqQMCO_3WNHg7CchMiLRbuk1UEMDHqAHNRnqPRskYWyh5792izjmTCUIf9t46WmYWq332bP_0nl5SVbKVLZo5SOKa9a0cC8&usqp=CAc";
+    <div class="card-deck mb-3 text-center">
+        @foreach (var item in Model)
+        {
+            <div class="row justify-content-md-center ">
+                <div class="card" style="width: 250px">
+                    <div ></div>
+                    <img src=@Href(@item.Imagem.URL) class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nome</h5>
+                        <p class="card-text"><h7>Preço:</h7><h5 class="text-danger">R$ @item.Preco</h5></p>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary" class="card-link"
+                                    data-toggle="modal" data-target="#comprarModal">
+                                Comprar
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" class="card-link"
+                                    data-toggle="modal" data-target="#carrinhoModal">
+                                +Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
 
-}
-<div class="card-deck mb-3 text-center">
+        <!--Modal-->
+        <div class="modal" id="carrinhoModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Produto Adicionado ao Carrinho</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Finalizar Compra</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar Comprando</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="row justify-content-md-center ">
-        <!-- linha de cards -->
-        <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
-            <div class="card">
-                <!-- card 1 -->
-                <img class="card-img-top" src="@end0">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary">Comprar</button>
-                        <button type="button" class="btn btn-outline-primary" class="card-link"
-                                data-toggle="modal" data-target="#carrinhoModal">
-                            +Carrinho
+        <div class="modal" id="comprarModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Vai com calma Jovem!!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
-            <div class="card">
-                <!-- card 2 -->
-                <img class="card-img-top" src="@end0">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary">Comprar</button>
-                        <button type="button" class="btn btn-outline-primary" class="card-link"
-                                data-toggle="modal" data-target="#carrinhoModal">
-                            +Carrinho
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
-            <div class="card">
-                <!-- card 3 -->
-                <img class="card-img-top" src="@end0">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary">Comprar</button>
-                        <button type="button" class="btn btn-outline-primary" class="card-link"
-                                data-toggle="modal" data-target="#carrinhoModal">
-                            +Carrinho
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
-            <div class="card">
-                <!-- card 4 -->
-                <img class="card-img-top" src="@end0">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary">Comprar</button>
-                        <button type="button" class="btn btn-outline-primary" class="card-link"
-                                data-toggle="modal" data-target="#carrinhoModal">
-                            +Carrinho
-                        </button>
-                    </div>
+                  
                 </div>
             </div>
         </div>
     </div>
-</div>

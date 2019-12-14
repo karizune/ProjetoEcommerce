@@ -13,9 +13,11 @@ namespace ProjetoEcommerce.Controllers
     {
         private readonly IProdutoService produtoService;
         private readonly ICategoriaService categoriaService;
+        private readonly IImagemService imagemService;
 
         public ProdutoController()
         {
+            imagemService = new ImagemService();
             categoriaService = new CategoriaService();
             produtoService = new ProdutoService();
         }
@@ -38,11 +40,12 @@ namespace ProjetoEcommerce.Controllers
         {
             var ent = new Produto
             {
-                Categorias = categoriaService.BuscarAtivos()
+                Categorias = categoriaService.BuscarAtivos(),
+                Imagens = imagemService.BuscarAtivos()
             };
-
             return View(ent);
         }
+       
 
         [HttpPost]
         public ActionResult IncluirConfirm(Produto ent)

@@ -22,8 +22,8 @@
                                 new SelectList(Model.Categorias, "CategoriaID", "Nome"), new {@class = "form-control"})
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ImagemID, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.DropDownListFor(i => Model.ImagemID,
+        @Html.LabelFor(mo => mo.ImagemID, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(mo => Model.ImagemID,
                                 new SelectList(Model.Imagens, "ImagemID", "Nome"), new { @class = "form-control" })
     </div>
     <div class="form-group">
