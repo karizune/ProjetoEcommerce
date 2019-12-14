@@ -33,15 +33,15 @@ namespace ProjetoEcommerce.Controllers
             ViewBag.Relatorios =
                 new ProjetoEcommerceContext()
                 .Relatorio
-                .ToList();
+                .Where(f => f.Status == 1);
+
             return View();
         }
-
         [HttpPost]
         public ActionResult IncluirConfirm(Relatorio ent)
         {
             var db = new ProjetoEcommerceContext();
-            ent.Usuario = "Carlos";
+            ent.Usuario = "Walber";
             ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;

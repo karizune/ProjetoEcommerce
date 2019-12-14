@@ -84,7 +84,7 @@ namespace ProjetoEcommerce.Controllers
             ViewBag.Relatorios =
                 new ProjetoEcommerceContext()
                 .Relatorio
-                .Where(f => f.Status == 1);
+               .Where(f => f.Status == 1);
             ViewBag.Usuarios =
                 new ProjetoEcommerceContext()
                 .Usuario

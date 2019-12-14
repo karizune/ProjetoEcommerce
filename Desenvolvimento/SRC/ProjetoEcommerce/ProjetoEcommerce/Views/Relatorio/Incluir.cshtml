@@ -7,22 +7,28 @@
 
 <!DOCTYPE html>
 
-@using (Html.BeginForm("IncluirConfirm", "Relatorio", FormMethod.Post))
-{
-    <div style="color: blue; border: 2px dotted black; padding: 45px">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Incluir</title>
+</head>
+<body>
+    @using (Html.BeginForm("IncluirConfirm", "Relatorio", FormMethod.Post))
+    {
+        <div style="border: 2px dotted black; padding: 45px">
 
-        <div class="form-group">
-            <label for="inputAddress">Nome</label>
-            @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Insira seu nome bro" })
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Descrição</label>
-            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.TipoCampos, "RelatorioID", "Descricao"), new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Relatorio ID</label>
-            @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.TipoCampos, "RelatorioID", "RelatorioID"), new { @class = "form-control" })
-        </div>
+            <div class="form-group">
+                <label for="inputAddress">Nome</label>
+                @Html.TextBoxFor(modelItem => Model.Nome, new { @class = "form-control", @placeholder = "Insira seu nome" })
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Descricao</label>
+                @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Insira a descrição" })
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Relatorio ID</label>
+                @Html.DropDownListFor(model => model.RelatorioID, new SelectList(ViewBag.Relatorios, "RelatorioID", "Nome"), new{ @class = "form-control"})
+            </div>
 
         </div>
         <br />
