@@ -47,6 +47,7 @@ namespace ProjetoEcommerce.Controllers
                     var carrinhoProduto = new CarrinhoProduto
                     {
                         CarrinhoID = 1,
+                        UsuarioID = 1,
                         Status = 1,
                         Usuario = "Jose",
                         CriadoEm = DateTime.Now,
