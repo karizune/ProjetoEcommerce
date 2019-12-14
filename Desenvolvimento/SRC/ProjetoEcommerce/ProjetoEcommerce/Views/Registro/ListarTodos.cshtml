@@ -1,5 +1,5 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<Registro>
+@model System.Collections.Generic.IEnumerable<Registro>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
@@ -24,21 +24,27 @@
             <th>Status</th>
             <th>Criado em</th>
             <th>Atualizado em</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.RelatorioID</td>
-                <td>@item.UsuarioID</td>
-                <td>@item.Nome</td>
-                <td>@item.Descricao</td>
-                <td>@item.Usuario</td>
-                <td>@item.Status</td>
-                <td>@item.CriadoEm</td>
-                <td>@item.AtualizadoEm</td>
-            </tr>
+        <tr>
+            <td>@item.RelatorioID</td>
+            <td>@item.UsuarioID</td>
+            <td>@item.Nome</td>
+            <td>@item.Descricao</td>
+            <td>@item.Usuario</td>
+            <td>@item.Status</td>
+            <td>@item.CriadoEm</td>
+            <td>@item.AtualizadoEm</td>
+            <td>
+                <a href="@Url.Action("Excluir", "Registro" , new { item.RelatorioID, item.UsuarioID})" class="btn btn-danger btn-sm">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
