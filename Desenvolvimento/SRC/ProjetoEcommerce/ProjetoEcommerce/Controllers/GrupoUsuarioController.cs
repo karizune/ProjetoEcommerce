@@ -28,7 +28,8 @@ namespace ProjetoEcommerce.Controllers
         }
         public ActionResult ListarTodos()
         {
-            var ListGrupoUsuario = db.GrupoUsuario.ToList();
+            var ListGrupoUsuario = db.GrupoUsuario
+                .Where(f => f.Status == 1);
 
             return View(ListGrupoUsuario);
         }
@@ -63,6 +64,20 @@ namespace ProjetoEcommerce.Controllers
             db.SaveChanges();
 
             return View("ListarTodos");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.GrupoUsuario.Find(id);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "deleteeeeeeeeee carai";
+            db.Entry<GrupoUsuario>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+
+            return RedirectToAction("ListarTodos");
         }
     }
 }

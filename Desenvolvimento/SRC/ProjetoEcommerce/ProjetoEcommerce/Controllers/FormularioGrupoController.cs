@@ -43,14 +43,27 @@ namespace ProjetoEcommerce.Controllers
         [HttpPost]
         public ActionResult IncluirConfirm(FormularioGrupo formGrupo)
         {
-            formGrupo.AtualizadoEm= DateTime.Now;
-            formGrupo.CriadoEm = DateTime.Now;
-            formGrupo.Status = 1;
-            formGrupo.Usuario = "Adriano";
 
-            db.FormularioGrupo.Add(formGrupo);
+            var result = db.FormularioGrupo.Where(x => x.FormularioID == formGrupo.FormularioID && x.GrupoID == formGrupo.GrupoID).FirstOrDefault();
+            if (result == null)
+            {
+                formGrupo.AtualizadoEm = DateTime.Now;
+                formGrupo.CriadoEm = DateTime.Now;
+                formGrupo.Status = 1;
+                formGrupo.Usuario = "Adriano";
+
+                db.FormularioGrupo.Add(formGrupo);
+            }
+            else
+            {
+                result.Status = 1;
+                result.Usuario = "Adriano";
+                db.Entry<FormularioGrupo>(result).State = System.Data.Entity.EntityState.Modified;
+            }
+
             db.SaveChanges();
 
+            /*Fazer condiçoes para verificar se o Formulario ja existe no banco se existe, atualizar o status dele no banco*/
             return RedirectToAction("ListarTodos");
         }
         public ActionResult Delete(int FormID,int GrupoID)
@@ -62,6 +75,7 @@ namespace ProjetoEcommerce.Controllers
             ent.Usuario = "deleteeeeeeeeee carai";
             db.Entry<FormularioGrupo>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
+
 
             return RedirectToAction("ListarTodos");
         }

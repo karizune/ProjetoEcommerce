@@ -1,24 +1,17 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Seguranca.GrupoDeAcesso
+
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
+@using (Html.BeginForm("IncluirConfirm", "GrupoDeAcesso", FormMethod.Post))
+{
+    <div style="border: 2px dotted black; padding: 45px">
+        @Html.TextBoxFor(modelItem => Model.Descricao)
+    </div>
+    <br />
+    <br />
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
-<body>
-    @using (Html.BeginForm("IncluirConfirm", "GrupoDeAcesso", FormMethod.Post))
-    {
-        <div style="border: 2px dotted black; padding: 45px">
-            @Html.TextBoxFor(modelItem => Model.Descricao)
-        </div>
-        <br />
-        <br />
-        <input type="submit" value="VAI" />
-    }
-</body>
-</html>

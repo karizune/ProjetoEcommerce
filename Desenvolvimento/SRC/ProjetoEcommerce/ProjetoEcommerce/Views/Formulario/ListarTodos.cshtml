@@ -39,7 +39,7 @@
                 <td>@item.CriadoEm</td>
                 <td>@item.AtualizadoEm</td>
                 <td>
-                    <a class="btnDelete" href="#" onclick="myFunction('@Url.Action("Delete","Formulario", new { FormID = item.FormularioID})')">Deletar</a>
+                    <a class="btnDelete" href="@Url.Action("Delete","Formulario", new { id = item.FormularioID})">Deletar</a>
                 </td>
             </tr>
         }

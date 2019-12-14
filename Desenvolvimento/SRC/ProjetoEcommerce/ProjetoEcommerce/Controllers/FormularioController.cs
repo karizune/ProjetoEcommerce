@@ -13,13 +13,14 @@ namespace ProjetoEcommerce.Controllers
     public class FormularioController : Controller
     {
         //Formulario form = new Formulario();
-        ProjetoEcommerceContext db = new ProjetoEcommerceContext();
+        private readonly ProjetoEcommerceContext db;
 
         private readonly IFormularioRepository _formularioRepository;
 
         public FormularioController()
         {
             _formularioRepository = new FormularioRepository();
+            db = new ProjetoEcommerceContext();
         }
 
         // GET: Formulario
@@ -30,7 +31,11 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult ListarTodos()
         {
-            return View(_formularioRepository.BuscarAtivos());
+            var ListFormulario= db.Formulario
+                 .Where(f => f.Status == 1);
+
+
+            return View(ListFormulario);
         }
 
         public ActionResult Incluir()

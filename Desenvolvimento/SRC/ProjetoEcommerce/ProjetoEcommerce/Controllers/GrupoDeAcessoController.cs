@@ -10,6 +10,11 @@ namespace ProjetoEcommerce.Controllers
 {
     public class GrupoDeAcessoController : Controller
     {
+        private readonly ProjetoEcommerceContext db;
+        public GrupoDeAcessoController()
+        {
+            db = new ProjetoEcommerceContext();
+        }
         // GET: GrupoDeAcesso
         public ActionResult Index()
         {
@@ -18,9 +23,13 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult ListarTodos()
         {
-            var listGrupo = new ProjetoEcommerceContext().GrupoDeAcessos.ToList();
+            //var listGrupo = new ProjetoEcommerceContext().GrupoDeAcessos.ToList();
 
-            return View(listGrupo);
+            //return View(listGrupo);
+            var ListGrupoDeAcesso = db.GrupoDeAcessos
+                .Where(f => f.Status == 1);
+
+            return View(ListGrupoDeAcesso);
         }
 
         public ActionResult Incluir()
@@ -43,6 +52,18 @@ namespace ProjetoEcommerce.Controllers
             db.SaveChanges();
 
             return Redirect("ListarTodos");
+        }
+        public ActionResult Delete(int id)
+        {
+            var db = new ProjetoEcommerceContext();
+            var ent = db.GrupoDeAcessos.Find(id);
+            ent.Status = 0;
+            ent.AtualizadoEm = DateTime.Now;
+            ent.Usuario = "deleteeeeeeeeee carai";
+            db.Entry<GrupoDeAcesso>(ent).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("ListarTodos");
         }
     }
 }

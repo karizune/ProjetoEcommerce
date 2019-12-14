@@ -1,25 +1,16 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Seguranca.GrupoUsuario
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Incluir</title>
-</head>
-<body>
-    @using (Html.BeginForm("IncluirConfirm", "GrupoUsuario", FormMethod.Post))
-    {
-        <div style="border: 2px solid black; padding: 45px">
-            @Html.DropDownListFor(ModelItem => Model.UsuarioID, new SelectList(ViewBag.Usuarios, "UsuarioID", "Nome"))
-            @Html.DropDownListFor(ModelItem => Model.GrupoID, new SelectList(ViewBag.Grupos, "GrupoDeAcessoID", "Descricao"))
-        </div>
-        <br />
-        <br />
-        <input type="submit" value="Save" />
-    }
-</body>
-</html>
+@using (Html.BeginForm("IncluirConfirm", "GrupoUsuario", FormMethod.Post))
+{
+    <div style="border: 2px solid black; padding: 45px">
+        @Html.DropDownListFor(ModelItem => Model.UsuarioID, new SelectList(ViewBag.Usuarios, "UsuarioID", "Nome"))
+        @Html.DropDownListFor(ModelItem => Model.GrupoID, new SelectList(ViewBag.Grupos, "GrupoDeAcessoID", "Descricao"))
+    </div>
+    <br />
+    <br />
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

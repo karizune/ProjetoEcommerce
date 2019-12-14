@@ -1,25 +1,13 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Seguranca.FormularioGrupo
-    @{
-        Layout = null;
-    }
-
-    <!DOCTYPE html>
-
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Incluir</title>
-    </head>
-    <body>
-        @using (Html.BeginForm("IncluirConfirm", "FormularioGrupo", FormMethod.Post))
-        {
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+    @using (Html.BeginForm("IncluirConfirm", "FormularioGrupo", FormMethod.Post))
+    {
         <div style="border: 2px dotted black; padding: 45px">
             @Html.DropDownListFor(ModelItem => Model.FormularioID, new SelectList(ViewBag.Formularios, "FormularioID", "Descricao"))
             @Html.DropDownListFor(ModelItem => Model.GrupoID, new SelectList(ViewBag.Grupos, "GrupoDeAcessoID", "Descricao"))
         </div>
-            <br />
-            <br />
-            <input type="submit" value="VAI" />
-        }
-    </body>
-</html>
+        <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+    }

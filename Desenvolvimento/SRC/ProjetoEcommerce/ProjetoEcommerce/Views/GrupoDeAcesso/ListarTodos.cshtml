@@ -1,19 +1,19 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Seguranca
 @model System.Collections.Generic.List<GrupoDeAcesso>
+
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Formulários";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListarTodos</title>
-</head>
-<body>
-    <div>
-        <table border="1">
+    <div class="admin-titulo-principal">
+        @ViewBag.Title
+        <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "GrupoDeAcesso")">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+        <table table class="table table-striped">
             <thead>
                 <tr>
                     <td>ID</td>
@@ -27,17 +27,17 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.GrupoDeAcessoID</td>
-                        <td>@item.Descricao</td>
-                        <td>@item.Status</td>
-                        <td>@item.Usuario</td>
-                        <td>@item.CriadoEm</td>
-                        <td>@item.AtualizadoEm</td>
-                    </tr>
+                <tr>
+                    <td>@item.GrupoDeAcessoID</td>
+                    <td>@item.Descricao</td>
+                    <td>@item.Status</td>
+                    <td>@item.Usuario</td>
+                    <td>@item.CriadoEm</td>
+                    <td>@item.AtualizadoEm</td>
+                    <td>
+                        <a class="btnDelete" href="@Url.Action("Delete","GrupoDeAcesso", new { id = item.GrupoDeAcessoID})">Deletar</a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
-    </div>
-</body>
-</html>
