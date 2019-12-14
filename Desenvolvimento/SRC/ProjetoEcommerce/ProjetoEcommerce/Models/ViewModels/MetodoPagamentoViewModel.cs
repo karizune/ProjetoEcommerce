@@ -26,11 +26,16 @@ namespace ProjetoEcommerce.Models.ViewModels
                 return soma;
             }
         }
-        public MetodoPagamentoViewModel(IList<ProdutoCarrinho> listaProdutos, IEnumerable<MetodoPagamento> listaMetodos, Usuario Usuario)
+
+        public MetodoPagamentoViewModel()
+        {
+            Cartao = new Cartao();
+        }
+
+        public MetodoPagamentoViewModel(IList<ProdutoCarrinho> listaProdutos, IEnumerable<MetodoPagamento> listaMetodos, Usuario Usuario) : this()
         {
             ListaProdutos = listaProdutos;
             MetodosPagamento = listaMetodos;
-            Cartao = new Cartao();
             usuario = Usuario;
         }
 
