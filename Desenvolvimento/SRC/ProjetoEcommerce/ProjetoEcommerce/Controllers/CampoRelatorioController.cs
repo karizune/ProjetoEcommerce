@@ -11,52 +11,7 @@ namespace ProjetoEcommerce.Controllers
 
     public class CampoRelatorioController : Controller
     {
-        /*  private static List<CampoRelatorio> CamposRelatorios { get; set; }
 
-          public CampoRelatorioController()
-          {
-              CamposRelatorios = new List<CampoRelatorio>();
-              CamposRelatorios.Add(new CampoRelatorio
-              { 
-                  RelatorioID = 1,
-                  CampoID = 1,
-                  Usuario = "Carlos",
-                  Status = 1,
-                  CriadoEm = DateTime.Now,
-                  AtualizadoEm = DateTime.Now
-
-              });
-
-              CamposRelatorios.Add(new CampoRelatorio
-              {
-                  RelatorioID = 2,
-                  CampoID = 2,
-                  Usuario = "Gabriel",
-                  Status = 2,
-                  CriadoEm = DateTime.Now,
-                  AtualizadoEm = DateTime.Now
-
-               });
-              CamposRelatorios.Add(new CampoRelatorio
-              {
-                  RelatorioID = 3,
-                  CampoID = 3,
-                  Usuario = "Gabriel",
-                  Status = 3,
-                  CriadoEm = DateTime.Now,
-                  AtualizadoEm = DateTime.Now
-
-              });
-
-
-          }
-
-          // GET: CampoRelatorio
-         public ActionResult ListarTodos()
-          {
-              return View(CamposRelatorios);
-          }
-       */
         public ActionResult Index()
         {
             return View();

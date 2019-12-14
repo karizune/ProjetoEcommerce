@@ -73,7 +73,7 @@ namespace ProjetoEcommerce.Controllers
             var Registros =
                 new ProjetoEcommerceContext()
                 .Registro
-                .ToList();
+                .Where(f => f.Status == 1);
 
             return View(Registros);
         }
@@ -84,11 +84,11 @@ namespace ProjetoEcommerce.Controllers
             ViewBag.Relatorios =
                 new ProjetoEcommerceContext()
                 .Relatorio
-                .ToList();
+               .Where(f => f.Status == 1);
             ViewBag.Usuarios =
                 new ProjetoEcommerceContext()
                 .Usuario
-                .ToList();
+                .Where(f => f.Status == 1);
             return View();
 
         }
