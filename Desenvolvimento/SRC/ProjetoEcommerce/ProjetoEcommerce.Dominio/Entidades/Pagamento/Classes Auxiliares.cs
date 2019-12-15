@@ -20,18 +20,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
         public string CardNumber { get; set; }
         public string Vencimento { get; set; }
         public int BandeiraCartaoID { get; set; }
-        public List<Cartao> CartoesUsuario { get; set; } = new List<Cartao>()
-        {
-            new Cartao
-            {
-            }
-        };
-        public List<Carteira> CarteiraUsuario { get; set; } = new List<Carteira>()
-        {
-            new Carteira
-            {
-            }
-        };
+        public List<Cartao> CartoesUsuario { get; set; } = new List<Cartao>();
+        public List<Carteira> CarteiraUsuario { get; set; } = new List<Carteira>();
     }
     public class ProdutoCarrinho : BaseEntity
     {
@@ -39,9 +29,9 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
         public string Nome { get; set; }
         public string DescricaoProduto { get; set; }
         public string UrlImagem { get; set; }
-        public float Preco { get; set; }
+        public decimal Preco { get; set; }
         public int Quantidade { get; set; }
-        public float PrecoTotal
+        public decimal PrecoTotal
         {
             get
             {

@@ -27,7 +27,9 @@ namespace ProjetoEcommerce.Service
 
         public void Delete(int id)
         {
-            _repository.Delete(id);
+            var ent = Get(id);
+            ent.Status = ent.Status == 1 ? 0 : 1;
+            Update(ent);
         }
 
         public BandeiraCartao Get(int id)

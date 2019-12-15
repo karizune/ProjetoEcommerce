@@ -7,12 +7,12 @@ using System.Web.Mvc;
 
 namespace ProjetoEcommerce.Controllers.Pagamento
 {
-    public class PagamentoController : Controller
+    public class DemoPagamentoController : Controller
     {
-        // GET: Pagamento
-        public ActionResult Pagar()
+        
+        public ActionResult Index()
         {
-            return HttpNotFound();
+            return View();
         }
     }
 }

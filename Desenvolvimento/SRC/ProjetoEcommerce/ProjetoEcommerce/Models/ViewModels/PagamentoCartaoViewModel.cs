@@ -22,11 +22,11 @@ namespace ProjetoEcommerce.Models.ViewModels
         public Cartao Cartao { get; set; }
         public Usuario usuario { get; set; }
 
-        public float PrecoTotalVenda
+        public decimal PrecoTotalVenda
         {
             get
             {
-                float soma = 0;
+                decimal soma = 0M;
                 foreach (var item in ListaProdutos)
                 {
                     soma += item.PrecoTotal;

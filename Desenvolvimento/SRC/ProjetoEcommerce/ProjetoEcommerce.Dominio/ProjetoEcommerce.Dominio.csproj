@@ -50,7 +50,6 @@
     <Compile Include="Entidades\Pagamento\Carteira.cs" />
     <Compile Include="Entidades\Pagamento\MetodoPagamento.cs" />
     <Compile Include="Entidades\Pagamento\Pagamento.cs" />
-    <Compile Include="Entidades\Pagamento\StatusCartao.cs" />
     <Compile Include="Entidades\Pagamento\StatusPagamento.cs" />
     <Compile Include="Entidades\Pagamento\TipoCartao.cs" />
     <Compile Include="Entidades\Pagamento\Classes Auxiliares.cs" />

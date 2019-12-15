@@ -19,7 +19,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
         public DbSet<Carteira> Carteira { get; set; }
         public DbSet<MetodoPagamento> MetodoPagamento { get; set; }
         public DbSet<Pagamento> Pagamento { get; set; }
-        public DbSet<StatusCartao> StatusCartao { get; set; }
         public DbSet<StatusPagamento> StatusPagamento { get; set; }
         public DbSet<TipoCartao> TipoCartao { get; set; }
 
@@ -45,7 +44,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             modelBuilder.Configurations.Add(new CarteiraConfiguration());
             modelBuilder.Configurations.Add(new MetodoPagamentoConfiguration());
             modelBuilder.Configurations.Add(new PagamentoConfiguration());
-            modelBuilder.Configurations.Add(new StatusCartaoConfiguration());
             modelBuilder.Configurations.Add(new StatusPagamentoConfiguration());
             modelBuilder.Configurations.Add(new TipoCartaoConfiguration());
 

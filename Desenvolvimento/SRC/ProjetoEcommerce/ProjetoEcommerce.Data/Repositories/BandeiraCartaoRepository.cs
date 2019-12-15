@@ -13,17 +13,19 @@ namespace ProjetoEcommerce.Data.Repositories
         public void Add(BandeiraCartao t)
         {
             _context.Set<BandeiraCartao>().Add(t);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var ent = Get(id);
             _context.Set<BandeiraCartao>().Remove(ent);
+            _context.SaveChanges();
         }
 
         public BandeiraCartao Get(int id)
         {
-            return _context.Set<BandeiraCartao>().Find(id);
+            return _context.Set<BandeiraCartao>().FirstOrDefault(f=>f.BandeiraCartaoID == id);
         }
 
         public IEnumerable<BandeiraCartao> GetAll()
@@ -34,6 +36,7 @@ namespace ProjetoEcommerce.Data.Repositories
         public BandeiraCartao Update(BandeiraCartao t)
         {
             var ent = _context.Set<BandeiraCartao>().Attach(t);
+            _context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
             return ent;
         }

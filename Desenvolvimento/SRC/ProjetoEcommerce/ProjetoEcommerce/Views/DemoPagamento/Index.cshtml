@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h1{
+        margin-top: 2em;
+        margin-bottom: 1em; 
+        font-size: 28pt;
+    }
+    #Crud {
+        width: 49%;
+        border-right: 1px solid black;
+    }
+    #Crud table {
+        margin: auto;
+    }
+    #Crud table tr td {
+        padding: 0.3em;
+    }
+    #PagamentoDemo{
+        width:49%;
+    }
+     #PagamentoDemo p{
+         text-align:center;
+     }
+    #Grupo{
+        clear:both; 
+        width:50%;
+        margin:auto;
+        position:absolute; 
+        left:5%;
+        bottom:10%
+
+    }
+    #Grupo table tr td{
+        padding: 1em;
+        
+    }
+    #Grupo table {
+        margin: auto;
+        border-left:1px solid rgba(128, 128, 128,11)
+    }
+    .TituloIn{
+        padding-bottom:0.5em
+    }
+</style>
+
+@section scripts{
+    <script>
+        $("h1").addClass("text-sm-center font-weight-light")
+        $("#Crud").addClass("float-left")
+        $("#Crud table tr td a").addClass("font-weight-light btn btn-block btn-dark")
+        $("#PagamentoDemo").addClass("float-right")
+        $("#Crud table").addClass("text-center")
+        $("h2").addClass("text-center font-weight-light TituloIn")
+        $("#Grupo table tr td p").addClass("font-weight-light")
+    </script>
+}
+<h1>Pagamento</h1>
+
+<div id="Crud">
+    <h2>CRUDs</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td><a href="@Url.Action("Index","StatusPagamento",null)">StatusPagamento <span class="badge badge-danger">Fazer</span></a></td>
+                <td><a href="@Url.Action("Index","MetodoPagamento",null)">MetodoPagamento <span class="badge badge-danger">Fazer</span></a></td>
+                <td><a href="@Url.Action("Index","Cartao_Tipo",null)">Cartao_Tipo <span class="badge badge-danger">Fazer</span></a></td>
+            </tr>
+            <tr>
+                <td><a href="@Url.Action("Index","BandeiraCartao",null)">BandeiraCartao <span class="badge badge-success">Pronto</span></a></td>
+                <td><a href="@Url.Action("Index","Boleto",null)">Boleto <span class="badge badge-danger">Fazer</span></a></td>
+                <td><a href="@Url.Action("Index","Cartao",null)">Cartao <span class="badge badge-danger">Fazer</span></a></td>
+                
+            </tr>
+            <tr>
+                <td><a href="@Url.Action("Index","Carteira",null)">Carteira <span class="badge badge-danger">Fazer</span></a></td>
+                <td><a href="@Url.Action("Index","Pagamento",null)">Pagamento <span class="badge badge-danger">Fazer</span></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="PagamentoDemo">
+    <h2>Demonstração de Pagamento</h2>
+    <p>Demonstração com dois tipos produtos:</p>
+    @Html.ActionLink("Escolher método de pagamento", "PagamentoMetodo", "Pagar", null, new { @class = "btn btn-dark btn-block"  })
+</div>
+<div id="Grupo">
+    <table>
+        <tr>
+            <td>
+                <p>Gabriel Valeriano Gomes</p>
+                <p>037069</p>
+            </td>
+            <td>
+                <p>Luan Chrystian Galan</p>
+                <p>000000</p>
+            </td>
+            <td>
+                <p>Matheus Henrique Lourenço Campos</p>
+                <p>000000</p>
+            </td>
+        </tr>
+
+    </table>
+    
+</div>
+

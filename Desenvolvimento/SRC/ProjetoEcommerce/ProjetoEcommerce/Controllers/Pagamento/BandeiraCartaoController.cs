@@ -1,6 +1,8 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Data.Repositories;
 using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using ProjetoEcommerce.Dominio.Interfaces.Services;
+using ProjetoEcommerce.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,49 +13,48 @@ namespace ProjetoEcommerce.Controllers.Pagamento
 {
     public class BandeiraCartaoController : Controller
     {
-        private readonly IBandeiraCartaoService _bandeiraCartaoService;
+        //private readonly IBandeiraCartaoService _bandeiraCartaoService;
 
-        public BandeiraCartaoController(IBandeiraCartaoService bandeiraCartaoService)
-        {
-            _bandeiraCartaoService = bandeiraCartaoService;
-        }
-
-        [Route("ListarTodos")]
+        BandeiraCartaoService _bandeiraCartaoService = new BandeiraCartaoService(new BandeiraCartaoRepository());
+        //public BandeiraCartaoController(IBandeiraCartaoService bandeiraCartaoService)
+        //{
+        //    _bandeiraCartaoService = bandeiraCartaoService;
+        //}
         public ActionResult Index()
         {
-            var ent = _bandeiraCartaoService.GetAll();
-
-            return View("ListarTodos", ent);
+            return View(_bandeiraCartaoService.GetAll());
         }
-
-        
-        public ActionResult Incluir()
+        public ActionResult Detalhes(int id)
+        {
+            var ent = _bandeiraCartaoService.Get(id);
+            return View(ent);
+        }
+        public ActionResult Criar()
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult Incluir(BandeiraCartao ent)
+        public ActionResult Criar(BandeiraCartao ent)
         {
             _bandeiraCartaoService.Add(ent);
-            return RedirectToAction("ListarTodos");
-        }
-
-        public ActionResult Excluir(int id)
-        {
-            _bandeiraCartaoService.Delete(id);
-            return RedirectToAction("ListarTodos");
+            return RedirectToAction("Index");
         }
         public ActionResult Editar(int id)
         {
-            return View();
+            var ent = _bandeiraCartaoService.Get(id);
+            return View(ent);
         }
         [HttpPost]
         public ActionResult Editar(BandeiraCartao bandeiraCartao)
         {
             _bandeiraCartaoService.Update(bandeiraCartao);
 
-            return View();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Excluir(int id)
+        {
+            _bandeiraCartaoService.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

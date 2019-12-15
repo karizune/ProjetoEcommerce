@@ -181,7 +181,7 @@
     <Compile Include="Controllers\Pagamento\CartaoController.cs" />
     <Compile Include="Controllers\Pagamento\CarteiraController.cs" />
     <Compile Include="Controllers\Pagamento\MetodoPagamentoController.cs" />
-    <Compile Include="Controllers\Pagamento\PagamentoController.cs" />
+    <Compile Include="Controllers\Pagamento\DemoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagarController.cs" />
     <Compile Include="Controllers\Pagamento\UsuarioPagamentoController.cs" />
     <Compile Include="Controllers\TipoCartaoController.cs" />
@@ -274,9 +274,9 @@
     <Content Include="Views\Carteira\ListarTodos.cshtml" />
     <Content Include="Views\Carteira\Detalhes.cshtml" />
     <Content Include="Views\MetodoPagamento\ListarTodos.cshtml" />
-    <Content Include="Views\BandeiraCartao\ListarTodos.cshtml" />
+    <Content Include="Views\BandeiraCartao\Index.cshtml" />
     <Content Include="Views\Pagar\Pagar.cshtml" />
-    <Content Include="Views\Pagamento\Index.cshtml" />
+    <Content Include="Views\DemoPagamento\Index.cshtml" />
     <Content Include="Views\Carteira\Criar.cshtml" />
     <Content Include="Views\Carteira\Editar.cshtml" />
     <Content Include="Views\Cartao\Inserir.cshtml" />
@@ -295,10 +295,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Autenticacao\Entrar.cshtml" />
     <Content Include="Views\Autenticacao\Sair.cshtml" />
-    <Content Include="Views\BandeiraCartao\Incluir.cshtml" />
+    <Content Include="Views\BandeiraCartao\Criar.cshtml" />
     <Content Include="Views\Cartao\ListarTodos.cshtml" />
     <Content Include="Views\Cartao\Editar.cshtml" />
     <Content Include="Views\UsuarioPagamento\Pagar.cshtml" />
+    <Content Include="Views\BandeiraCartao\Editar.cshtml" />
+    <Content Include="Views\BandeiraCartao\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -318,6 +320,10 @@
     <ProjectReference Include="..\ProjetoEcommerce.Host\ProjetoEcommerce.Host.csproj">
       <Project>{1580764d-53d1-4143-b287-27de4fd079e1}</Project>
       <Name>ProjetoEcommerce.Host</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoEcommerce.Service\ProjetoEcommerce.Service.csproj">
+      <Project>{08DD1616-EED0-4412-9419-4BC55DEABBE3}</Project>
+      <Name>ProjetoEcommerce.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

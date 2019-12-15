@@ -1,8 +1,9 @@
 ﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Carteira
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
     ViewBag.Title = "Detalhes";
 }
-
 
 <div style="margin-bottom:5px; margin-top:10px">
     <a href="/Carteira/Index">Voltar à lista</a>
@@ -34,47 +35,47 @@
             <td>
                 @Model.AtualizadoEm
             </td>
-                         
+
         </tr>
-            <tr>
-                <th>
-                    Status
-                </th>
-                    
-                    
-                        @if(Model.Status == 1)
-                        {
-                           <td>
-                               Ativo
-                           </td>
-
-                        }
-                        else
-                        {
-                            <td>
-                                Inativo
-                            </td>
-                        }
-
-            </tr>
-            <tr>
-                <th>
-                    Usuario
-                </th>
-                    <td>
-                        @Model.Usuario
-                    </td>
-            </tr>
         <tr>
             <th>
-                    Criado em
+                Status
             </th>
+
+
+            @if (Model.Status == 1)
+            {
                 <td>
-                    @Model.CriadoEm
+                    Ativo
                 </td>
+
+            }
+            else
+            {
+                <td>
+                    Inativo
+                </td>
+            }
+
         </tr>
-            
-       
+        <tr>
+            <th>
+                Usuario
+            </th>
+            <td>
+                @Model.Usuario
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Criado em
+            </th>
+            <td>
+                @Model.CriadoEm
+            </td>
+        </tr>
+
+
     </tbody>
 </table>
 

@@ -27,7 +27,7 @@ namespace ProjetoEcommerce.Host
             _container.Register(typeof(IRepositoryBase<>), typeof(RepositoryBase<>), _lifestyle);
             _container.Register(typeof(IServiceBase<>), typeof(ServiceBase<>), _lifestyle);
             //_container.Register<ILogger, FileLogger>(Lifestyle.Singleton);
-
+            
         }
 
 
