@@ -5,7 +5,7 @@
 }
     @using (Html.BeginForm("IncluirConfirm", "FormularioGrupo", FormMethod.Post))
     {
-        <div style="border: 2px dotted black; padding: 45px">
+        <div class="form-group">
             @Html.DropDownListFor(ModelItem => Model.FormularioID, new SelectList(ViewBag.Formularios, "FormularioID", "Descricao"))
             @Html.DropDownListFor(ModelItem => Model.GrupoID, new SelectList(ViewBag.Grupos, "GrupoDeAcessoID", "Descricao"))
         </div>

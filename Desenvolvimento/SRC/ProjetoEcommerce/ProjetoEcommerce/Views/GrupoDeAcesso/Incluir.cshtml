@@ -7,7 +7,8 @@
 
 @using (Html.BeginForm("IncluirConfirm", "GrupoDeAcesso", FormMethod.Post))
 {
-    <div style="border: 2px dotted black; padding: 45px">
+    <div class="form-group">
+        <label for="inputAddress">Nome do Grupo:</label>
         @Html.TextBoxFor(modelItem => Model.Descricao)
     </div>
     <br />

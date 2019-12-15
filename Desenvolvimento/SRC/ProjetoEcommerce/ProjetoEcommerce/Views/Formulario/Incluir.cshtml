@@ -7,7 +7,7 @@
 
 @using (Html.BeginForm("IncluirConfirm", "Formulario", FormMethod.Post))
 {
-    <div class="form-group">
+    <div  class="form-group">
         <label for="inputForm">Cadastro de Formulário</label>
         @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Digite a Descrição do Formulário" })
         @Html.TextBoxFor(modelItem => Model.URL, new { @class = "form-control", @placeholder = "Digite a URL do Formulário" })
