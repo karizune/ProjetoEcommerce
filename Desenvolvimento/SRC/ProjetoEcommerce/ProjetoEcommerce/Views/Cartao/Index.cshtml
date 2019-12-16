@@ -1,30 +1,91 @@
-﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
-@model List<Cartao>
+﻿
+@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.Cartao>
 @{
-    ViewBag.Title = "ListarCartao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Cartão";
+    bool Desativados = Model.Where(f => f.Status == 0).Count() > 0;
 }
 
-<h2>Index</h2>
-@Html.ActionLink("Criar", "Criar")
-<table class="table table-hover">
-    <thead>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Criar", "Cartao")">
+        <i class="fa fa-plus"></i>
+        Criar
+    </a>
+    @if (Desativados)
+    {
+
+        <a class="btn btn-dark btn-sm float-right" style="margin-right:0.5em;" data-toggle="collapse" href="#TabelaDesativados" role="button" aria-expanded="false" aria-controls="TabelaDesativados">
+            <i class="fa fa-eye"></i>
+            Mostrar desativados
+        </a>
+    }
+</div>
+
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
         <tr>
-            <th>Nome do Titular</th>
-            <th>Numero do Cartão</th>
-            <th>Vencimento</th>
-            <th>Bandeira</th>
+            
+            <th>Número</th>
+            <th>Criado Em</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.NomeTitular</td>
-                <td>@item.Numero</td>
-                <td>@item.VencimentoMes / @item.VencimentoAno</td>
-                <td>@item.bandeiraCartao</td>
-            </tr>
+            if (item.Status == 1)
+            {
+        <tr>
+            <td>@Html.ActionLink(item.Numero, "Detalhes", new { id = item.CartaoID }, new { @class = "btn btn-link text-dark" })</td>
+           
+            <td>@item.CriadoEm</td>
+            <td>
+                <a href="@Url.Action("Editar", "Cartao", new { id = item.CartaoID })" class="btn btn-secondary btn-sm">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a href="@Url.Action("Excluir", "Cartao", new { id = item.CartaoID })" class="btn btn-danger btn-sm">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </td>
+        </tr>
+            }
         }
     </tbody>
 </table>
 
+@if (Desativados)
+{
+
+
+    <div class="row">
+        <div class="col">
+            <div class="collapse" id="TabelaDesativados">
+                <table class="table table-hover table-sm">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Status == 0)
+                            {
+                                <tr class=" table-danger">
+                                    <td>@Html.ActionLink(item.Numero, "Detalhes", new { id = item.CartaoID }, new { @class = "btn btn-link text-dark" })</td>
+                                    <td>@item.CriadoEm</td>
+                                    <td>
+                                        <a href="@Url.Action("Editar", "Cartao", new { id = item.CartaoID })" class="btn btn-secondary btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="@Url.Action("Excluir", "Cartao", new { id = item.CartaoID })" class="btn btn-success btn-sm">
+                                            <i class="fa fa-undo"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+}

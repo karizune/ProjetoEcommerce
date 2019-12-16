@@ -1,8 +1,8 @@
-﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.BandeiraCartao
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Cartao
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Detalhes de Bandeira de Cartão";
+    ViewBag.Title = "Detalhes de Cartão";
 }
 
     <h2>@ViewBag.Title</h2>
@@ -11,11 +11,36 @@
         <tbody>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">@Model.BandeiraCartaoID</th>
+                <th scope="col">@Model.CartaoID</th>
             </tr>
             <tr>
-                <th scope="row">Descrição</th>
-                <td>@Model.Descricao</td>
+                <th scope="row">ID de Bandeira</th>
+                <td>@Model.BandeiraCartaoID</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Nome Do Titular</th>
+                <td>@Model.NomeTitular</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Número</th>
+                <td>@Model.Numero</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Vencimento</th>
+                <td>@Model.Vencimento</td>
+
+            </tr>
+            <tr>
+                <th scope="row">CVC</th>
+                <td>@Model.CVC</td>
+
+            </tr>
+            <tr>
+                <th scope="row">ID de Usuário</th>
+                <td>@Model.UsuarioID</td>
 
             </tr>
             <tr>

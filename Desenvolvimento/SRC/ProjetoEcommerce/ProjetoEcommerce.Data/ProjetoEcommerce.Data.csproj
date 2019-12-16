@@ -65,9 +65,11 @@
     <Compile Include="Repositories\BandeiraCartaoRepository.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
     <Compile Include="Repositories\CartaoRepository.cs" />
+    <Compile Include="Repositories\Cartao_TipoRepository.cs" />
     <Compile Include="Repositories\CarteiraRepository.cs" />
     <Compile Include="Repositories\MetodoPagamentoRepository.cs" />
     <Compile Include="Repositories\RastreamentoRepository.cs" />
+    <Compile Include="Repositories\TipoCartaoRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

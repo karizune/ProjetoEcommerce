@@ -34,6 +34,7 @@ namespace ProjetoEcommerce.Data.Repositories.Base
 
         public void Update(TObject t)
         {
+            _context.Set<TObject>().Attach(t);
             _context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
             

@@ -1,15 +1,15 @@
-﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.TipoCartao>
+﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.Cartao_Tipo>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Manutenção de Tipo de cartão";
+    ViewBag.Title = "Manutenção de Cartão/Tipo";
     bool Desativados = Model.Where(f => f.Status == 0).Count() > 0;
 }
 
 <div class="admin-titulo-principal">
     @ViewBag.Title
-    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Criar", "TipoCartao")">
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Criar", "Cartao_Tipo")">
         <i class="fa fa-plus"></i>
         Criar
     </a>
@@ -26,8 +26,9 @@
 <table class="table table-hover table-sm">
     <thead class="thead-dark">
         <tr>
-            <th>Descrição</th>
-            <th>Criado Em</th>
+            <th>ID Cartão</th>
+
+            <th>ID Tipo</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -37,13 +38,11 @@
             if (item.Status == 1)
             {
                 <tr>
-                    <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.TipoCartaoID }, new { @class = "btn btn-link text-dark" })</td>
-                    <td>@item.CriadoEm</td>
+                    <td>@Html.ActionLink(item.CartaoID.ToString(), "Detalhes", new { CartaoID = item.CartaoID, TipoCartaoID = item.TipoCartaoID }, new { @class = "btn btn-link text-dark" })</td>
+                    <td>@Html.ActionLink(item.TipoCartaoID.ToString(), "Detalhes", new { CartaoID = item.CartaoID, TipoCartaoID = item.TipoCartaoID }, new { @class = "btn btn-link text-dark" })</td>
+
                     <td>
-                        <a href="@Url.Action("Editar", "TipoCartao", new { id = item.TipoCartaoID })" class="btn btn-secondary btn-sm">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a href="@Url.Action("Excluir", "TipoCartao", new { id = item.TipoCartaoID })" class="btn btn-danger btn-sm">
+                        <a href="@Url.Action("Excluir", "Cartao_Tipo", new { CartaoID = item.CartaoID, TipoCartaoID=item.TipoCartaoID })" class="btn btn-danger btn-sm">
                             <i class="fa fa-remove"></i>
                         </a>
                     </td>
@@ -67,13 +66,11 @@
                             if (item.Status == 0)
                             {
                                 <tr class=" table-danger">
-                                    <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.TipoCartaoID }, new { @class = "btn btn-link text-dark" })</td>
-                                    <td>@item.CriadoEm</td>
+                                    <td>@Html.ActionLink(item.CartaoID.ToString(), "Detalhes", new { CartaoID = item.CartaoID, TipoCartaoID = item.TipoCartaoID }, new { @class = "btn btn-link text-dark" })</td>
+                                    <td>@Html.ActionLink(item.TipoCartaoID.ToString(), "Detalhes", new { CartaoID = item.CartaoID, TipoCartaoID = item.TipoCartaoID }, new { @class = "btn btn-link text-dark" })</td>
+
                                     <td>
-                                        <a href="@Url.Action("Editar", "TipoCartao", new { id = item.TipoCartaoID })" class="btn btn-secondary btn-sm">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="@Url.Action("Excluir", "TipoCartao", new { id = item.TipoCartaoID })" class="btn btn-success btn-sm">
+                                        <a href="@Url.Action("Excluir", "Cartao_Tipo", new { CartaoID = item.CartaoID, TipoCartaoID=item.TipoCartaoID })" class="btn btn-success btn-sm">
                                             <i class="fa fa-undo"></i>
                                         </a>
                                     </td>
@@ -85,4 +82,5 @@
             </div>
         </div>
     </div>
+
 }

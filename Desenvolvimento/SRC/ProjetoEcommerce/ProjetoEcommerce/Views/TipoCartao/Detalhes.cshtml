@@ -1,17 +1,18 @@
-﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.BandeiraCartao
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.TipoCartao
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Detalhes de Bandeira de Cartão";
+    ViewBag.Title = "Detalhes de Tipo de Cartao";
 }
 
-    <h2>@ViewBag.Title</h2>
+    <h2>Detalhes de "Detalhes de Tipo de Cartao"</h2>
     @Html.ActionLink("Voltar","Index",null,new { @class="btn btn-dark",@style="margin:1em 0em 1em 0em" })
     <table class="table table-bordered">
         <tbody>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">@Model.BandeiraCartaoID</th>
+                <th scope="col">@Model.TipoCartaoID</th>
             </tr>
             <tr>
                 <th scope="row">Descrição</th>

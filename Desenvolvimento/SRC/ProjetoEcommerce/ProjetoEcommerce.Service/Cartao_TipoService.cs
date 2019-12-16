@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Service
 {
-    public class CartaoService : ICartaoService
+    public class Cartao_TipoService : ICartao_TipoService
     {
-        ICartaoRepository _repository = new CartaoRepository();
-        public void Add(Cartao obj)
+        ICartao_TipoRepository _repository = new Cartao_TipoRepository();
+        public void Add(Cartao_Tipo obj)
         {
             obj.Status = 1;
             obj.Usuario = "Sistema";
@@ -24,22 +24,32 @@ namespace ProjetoEcommerce.Service
 
         public void Delete(int id)
         {
-            var ent = Get(id);
+            throw new NotImplementedException();
+            
+        }
+
+        public void Delete(int CartaoID, int TipoCartaoID)
+        {
+            var ent = Get(CartaoID,TipoCartaoID);
             ent.Status = ent.Status == 0 ? 1 : 0;
             Update(ent);
         }
 
-        public Cartao Get(int id)
+        public Cartao_Tipo Get(int id)
         {
-            return _repository.Get(id);
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<Cartao> GetAll()
+        public Cartao_Tipo Get(int CartaoID, int TipoCartaoID)
+        {
+            return _repository.Get(CartaoID, TipoCartaoID);
+        }
+        public IEnumerable<Cartao_Tipo> GetAll()
         {
             return _repository.GetAll();
         }
 
-        public void Update(Cartao obj)
+        public void Update(Cartao_Tipo obj)
         {
             obj.Usuario = "Sistema";
             obj.AtualizadoEm = DateTime.Now;

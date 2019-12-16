@@ -13,6 +13,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
         public string Vencimento { get; set; }
         public string NomeTitular { get; set; }
         public int BandeiraCartaoID { get; set; }
+        
         public string CVC { get; set; }
     }
 }

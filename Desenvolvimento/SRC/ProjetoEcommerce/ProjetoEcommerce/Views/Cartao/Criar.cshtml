@@ -5,19 +5,14 @@
     ViewBag.ShowMenu = true;
 }
 
-@using (Html.BeginForm("Editar", "Cartao", FormMethod.Post))
+@using (Html.BeginForm("Criar", "Cartao", FormMethod.Post))
 {
-    @Html.HiddenFor(f => f.CartaoID)
-    @Html.HiddenFor(f => f.CriadoEm)
-    @Html.HiddenFor(f => f.AtualizadoEm)
-    @Html.HiddenFor(f => f.Status)
-    @Html.HiddenFor(f => f.Usuario)
     <div class="form-group">
         <label for="inputAddress">UsuarioID</label>
         @Html.TextBoxFor(modelItem => Model.UsuarioID, new { @class = "form-control", @placeholder = "Digite o ID de usuário do cartão" })
     </div>
     <div class="form-group">
-        <label for="inputAddress">Numero</label>
+        <label for="inputAddress">Número</label>
         @Html.TextBoxFor(modelItem => Model.Numero, new { @class = "form-control", @placeholder = "Digite o Numero do cartão" })
     </div>
     <div class="form-group">

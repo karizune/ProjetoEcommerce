@@ -56,14 +56,18 @@
     <Compile Include="Interfaces\Repositories\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IBandeiraCartaoRespository.cs" />
     <Compile Include="Interfaces\Repositories\ICartaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICartao_TipoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICarteiraRepository.cs" />
     <Compile Include="Interfaces\Repositories\IMetodoPagamentoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoCartaoRepository.cs" />
     <Compile Include="Interfaces\Services\Base\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\IBandeiraCartaoService.cs" />
     <Compile Include="Interfaces\Services\ICartaoService.cs" />
+    <Compile Include="Interfaces\Services\ICartao_TipoService.cs" />
     <Compile Include="Interfaces\Services\ICarteiraService.cs" />
     <Compile Include="Interfaces\Services\IMetodoPagamentoService.cs" />
+    <Compile Include="Interfaces\Services\ITipoCartaoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

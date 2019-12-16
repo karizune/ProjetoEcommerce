@@ -1,8 +1,8 @@
-﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.MetodoPagamento
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Cartao_Tipo
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Detalhes de Método de Pagamento";
+    ViewBag.Title = "Detalhes de Cartão/Tipo";
 }
 
     <h2>@ViewBag.Title</h2>
@@ -10,12 +10,12 @@
 <table class="table table-bordered">
     <tbody>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">@Model.MetodoPagamentoID</th>
+            <th scope="col">ID de cartão</th>
+            <th scope="col">@Model.CartaoID</th>
         </tr>
         <tr>
-            <th scope="row">Descrição</th>
-            <td>@Model.Descricao</td>
+            <th scope="row">ID de Tipo</th>
+            <td>@Model.TipoCartaoID</td>
 
         </tr>
         <tr>

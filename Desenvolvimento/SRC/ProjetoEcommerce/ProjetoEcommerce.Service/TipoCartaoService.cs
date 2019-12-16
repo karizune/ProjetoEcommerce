@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Service
 {
-    public class CartaoService : ICartaoService
+    public class TipoCartaoService : ITipoCartaoService
     {
-        ICartaoRepository _repository = new CartaoRepository();
-        public void Add(Cartao obj)
+        ITipoCartaoRepository _repository = new TipoCartaoRepository();
+        public void Add(TipoCartao obj)
         {
             obj.Status = 1;
             obj.Usuario = "Sistema";
@@ -29,17 +29,17 @@ namespace ProjetoEcommerce.Service
             Update(ent);
         }
 
-        public Cartao Get(int id)
+        public TipoCartao Get(int id)
         {
             return _repository.Get(id);
         }
 
-        public IEnumerable<Cartao> GetAll()
+        public IEnumerable<TipoCartao> GetAll()
         {
             return _repository.GetAll();
         }
 
-        public void Update(Cartao obj)
+        public void Update(TipoCartao obj)
         {
             obj.Usuario = "Sistema";
             obj.AtualizadoEm = DateTime.Now;

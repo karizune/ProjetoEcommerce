@@ -1,4 +1,5 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Data.Repositories.Base;
 using ProjetoEcommerce.Dominio.Entidades.Pagamento;
 using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace ProjetoEcommerce.Data.Repositories
 
         public void Update(BandeiraCartao t)
         {
-            var ent = _context.Set<BandeiraCartao>().Attach(t);
+            _context.Set<BandeiraCartao>().Attach(t);
             _context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
            

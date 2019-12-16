@@ -17,7 +17,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         {
 
         }
-        public ActionResult PagamentoMetodo(/*IEnumerable<ProdutoCarrinho> ListaProdutos*/)
+        public ActionResult Metodo(/*IEnumerable<ProdutoCarrinho> ListaProdutos*/)
         {
             var ListaProdutos = new List<ProdutoCarrinho>
             {
@@ -80,7 +80,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
 
         }
         [HttpPost]
-        public ActionResult PagamentoCartao(MetodoPagamentoViewModel metodoPagamentoViewModel)
+        public ActionResult Cartao(MetodoPagamentoViewModel metodoPagamentoViewModel)
         {
 
             return View();
@@ -96,14 +96,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         //    return RedirectToAction("");
         //}
 
-        //[HttpPost]
-        //public ActionResult PagamentoCartao(int id)
-        //{
-        //    Cartao obj = Context.Cartao.First(c => c.CartaoID == id);
-
-        //    return View();
-            
-        //}
+        
     }
 
    

@@ -177,13 +177,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Pagamento\BandeiraCartaoController.cs" />
-    <Compile Include="Controllers\Pagamento\CartaoController.cs" />
-    <Compile Include="Controllers\Pagamento\CarteiraController.cs" />
-    <Compile Include="Controllers\Pagamento\MetodoPagamentoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\BandeiraCartaoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\CartaoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\Cartao_TipoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\CarteiraController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\MetodoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\DemoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagarController.cs" />
-    <Compile Include="Controllers\TipoCartaoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\TipoCartaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,15 +275,14 @@
     <Content Include="Views\Carteira\Detalhes.cshtml" />
     <Content Include="Views\MetodoPagamento\Index.cshtml" />
     <Content Include="Views\BandeiraCartao\Index.cshtml" />
-    <Content Include="Views\Pagar\Pagar.cshtml" />
     <Content Include="Views\DemoPagamento\Index.cshtml" />
     <Content Include="Views\Carteira\Criar.cshtml" />
     <Content Include="Views\Carteira\Editar.cshtml" />
-    <Content Include="Views\Cartao\Inserir.cshtml" />
-    <Content Include="Views\Pagar\PagamentoMetodo.cshtml" />
-    <Content Include="Views\Pagar\PagamentoCartao.cshtml" />
+    <Content Include="Views\Cartao\Criar.cshtml" />
+    <Content Include="Views\Pagar\Metodo.cshtml" />
+    <Content Include="Views\Pagar\Cartao.cshtml" />
     <Content Include="Views\TipoCartao\Index.cshtml" />
-    <Content Include="Views\TipoCartao\Incluir.cshtml" />
+    <Content Include="Views\TipoCartao\Criar.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -295,14 +295,21 @@
     <Content Include="Views\Autenticacao\Entrar.cshtml" />
     <Content Include="Views\Autenticacao\Sair.cshtml" />
     <Content Include="Views\BandeiraCartao\Criar.cshtml" />
-    <Content Include="Views\Cartao\ListarTodos.cshtml" />
+    <Content Include="Views\Cartao\IndexL.cshtml" />
     <Content Include="Views\Cartao\Editar.cshtml" />
-    <Content Include="Views\UsuarioPagamento\Pagar.cshtml" />
     <Content Include="Views\BandeiraCartao\Editar.cshtml" />
     <Content Include="Views\BandeiraCartao\Detalhes.cshtml" />
     <Content Include="Views\MetodoPagamento\Criar.cshtml" />
     <Content Include="Views\MetodoPagamento\Detalhes.cshtml" />
     <Content Include="Views\MetodoPagamento\Editar.cshtml" />
+    <Content Include="Views\TipoCartao\Detalhes.cshtml" />
+    <Content Include="Views\TipoCartao\Editar.cshtml" />
+    <Content Include="Views\Cartao\Detalhes.cshtml" />
+    <Content Include="Views\Cartao\Index.cshtml" />
+    <Content Include="Views\Cartao_Tipo\Criar.cshtml" />
+    <Content Include="Views\Cartao_Tipo\Detalhes.cshtml" />
+    <Content Include="Views\Cartao_Tipo\Editar.cshtml" />
+    <Content Include="Views\Cartao_Tipo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

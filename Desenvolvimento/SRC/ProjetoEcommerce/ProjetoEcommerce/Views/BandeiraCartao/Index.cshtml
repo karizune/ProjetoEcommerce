@@ -40,7 +40,7 @@
                     <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.BandeiraCartaoID }, new { @class = "btn btn-link text-dark" })</td>
                     <td>@item.CriadoEm</td>
                     <td>
-                        <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-warning btn-sm">
+                        <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-secondary btn-sm">
                             <i class="fa fa-edit"></i>
                         </a>
                         <a href="@Url.Action("Excluir", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-danger btn-sm">
@@ -70,7 +70,7 @@
                                     <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.BandeiraCartaoID }, new { @class = "btn btn-link text-dark" })</td>
                                     <td>@item.CriadoEm</td>
                                     <td>
-                                        <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-warning btn-sm">
+                                        <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-secondary btn-sm">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <a href="@Url.Action("Excluir", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-success btn-sm">

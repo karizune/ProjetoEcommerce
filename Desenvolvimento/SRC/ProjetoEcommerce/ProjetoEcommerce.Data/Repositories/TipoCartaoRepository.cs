@@ -9,37 +9,39 @@ using System.Threading.Tasks;
 
 namespace ProjetoEcommerce.Data.Repositories
 {
-    public class CartaoRepository : ICartaoRepository
+    public class TipoCartaoRepository : ITipoCartaoRepository
     {
         ProjetoEcommerceContext _context = new ProjetoEcommerceContext();
-        public void Add(Cartao t)
+        public void Add(TipoCartao t)
         {
-            _context.Set<Cartao>().Add(t);
+            _context.Set<TipoCartao>().Add(t);
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var ent = Get(id);
-            _context.Set<Cartao>().Remove(ent);
+            _context.Set<TipoCartao>().Remove(ent);
             _context.SaveChanges();
         }
 
-        public Cartao Get(int id)
+        public TipoCartao Get(int id)
         {
-            return _context.Set<Cartao>().FirstOrDefault(f => f.CartaoID == id);
+            return _context.Set<TipoCartao>().FirstOrDefault(f => f.TipoCartaoID == id);
         }
 
-        public IEnumerable<Cartao> GetAll()
+        public IEnumerable<TipoCartao> GetAll()
         {
-            return _context.Set<Cartao>();
+            return _context.Set<TipoCartao>();
         }
 
-        public void Update(Cartao t)
+        public void Update(TipoCartao t)
         {
-            _context.Set<Cartao>().Attach(t);
+            _context.Set<TipoCartao>().Attach(t);
             _context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
+
     }
 }
+
