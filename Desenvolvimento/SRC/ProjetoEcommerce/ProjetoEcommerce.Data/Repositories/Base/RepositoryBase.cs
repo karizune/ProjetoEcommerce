@@ -32,11 +32,11 @@ namespace ProjetoEcommerce.Data.Repositories.Base
             return _context.Set<TObject>();
         }
 
-        public TObject Update(TObject t)
+        public void Update(TObject t)
         {
             _context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
-            return t;
+            
         }
     }
 }

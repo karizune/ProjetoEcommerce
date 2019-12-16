@@ -3,8 +3,7 @@ using ProjetoEcommerce.Dominio.Interfaces.Base;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Repositories
 {
-    public interface IBandeiraCartaoRespository: IRepositoryBase<BandeiraCartao>
+    public interface IMetodoPagamentoRepository : IRepositoryBase<MetodoPagamento>
     {
-
     }
 }

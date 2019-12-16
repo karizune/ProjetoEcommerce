@@ -33,11 +33,11 @@ namespace ProjetoEcommerce.Data.Repositories
             return _context.Set<Cartao>();
         }
 
-        public Cartao Update(Cartao t)
+        public void Update(Cartao t)
         {
-            var ent = _context.Set<Cartao>().Attach(t);
+            _context.Set<Cartao>().Attach(t);
             _context.SaveChanges();
-            return ent;
+            
         }
     }
 }

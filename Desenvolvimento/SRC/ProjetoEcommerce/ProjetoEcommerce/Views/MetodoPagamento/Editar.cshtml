@@ -1,0 +1,20 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.MetodoPagamento
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("Editar", "MetodoPagamento", FormMethod.Post))
+{
+    @Html.HiddenFor(f => f.MetodoPagamentoID)
+    @Html.HiddenFor(f => f.CriadoEm)
+    @Html.HiddenFor(f => f.AtualizadoEm)
+    @Html.HiddenFor(f => f.Status)
+    @Html.HiddenFor(f => f.Usuario)
+    <div class="form-group">
+        <label for="inputAddress">Descrição</label>
+        @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Digite a descrição do método de pagamento" })
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

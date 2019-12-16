@@ -26,11 +26,6 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasMaxLength(50)
                 .IsRequired();
 
-            Property(x => x.Glyphicon)
-                .HasColumnName(@"Glyphicon")
-                .HasColumnType("varchar")
-                .HasMaxLength(100);
-
             Property(x => x.AtualizadoEm)
              .HasColumnName(@"AtualizadoEm")
              .HasColumnType("datetime")

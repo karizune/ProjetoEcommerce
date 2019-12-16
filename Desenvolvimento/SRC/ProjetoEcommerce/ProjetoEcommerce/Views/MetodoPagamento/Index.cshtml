@@ -1,27 +1,27 @@
-﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.BandeiraCartao>
-
+﻿
+@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.MetodoPagamento>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Manutenção de Bandeiras de Cartão";
+    ViewBag.Title = "Manutenção de Métodos de Pagamento";
     bool Desativados = Model.Where(f => f.Status == 0).Count() > 0;
 }
 
-<div class="admin-titulo-principal">
-    @ViewBag.Title
-    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Criar", "BandeiraCartao")">
-        <i class="fa fa-plus"></i>
-        Criar
-    </a>
-    @if (Desativados)
-    {
-
-        <a class="btn btn-dark btn-sm float-right" style="margin-right:0.5em;" data-toggle="collapse" href="#TabelaDesativados" role="button" aria-expanded="false" aria-controls="TabelaDesativados">
-            <i class="fa fa-eye"></i>
-            Mostrar desativados
+    <div class="admin-titulo-principal">
+        @ViewBag.Title
+        <a class="btn btn-success btn-sm float-right" href="@Url.Action("Criar", "MetodoPagamento")">
+            <i class="fa fa-plus"></i>
+            Criar
         </a>
-    }
-</div>
+        @if (Desativados)
+        {
+
+            <a class="btn btn-dark btn-sm float-right" style="margin-right:0.5em;" data-toggle="collapse" href="#TabelaDesativados" role="button" aria-expanded="false" aria-controls="TabelaDesativados">
+                <i class="fa fa-eye"></i>
+                Mostrar desativados
+            </a>
+        }
+    </div>
 
 <table class="table table-hover table-sm">
     <thead class="thead-dark">
@@ -37,13 +37,13 @@
             if (item.Status == 1)
             {
                 <tr>
-                    <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.BandeiraCartaoID }, new { @class = "btn btn-link text-dark" })</td>
+                    <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.MetodoPagamentoID }, new { @class = "btn btn-link text-dark" })</td>
                     <td>@item.CriadoEm</td>
                     <td>
-                        <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-warning btn-sm">
+                        <a href="@Url.Action("Editar", "MetodoPagamento", new { id = item.MetodoPagamentoID })" class="btn btn-warning btn-sm">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="@Url.Action("Excluir", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-danger btn-sm">
+                        <a href="@Url.Action("Excluir", "MetodoPagamento", new { id = item.MetodoPagamentoID })" class="btn btn-danger btn-sm">
                             <i class="fa fa-remove"></i>
                         </a>
                     </td>
@@ -67,13 +67,13 @@
                             if (item.Status == 0)
                             {
                                 <tr class=" table-danger">
-                                    <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.BandeiraCartaoID }, new { @class = "btn btn-link text-dark" })</td>
+                                    <td>@Html.ActionLink(item.Descricao, "Detalhes", new { id = item.MetodoPagamentoID }, new { @class = "btn btn-link text-dark" })</td>
                                     <td>@item.CriadoEm</td>
                                     <td>
-                                        <a href="@Url.Action("Editar", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-warning btn-sm">
+                                        <a href="@Url.Action("Editar", "MetodoPagamento", new { id = item.MetodoPagamentoID })" class="btn btn-warning btn-sm">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="@Url.Action("Excluir", "BandeiraCartao", new { id = item.BandeiraCartaoID })" class="btn btn-success btn-sm">
+                                        <a href="@Url.Action("Excluir", "MetodoPagamento", new { id = item.MetodoPagamentoID })" class="btn btn-success btn-sm">
                                             <i class="fa fa-undo"></i>
                                         </a>
                                     </td>
@@ -85,4 +85,5 @@
             </div>
         </div>
     </div>
+    
 }

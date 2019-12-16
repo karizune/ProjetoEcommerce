@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Dominio.Interfaces.Base
         IEnumerable<T> GetAll();
         T Get(int id);
         void Add(T t);
-        T Update(T t);
+        void Update(T t);
         void Delete(int id);
     }
 }

@@ -183,7 +183,6 @@
     <Compile Include="Controllers\Pagamento\MetodoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\DemoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagarController.cs" />
-    <Compile Include="Controllers\Pagamento\UsuarioPagamentoController.cs" />
     <Compile Include="Controllers\TipoCartaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -271,9 +270,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Carteira\ListarTodos.cshtml" />
+    <Content Include="Views\Carteira\Index.cshtml" />
     <Content Include="Views\Carteira\Detalhes.cshtml" />
-    <Content Include="Views\MetodoPagamento\ListarTodos.cshtml" />
+    <Content Include="Views\MetodoPagamento\Index.cshtml" />
     <Content Include="Views\BandeiraCartao\Index.cshtml" />
     <Content Include="Views\Pagar\Pagar.cshtml" />
     <Content Include="Views\DemoPagamento\Index.cshtml" />
@@ -301,6 +300,9 @@
     <Content Include="Views\UsuarioPagamento\Pagar.cshtml" />
     <Content Include="Views\BandeiraCartao\Editar.cshtml" />
     <Content Include="Views\BandeiraCartao\Detalhes.cshtml" />
+    <Content Include="Views\MetodoPagamento\Criar.cshtml" />
+    <Content Include="Views\MetodoPagamento\Detalhes.cshtml" />
+    <Content Include="Views\MetodoPagamento\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

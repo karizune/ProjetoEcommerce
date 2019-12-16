@@ -36,11 +36,11 @@ namespace ProjetoEcommerce.Controllers.Pagamento
             {
                 new MetodoPagamento
                 {
-                    Descricao = "Boleto",MetodoPagamentoID=0,Glyphicon="glyphicon glyphicon-barcode",Action="Boleto"
+                    Descricao = "Boleto",MetodoPagamentoID=0
                 },
                 new MetodoPagamento
                 {
-                     Descricao = "Cartão de crédito",MetodoPagamentoID=1,Glyphicon="glyphicon glyphicon-credit-card",Action = "Cartao"
+                     Descricao = "Cartão de crédito",MetodoPagamentoID=1
                 }
             };
 

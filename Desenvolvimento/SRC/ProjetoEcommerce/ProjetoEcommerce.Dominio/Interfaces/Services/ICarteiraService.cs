@@ -4,7 +4,7 @@ using ProjetoEcommerce.Dominio.Interfaces.Services.Base;
 
 namespace ProjetoEcommerce.Dominio.Interfaces.Services
 {
-    public interface ICartaoService : IServiceBase<Cartao>
+    public interface ICarteiraService : IServiceBase<Carteira>
     {
     }
 }
