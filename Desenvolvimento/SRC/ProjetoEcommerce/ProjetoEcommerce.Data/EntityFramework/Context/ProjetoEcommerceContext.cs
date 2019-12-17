@@ -57,7 +57,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Context
             modelBuilder.Configurations.Add(new FeedbackProdutoConfiguration());
 
 
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
         }
 
 

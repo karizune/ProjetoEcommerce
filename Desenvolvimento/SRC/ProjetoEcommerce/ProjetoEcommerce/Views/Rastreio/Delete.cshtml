@@ -47,8 +47,10 @@
 
     </dl>
 
-    @using (Html.BeginForm("Delete", "Rastreio")) {
+    @using (Html.BeginForm("DeleteConfirm", "Rastreio")) {
         @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(f => f.IdRastreio)
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |

@@ -3,14 +3,16 @@
 @using (Html.BeginForm("Create", "Rastreio")) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
+
+        @Html.HiddenFor(model => model.IdRastreio)
+        @Html.HiddenFor(model => model.DataCadastro)
+
+
         <h4>RastreioViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        
-        @Html.HiddenFor(model => model.IdRastreio)
-        @Html.HiddenFor(model => model.DataCadastro)
 
         <div class="form-group">
             @Html.LabelFor(model => model.CodigoRastreio, htmlAttributes: new { @class = "control-label col-md-2" })

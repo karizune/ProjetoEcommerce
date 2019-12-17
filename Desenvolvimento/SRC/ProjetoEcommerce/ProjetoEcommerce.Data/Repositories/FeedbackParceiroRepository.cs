@@ -10,18 +10,20 @@ namespace ProjetoEcommerce.Data.Repositories
     {
         public IEnumerable<FeedbackParceiro> GetAtivosPorNomeUsuario(string nome)
         {
-            return Db.Set<FeedbackParceiro>()
-                .Include("Usuario")
-                .Include("Parceiro")
-                .Where(f => f.Usuario.Nome.Contains(nome));
+            //return Db.Set<FeedbackParceiro>()
+            //    .Include("Usuario")
+            //    .Include("Parceiro")
+            //    .Where(f => f.Usuario.Nome.Contains(nome));
+            return null;
         }
 
         public IEnumerable<FeedbackParceiro> GetFeedbacksAtivosPorUsuario(int IdUsuario)
         {
-            return Db.Set<FeedbackParceiro>()
-                .Include("Usuario")
-                .Include("Parceiro")
-                .Where(f => f.IdUsuario == IdUsuario);   
+            //return Db.Set<FeedbackParceiro>()
+            //    .Include("Usuario")
+            //    .Include("Parceiro")
+            //    .Where(f => f.IdUsuario == IdUsuario);   
+            return null;
         }
         
     }

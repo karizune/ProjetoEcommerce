@@ -12,12 +12,10 @@ namespace ProjetoEcommerce.Controllers
     public class ParceiroController : Controller
     {
         private readonly IParceiroService _parceiroService;
-        private readonly IMapper _mapper;
 
-        public ParceiroController(IParceiroService parceiroService, IMapper mapper)
+        public ParceiroController(IParceiroService parceiroService)
         {
             _parceiroService = parceiroService;
-            _mapper = mapper;
         }
 
         // GET: Parceiro
@@ -51,11 +49,15 @@ namespace ProjetoEcommerce.Controllers
             try
             {
                 var mapped = MapperHelper.Container().Map<ParceiroViewModel, Parceiro>(ent);
+                mapped.DataCadastro = DateTime.Now;
+                mapped.TelefoneParceiro_1 = "";
+                mapped.IdUsuario = 1;
+
                 _parceiroService.Add(mapped);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }
@@ -72,16 +74,17 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: Parceiro/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ParceiroViewModel ent)
         {
             try
             {
-                var ent = _parceiroService.GetOneBy(f => f.IdParceiro == id);
-                var mapped = MapperHelper.Container().Map<Parceiro, ParceiroViewModel>(ent);
+                var mapped = MapperHelper.Container().Map<ParceiroViewModel, Parceiro> (ent);
+                mapped.TelefoneParceiro_1 = "";
+                _parceiroService.Update(mapped);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }

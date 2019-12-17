@@ -48,6 +48,7 @@ namespace ProjetoEcommerce.Controllers
             try
             {
                 var mapped = MapperHelper.Container().Map<RastreioViewModel, Rastreio>(ent);
+                mapped.DataCadastro = DateTime.Now;
                 _rastreioService.Add(mapped);
 
                 return RedirectToAction("Index");
@@ -69,12 +70,12 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: Rastreio/Edit/5
         [HttpPost]
-        public ActionResult EditConfirm(int id)
+        public ActionResult EditConfirm(RastreioViewModel ent)
         {
             try
             {
-                var ent = _rastreioService.GetOneBy(f => f.IdRastreio == id);
-                _rastreioService.Update(ent);
+                var mapped = MapperHelper.Container().Map<RastreioViewModel, Rastreio>(ent);
+                _rastreioService.Update(mapped);
 
                 return RedirectToAction("Index");
             }
@@ -95,16 +96,16 @@ namespace ProjetoEcommerce.Controllers
 
         // POST: Rastreio/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, RastreioViewModel ent)
+        public ActionResult DeleteConfirm(int IdRastreio)
         {
             try
             {
-                var mapped = MapperHelper.Container().Map<RastreioViewModel, Rastreio>(ent);
-                _rastreioService.Delete(mapped);
+                var ent = _rastreioService.GetOneBy(f => f.IdRastreio == IdRastreio);
+                _rastreioService.Delete(ent);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }

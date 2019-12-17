@@ -68,6 +68,7 @@ namespace ProjetoEcommerce.Controllers
             var ent = new FeedbackParceiroViewModel();
             ent.Usuarios = _usuarioService.GetAll();
             ent.Parceiros = _parceiroService.GetAll();
+
             return View(ent);
         }
 
