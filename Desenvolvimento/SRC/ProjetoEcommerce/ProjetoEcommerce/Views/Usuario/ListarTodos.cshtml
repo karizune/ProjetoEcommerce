@@ -13,22 +13,16 @@
     </a>
 </div>
 
-<div class="admin-titulo-principal">
-    @ViewBag.Title
-    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Usuario")">
-        <i class="fa fa-plus"></i>
-        INCLUIR
-    </a>
-</div>
-
-<table class="table table-striped">
-    <thead>
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
         <tr>
             <th>Usuario ID</th>
             <th>Usuário</th>
             <th>Status</th>
             <th>Criado em</th>
             <th>Atualizado em</th>
+            <th>Ação
+            <th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +34,11 @@
                 <td>@item.Status</td>
                 <td>@item.CriadoEm</td>
                 <td>@item.AtualizadoEm</td>
+                <td>
+                    <a href="@Url.Action("Excluir", "Usuario" , new { item.UsuarioID})" class="btn btn-danger btn-sm">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>
