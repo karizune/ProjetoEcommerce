@@ -1,5 +1,5 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Relatorio
-@model System.Collections.Generic.List<TipoCampo>
+@model System.Collections.Generic.IEnumerable<TipoCampo>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
@@ -14,8 +14,8 @@
     </a>
 </div>
 
-<table class="table table-striped">
-    <thead>
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
         <tr>
             <th>Tipo Campo ID</th>
             <th>Descrição</th>
@@ -23,19 +23,25 @@
             <th>Status</th>
             <th>Criado em</th>
             <th>Atualizado em</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.TipoCampoID</td>
-                <td>@item.Descricao</td>
-                <td>@item.Usuario</td>
-                <td>@item.Status</td>
-                <td>@item.CriadoEm</td>
-                <td>@item.AtualizadoEm</td>
-            </tr>
+        <tr>
+            <td>@item.TipoCampoID</td>
+            <td>@item.Descricao</td>
+            <td>@item.Usuario</td>
+            <td>@item.Status</td>
+            <td>@item.CriadoEm</td>
+            <td>@item.AtualizadoEm</td>
+            <td>
+                <a href="@Url.Action("Excluir", "TipoCampo" , new { item.TipoCampoID})" class="btn btn-danger btn-sm">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

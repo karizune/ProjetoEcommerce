@@ -61,7 +61,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
             ent.Usuario = "Fellipe";
-            ent.Status = 2;
+            ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
             db.TipoCampo.Add(ent);
@@ -80,7 +80,7 @@ namespace ProjetoEcommerce.Controllers
             db.Entry<TipoCampo>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
-            return Redirect("Index");
+            return Redirect("ListarTodos");
         }
     }
 }

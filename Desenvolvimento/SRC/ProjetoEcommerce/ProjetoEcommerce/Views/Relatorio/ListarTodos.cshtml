@@ -3,11 +3,12 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Registros";
 }
 
 <div class="admin-titulo-principal">
     @ViewBag.Title
-    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Campo")">
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "Relatorio")">
         <i class="fa fa-plus"></i>
         INCLUIR
     </a>

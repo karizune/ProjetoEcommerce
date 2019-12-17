@@ -21,7 +21,8 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult ListarTodos()
         {
-            var CamposRelatorios = 
+
+            var CamposRelatorios =
                 new ProjetoEcommerceContext()
                 .CampoRelatorio
                 .Where(f => f.Status == 1);
