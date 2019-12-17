@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,28 +11,34 @@
 <body>
     @if (ViewBag.ShowMenu == true)
     {
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Comprei</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="/">Início</a>
-            <a class="p-2 text-dark" href="@Url.Action("Index", "TipoCartao")">Tipo de Cartão</a>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <h5 class="my-0 mr-md-auto font-weight-normal">Comprei</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="/">Início</a>
+                <a class="p-2 text-dark" href="@Url.Action("Index", "TipoCartao")">Tipo de Cartão</a>
 
-        </nav>
-        @if (Session["UsuarioId"] == null)
-        {
-            <a class="btn btn-outline-primary" href="@Url.Action("Entrar", "Autenticacao")">
-                <i class="fa fa-user"></i>
-                Entrar
-            </a>
-        }
-        @if (Session["UsuarioId"] != null)
-        {
-            <span>Olá, </span>
-            <span> @Session["UsuarioNome"]</span>
-            <img src="~/Content/img/@Session["Avatar"]" height="30" class="rounded-bottom" />
-            <a class="p-2 text-dark" href="@Url.Action("Sair", "Autenticacao")">Sair</a>    
-        }
-    </div>
+            </nav>
+            @if (Session["UsuarioId"] == null)
+            {
+                <a class="btn btn-outline-primary" href="@Url.Action("Entrar", "Autenticacao")">
+                    <i class="fa fa-user"></i>
+                    Entrar
+                </a>
+            }
+            @if (Session["UsuarioId"] != null)
+            {
+                <span>Olá, </span>
+                <span> @Session["UsuarioNome"]</span>
+                <img src="~/Content/img/@Session["Avatar"]" height="30" class="rounded-bottom" />
+                <div class="dropdown">
+
+                    <a class="p-2 text-dark" href="@Url.Action("Sair", "Autenticacao")">Sair</a>
+                    <a class="p-2 text-dark" href="@Url.Action("Details", "Fisico", new { id = @Session["UsuarioId"] })">Perfil</a>
+                    <a class="p-2 text-dark" href="@Url.Action("Sair", "Autenticacao")">Configurações</a>
+
+                </div>
+            }
+        </div>
     }
 
     <div class="container body-content">

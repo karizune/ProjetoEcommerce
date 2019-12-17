@@ -19,7 +19,10 @@ namespace ProjetoEcommerce.Controllers
             _fisicoService = fisicoService;
             _juridicoService = juridicoService;
         }
-
+        public ActionResult Criar()
+        {
+            return View();
+        }
         // GET: Autenticacao
         public ActionResult Entrar()
         {

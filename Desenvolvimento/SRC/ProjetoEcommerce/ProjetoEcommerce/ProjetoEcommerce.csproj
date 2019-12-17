@@ -214,6 +214,8 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\avatar.png" />
+    <Content Include="Content\img\pessoa_fisica.png" />
+    <Content Include="Content\img\pessoa_jurica.png" />
     <Content Include="Content\img\voltesempre.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -314,12 +316,14 @@
     <Content Include="Views\Sexo\Edit.cshtml" />
     <Content Include="Views\Sexo\Details.cshtml" />
     <Content Include="Views\Cadastro\index.cshtml" />
+    <Content Include="Views\Autenticacao\Criar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\App_LocalResources\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Pagamento\" />
+    <Folder Include="Views\Tipo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

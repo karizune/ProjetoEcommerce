@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Criar";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container pt-5">
+    <h2>Criar conta do tipo:</h2>
+    <hr/>
+    <div style="text-align: center; padding-top: 100px;">
+    <table style="width: 100%;">
+        <tbody>
+            <tr>
+                <td style="width: 50%;">
+                    <img src="~/Content/img/pessoa_fisica.png" />
+                    <a href="@Url.Action("Create", "Fisico")" class="btn btn-danger btn-lg btn-block" role="button">Cadastre-se</a>
+                </td>
+                <td style="width: 50%;">
+                    <img src="~/Content/img/pessoa_jurica.png" />
+                    <a href="@Url.Action("Create", "Juridico")" class="btn btn-dark btn-lg btn-block" role="button">Cadastre-se</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
