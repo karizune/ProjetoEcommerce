@@ -9,7 +9,7 @@
 {
     <div class="form-group">
         <label for="inputAddress">Usuario</label>
-        @Html.TextBoxFor(modelItem => Model.NomeUsuario)
+        @Html.TextBoxFor(modelItem => Model.NomeUsuario, new { @class = "form-control", @placeholder = "Digite aqui o nome do Usuario parça" })
     </div>
 
     <input type="submit" value="SALVAR ESSE USUARIO AI " class="btn btn-success btn-block" />
