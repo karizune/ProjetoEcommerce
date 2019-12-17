@@ -1,80 +1,59 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
 @using ProjetoEcommerce.Models.ViewModels
-@model MetodoPagamentoViewModel
+@model PagarCartaoViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Método de pagamento";
+
     ViewBag.ShowMenu = true;
-    int i = 1;
-
+    ViewBag.UsuarioLogado = true;
+    ViewBag.Usuario = Model.Usuario.Nome;
+    ViewBag.SaldoCarteira = Model.Usuario.Carteira.Saldo;
 }
-<div id="accordion" class="float-left" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
-    <div class="float-left">
-        <div class="btn-group-vertical" role="group" arial-label="parcelado">
-            <h4>Em quantas parcelas?</h4>
-            <button type="button" class="btn btn-default btn-lg" value="1" name="1x">1x </button>
-            <button type="button" class="btn btn-default btn-lg" value="2" name="2x">2x</button>
-            <button type="button" class="btn btn-default btn-lg" value="3" name="3x">3x</button>
-            <button type="button" class="btn btn-default btn-lg" value="4" name="4x">4x</button>
-            <button type="button" class="btn btn-default btn-lg" value="5" name="5x">5x</button>
-            <button type="button" class="btn btn-default btn-lg" value="6" name="6x">6x</button>
-            <button type="button" class="btn btn-default btn-lg" value="7" name="7x">7x</button>
-            <button type="button" class="btn btn-default btn-lg" value="8" name="8x">8x</button>
-            <button type="button" class="btn btn-default btn-lg" value="9" name="9x">9x</button>
-            <button type="button" class="btn btn-default btn-lg" value="10" name="10x">10x</button>
-            <button type="button" class="btn btn-default btn-lg" value="11" name="11x">11x</button>
-            <button type="button" class="btn btn-default btn-lg" value="12" name="12x">12x</button>
-            <button type="button" class="btn btn-default btn-lg" value="13" name="13x">13x</button>
-            <button type="button" class="btn btn-default btn-lg" value="14" name="14x">14x</button>
-            <button type="button" class="btn btn-default btn-lg" value="15" name="15x">15x</button>
-            <br /><br /><br /><br />
-        </div>
-    </div>
-</div>
+    <div class="w-75 float-left">
+        @if (Model.Usuario.CartoesUsuario.Count > 0)
+        {
 
-<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
-    @foreach (var item in Model.ListaProdutos)
-    {
-        <div class="card text-white bg-primary" style="margin-bottom:0.4em">
-            <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
-                <h5 class="mb-0">
-                    <button class="btn btn-link text-white collapsed" data-toggle="collapse" data-target="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
-                        <div class="float-left">
-                            @item.Nome
-                            (@item.Quantidade)
-                        </div>
-                    </button>
-                    @if (i == 1)
-                    {
-                        <span class="float-right" style="font-size:10pt; margin-top:0.7em">R$@item.PrecoTotal</span>
-                    }
-                    else
-                    {
-                        <span class="float-right" style="font-size:10pt;margin-top:0.7em">+ R$@item.PrecoTotal</span>
-                    }
-                </h5>
-            </div>
-            <div id="@("collapse" + i.ToString())" class="collapse" aria-labelledby="@("heading" + i.ToString())" data-parent="#accordion">
-                <div class="card-body bg-white">
-                    <img src="@item.UrlImagem" alt="Imgem do Produto @item.Nome " class="img-thumbnail float-left" style="height:50%; width:50%; object-fit: contain; margin-top:1em;margin-bottom:1em">
-                    <p style="width:49%; margin-top:25%;margin-bottom:25%" class="text-center text-dark float-right">@item.DescricaoProduto</p>
-                    <table class="table" style="border-top:hidden">
-                        <thead>
-                            <tr><th></th><th></th><th></th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Preço</td><td></td><td>@item.Preco</td></tr>
-                            <tr><td>Quantidade</td><td style="text-align:right"></td><td>@item.Quantidade</td></tr>
-                            <tr><th>Preço total</th><td></td><th>@item.PrecoTotal</th></tr>
-                        </tbody>
-                    </table>
+        }
+        else
+        {
+            <h3 class="font-weight-normal">Opa, parece que você não tem nenhum cartão cadastrado!</h3>
+            <h4 class="font-weight-light">Sem problemas, cadastre um agora:</h4>
+            using (Html.BeginForm("CartaoSucesso", "Pagar", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label for="inputAddress">UsuarioID</label>
+                    @Html.TextBoxFor(modelItem => Model.Cartao.UsuarioID, new { @class = "form-control ", @placeholder = "Digite o ID de usuário do cartão" })
                 </div>
-            </div>
-        </div>
-        i++;
-    }
-    <hr style="margin-top:10px;margin-bottom:10px;" />
-    <div class="card text-white bg-info mb-3">
-        <div class="card-header">Você vai pagar: <div class="float-right" style="font-size:12pt;"><b>R$@Model.PrecoTotalVenda</b></div></div>
+                <div class="form-group">
+                    <label for="inputAddress">BandeiraCartaoID</label>
+                    @Html.TextBoxFor(modelItem => Model.Cartao.BandeiraCartaoID, new { @class = "form-control", @placeholder = "Digite o ID da bandeira do cartão" })
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">NomeTitular</label>
+                    @Html.TextBoxFor(modelItem => Model.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Titular do cartão" })
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Número</label>
+                    @Html.TextBoxFor(modelItem => Model.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
+                </div>
+                <div class="form-group ">
+                    <label for="inputAddress">Vencimento</label>
+                    @Html.TextBoxFor(modelItem => Model.Cartao.Vencimento, new { @class = "form-control", @placeholder = "MM/AA" })
+                </div>
+                <div class="form-group ">
+                    <label for="inputAddress">CVC</label>
+                    @Html.TextBoxFor(modelItem => Model.Cartao.CVC, new { @class = "form-control", @placeholder = "Digite o CVC do cartão" })
+                </div>
+                <a href="@Url.Action("Metodo","Pagar",new { id=Model.Usuario.UsuarioID-1})" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+                <input type="submit" value="SALVAR" class="btn btn-success btn-block w-50 float-lg-right" />
+            }
+            <br /><br /><br />
+
+        }
+
     </div>
-    <br /><br /><br />@*esses 3 <br/> é para corrigir o bug do layout do renato de maneira porca*@
+<div class="w-25 float-right">
+    <h3 class="font-weight-normal"></h3>
+    <h4 class="font-weight-light">Sem probelemas, cadastre um agora:</h4>
 </div>

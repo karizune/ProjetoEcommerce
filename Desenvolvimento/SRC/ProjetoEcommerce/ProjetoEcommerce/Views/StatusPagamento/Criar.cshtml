@@ -1,0 +1,17 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.StatusPagamento
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("Criar", "StatusPagamento", FormMethod.Post))
+{
+    
+    <div class="form-group">
+        <label for="inputAddress">Descrição</label>
+        @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Digite a descrição do status de pagamento" })
+
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

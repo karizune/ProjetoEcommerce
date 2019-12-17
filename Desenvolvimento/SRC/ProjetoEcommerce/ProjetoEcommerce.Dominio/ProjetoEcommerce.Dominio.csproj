@@ -60,6 +60,8 @@
     <Compile Include="Interfaces\Repositories\ICarteiraRepository.cs" />
     <Compile Include="Interfaces\Repositories\IMetodoPagamentoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRastreamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IStatusPagamentorepository.cs" />
+    <Compile Include="Interfaces\Services\IStatusPagamentoService.cs" />
     <Compile Include="Interfaces\Repositories\ITipoCartaoRepository.cs" />
     <Compile Include="Interfaces\Services\Base\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\IBandeiraCartaoService.cs" />

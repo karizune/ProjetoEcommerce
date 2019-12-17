@@ -1,0 +1,40 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.StatusPagamento
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Detalhes de Status de Pagamento";
+}
+
+    <h2>@ViewBag.Title</h2>
+@Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-dark", @style = "margin:1em 0em 1em 0em" })
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">@Model.StatusPagamentoID</th>
+        </tr>
+        <tr>
+            <th scope="row">Descrição</th>
+            <td>@Model.Descricao</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Criado em</th>
+            <td>@Model.CriadoEm</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Atualizado em</th>
+            <td>@Model.AtualizadoEm</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Usuário</th>
+            <td>@Model.Usuario</td>
+        </tr>
+        <tr>
+            <th scope="row">Status</th>
+            <td>@Model.Status</td>
+        </tr>
+    </tbody>
+</table>

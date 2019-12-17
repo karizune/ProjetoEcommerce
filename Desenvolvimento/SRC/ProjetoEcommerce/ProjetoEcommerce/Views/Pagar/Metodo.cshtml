@@ -1,20 +1,25 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Pagamento
 @using ProjetoEcommerce.Models.ViewModels
-@model MetodoPagamentoViewModel
+@model PagarMetodoViewModel
 @{
     ViewBag.Title = "Método de pagamento";
     int i = 1;
     ViewBag.ShowMenu = true;
+    ViewBag.UsuarioLogado = true;
+    ViewBag.Usuario = Model.Usuario.Nome;
+    ViewBag.SaldoCarteira = Model.Usuario.Carteira.Saldo;
 
 }
 
-<h3 class="text-center">Método de pagamento</h3>
+<h3 class="text-center font-weight-normal">Método de pagamento</h3>
+<h4 class="font-weight-light float-left">Produtos</h4>
+<h4 class="font-weight-light float-right">Selecione um método de pagamento.</h4>
 
-@*lado esquerdo da tela feito por Gabriel e alterado por Luan*@
-<div id="accordion" class="float-left" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
+<div id="accordion" class="float-left" style="clear:left; margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%; border-right:1px solid rgb(230, 230, 230)">
+
     @foreach (var item in Model.ListaProdutos)
     {
-        <div class="card text-white bg-primary" style="margin-bottom:0.4em">
+        <div class="card text-white bg-secondary" style="margin-bottom:0.4em">
             <div class="card-header" style="max-height:10em" id="@("heading" + i.ToString())">
                 <h5 class="mb-0">
                     <button class="btn btn-link text-white collapsed" data-toggle="collapse" data-target="@("#collapse" + i.ToString())" aria-expanded="false" aria-controls="@("collapse" + i.ToString())">
@@ -23,9 +28,6 @@
                             (@item.Quantidade)
 
                         </div>
-
-
-
                     </button>
                     @if (i == 1)
                     {
@@ -60,191 +62,15 @@
     <div class="card text-white bg-info mb-3">
         <div class="card-header">Você vai pagar: <div class="float-right" style="font-size:12pt;"><b>R$@Model.PrecoTotalVenda</b></div></div>
     </div>
-    <br /><br /><br />@*esses 3 <br/> é para corrigir o bug do layout do renato de maneira porca*@
+    <br /><br /><br />
 </div>
 
-@*Botao onde se tem um formulário de cartão, acho que deveria aparecer apenas se o usuario não possuir um cartão
-    caso o usuario tenha um, deveria mostrar o cartão já cadastrado e possivelmente "em quantas parcelas realizar"... algo assim*@
-<div id="accordion" class="float-right" style=" margin-top:10px; width:49%; margin-right:1%;padding-right: 1%; height:90%;">
 
-    <div class="card" style="margin-bottom:0.4em">
-        <div class="card-header" style="max-height:10em" id="HeadingCartao">
-            <h5 class="mb-0">
-                <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseCartao" aria-expanded="false" aria-controls="collapseCartao">
-                    <div class="float-left">
-                        Cartão de crédito
-                    </div>
-                </button>
-                <div class="float-right">
-                    @*ignora o aviso ali, o site funciona normalmente mesmo com o aviso!!!!!!*@
-                    @if (Model.usuario.CartoesUsuario.Count > 0)
-                    {
-                        @*falta fazer o botao ter um link de acesso para pagamento usando a carteira*@
-                        @*<button type="button" class="btn btn-primary">@Html.ActionLink("Comprar Agora!", "PagamentoCartao", new { id = Model.Cartao.UsuarioID }, new { @class = "text-light" })</button>*@
-
-                        <a href="#" id="button-CartaoCredito-Pagar" data-url="@Url.Action("PagamentoCartao", "Pagar")" class="btn btn-sm btn-primary" data-data="@Newtonsoft.Json.JsonConvert.SerializeObject(Model)">
-                            Comprar Agora!
-                        </a>
-
-                    }
-                    else
-                    {
-                        <button type="button" class="btn btn-secondary" disabled="disabled">Comprar Agora!</button>
-                    }
-                </div>
-            </h5>
-        </div>
-        <div id="collapseCartao" class="collapse" aria-labelledby="HeadingCartao" data-parent="#accordion">
-            <div class="card-body bg-white">
-                @if (Model.usuario.CartoesUsuario.Count == 0)
-                {
-                    using (Html.BeginForm("Pagar", "PagamentoCartao", FormMethod.Post))
-                    {
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Nome do Titular" })
-
-                        </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
-
-                        </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.CVC, new { @class = "form-control float-left", @placeholder = "CVC", @style = "width:49%;margin-bottom: 1em" })
-
-                        </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(c => c.Cartao.Vencimento, new { @class = "form-control float-right", @placeholder = "Vencimento", @style = "width:49%;margin-bottom: 1em" })
-
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Confirmar" class="btn btn-primary" style="clear:both" />
-
-                        </div>
-                    }
-                }
-                else
-                {
-                    @*eu fiz com variavel estática por que aqui em casa não tenho acesso ao banco de dados e eu n sei como funça a entity framework do renato ;-;*@
-                    <table border="0" style="padding: 2px;">
-                        <thead>
-                            <tr>
-                                <td>
-                                    @if (Model.usuario.CartoesUsuario[1].BandeiraCartaoID == 1)
-                                    {
-                                        <p>
-                                        </p>
-                                    }
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Nome do Titular: @Model.usuario.CartoesUsuario[1].NomeTitular</td>
-                            </tr>
-                            <tr>
-                                <td>Numero do Cartão: @Model.usuario.CartoesUsuario[1].Numero</td>
-                            </tr>
-                            <tr>
-                                <td>Vencimento: @Model.usuario.CartoesUsuario[1].Vencimento</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="col-7'">
-                                        @Html.TextBoxFor(c => c.usuario.CartoesUsuario[1].CVC, new { @class = "form-control float-left", @placeholder = "CVC", @style = "width:49%;margin-bottom: 1em" })
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                }
-            </div>
-        </div>
-    </div>
-
-
-    @*o botao de boleto onde tem uma imagem de boleto dentro... ja deu pra entender oque fazer nessa tela*@
-
-
-    <div class="card" style="margin-bottom:0.4em">
-        <div class="card-header" style="max-height:10em" id="HeadingBoleto">
-            <h5 class="mb-0">
-                <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseBoleto" aria-expanded="false" aria-controls="collapseBoleto">
-                    <div class="float-left">
-                        Boleto
-                    </div>
-                </button>
-                <div class="float-right">
-                    <button type="button" class="btn btn-primary">Comprar Agora!</button>
-                </div>
-            </h5>
-        </div>
-        <div id="collapseBoleto" class="collapse" aria-labelledby="HeadingBoleto" data-parent="#accordion">
-            <div class="card-body bg-white">
-                <p><img src="https://www.rtek.com.br/wp-content/uploads/2017/08/boletobancario.jpg" width="400" /></p>
-            </div>
-        </div>
-    </div>
-
-
-    @* this is a button whith a dropdown, contains the get value of $BRL of the user account "NOT HAVE ONE"*@
-    @*eu nao sei o por que mas a carteira funciona os dados a partir do numero 1*@
-
-    <div class="card" style="margin-bottom:0.4em">
-        <div class="card-header" style="max-height:10em" id="HeadingCarteira">
-            <h5 class="mb-0">
-                <button class="btn btn-link text-dark collapsed" data-toggle="collapse" data-target="#collapseCarteira" aria-expanded="false" aria-controls="collapseCarteira">
-                    <div class="float-left">
-                        Carteira
-                    </div>
-                </button>
-                <div class="float-right">
-                    @*ignora o aviso ali, o site funciona normalmente mesmo com o aviso!!!!!!
-                        falta fazer o botao ter um link de acesso para pagamento usando a carteira*@
-                    @if (Model.usuario.CarteiraUsuario[1].Saldo >= Model.PrecoTotalVenda)
-                    {
-
-                        <button type="button" class="btn btn-primary">Comprar Agora!</button>
-                    }
-                    else
-                    {
-                        <button type="button" class="btn btn-primary">Adicionar Dinheiro!</button>
-                    }
-                </div>
-            </h5>
-        </div>
-        <div id="collapseCarteira" class="collapse" aria-labelledby="HeadingCarteira" data-parent="#accordion">
-            <div class="card text-white bg-info mb-3">
-                <div class="card-header">Quantia disponível em carteira: <div class="float-right" style="font-size:12pt;"><b>R$@Model.usuario.CarteiraUsuario[1].Saldo</b></div></div>
-            </div>
-            @if (Model.usuario.CarteiraUsuario[1].Saldo < Model.PrecoTotalVenda)
-            {
-                @*mostra para o usuario que não é possivel usar a carteira para realizar compras com o atual saldo*@
-                <p class="text-center">Você não possui dinheiro suficiente para efetuar esta compra.</p>
-            }
-            else
-            {
-                <p class="text-center">Você possui dinheiro disponivel para efetuar esta compra!</p>
-                <p></p>
-            }
-        </div>
-
-    </div>
+<div class="float-right" style="clear:right;width:49%">
+    @foreach (var item in Model.MetodosPagamento)
+    {
+        <a href="@Url.Action(item.Action, "Pagar",new { id=Model.Usuario.UsuarioID-1})" class="btn btn-primary btn-block">@item.Descricao <i class="@item.FA"></i></a>
+    }
 </div>
 
 <div class="clearfix"></div>
-
-@section scripts{
-
-    <script>
-        $(document).on("click", "#button-CartaoCredito-Pagar", function (e) {
-            const $self = $(this);
-            const url = $self.data("url");
-            const data = $self.data("data");
-
-            $.post(url, data);
-
-            e.stopImmediatePropagation();
-        });
-    </script>
-
-}

@@ -15,7 +15,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
             ToTable("StatusPagamento", "pagamento");
             HasKey(x => x.StatusPagamentoID);
             Property(x => x.StatusPagamentoID)
-                .HasColumnName(@"StatusPagametnoID")
+                .HasColumnName(@"StatusPagamentoID")
                 .HasColumnType("int")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

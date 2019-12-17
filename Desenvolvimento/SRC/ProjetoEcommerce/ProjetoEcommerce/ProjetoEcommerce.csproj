@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Pagamento\BoletoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\BandeiraCartaoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\CartaoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\Cartao_TipoController.cs" />
@@ -185,12 +186,13 @@
     <Compile Include="Controllers\Pagamento\DemoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagarController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\TipoCartaoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\StatusPagamentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\BaseViewModel.cs" />
-    <Compile Include="Models\ViewModels\MetodoPagamentoViewModel.cs" />
-    <Compile Include="Models\ViewModels\PagamentoCartaoViewModel.cs" />
+    <Compile Include="Models\ViewModels\PagarCarteiraViewModel.cs" />
+    <Compile Include="Models\ViewModels\PagarMetodoViewModel.cs" />
+    <Compile Include="Models\ViewModels\PagarCartaoViewModel.cs" />
     <Compile Include="Models\ViewModels\PagamentoBoletoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -310,9 +312,15 @@
     <Content Include="Views\Cartao_Tipo\Detalhes.cshtml" />
     <Content Include="Views\Cartao_Tipo\Editar.cshtml" />
     <Content Include="Views\Cartao_Tipo\Index.cshtml" />
+    <Content Include="Views\StatusPagamento\Criar.cshtml" />
+    <Content Include="Views\StatusPagamento\Detalhes.cshtml" />
+    <Content Include="Views\StatusPagamento\Editar.cshtml" />
+    <Content Include="Views\StatusPagamento\Index.cshtml" />
+    <Content Include="Views\Pagar\Carteira.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Boleto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

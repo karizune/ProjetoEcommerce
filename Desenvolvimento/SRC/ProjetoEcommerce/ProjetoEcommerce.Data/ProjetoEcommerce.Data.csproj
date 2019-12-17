@@ -69,6 +69,7 @@
     <Compile Include="Repositories\CarteiraRepository.cs" />
     <Compile Include="Repositories\MetodoPagamentoRepository.cs" />
     <Compile Include="Repositories\RastreamentoRepository.cs" />
+    <Compile Include="Repositories\StatusPagamentoRepository.cs" />
     <Compile Include="Repositories\TipoCartaoRepository.cs" />
   </ItemGroup>
   <ItemGroup />

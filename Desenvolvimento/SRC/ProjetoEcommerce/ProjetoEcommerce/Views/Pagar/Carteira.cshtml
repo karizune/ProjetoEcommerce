@@ -1,0 +1,34 @@
+﻿@using ProjetoEcommerce.Models.ViewModels
+@model PagarCarteiraViewModel
+@{
+    ViewBag.Title = "Pagamento por Carteira";
+    ViewBag.ShowMenu = true;
+    ViewBag.UsuarioLogado = true;
+    ViewBag.Usuario = Model.Usuario.Nome;
+    ViewBag.SaldoCarteira = Model.Usuario.Carteira.Saldo;
+}
+
+<div style="margin: 2em 15% 1em 15%">
+    <div class="card">
+        <div class="card-body">
+            <table class="table" style="border-top:hidden">
+                <tbody>
+                    <tr><td>Saldo Atual</td><td></td><td>@Model.Usuario.Carteira.Saldo</td></tr>
+                    <tr><td>Preço Total</td><td style="text-align:right"></td><td>@Model.PrecoTotalVenda</td></tr>
+                    <tr><th>Saldo após compra</th><td></td><th>@(Model.Usuario.Carteira.Saldo - Model.PrecoTotalVenda)</th></tr>
+                </tbody>
+            </table>
+            @if (Model.Usuario.Carteira.Saldo - Model.PrecoTotalVenda >= 0)
+            {
+                <a href="@Url.Action("CarteiraSucesso", "Pagar", new { id = Model.Usuario.UsuarioID-1 })" class="btn btn-primary float-lg-right">Confirmar Compra <i class="fa fa-arrow-right"></i></a>
+
+            }
+            else
+            {
+                <p>Você não tem saldo suficiente pra efetuar essa compra :(</p>
+            }
+            <a href="@Url.Action("Metodo","Pagar",new { id=Model.Usuario.UsuarioID-1})" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+        </div>
+    </div>
+</div>
+

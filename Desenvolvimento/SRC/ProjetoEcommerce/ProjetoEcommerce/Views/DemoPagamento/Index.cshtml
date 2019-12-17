@@ -3,47 +3,61 @@
     ViewBag.Title = "Pagamento";
 }
 <style>
-    h1{
+    h1 {
         margin-top: 2em;
-        margin-bottom: 1em; 
+        margin-bottom: 1em;
         font-size: 28pt;
     }
+
     #Crud {
         width: 49%;
         border-right: 1px solid black;
     }
-    #Crud table {
+
+        #Crud table {
+            margin: auto;
+        }
+
+            #Crud table tr td {
+                padding: 0.3em;
+            }
+
+    #PagamentoDemo {
+        width: 49%;
+    }
+
+
+    #Grupo {
+        clear: both;
+        width: 50%;
         margin: auto;
+        position: absolute;
+        left: 5%;
+        bottom: 10%
     }
-    #Crud table tr td {
-        padding: 0.3em;
+
+        #Grupo table tr td {
+            padding: 1em;
+        }
+
+        #Grupo table {
+            margin: auto;
+            border-left: 1px solid rgba(128, 128, 128,11)
+        }
+
+    .TituloIn {
+        padding-bottom: 0.5em
     }
-    #PagamentoDemo{
-        width:49%;
+
+    #PagamentoDemo td {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        padding-top: 1em;
+        max-width:25%;
     }
-     #PagamentoDemo p{
+     #PagamentoDemo table tr td{
          text-align:center;
      }
-    #Grupo{
-        clear:both; 
-        width:50%;
-        margin:auto;
-        position:absolute; 
-        left:5%;
-        bottom:10%
-
-    }
-    #Grupo table tr td{
-        padding: 1em;
-        
-    }
-    #Grupo table {
-        margin: auto;
-        border-left:1px solid rgba(128, 128, 128,11)
-    }
-    .TituloIn{
-        padding-bottom:0.5em
-    }
 </style>
 
 @section scripts{
@@ -55,6 +69,9 @@
         $("#Crud table").addClass("text-center")
         $("h2").addClass("text-center font-weight-light TituloIn")
         $("#Grupo table tr td p").addClass("font-weight-light")
+        $("#PagamentoDemo table tr td a").addClass("btn btn-dark btn-block")
+        $("#PagamentoDemo table tr td p").addClass("font-weight-normal")
+        $("#PagamentoDemo table tr td a i").addClass("fa fa-arrow-right")
     </script>
 }
 <h1>@ViewBag.Title</h1>
@@ -72,7 +89,7 @@
                 <td><a href="@Url.Action("Index","BandeiraCartao",null)">BandeiraCartao</a></td>
                 <td><a href="@Url.Action("Index","Boleto",null)">Boleto</a></td>
                 <td><a href="@Url.Action("Index","Cartao",null)">Cartao</a></td>
-                
+
             </tr>
             <tr>
                 <td><a href="@Url.Action("Index","Carteira",null)">Carteira</a></td>
@@ -84,8 +101,24 @@
 </div>
 <div id="PagamentoDemo">
     <h2>Demonstração de Pagamento</h2>
-    <p>Demonstração com dois tipos produtos:</p>
-    @Html.ActionLink("Escolher método de pagamento", "Metodo", "Pagar", null, new { @class = "btn btn-dark btn-block"  })
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <p> Sem cartões, com carteira de R$5000.</p>
+                    <a href="@Url.Action("Metodo", "Pagar", new { id = 0 })"><i></i></a>
+                </td>
+                <td>
+                    <p>Um cartão, R$4000 na carteira. </p>
+                    <a href="@Url.Action("Metodo", "Pagar", new { id = 1 })"><i></i></a>
+                </td>
+                <td>
+                    <p>Três cartões, R$500 na carteira. </p>
+                    <a href="@Url.Action("Metodo", "Pagar", new { id = 2 })"><i></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <div id="Grupo">
     <table>
@@ -105,6 +138,6 @@
         </tr>
 
     </table>
-    
+
 </div>
 

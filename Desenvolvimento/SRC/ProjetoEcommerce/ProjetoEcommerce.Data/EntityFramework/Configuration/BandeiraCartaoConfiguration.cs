@@ -27,6 +27,12 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .IsRequired()
                 .HasMaxLength(50);
 
+            Property(x => x.IconeUrl)
+                .HasColumnName(@"IconeUrl")
+                .HasColumnType("varchar")
+                .IsRequired()
+                .HasMaxLength(200);
+
             Property(x => x.AtualizadoEm)
              .HasColumnName(@"AtualizadoEm")
              .HasColumnType("datetime")

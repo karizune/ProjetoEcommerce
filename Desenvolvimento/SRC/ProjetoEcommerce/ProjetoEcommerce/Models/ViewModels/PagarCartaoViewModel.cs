@@ -1,5 +1,4 @@
 ﻿using ProjetoEcommerce.Dominio.Entidades.Pagamento;
-using ProjetoEcommerce.Dominio.Entidades.Pagamento.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +6,12 @@ using System.Web;
 
 namespace ProjetoEcommerce.Models.ViewModels
 {
-    public class MetodoPagamentoViewModel
+    public class PagarCartaoViewModel
     {
+       
         public IList<ProdutoCarrinho> ListaProdutos { get; set; }
-        public IEnumerable<MetodoPagamento> MetodosPagamento { get; set; }
+        public Usuario Usuario { get; set; }
         public Cartao Cartao { get; set; }
-        public Usuario usuario { get; set; }
-        
         public decimal PrecoTotalVenda
         {
             get
@@ -26,17 +24,15 @@ namespace ProjetoEcommerce.Models.ViewModels
                 return soma;
             }
         }
-
-        public MetodoPagamentoViewModel()
+        public PagarCartaoViewModel()
         {
-            Cartao = new Cartao();
-        }
 
-        public MetodoPagamentoViewModel(IList<ProdutoCarrinho> listaProdutos, IEnumerable<MetodoPagamento> listaMetodos, Usuario Usuario) : this()
+        }
+        public PagarCartaoViewModel(IList<ProdutoCarrinho> listaProdutos, Usuario usuario)
         {
             ListaProdutos = listaProdutos;
-            MetodosPagamento = listaMetodos;
-            usuario = Usuario;
+            Usuario = usuario;
+            
         }
 
     }
