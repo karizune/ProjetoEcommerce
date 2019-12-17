@@ -48,7 +48,7 @@ namespace ProjetoEcommerce.Controllers
         {
             var db = new ProjetoEcommerceContext();
             ent.Usuario = "Carlos";
-            ent.Status = 2;
+            ent.Status = 1;
             ent.CriadoEm = DateTime.Now;
             ent.AtualizadoEm = DateTime.Now;
             db.Registro.Add(ent);
@@ -57,17 +57,17 @@ namespace ProjetoEcommerce.Controllers
             return Redirect("ListarTodos");
         }
 
-        public ActionResult Excluir(int RelatorioID )
+        public ActionResult Excluir(int RelatorioID,int UsuarioID)
         {
             var db = new ProjetoEcommerceContext();
-            var ent = db.Registro.Find(RelatorioID);
+            var ent = db.Registro.Find(RelatorioID, UsuarioID );
             ent.Status = 0;
             ent.AtualizadoEm = DateTime.Now;
             ent.Usuario = "renato";
             db.Entry<Registro>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
-            return Redirect("Index");
+            return Redirect("ListarTodos");
         }
     }
 }
