@@ -7,7 +7,7 @@
 
 @using (Html.BeginForm("Editar", "TipoCartao", FormMethod.Post))
 {
-    @Html.HiddenFor(f => f.MetodoPagamentoID)
+    @Html.HiddenFor(f => f.TipoCartaoID)
     @Html.HiddenFor(f => f.CriadoEm)
     @Html.HiddenFor(f => f.AtualizadoEm)
     @Html.HiddenFor(f => f.Status)
@@ -16,5 +16,5 @@
         <label for="inputAddress">Descrição</label>
         @Html.TextBoxFor(modelItem => Model.Descricao, new { @class = "form-control", @placeholder = "Digite a Descrição do Tipo de Cartão" })
     </div>
-    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block " />
 }

@@ -1,14 +1,15 @@
 ﻿@model ProjetoEcommerce.Models.ViewModels.PagamentoBoletoViewModel
 @{
     ViewBag.Title = "Pagamento por Boleto";
+    ViewBag.ShowMenu = true;
 }
 
+
+<div class= "float-left" style="margin-left:21%;margin-right:21%; width:58%">
 <h2>@ViewBag.Title</h2>
 
-<div class="w-75 float-left">
 
-
-    <h3 class="font-weight-normal">Insira os dados parar gerar o boleto.</h3>
+    <h3 class="font-weight-normal" >Insira os dados parar gerar o boleto.</h3>
 
     @using (Html.BeginForm("BoletoGerado", "Pagar", FormMethod.Post))
     {

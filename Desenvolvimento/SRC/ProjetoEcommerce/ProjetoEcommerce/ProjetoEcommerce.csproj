@@ -335,6 +335,7 @@
     <Content Include="Views\Pagamento\Editar.cshtml" />
     <Content Include="Views\Pagamento\Detalhes.cshtml" />
     <Content Include="Views\Pagamento\Criar.cshtml" />
+    <Content Include="Views\Pagar\Sucesso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

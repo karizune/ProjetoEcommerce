@@ -70,7 +70,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
         }
         public ActionResult Metodo()
         {
-            var listaMetodos = Context.MetodoPagamento.ToList();
+            var listaMetodos = Context.MetodoPagamento.ToList().Where(f=>f.Status==1);
             UsuarioLogado.Carteira = Context.Set<Dominio.Entidades.Pagamento.Carteira>().Find(UsuarioLogado.UsuarioID);
             return View(new PagarMetodoViewModel(ListaProdutos, listaMetodos, UsuarioLogado));
         }
@@ -139,7 +139,7 @@ namespace ProjetoEcommerce.Controllers.Pagamento
 
             return View(view);
         }
-        public ActionResult Sucesso(int id)
+        public ActionResult Sucesso()
         {
             return View();
         }
