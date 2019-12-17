@@ -41,11 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BandeiraCartaoService.cs" />
+    <Compile Include="BoletoService.cs" />
     <Compile Include="Cartao_TipoService.cs" />
     <Compile Include="CarteiraService.cs" />
     <Compile Include="Base\ServiceBase.cs" />
     <Compile Include="CartaoService.cs" />
     <Compile Include="MetodoPagamentoService.cs" />
+    <Compile Include="PagamentoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusPagamentoService.cs" />
     <Compile Include="TipoCartaoService.cs" />

@@ -81,20 +81,20 @@
     <table>
         <tbody>
             <tr>
-                <td><a href="@Url.Action("Index","StatusPagamento",null)">StatusPagamento</a></td>
-                <td><a href="@Url.Action("Index","MetodoPagamento",null)">MetodoPagamento</a></td>
-                <td><a href="@Url.Action("Index","Cartao_Tipo",null)">Cartao_Tipo</a></td>
+                <td><a href="@Url.Action("Index","StatusPagamento")">StatusPagamento</a></td>
+                <td><a href="@Url.Action("Index","MetodoPagamento")">MetodoPagamento</a></td>
+                <td><a href="@Url.Action("Index","Cartao_Tipo")">Cartao_Tipo</a></td>
             </tr>
             <tr>
-                <td><a href="@Url.Action("Index","BandeiraCartao",null)">BandeiraCartao</a></td>
-                <td><a href="@Url.Action("Index","Boleto",null)">Boleto</a></td>
-                <td><a href="@Url.Action("Index","Cartao",null)">Cartao</a></td>
+                <td><a href="@Url.Action("Index","BandeiraCartao")">BandeiraCartao</a></td>
+                <td><a href="@Url.Action("Index","Boleto")">Boleto</a></td>
+                <td><a href="@Url.Action("Index","Cartao")">Cartao</a></td>
 
             </tr>
             <tr>
-                <td><a href="@Url.Action("Index","Carteira",null)">Carteira</a></td>
-                <td><a href="@Url.Action("Index","Pagamento",null)">Pagamento</a></td>
-                <td><a href="@Url.Action("Index","TipoCartao",null)">TipoCartao</a></td>
+                <td><a href="@Url.Action("Index","Carteira")">Carteira</a></td>
+                <td><a href="@Url.Action("Index","Pagamento")">Pagamento</a></td>
+                <td><a href="@Url.Action("Index","TipoCartao")">TipoCartao</a></td>
             </tr>
         </tbody>
     </table>
@@ -106,15 +106,15 @@
             <tr>
                 <td>
                     <p> Sem cartões, com carteira de R$5000.</p>
-                    <a href="@Url.Action("Metodo", "Pagar", new { id = 0 })"><i></i></a>
+                    <a href="@Url.Action("Novo", "Pagar", new { id = 0 })"><i></i></a>
                 </td>
                 <td>
                     <p>Um cartão, R$4000 na carteira. </p>
-                    <a href="@Url.Action("Metodo", "Pagar", new { id = 1 })"><i></i></a>
+                    <a href="@Url.Action("Novo", "Pagar", new { id = 1 })"><i></i></a>
                 </td>
                 <td>
                     <p>Três cartões, R$500 na carteira. </p>
-                    <a href="@Url.Action("Metodo", "Pagar", new { id = 2 })"><i></i></a>
+                    <a href="@Url.Action("Novo", "Pagar", new { id = 2 })"><i></i></a>
                 </td>
             </tr>
         </tbody>

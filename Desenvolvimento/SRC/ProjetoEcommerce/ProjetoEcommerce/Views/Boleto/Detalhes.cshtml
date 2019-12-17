@@ -1,0 +1,86 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Boleto
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Detalhes de Bandeira de Cartão";
+}
+
+    <h2>@ViewBag.Title</h2>
+    @Html.ActionLink("Voltar","Index",null,new { @class="btn btn-dark",@style="margin:1em 0em 1em 0em" })
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">@Model.BoletoID</th>
+            </tr>
+            <tr>
+                <th scope="row">CodigoBanco</th>
+                <td>@Model.CodigoBanco</td>
+
+            </tr>
+            <tr>
+                <th scope="row">LinhaDigitavel</th>
+                <td>@Model.LinhaDigitavel</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Vencimento</th>
+                <td>@Model.Vencimento</td>
+
+            </tr>
+            <tr>
+                <th scope="row">AgenciaCodigoCedente</th>
+                <td>@Model.AgenciaCodigoCedente</td>
+
+            </tr>
+            <tr>
+                <th scope="row">NossoNumero</th>
+                <td>@Model.NossoNumero</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Valor</th>
+                <td>R$@Model.Valor</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Carteira</th>
+                <td>@Model.Carteira</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Pagador</th>
+                <td>@Model.Pagador</td>
+
+            </tr>
+            <tr>
+                <th scope="row">DataDocumento</th>
+                <td>@Model.DataDocumento</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Cedente</th>
+                <td>@Model.Cedente</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Criado em</th>
+                <td>@Model.CriadoEm</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Atualizado em</th>
+                <td>@Model.AtualizadoEm</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Usuário</th>
+                <td>@Model.Usuario</td>
+            </tr>
+            <tr>
+                <th scope="row">Status</th>
+                <td>@Model.Status</td>
+            </tr>
+        </tbody>
+    </table>
+

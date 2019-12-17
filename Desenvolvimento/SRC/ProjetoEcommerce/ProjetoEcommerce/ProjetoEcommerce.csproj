@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Boleto.Net, Version=2.0.1.4, Culture=neutral, PublicKeyToken=53630c3583b7ed5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boleto.Net.2.1.0.803\lib\Boleto.Net.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -68,6 +71,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator, Version=1.1.12.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boleto.Net.2.1.0.803\lib\NReco.PdfGenerator.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector, Version=4.8.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.8.1\lib\net45\SimpleInjector.dll</HintPath>
@@ -177,19 +183,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Pagamento\BoletoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\BoletoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\BandeiraCartaoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\CartaoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\Cartao_TipoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\CarteiraController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\MetodoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\DemoPagamentoController.cs" />
+    <Compile Include="Controllers\Pagamento\Crud\PagamentoController.cs" />
     <Compile Include="Controllers\Pagamento\PagarController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\TipoCartaoController.cs" />
     <Compile Include="Controllers\Pagamento\Crud\StatusPagamentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\BoletoGeradoViewModel.cs" />
     <Compile Include="Models\ViewModels\PagarCarteiraViewModel.cs" />
     <Compile Include="Models\ViewModels\PagarMetodoViewModel.cs" />
     <Compile Include="Models\ViewModels\PagarCartaoViewModel.cs" />
@@ -317,10 +325,19 @@
     <Content Include="Views\StatusPagamento\Editar.cshtml" />
     <Content Include="Views\StatusPagamento\Index.cshtml" />
     <Content Include="Views\Pagar\Carteira.cshtml" />
+    <Content Include="Views\Pagar\Boleto.cshtml" />
+    <Content Include="Views\Pagar\BoletoGerado.cshtml" />
+    <Content Include="Views\Boleto\Index.cshtml" />
+    <Content Include="Views\Boleto\Editar.cshtml" />
+    <Content Include="Views\Boleto\Detalhes.cshtml" />
+    <Content Include="Views\Boleto\Criar.cshtml" />
+    <Content Include="Views\Pagamento\Index.cshtml" />
+    <Content Include="Views\Pagamento\Editar.cshtml" />
+    <Content Include="Views\Pagamento\Detalhes.cshtml" />
+    <Content Include="Views\Pagamento\Criar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Boleto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

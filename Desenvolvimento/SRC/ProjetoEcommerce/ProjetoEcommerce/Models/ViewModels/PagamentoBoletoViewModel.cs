@@ -7,5 +7,9 @@ namespace ProjetoEcommerce.Models.ViewModels
 {
     public class PagamentoBoletoViewModel
     {
+        public string EmailPagador { get; set; }
+        public string CPFPagador { get; set; }
+        public string TelefonePagador { get; set; }
+        public string NomePagador { get; set; }
     }
 }

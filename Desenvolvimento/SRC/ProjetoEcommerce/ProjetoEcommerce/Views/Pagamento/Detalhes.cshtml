@@ -1,0 +1,69 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Pagamento
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Detalhes de Pagamento";
+}
+
+    <h2>@ViewBag.Title</h2>
+    @Html.ActionLink("Voltar","Index",null,new { @class="btn btn-dark",@style="margin:1em 0em 1em 0em" })
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">@Model.PagamentoID</th>
+            </tr>
+            <tr>
+                <th scope="row">ID de método de pagamento</th>
+                <td>@Model.MetodoPagamentoID</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Número de parcelas</th>
+
+                <td>
+                    @Model.NroParcelamento
+                </td>
+
+            </tr>
+            <tr>
+                <th scope="row">Id de status de pagamento</th>
+                <td>@Model.StatusPagamentoID</td>
+
+            </tr>
+            <tr>
+                <th scope="row">ID do usuário comprador</th>
+                <td>@Model.UsuarioID</td>
+
+            </tr>
+            <tr>
+                <th scope="row">ID do cartão usado</th>
+                <td>@Model.CartaoID</td>
+
+            </tr>
+            <tr>
+                <th scope="row">ID do boleto gerado</th>
+                <td>@Model.BoletoID</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Criado em</th>
+                <td>@Model.CriadoEm</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Atualizado em</th>
+                <td>@Model.AtualizadoEm</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Usuário</th>
+                <td>@Model.Usuario</td>
+            </tr>
+            <tr>
+                <th scope="row">Status</th>
+                <td>@Model.Status</td>
+            </tr>
+        </tbody>
+    </table>
+

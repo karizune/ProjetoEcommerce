@@ -20,14 +20,14 @@
             </table>
             @if (Model.Usuario.Carteira.Saldo - Model.PrecoTotalVenda >= 0)
             {
-                <a href="@Url.Action("CarteiraSucesso", "Pagar", new { id = Model.Usuario.UsuarioID-1 })" class="btn btn-primary float-lg-right">Confirmar Compra <i class="fa fa-arrow-right"></i></a>
+                <a href="@Url.Action("Sucesso", "Pagar")" class="btn btn-primary float-lg-right">Confirmar Compra <i class="fa fa-arrow-right"></i></a>
 
             }
             else
             {
                 <p>Você não tem saldo suficiente pra efetuar essa compra :(</p>
             }
-            <a href="@Url.Action("Metodo","Pagar",new { id=Model.Usuario.UsuarioID-1})" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+            <a href="@Url.Action("Metodo","Pagar")" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
     </div>
 </div>

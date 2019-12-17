@@ -15,5 +15,13 @@ namespace ProjetoEcommerce.Dominio.Entidades.Pagamento
         public int BandeiraCartaoID { get; set; }
         
         public string CVC { get; set; }
+        public BandeiraCartao BandeiraCartao { get; set; }
+        public string QuatroUltimosDigitos
+        {
+            get
+            {
+                return Numero.Substring(Numero.Length - 4, 4);
+            }
+        }
     }
 }

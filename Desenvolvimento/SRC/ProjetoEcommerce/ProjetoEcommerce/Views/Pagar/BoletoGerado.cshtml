@@ -1,0 +1,19 @@
+﻿@using ProjetoEcommerce.Models.ViewModels
+@model BoletoGeradoViewModel
+@{
+    ViewBag.Title = "Boleto Gerado!";
+}
+
+<h1 class="font-weight-light text-center">Boleto gerado!</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe id="Boleto" class="embed-responsive-item" srcdoc="@Model.HTML">
+        </iframe>
+    </div>
+<a class="btn btn-primary btn-block text-light" onclick="ImprimirBoleto()"><i class="fa fa-print"></i> Imprimir</a>
+
+
+<script>
+    function ImprimirBoleto(){
+        document.getElementById("Boleto").contentWindow.print()
+    }
+</script>

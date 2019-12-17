@@ -69,7 +69,7 @@
 <div class="float-right" style="clear:right;width:49%">
     @foreach (var item in Model.MetodosPagamento)
     {
-        <a href="@Url.Action(item.Action, "Pagar",new { id=Model.Usuario.UsuarioID-1})" class="btn btn-primary btn-block">@item.Descricao <i class="@item.FA"></i></a>
+        <a href="@Url.Action(item.Action, "Pagar")" class="btn btn-primary btn-block">@item.Descricao <i class="@item.FA"></i></a>
     }
 </div>
 

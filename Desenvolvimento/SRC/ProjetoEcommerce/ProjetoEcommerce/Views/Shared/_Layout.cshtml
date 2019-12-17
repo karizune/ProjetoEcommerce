@@ -10,34 +10,34 @@
 <body>
     @if (ViewBag.ShowMenu == true)
     {
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Comprei</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="/">Início</a>
-            <a class="p-2 text-dark" href="@Url.Action("Index", "TipoCartao")">Tipo de Cartão</a>
-        </nav>
-        @if (ViewBag.UsuarioLogado == true)
-        {
-            <div class="dropdown">
-                <button class="btn btn-outline-info">
-                    <i class="fa fa-user-circle"></i> @ViewBag.Usuario
-                </button>
-                <button class="btn btn-success">
-                    <i class="fa fa-money"></i> @ViewBag.SaldoCarteira
-                </button>
-            </div>
-            
-            <a class="btn btn-light" href="@Url.Action("Sair", "Autenticacao")">Sair</a>
-        }
-        else
-        {
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <h5 class="my-0 mr-md-auto font-weight-normal">Comprei</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="/">Início</a>
+                <a class="p-2 text-dark" href="@Url.Action("Index", "TipoCartao")">Tipo de Cartão</a>
+            </nav>
+            @if (ViewBag.UsuarioLogado == true)
+            {
+                <div class="dropdown">
+                    <button class="btn btn-outline-info">
+                        <i class="fa fa-user-circle"></i> @ViewBag.Usuario
+                    </button>
+                    <button class="btn btn-success">
+                        <i class="fa fa-money"></i> @ViewBag.SaldoCarteira
+                    </button>
+                </div>
 
-            <a class="btn btn-outline-primary" href="@Url.Action("Entrar", "Autenticacao")">
-                <i class="fa fa-mail-forward"></i>
-                Entrar
-            </a>
-        }
-    </div>
+                <a class="btn btn-light" href="@Url.Action("Sair", "Autenticacao")">Sair</a>
+            }
+            else
+            {
+
+                <a class="btn btn-outline-primary" href="@Url.Action("Entrar", "Autenticacao")">
+                    <i class="fa fa-mail-forward"></i>
+                    Entrar
+                </a>
+            }
+        </div>
     }
 
     <div class="container body-content">
@@ -52,6 +52,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 
 </html>

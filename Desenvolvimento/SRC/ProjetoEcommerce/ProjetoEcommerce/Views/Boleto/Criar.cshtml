@@ -1,0 +1,51 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Boleto
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("Criar", "Boleto", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="inputAddress">Código do banco</label>
+        @Html.TextBoxFor(modelItem => Model.CodigoBanco, new { @class = "form-control", @placeholder = "Código do banco" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Linha digitável</label>
+        @Html.TextBoxFor(modelItem => Model.LinhaDigitavel, new { @class = "form-control", @placeholder = "Linha digitável" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Vencimento</label>
+        @Html.TextBoxFor(modelItem => Model.Vencimento, new { @class = "form-control", @placeholder = "Vencimento" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">AgenciaCodigoCedente</label>
+        @Html.TextBoxFor(modelItem => Model.AgenciaCodigoCedente, new { @class = "form-control", @placeholder = "AgenciaCodigoCedente" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Nosso Número</label>
+        @Html.TextBoxFor(modelItem => Model.NossoNumero, new { @class = "form-control", @placeholder = "Nosso Número" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Valor</label>
+        @Html.TextBoxFor(modelItem => Model.Valor, new { @class = "form-control", @placeholder = "Valor" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Carteira</label>
+        @Html.TextBoxFor(modelItem => Model.Carteira, new { @class = "form-control", @placeholder = "Carteira" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Pagador</label>
+        @Html.TextBoxFor(modelItem => Model.Pagador, new { @class = "form-control", @placeholder = "Pagador" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Data do Documento</label>
+        @Html.TextBoxFor(modelItem => Model.DataDocumento, new { @class = "form-control", @placeholder = "Data do Documento" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Cedente</label>
+        @Html.TextBoxFor(modelItem => Model.Cedente, new { @class = "form-control", @placeholder = "Cedente" })
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

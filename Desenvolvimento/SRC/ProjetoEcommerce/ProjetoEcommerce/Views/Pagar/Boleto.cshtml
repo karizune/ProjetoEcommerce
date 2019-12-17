@@ -1,0 +1,37 @@
+﻿@model ProjetoEcommerce.Models.ViewModels.PagamentoBoletoViewModel
+@{
+    ViewBag.Title = "Pagamento por Boleto";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="w-75 float-left">
+
+
+    <h3 class="font-weight-normal">Insira os dados parar gerar o boleto.</h3>
+
+    @using (Html.BeginForm("BoletoGerado", "Pagar", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="inputAddress">Seu Nome completo</label>
+            @Html.TextBoxFor(modelItem => Model.NomePagador, new { @class = "form-control ", @placeholder = "Nome Completo" })
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Seu CPF</label>
+            @Html.TextBoxFor(modelItem => Model.CPFPagador, new { @class = "form-control ", @placeholder = "000.000.000-00" })
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Seu Telefone</label>
+            @Html.TextBoxFor(modelItem => Model.TelefonePagador, new { @class = "form-control ", @placeholder = "(00) 0 0000-0000" })
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Seu E-Mail</label>
+            @Html.TextBoxFor(modelItem => Model.EmailPagador, new { @class = "form-control ", @placeholder = "nome@exemplo.com" })
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-success btn-block w-50 float-lg-right" />
+    }
+    <br /><br /><br />
+
+
+
+</div>

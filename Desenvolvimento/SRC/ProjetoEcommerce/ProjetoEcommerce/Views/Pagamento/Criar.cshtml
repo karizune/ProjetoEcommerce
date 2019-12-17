@@ -1,0 +1,39 @@
+﻿@model ProjetoEcommerce.Dominio.Entidades.Pagamento.Pagamento
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+}
+
+@using (Html.BeginForm("Criar", "Pagamento", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="inputAddress">Valor</label>
+        @Html.TextBoxFor(modelItem => Model.ValorTotal, new { @class = "form-control", @placeholder = "Digite o valor do pagamento" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">ID de método de pagamento</label>
+        @Html.TextBoxFor(modelItem => Model.MetodoPagamentoID, new { @class = "form-control", @placeholder = "Digite o ID de método de pagamento" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Número de parcelas</label>
+        @Html.TextBoxFor(modelItem => Model.NroParcelamento, new { @class = "form-control", @placeholder = "Digite o Número de parcelas" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Id de status de pagamento</label>
+        @Html.TextBoxFor(modelItem => Model.StatusPagamentoID, new { @class = "form-control", @placeholder = "Digite o Id de status" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">ID do usuário comprador</label>
+        @Html.TextBoxFor(modelItem => Model.UsuarioID, new { @class = "form-control", @placeholder = "Digite o ID do usuário" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">ID do cartão usado</label>
+        @Html.TextBoxFor(modelItem => Model.CartaoID, new { @class = "form-control", @placeholder = "Digite o ID do cartão" })
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">ID do boleto gerado</label>
+        @Html.TextBoxFor(modelItem => Model.BoletoID, new { @class = "form-control", @placeholder = "Digite o ID do boleto" })
+    </div>
+    <input type="submit" value="SALVAR" class="btn btn-success btn-block" />
+}

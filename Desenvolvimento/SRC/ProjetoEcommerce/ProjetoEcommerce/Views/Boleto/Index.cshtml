@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ProjetoEcommerce.Dominio.Entidades.Pagamento.Boleto>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Boletos";
+    bool Desativados = Model.Where(f => f.Status == 0).Count() > 0;
+}
+
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Criar", "Boleto")">
+        <i class="fa fa-plus"></i>
+        Criar
+    </a>
+    @if (Desativados)
+    {
+
+        <a class="btn btn-dark btn-sm float-right" style="margin-right:0.5em;" data-toggle="collapse" href="#TabelaDesativados" role="button" aria-expanded="false" aria-controls="TabelaDesativados">
+            <i class="fa fa-eye"></i>
+            Mostrar desativados
+        </a>
+    }
+</div>
+
+<table class="table table-hover table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Descrição</th>
+            <th>Criado Em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.Status == 1)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.LinhaDigitavel, "Detalhes", new { id = item.BoletoID }, new { @class = "btn btn-link text-dark" })</td>
+                    <td>@item.CriadoEm</td>
+                    <td>
+                        <a href="@Url.Action("Editar", "Boleto", new { id = item.BoletoID })" class="btn btn-secondary btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="@Url.Action("Excluir", "Boleto", new { id = item.BoletoID })" class="btn btn-danger btn-sm">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@if (Desativados)
+{
+
+
+    <div class="row">
+        <div class="col">
+            <div class="collapse" id="TabelaDesativados">
+                <table class="table table-hover table-sm">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Status == 0)
+                            {
+                                <tr class=" table-danger">
+                                    <td>@Html.ActionLink(item.LinhaDigitavel, "Detalhes", new { id = item.BoletoID }, new { @class = "btn btn-link text-dark" })</td>
+                                    <td>@item.CriadoEm</td>
+                                    <td>
+                                        <a href="@Url.Action("Editar", "Boleto", new { id = item.BoletoID })" class="btn btn-secondary btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="@Url.Action("Excluir", "Boleto", new { id = item.BoletoID })" class="btn btn-success btn-sm">
+                                            <i class="fa fa-undo"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

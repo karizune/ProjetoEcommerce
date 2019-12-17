@@ -10,50 +10,80 @@
     ViewBag.Usuario = Model.Usuario.Nome;
     ViewBag.SaldoCarteira = Model.Usuario.Carteira.Saldo;
 }
-    <div class="w-75 float-left">
-        @if (Model.Usuario.CartoesUsuario.Count > 0)
+<div class="float-left" style="margin-right:5%; width:70%">
+    <a href="@Url.Action("Metodo","Pagar")" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+    @if (Model.Usuario.CartoesUsuario.Count > 0)
+    {
+        <h4 class="font-weight-light">Selecione o cartão desejado:</h4>
+        <div class="card-deck">
+            
+                @foreach (var item in Model.Usuario.CartoesUsuario)
+                {
+                    <div class="col-sm-4">
+                        <div class="card border-primary">
+                            <h5 class="card-header bg-primary"></h5>
+                            <div class="card-body">
+                                <h5 class="card-title"><img src="@item.BandeiraCartao.IconeUrl" style="width:2em;height:1.5em; object-fit:contain" /> Final @item.QuatroUltimosDigitos</h5>
+                                <p class="card-text font-weight-light">**** **** **** @item.QuatroUltimosDigitos</p>
+                                <p class="card-text font-weight-light">@item.NomeTitular</p>
+                                <p class="card-text font-weight-light">@item.Vencimento</p>
+                                <p class="card-text font-weight-light">@item.CVC</p>
+                                <a href="@Url.Action("Sucesso","Pagar")" class="btn btn-primary stretched-link"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            
+        </div>
+    }
+    else
+    {
+        <h3 class="font-weight-normal">Opa, parece que você não tem nenhum cartão cadastrado!</h3>
+        <h4 class="font-weight-light">Sem problemas, cadastre um agora:</h4>
+        using (Html.BeginForm("Sucesso", "Pagar", FormMethod.Post))
         {
 
-        }
-        else
-        {
-            <h3 class="font-weight-normal">Opa, parece que você não tem nenhum cartão cadastrado!</h3>
-            <h4 class="font-weight-light">Sem problemas, cadastre um agora:</h4>
-            using (Html.BeginForm("CartaoSucesso", "Pagar", FormMethod.Post))
-            {
-                <div class="form-group">
-                    <label for="inputAddress">UsuarioID</label>
-                    @Html.TextBoxFor(modelItem => Model.Cartao.UsuarioID, new { @class = "form-control ", @placeholder = "Digite o ID de usuário do cartão" })
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">BandeiraCartaoID</label>
-                    @Html.TextBoxFor(modelItem => Model.Cartao.BandeiraCartaoID, new { @class = "form-control", @placeholder = "Digite o ID da bandeira do cartão" })
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">NomeTitular</label>
-                    @Html.TextBoxFor(modelItem => Model.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Titular do cartão" })
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">Número</label>
-                    @Html.TextBoxFor(modelItem => Model.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
-                </div>
-                <div class="form-group ">
-                    <label for="inputAddress">Vencimento</label>
-                    @Html.TextBoxFor(modelItem => Model.Cartao.Vencimento, new { @class = "form-control", @placeholder = "MM/AA" })
-                </div>
-                <div class="form-group ">
-                    <label for="inputAddress">CVC</label>
-                    @Html.TextBoxFor(modelItem => Model.Cartao.CVC, new { @class = "form-control", @placeholder = "Digite o CVC do cartão" })
-                </div>
-                <a href="@Url.Action("Metodo","Pagar",new { id=Model.Usuario.UsuarioID-1})" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
-                <input type="submit" value="SALVAR" class="btn btn-success btn-block w-50 float-lg-right" />
-            }
-            <br /><br /><br />
+            <div class="form-group w-50 float-left">
+                <label for="inputAddress">UsuarioID</label>
+                @Html.TextBoxFor(modelItem => Model.Cartao.UsuarioID, new { @class = "form-control", @placeholder = "ID de usuário do cartão" })
+            </div>
+            <div class="form-group w-50 float-right">
+                <label for="inputAddress">BandeiraCartaoID</label>
+                @Html.TextBoxFor(modelItem => Model.Cartao.BandeiraCartaoID, new { @class = "form-control", @placeholder = "ID da bandeira" })
+            </div>
+            <div class="form-group" style="clear:both !important">
+                <label for="inputAddress">NomeTitular</label>
+                @Html.TextBoxFor(modelItem => Model.Cartao.NomeTitular, new { @class = "form-control", @placeholder = "Titular do cartão" })
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Número</label>
+                @Html.TextBoxFor(modelItem => Model.Cartao.Numero, new { @class = "form-control", @placeholder = "Número do cartão" })
+            </div>
+            <div class="form-group ">
+                <label for="inputAddress">Vencimento</label>
+                @Html.TextBoxFor(modelItem => Model.Cartao.Vencimento, new { @class = "form-control", @placeholder = "MM/AA" })
+            </div>
+            <div class="form-group ">
+                <label for="inputAddress">CVC</label>
+                @Html.TextBoxFor(modelItem => Model.Cartao.CVC, new { @class = "form-control", @placeholder = "Digite o CVC do cartão" })
+
+            </div>
+            <input type="submit" value="Salvar" class="btn btn-success float-right" />
 
         }
+        <br /><br /><br />
 
-    </div>
+    }
+
+</div>
 <div class="w-25 float-right">
-    <h3 class="font-weight-normal"></h3>
-    <h4 class="font-weight-light">Sem probelemas, cadastre um agora:</h4>
+    <h3 class="font-weight-normal">Você está comprando:</h3>
+    <ul class="list-group">
+
+        @foreach (var item in Model.ListaProdutos)
+        {
+            <li class="list-group-item">@item.Nome (@item.Quantidade)<p class="float-right">R$@item.Preco</p></li>
+        }
+        <li class="list-group-item text-md-right font-weight-bold">Valor total: R$@Model.PrecoTotalVenda</li>
+    </ul>
 </div>
