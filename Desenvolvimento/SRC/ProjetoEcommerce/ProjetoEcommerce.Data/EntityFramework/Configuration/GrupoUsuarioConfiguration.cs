@@ -13,11 +13,11 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public GrupoUsuarioConfiguration()
         {
             ToTable("Grupo_Usuario", "seguranca");
-            HasKey(x => new { x.GrupoID, x.UsuarioID });
+            HasKey(x => new { x.GrupoDeAcessoID, x.UsuarioID });
 
 
-            Property(x => x.GrupoID)
-                .HasColumnName(@"GrupoID")
+            Property(x => x.GrupoDeAcessoID)
+                .HasColumnName(@"GrupoDeAcessoID")
                 .HasColumnType("int")
                 .IsRequired();
 
@@ -47,6 +47,10 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
                 .HasColumnName(@"AtualizadoEm")
                 .HasColumnType(@"datetime")
                 .IsRequired();
+
+            this.HasRequired(f => f.GrupoDeAcesso)
+                .WithMany()
+                .HasForeignKey(f => f.GrupoDeAcessoID);
         }
     }
 }

@@ -26,15 +26,18 @@ namespace ProjetoEcommerce.Controllers
             var ListFormularioGrupo = db.FormularioGrupo
                 .Include("Formulario")
                 .Include("GrupoDeAcesso")
-                .Where(f => f.Status == 1);
-   
+                .Where(f => f.Status == 1);   
 
             return View(ListFormularioGrupo);
         }
         public ActionResult Incluir()
         {
-            ViewBag.Formularios = db.Formulario.ToList();
-            ViewBag.Grupos = db.GrupoDeAcessos.ToList();
+            ViewBag.Formularios = db.Formulario
+                .Where(f => f.Status == 1)
+                .ToList();
+            ViewBag.Grupos = db.GrupoDeAcessos
+                .Where(f => f.Status == 1)
+                .ToList();
 
             var obj = new FormularioGrupo();
 
@@ -43,8 +46,9 @@ namespace ProjetoEcommerce.Controllers
         [HttpPost]
         public ActionResult IncluirConfirm(FormularioGrupo formGrupo)
         {
-
-            var result = db.FormularioGrupo.Where(x => x.FormularioID == formGrupo.FormularioID && x.GrupoID == formGrupo.GrupoID).FirstOrDefault();
+            var result = db.FormularioGrupo
+                .Where(x => x.FormularioID == formGrupo.FormularioID && x.GrupoDeAcessoID == formGrupo.GrupoDeAcessoID)
+                .FirstOrDefault();
             if (result == null)
             {
                 formGrupo.AtualizadoEm = DateTime.Now;
@@ -63,16 +67,15 @@ namespace ProjetoEcommerce.Controllers
 
             db.SaveChanges();
 
-            /*Fazer condiçoes para verificar se o Formulario ja existe no banco se existe, atualizar o status dele no banco*/
             return RedirectToAction("ListarTodos");
         }
-        public ActionResult Delete(int FormID,int GrupoID)
+        public ActionResult Delete(int FormID,int GrupoDeAcessoID)
         {
             var db = new ProjetoEcommerceContext();
-            var ent = db.FormularioGrupo.Find(FormID, GrupoID);
+            var ent = db.FormularioGrupo.Find(FormID, GrupoDeAcessoID);
             ent.Status = 0;
             ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "deleteeeeeeeeee carai";
+            ent.Usuario = "Adriano";
             db.Entry<FormularioGrupo>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 

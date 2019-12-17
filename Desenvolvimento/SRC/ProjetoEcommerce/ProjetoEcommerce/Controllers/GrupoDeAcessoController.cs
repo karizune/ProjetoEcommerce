@@ -1,5 +1,7 @@
 ﻿using ProjetoEcommerce.Data.EntityFramework.Context;
+using ProjetoEcommerce.Data.Repositories;
 using ProjetoEcommerce.Dominio.Entidades.Seguranca;
+using ProjetoEcommerce.Dominio.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,17 @@ namespace ProjetoEcommerce.Controllers
 {
     public class GrupoDeAcessoController : Controller
     {
+        //Formulario form = new Formulario();
         private readonly ProjetoEcommerceContext db;
+
+        private readonly IGrupoDeAcessoRepository _grupoDeAcessoRepository;
+
         public GrupoDeAcessoController()
         {
+            _grupoDeAcessoRepository = new GrupoDeAcessoRepository();
             db = new ProjetoEcommerceContext();
         }
-        // GET: GrupoDeAcesso
+
         public ActionResult Index()
         {
             return View();
@@ -23,12 +30,8 @@ namespace ProjetoEcommerce.Controllers
 
         public ActionResult ListarTodos()
         {
-            //var listGrupo = new ProjetoEcommerceContext().GrupoDeAcessos.ToList();
-
-            //return View(listGrupo);
             var ListGrupoDeAcesso = db.GrupoDeAcessos
-                .Where(f => f.Status == 1);
-
+                 .Where(f => f.Status == 1);
             return View(ListGrupoDeAcesso);
         }
 
@@ -38,28 +41,37 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncluirConfirm(GrupoDeAcesso grupo)
+        public ActionResult IncluirConfirm(GrupoDeAcesso grupoDeAcesso)
         {
-            var db = new ProjetoEcommerceContext();
+            var result = db.GrupoDeAcessos.Where(x => x.GrupoDeAcessoID == grupoDeAcesso.GrupoDeAcessoID).FirstOrDefault();
+            if (result == null)
+            {
+                grupoDeAcesso.AtualizadoEm = DateTime.Now;
+                grupoDeAcesso.CriadoEm = DateTime.Now;
+                grupoDeAcesso.Status = 1;
+                grupoDeAcesso.Usuario = "Adriano";
 
-            
-            grupo.Usuario = "TesteShow";
-            grupo.Status = 1;
-            grupo.CriadoEm = DateTime.Now;
-            grupo.AtualizadoEm = DateTime.Now;
+                db.GrupoDeAcessos.Add(grupoDeAcesso);
+            }
+            else
+            {
+                result.Status = 1;
+                result.Usuario = "Adriano";
+                db.Entry<GrupoDeAcesso>(result).State = System.Data.Entity.EntityState.Modified;
+            }
 
-            db.GrupoDeAcessos.Add(grupo);
             db.SaveChanges();
 
-            return Redirect("ListarTodos");
+            return RedirectToAction("ListarTodos");
         }
+
         public ActionResult Delete(int id)
         {
             var db = new ProjetoEcommerceContext();
             var ent = db.GrupoDeAcessos.Find(id);
             ent.Status = 0;
             ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "deleteeeeeeeeee carai";
+            ent.Usuario = "Adriano";
             db.Entry<GrupoDeAcesso>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 

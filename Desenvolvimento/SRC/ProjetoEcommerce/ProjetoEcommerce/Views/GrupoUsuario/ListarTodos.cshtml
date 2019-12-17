@@ -1,43 +1,45 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Seguranca
-@model System.Collections.Generic.List<GrupoUsuario>
+@model System.Collections.Generic.IEnumerable<GrupoUsuario>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowMenu = true;
+    ViewBag.Title = "Manutenção de Grupos por Usuário";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListarTodos</title>
-</head>
-<body>
-    <div>
-        <table border="1">
-            <thead>
-                <tr>
-                    <td>Usuario ID</td>
-                    <td>Grupo ID</td>
-                    <td>Usuario</td>
-                    <td>Status</td>
-                    <td>Criado em</td>
-                    <td>Atualizado em</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.UsuarioID</td>
-                        <td>@item.GrupoID</td>
-                        <td>@item.Usuario</td>
-                        <td>@item.Status</td>
-                        <td>@item.CriadoEm</td>
-                        <td>@item.AtualizadoEm</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "GrupoUsuario")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Grupo de Acesso</td>
+            <td>UsuarioID</td>
+            <td>Status</td>
+            <td>Usuário Cadastro</td>
+            <td>Criado Em</td>
+            <td>Atualizado Em</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.GrupoDeAcessoID</td>
+            <td>@item.UsuarioID</td>
+            <td>@item.Status</td>
+            <td>@item.Usuario</td>
+            <td>@item.CriadoEm</td>
+            <td>@item.AtualizadoEm</td>
+            <td>
+                <a class="btnDelete" href="@Url.Action("Delete","GrupoUsuario", new { grupoID = item.GrupoDeAcessoID, item.UsuarioID })">Deletar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

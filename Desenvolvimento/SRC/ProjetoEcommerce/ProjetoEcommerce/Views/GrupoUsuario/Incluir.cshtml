@@ -8,7 +8,7 @@
 {
     <div class="form-group">
         @Html.DropDownListFor(ModelItem => Model.UsuarioID, new SelectList(ViewBag.Usuarios, "UsuarioID", "Nome"))
-        @Html.DropDownListFor(ModelItem => Model.GrupoID, new SelectList(ViewBag.Grupos, "GrupoDeAcessoID", "Descricao"))
+        @Html.DropDownListFor(ModelItem => Model.GrupoDeAcessoID, new SelectList(ViewBag.Grupos, "GrupoDeAcessoID", "Descricao"))
     </div>
     <br />
     <br />

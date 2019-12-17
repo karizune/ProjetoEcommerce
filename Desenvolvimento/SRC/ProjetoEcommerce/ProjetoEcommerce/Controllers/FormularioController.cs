@@ -48,7 +48,7 @@ namespace ProjetoEcommerce.Controllers
         {
             //var db = new ProjetoEcommerceContext();
 
-            form.Usuario = "User da sessão";
+            form.Usuario = "Adriano";
             form.Status = 1;
             form.CriadoEm = DateTime.Now;
             form.AtualizadoEm = DateTime.Now;
@@ -63,11 +63,11 @@ namespace ProjetoEcommerce.Controllers
             var ent = db.Formulario.Find(id);
             ent.Status = 0;
             ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "delete";
+            ent.Usuario = "deleteeeeeeeeee carai";
             db.Entry<Formulario>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
-            return Redirect("ListarTodos");
+            return RedirectToAction("ListarTodos");
         }
     }
 }

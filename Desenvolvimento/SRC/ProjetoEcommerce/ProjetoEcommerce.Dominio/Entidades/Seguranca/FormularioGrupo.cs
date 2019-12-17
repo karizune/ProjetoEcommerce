@@ -9,7 +9,7 @@ namespace ProjetoEcommerce.Dominio.Entidades.Seguranca
     public class FormularioGrupo : BaseEntity
     {
         public int FormularioID { get; set; }
-        public int GrupoID { get; set; }
+        public int GrupoDeAcessoID { get; set; }
 
         public Formulario Formulario { get; set; }
         public GrupoDeAcesso GrupoDeAcesso { get; set; }

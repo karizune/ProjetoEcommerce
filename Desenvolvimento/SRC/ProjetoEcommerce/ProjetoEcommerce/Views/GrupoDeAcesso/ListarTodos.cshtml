@@ -1,43 +1,45 @@
 ﻿@using ProjetoEcommerce.Dominio.Entidades.Seguranca
-@model System.Collections.Generic.List<GrupoDeAcesso>
-
+@model System.Collections.Generic.IEnumerable<GrupoDeAcesso>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "";
+    ViewBag.Title = "Manutenção de Grupos de Acesso";
 }
 
-    <div class="admin-titulo-principal">
-        @ViewBag.Title
-        <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "GrupoDeAcesso")">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
-        <table table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <td>ID</td>
-                    <td>Descrição</td>
-                    <td>Status</td>
-                    <td>Usuário</td>
-                    <td>Criado Em</td>
-                    <td>Atualizado Em</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>@item.GrupoDeAcessoID</td>
-                    <td>@item.Descricao</td>
-                    <td>@item.Status</td>
-                    <td>@item.Usuario</td>
-                    <td>@item.CriadoEm</td>
-                    <td>@item.AtualizadoEm</td>
-                    <td>
-                        <a class="btnDelete" href="@Url.Action("Delete","GrupoDeAcesso", new { id = item.GrupoDeAcessoID})">Deletar</a>
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
+<div class="admin-titulo-principal">
+    @ViewBag.Title
+    <a class="btn btn-success btn-sm float-right" href="@Url.Action("Incluir", "GrupoDeAcesso")">
+        <i class="fa fa-plus"></i>
+        INCLUIR
+    </a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Descrição</td>
+            <td>Status</td>
+            <td>Usuário</td>
+            <td>Criado Em</td>
+            <td>Atualizado Em</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GrupoDeAcessoID</td>
+                <td>@item.Descricao</td>
+                <td>@item.Status</td>
+                <td>@item.Usuario</td>
+                <td>@item.CriadoEm</td>
+                <td>@item.AtualizadoEm</td>
+                <td>
+                    <a class="btnDelete" href="@Url.Action("Delete","GrupoDeAcesso", new { id = item.GrupoDeAcessoID})">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

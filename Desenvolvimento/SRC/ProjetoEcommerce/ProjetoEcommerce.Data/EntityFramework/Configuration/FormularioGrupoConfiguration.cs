@@ -13,15 +13,15 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
         public FormularioGrupoConfiguration()
         {
             ToTable("FormularioGrupo","seguranca");
-            HasKey(x => new { x.FormularioID, x.GrupoID });
+            HasKey(x => new { x.FormularioID, x.GrupoDeAcessoID });
 
             Property(x => x.FormularioID)
                 .HasColumnName(@"FormularioID")
                 .HasColumnType("int")
                 .IsRequired();
 
-            Property(x => x.GrupoID)
-                .HasColumnName(@"GrupoID")
+            Property(x => x.GrupoDeAcessoID)
+                .HasColumnName(@"GrupoDeAcessoID")
                 .HasColumnType("int")
                 .IsRequired();
 
@@ -48,7 +48,7 @@ namespace ProjetoEcommerce.Data.EntityFramework.Configuration
 
             this.HasRequired(f => f.GrupoDeAcesso)
                 .WithMany()
-                .HasForeignKey(f => f.GrupoID);
+                .HasForeignKey(f => f.GrupoDeAcessoID);
 
         }
     }

@@ -3,9 +3,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ShowMenu = true;
-    ViewBag.Title = "Manutenção de Listas";
+    ViewBag.Title = "Manutenção de Formulários por Grupo";
 }
-
 
 <div class="admin-titulo-principal">
     @ViewBag.Title
@@ -18,11 +17,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>Descrição</td>
-            <td>URL</td>
+            <td>Formulario</td>
+            <td>Grupo de Acesso</td>
             <td>Status</td>
-            <td>Usuário</td>
+            <td>Usuário Cadastro</td>
             <td>Criado Em</td>
             <td>Atualizado Em</td>
         </tr>
@@ -31,13 +29,14 @@
         @foreach (var item in Model)
         {
             <tr>                
-                <td>@item.Formulario.FormularioID</td>
+                <td>@item.Formulario.Descricao</td>
                 <td>@item.GrupoDeAcesso.Descricao</td>
+                <td>@item.Status</td>
                 <td>@item.Usuario</td>
                 <td>@item.CriadoEm</td>
                 <td>@item.AtualizadoEm</td>
                 <td>
-                    <a class="btnDelete" href="@Url.Action("Delete","FormularioGrupo", new { FormID = item.FormularioID, item.GrupoID })">Deletar</a>
+                    <a class="btnDelete" href="@Url.Action("Delete","FormularioGrupo", new { FormID = item.FormularioID, item.GrupoDeAcessoID })">Deletar</a>
                 </td>
             </tr>
         }

@@ -11,6 +11,7 @@ namespace ProjetoEcommerce.Controllers
     public class GrupoUsuarioController : Controller
     {
         private readonly ProjetoEcommerceContext db;
+
         public class user
         {
             public int UsuarioID { get; set; }
@@ -30,7 +31,6 @@ namespace ProjetoEcommerce.Controllers
         {
             var ListGrupoUsuario = db.GrupoUsuario
                 .Where(f => f.Status == 1);
-
             return View(ListGrupoUsuario);
         }
         public ActionResult Incluir()
@@ -45,7 +45,9 @@ namespace ProjetoEcommerce.Controllers
             }
 
             ViewBag.Usuarios = users;
-            ViewBag.Grupos = db.GrupoDeAcessos.ToList();
+            ViewBag.Grupos = db.GrupoDeAcessos
+                .Where(f=>f.Status == 1)
+                .ToList();
 
             var obj = new GrupoUsuario();
 
@@ -53,30 +55,25 @@ namespace ProjetoEcommerce.Controllers
         }
         [HttpPost]
         public ActionResult IncluirConfirm(GrupoUsuario grupoUsuario)
-        {
-           
+        {           
             grupoUsuario.AtualizadoEm = DateTime.Now;
             grupoUsuario.CriadoEm = DateTime.Now;
             grupoUsuario.Status = 1;
-            grupoUsuario.Usuario = "Usuario de cadastro";
-
+            grupoUsuario.Usuario = "Adriano";
             db.GrupoUsuario.Add(grupoUsuario);
             db.SaveChanges();
 
             return View("ListarTodos");
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int grupoID, int usuarioID)
         {
-            var db = new ProjetoEcommerceContext();
-            var ent = db.GrupoUsuario.Find(id);
+            var ent = db.GrupoUsuario.Find(grupoID, usuarioID);
             ent.Status = 0;
             ent.AtualizadoEm = DateTime.Now;
-            ent.Usuario = "deleteeeeeeeeee carai";
+            ent.Usuario = "Adriano";
             db.Entry<GrupoUsuario>(ent).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
-
-
             return RedirectToAction("ListarTodos");
         }
     }

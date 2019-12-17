@@ -57,6 +57,7 @@
     <Compile Include="Entidades\Seguranca\FormularioGrupo.cs" />
     <Compile Include="Entidades\Seguranca\GrupoDeAcesso.cs" />
     <Compile Include="Entidades\Seguranca\GrupoUsuario.cs" />
+    <Compile Include="Entidades\Seguranca\Usuario.cs" />
     <Compile Include="Interfaces\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IFormularioGrupoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFormularioRepository.cs" />

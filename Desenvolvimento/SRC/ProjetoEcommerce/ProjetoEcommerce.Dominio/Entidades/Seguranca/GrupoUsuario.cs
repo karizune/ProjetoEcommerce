@@ -9,8 +9,8 @@ namespace ProjetoEcommerce.Dominio.Entidades.Seguranca
     public class GrupoUsuario : BaseEntity
     {
         public int UsuarioID { get; set; }
-        public int GrupoID { get; set; }
-        //public GrupoDeAcesso GrupoDeAcesso { get; set; }
-        //public Usuario Usuario { get; set; }
+        public int GrupoDeAcessoID { get; set; }
+        public GrupoDeAcesso GrupoDeAcesso { get; set; }
+        //public Usuario UsuarioCad { get; set; }
     }
 }
