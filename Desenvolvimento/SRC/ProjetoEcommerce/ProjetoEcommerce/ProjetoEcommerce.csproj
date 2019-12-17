@@ -313,6 +313,7 @@
     <Content Include="Views\Sexo\Create.cshtml" />
     <Content Include="Views\Sexo\Edit.cshtml" />
     <Content Include="Views\Sexo\Details.cshtml" />
+    <Content Include="Views\Cadastro\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

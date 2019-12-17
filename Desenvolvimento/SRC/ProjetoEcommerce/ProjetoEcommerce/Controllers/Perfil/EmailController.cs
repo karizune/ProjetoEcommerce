@@ -45,16 +45,18 @@ namespace ProjetoEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EmailViewModel email)
         {
-            if (ModelState.IsValid)
-            {
-                var emailDomain = AutoMapperConfig.Mapper.Map<EmailViewModel, Email>(email);
-                emailDomain.Usuario = "System";
-                _emailService.Add(emailDomain);
+            var emailDomain = AutoMapperConfig.Mapper.Map<EmailViewModel, Email>(email);
+            emailDomain.Usuario = "System";
+            emailDomain.Tipo = true;
+            emailDomain.ClienteId = 5;
+            _emailService.Salvar(emailDomain);
 
-                return RedirectToAction("Index");
-            }
+            return RedirectToAction("Index");
+            //if (ModelState.IsValid)
+            //{
+            //}
 
-            return View(email);
+            //return View(email);
         }
 
         // GET: Email/Edit/5

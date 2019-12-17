@@ -24,7 +24,7 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Index()
         {
 
-            var fisicolViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.GetAll());
+            var fisicolViewModel = AutoMapperConfig.Mapper.Map<IEnumerable<Fisico>, IEnumerable<FisicoViewModel>>(_fisicoService.BuscarAtivos());
             return View(fisicolViewModel);
         }
 

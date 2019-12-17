@@ -55,7 +55,7 @@ namespace ProjetoEcommerce.Controllers
             }
             else
             {
-                ViewBag.Message = "Usuário e/ou senha incorretos";
+                ViewBag.Message = true;
                 return RedirectToAction("Entrar", "Autenticacao");
             }
         }

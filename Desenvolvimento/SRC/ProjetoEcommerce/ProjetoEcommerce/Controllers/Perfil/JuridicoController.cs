@@ -41,17 +41,17 @@ namespace ProjetoEcommerce.Controllers
         public ActionResult Create(JuridicoViewModel juridico)
         {
             ModelState.Remove("Tipo");
-            if (ModelState.IsValid)
-            {
-                var juridicoDomain = AutoMapperConfig.Mapper.Map<JuridicoViewModel, Juridico>(juridico);
-                juridicoDomain.Status = true;
-                juridicoDomain.Usuario = "Renato";
-                _juridicoService.Salvar(juridicoDomain);
+            var juridicoDomain = AutoMapperConfig.Mapper.Map<JuridicoViewModel, Juridico>(juridico);
+            juridicoDomain.Status = true;
+            juridicoDomain.Usuario = "Renato";
+            _juridicoService.Salvar(juridicoDomain);
+            return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
-            }
+            //if (ModelState.IsValid)
+            //{
+            //}
 
-            return View(juridico);
+            //return View(juridico);
         }
 
         // GET: Juridico/Edit/5
