@@ -185,6 +185,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\iPad.jpg" />
+    <Content Include="Content\img\iphone11pro.png" />
     <Content Include="Content\img\Mi 9t.jpg" />
     <Content Include="Content\img\notebookAcer.jpg" />
     <Content Include="Content\img\notebookLenovo.jpg" />
